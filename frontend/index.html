@@ -1,0 +1,1570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thathvamasi HR Consultancy | Executive Search & Talent Solutions</title>
+  <meta name="description" content="Thathvamasi HR Consultancy (THC) is a premier recruitment and staffing firm in Coimbatore, Tamil Nadu. Specializing in Executive Search, Permanent Staffing, IT Recruitment, and HR Consulting across India.">
+  <meta name="keywords" content="HR Consultancy Coimbatore, Recruitment Agency Coimbatore, Executive Search Tamil Nadu, Permanent Staffing India, IT Recruitment Coimbatore, Payroll Outsourcing, HR Compliance">
+  <meta name="author" content="Thathvamasi HR Consultancy">
+
+  <!-- Open Graph / Meta -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Thathvamasi HR Consultancy - Precision Talent & HR Solutions">
+  <meta property="og:description" content="Connecting visionary enterprises with exceptional talent across Coimbatore, Tamil Nadu and Pan-India.">
+  <meta property="og:image" content="/images/heroes/thc_hero.jpg">
+
+  <!-- Google Fonts: Plus Jakarta Sans (Headings & UI) and Inter (Body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="/src/styles/variables.css">
+  <link rel="stylesheet" href="/src/styles/base.css">
+  <link rel="stylesheet" href="/src/styles/components.css">
+  <link rel="stylesheet" href="/src/styles/admin.css">
+  <link rel="stylesheet" href="/src/styles/responsive.css">
+
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+</head>
+<body>
+
+  <!-- Toast Notification Container -->
+  <div id="toastContainer" class="toast-container" aria-live="polite"></div>
+
+  <!-- Main Navigation Header (Exact Zoho Layout) -->
+  <header class="main-header">
+    <div class="content-wrap header-inner">
+      <!-- Thathvamasi Brand Identity -->
+      <a href="#home" class="brand">
+        <img src="/images/logo/thc_logo.jpg" alt="Thathvamasi Logo" class="brand-logo-img">
+        <div class="brand-text-wrap">
+          <div class="brand-title">THATHVAMASI</div>
+          <div class="brand-subtitle">HR CONSULTANCY • COIMBATORE | PAN-INDIA</div>
+        </div>
+      </a>
+
+      <!-- Clean Navbar with Services Dropdown -->
+      <nav class="nav-menu" id="navMenu">
+        <div class="nav-item has-dropdown">
+          <a href="/services/index.html" class="nav-link dropdown-toggle" id="servicesDropdownLink">
+            Services
+            <svg class="nav-chevron" width="9" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <div class="nav-dropdown-menu">
+            <div class="dropdown-header-strip">
+              <span>Executive Search & Talent Practices</span>
+              <span class="dropdown-sla-pill">48-Hr SLA Delivery</span>
+            </div>
+            <div class="dropdown-grid">
+              <a href="/services/executive-search.html" class="dropdown-item">
+                <div class="dropdown-icon-box blue">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                </div>
+                <div class="dropdown-item-info">
+                  <div class="dropdown-item-title">Executive Search & CXO</div>
+                  <div class="dropdown-item-desc">Board, CXO & VP leadership across Pan-India corridors.</div>
+                </div>
+              </a>
+              <a href="/services/permanent-staffing.html" class="dropdown-item">
+                <div class="dropdown-icon-box red">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                </div>
+                <div class="dropdown-item-info">
+                  <div class="dropdown-item-title">Permanent Lateral Staffing</div>
+                  <div class="dropdown-item-desc">Mid-to-senior specialized roles with 48-hr shortlist TAT.</div>
+                </div>
+              </a>
+              <a href="/services/it-recruitment.html" class="dropdown-item">
+                <div class="dropdown-icon-box cyan">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                </div>
+                <div class="dropdown-item-info">
+                  <div class="dropdown-item-title">IT & Emerging Tech Recruitment</div>
+                  <div class="dropdown-item-desc">Cloud architects, DevOps, Full-Stack, and AI/ML specialists for GCCs.</div>
+                </div>
+              </a>
+              <a href="/services/industrial-manufacturing.html" class="dropdown-item">
+                <div class="dropdown-icon-box orange">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/><circle cx="12" cy="8" r="2"/></svg>
+                </div>
+                <div class="dropdown-item-info">
+                  <div class="dropdown-item-title">Industrial & Manufacturing</div>
+                  <div class="dropdown-item-desc">Plant heads, tooling, casting, CNC & EV powertrain leaders.</div>
+                </div>
+              </a>
+              <a href="/services/contract-staffing.html" class="dropdown-item">
+                <div class="dropdown-icon-box green">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="4" transform="rotate(45 12 12)"/><path d="M12 8v8M8 12h8"/></svg>
+                </div>
+                <div class="dropdown-item-info">
+                  <div class="dropdown-item-title">Flexible & Contract Staffing</div>
+                  <div class="dropdown-item-desc">Agile on-demand project talent with 100% PF/ESI compliance.</div>
+                </div>
+              </a>
+              <a href="/services/turnkey-rpo.html" class="dropdown-item">
+                <div class="dropdown-icon-box purple">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="7" r="3"/><circle cx="6" cy="17" r="3"/><circle cx="18" cy="17" r="3"/><path d="M9 15l2-5 2 5"/></svg>
+                </div>
+                <div class="dropdown-item-info">
+                  <div class="dropdown-item-title">Turnkey RPO (GCCs & Scale)</div>
+                  <div class="dropdown-item-desc">Dedicated recruitment pods for hiring 20 to 200+ specialists.</div>
+                </div>
+              </a>
+              <a href="/services/hr-compliance.html" class="dropdown-item">
+                <div class="dropdown-icon-box teal">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                </div>
+                <div class="dropdown-item-info">
+                  <div class="dropdown-item-title">HR Advisory & Labor Compliance</div>
+                  <div class="dropdown-item-desc">POSH cell setup, 2026 Labor Code alignment & statutory audits.</div>
+                </div>
+              </a>
+              <a href="/services/payroll-management.html" class="dropdown-item">
+                <div class="dropdown-icon-box yellow">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"/><path d="M12 18V6"/></svg>
+                </div>
+                <div class="dropdown-item-info">
+                  <div class="dropdown-item-title">Payroll & Compensation Structuring</div>
+                  <div class="dropdown-item-desc">TDS optimization, EPF/ESI statutory management, Form 16.</div>
+                </div>
+              </a>
+              <a href="/services/campus-hiring.html" class="dropdown-item">
+                <div class="dropdown-icon-box rose">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+                </div>
+                <div class="dropdown-item-info">
+                  <div class="dropdown-item-title">Campus & Fresher Hiring Drives</div>
+                  <div class="dropdown-item-desc">Tier-1 & Tier-2 engineering and management talent drives.</div>
+                </div>
+              </a>
+            </div>
+            <div class="dropdown-footer-bar">
+              <span>Looking for dedicated practice details?</span>
+              <a href="/services/index.html" class="dropdown-view-all">View All 9 Practice Groups & Commercial Terms &rarr;</a>
+            </div>
+          </div>
+        </div>
+
+        <a href="#industries" class="nav-link">Industries</a>
+        <a href="#ai-studio" class="nav-link">TalentAI™</a>
+        <a href="#employers" class="nav-link">Employers</a>
+        <a href="#candidates" class="nav-link">Candidates</a>
+        <a href="#insights" class="nav-link">Regional Insights</a>
+        <a href="#about" class="nav-link">About</a>
+      </nav>
+
+      <!-- Right Header Actions (Search, Admin Console, High-Converting CTA) -->
+      <div class="header-actions">
+        <button class="header-search-btn" id="btnHeaderSearch" aria-label="Search Roles">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </button>
+
+        <button id="btnToggleAdmin" class="header-signin-link" title="Internal HR Management Portal">
+          HR Console
+        </button>
+
+        <a href="#employers" class="header-signup-btn">
+          Post Requirement &rarr;
+        </a>
+
+        <button class="mobile-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========================================================================= -->
+  <!-- MAIN SITE VIEW                                                            -->
+  <!-- ========================================================================= -->
+  <main id="mainSiteView">
+
+    <!-- HERO BANNER (Ultra-Minimal Words, Maximum Executive Punch) -->
+    <section class="thc-hero-section" id="home">
+      <div class="content-wrap">
+        <div class="thc-hero-grid">
+          
+          <!-- Left: High-Impact Minimal Pitch (Fewer Words, Maximum Authority) -->
+          <div class="thc-hero-left">
+            <div class="hero-status-pill">
+              <span class="live-dot"></span>
+              <span>Pan-India Executive Search</span>
+            </div>
+
+            <h1 class="thc-hero-title">
+              Leadership Talent.<br>
+              <span class="thc-hero-accent">Delivered in 48 Hours.</span>
+            </h1>
+
+            <p class="thc-hero-lead">
+              Vetted CXOs, engineering heads, and plant leaders for India's fastest-growing enterprises.
+            </p>
+
+            <div class="thc-hero-buttons">
+              <a href="#employers" class="thc-btn-red">
+                Post Mandate &rarr;
+              </a>
+              <a href="#industries" class="thc-btn-outline">
+                Explore Sectors
+              </a>
+            </div>
+
+            <!-- Compact Metrics Strip -->
+            <div class="thc-hero-metrics">
+              <div class="thc-metric">
+                <span class="metric-num">18,500+</span>
+                <span class="metric-lbl">Vetted Leaders</span>
+              </div>
+              <div class="metric-divider"></div>
+              <div class="thc-metric">
+                <span class="metric-num green">48 Hrs</span>
+                <span class="metric-lbl">Shortlist SLA</span>
+              </div>
+              <div class="metric-divider"></div>
+              <div class="thc-metric">
+                <span class="metric-num">94.2%</span>
+                <span class="metric-lbl">Joining Ratio</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Executive Leadership Visual (Zero Clumsy Containers) -->
+          <div class="thc-hero-right">
+            <div class="hero-visual-wrapper">
+              <img 
+                src="/images/heroes/thc_hero.jpg" 
+                alt="Thathvamasi Executive Search Boardroom" 
+                class="hero-executive-image" 
+                loading="eager"
+                fetchpriority="high"
+              >
+              
+              <!-- Floating Micro-Badge: 48-Hour SLA -->
+              <div class="hero-glass-pill pill-top">
+                <span class="live-dot"></span>
+                <span class="glass-pill-text"><strong>48-Hr SLA</strong> • Guaranteed Shortlist</span>
+              </div>
+
+              <!-- Floating Micro-Badge: Retained Search Guarantee -->
+              <div class="hero-glass-pill pill-bottom">
+                <div class="glass-pill-check">✓</div>
+                <span class="glass-pill-text"><strong>94.2% Placement</strong> • 90-Day Guarantee</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- BRANDS THAT TRUST US (Zoho Brand Strip) -->
+    <section class="zwc-section-tbrands">
+      <div class="content-wrap">
+        <h2>Corporate Enterprises That Rely on THC</h2>
+        <div class="zwc-brand-slider">
+          <span class="brand-chip">L&T Heavy Engineering</span>
+          <span class="brand-chip">Bosch Software</span>
+          <span class="brand-chip">Cognizant Tech</span>
+          <span class="brand-chip">Texmo Industries</span>
+          <span class="brand-chip">Pricol Automotive</span>
+          <span class="brand-chip">KPR Mill</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================= -->
+    <!-- CINEMATIC STORY BANNER (Built on discretion. Guided by integrity)      -->
+    <!-- ======================================================================= -->
+    <section class="thc-story-section">
+      <div class="content-wrap">
+        <div class="thc-story-banner">
+          <div class="thc-story-content">
+            <h2 class="thc-story-headline">
+              Built on discretion.<br>
+              Guided by integrity.
+            </h2>
+            <p class="thc-story-text">
+              A decade of confidential leadership search for India's top engineering enterprises and GCC hubs.
+            </p>
+            <a href="#about" class="thc-story-link">
+              Read Our Story <span>&#8599;</span>
+            </a>
+          </div>
+          <div class="thc-story-media">
+            <img src="/images/team/thc_leadership.jpg" alt="Leadership Consultation" class="thc-story-img" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================= -->
+    <!-- THATHVAMASI FOR ENTERPRISE (Scale, Governance & Confidentiality)        -->
+    <!-- ======================================================================= -->
+    <section class="thc-enterprise-section" id="enterprise">
+      <div class="content-wrap">
+        <div class="thc-enterprise-grid">
+          
+          <!-- Left: Enterprise Overview -->
+          <div class="thc-enterprise-info">
+            <div class="thc-enterprise-icon-wrap">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0060B4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
+                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+              </svg>
+            </div>
+            <h2 class="thc-enterprise-title">Thathvamasi for Enterprise</h2>
+            <p class="thc-enterprise-desc">
+              Dedicated search infrastructure for confidential C-suite appointments and 500+ member GCC hub scaling across India.
+            </p>
+            <a href="#employers" class="thc-enterprise-link">
+              Enterprise Solutions <span>&#8599;</span>
+            </a>
+          </div>
+
+          <!-- Right: Executive Client Testimonial -->
+          <div class="thc-enterprise-testimonial">
+            <p class="thc-quote-text">
+              &ldquo;We partnered with Thathvamasi to staff our high-precision automotive engineering center in Coimbatore. Their candidate calibration, confidentiality, and 48-hour shortlist turnaround are unmatched in South India.&rdquo;
+            </p>
+            <div class="thc-quote-author">
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=120&q=80" alt="S. Ramanathan" class="thc-author-avatar">
+              <div>
+                <div class="thc-author-name">S. Ramanathan</div>
+                <div class="thc-author-role">Vice President - Operations, Auto Components India</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================= -->
+    <!-- ALL-IN-ONE ENTERPRISE TALENT ECOSYSTEM (THC Talent Suite)               -->
+    <!-- ======================================================================= -->
+    <section class="thc-suite-navy-section reveal-up">
+      <div class="content-wrap">
+        <div class="thc-suite-grid">
+          
+          <!-- Left: Suite Overview -->
+          <div class="thc-suite-info">
+            <span class="thc-suite-badge">All-in-One Enterprise HR Ecosystem</span>
+            <h2 class="thc-suite-title">THC Talent Suite™</h2>
+            <div class="thc-suite-subtitle">Recruitment infrastructure for modern Indian enterprise</div>
+            <p class="thc-suite-desc">
+              End-to-end executive search, AI talent mapping, and guaranteed 48-hour SLA candidate delivery.
+            </p>
+            <a href="#employers" class="thc-suite-btn">
+              Enterprise Briefing &gt;
+            </a>
+          </div>
+
+          <!-- Right: Quote Box -->
+          <div class="thc-suite-quote-box">
+            <div class="thc-suite-quote-icon">&ldquo;</div>
+            <p class="thc-suite-quote-text">
+              You can be an early-stage deep-tech startup, a family-owned industrial powerhouse, or a Fortune 500 GCC—Thathvamasi's recruitment precision, confidentiality, and 48-hour SLA are unmatched across South India.
+            </p>
+            <div class="thc-quote-author">
+              <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=120&q=80" alt="K. Arvind" class="thc-author-avatar">
+              <div>
+                <div class="thc-author-name">K. Arvind</div>
+                <div class="thc-author-role">Chief People Officer, Enterprise Tech Conglomerate</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================= -->
+    <!-- INDUSTRIES WE POWER ACROSS INDIA (12 Core Verticals)                   -->
+    <!-- ======================================================================= -->
+    <section class="industries-section" id="industries">
+      <div class="content-wrap">
+        <div class="section-header reveal-up">
+          <div style="font-size: 0.8rem; font-weight: 800; color: var(--color-indian-red); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 6px;">
+            Multi-Sector Expertise
+          </div>
+          <h2 class="zwc-divider-line red center">
+            Industries We Power Across India
+          </h2>
+          <p class="section-subtitle">
+            Calibrated Indian compensation benchmarks and verified talent pipelines across 12 core sectors. Click any card to inspect.
+          </p>
+        </div>
+
+        <!-- Category Filter Tabs -->
+        <div class="industry-tabs reveal-up">
+          <button type="button" class="tab-btn active" data-cat="all">All 12 Verticals</button>
+          <button type="button" class="tab-btn" data-cat="mobility">Precision Auto & EV</button>
+          <button type="button" class="tab-btn" data-cat="technology">IT & GCC Hubs</button>
+          <button type="button" class="tab-btn" data-cat="industrial">Heavy Engineering & Foundry</button>
+          <button type="button" class="tab-btn" data-cat="apparel">Textiles & Sourcing</button>
+          <button type="button" class="tab-btn" data-cat="financial">BFSI & FinTech</button>
+          <button type="button" class="tab-btn" data-cat="healthcare">Pharma & Healthcare</button>
+        </div>
+
+        <!-- Rendered dynamically by Industries.js -->
+        <div class="industries-grid" id="industriesGrid"></div>
+
+        <!-- Inline Expandable Sector Dropdown Drawer -->
+        <div class="industry-dropdown-drawer" id="industryDropdownDrawer" style="display: none;" role="region" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <!-- ======================================================================= -->
+    <!-- AI PROMOS & AI CONTAINERS (THC TalentAI™ Studio)                       -->
+    <!-- ======================================================================= -->
+    <section class="zwc-promos" id="ai-studio">
+      <div class="content-wrap">
+        
+        <div class="section-header reveal-up">
+          <div style="font-size: 0.8rem; font-weight: 800; color: var(--color-ai-purple); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 6px;">
+            AI Innovation Hub
+          </div>
+          <h2 class="zwc-divider-line purple center">
+            THC TalentAI™ Studio
+          </h2>
+          <p class="section-subtitle">
+            AI talent scanner, Indian CTC buyout calculator, and enterprise JD generator.
+          </p>
+        </div>
+
+        <div class="zwc-promo-tray">
+          
+          <!-- AI Container 1: Live Talent Matcher -->
+          <div class="zwc-promo-card purple-top reveal-card">
+            <span class="zwc-promo-tag">Talent Scanner</span>
+            <h3 class="zwc-promo-title">Live Talent Matcher</h3>
+            <p class="zwc-promo-desc">Scan our pre-vetted database of 18,500+ candidates across Coimbatore, Bengaluru, Chennai, and pan-India corridors.</p>
+            
+            <div class="zwc-interactive-panel">
+              <label style="font-size: 0.74rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; display: block; margin-bottom: 6px;">Specify Target Role:</label>
+              <div style="display: flex; gap: 6px; margin-bottom: 8px;">
+                <input type="text" id="aiRoleQueryInput" class="form-control" placeholder="e.g. Lead DevOps Engineer" style="padding: 6px 10px; font-size: 0.85rem;">
+                <button type="button" class="btn btn-red" id="btnRunAiMatch" style="padding: 6px 12px; font-size: 0.8rem;">Scan</button>
+              </div>
+              <div style="font-size: 0.72rem; color: var(--text-muted);">
+                Quick picks: 
+                <a href="javascript:void(0)" class="ai-sample-chip" data-role="Full Stack Architect" style="color: var(--zoho-blue);">Architect</a> • 
+                <a href="javascript:void(0)" class="ai-sample-chip" data-role="Plant Operations Head" style="color: var(--zoho-blue);">Plant Head</a> • 
+                <a href="javascript:void(0)" class="ai-sample-chip" data-role="Finance Controller" style="color: var(--zoho-blue);">Finance CA</a>
+              </div>
+              <div id="aiMatchResult" style="margin-top: 10px;"></div>
+            </div>
+          </div>
+
+          <!-- AI Container 2: Indian CTC & Notice Buyout Calculator -->
+          <div class="zwc-promo-card blue-top reveal-card">
+            <span class="zwc-promo-tag" style="color: var(--zoho-blue);">Compensation Intelligence</span>
+            <h3 class="zwc-promo-title">CTC & Notice Buyout</h3>
+            <p class="zwc-promo-desc">Benchmark Indian compensation bands, notice buyout feasibility, and 2026 Wage Code salary structuring.</p>
+
+            <div class="zwc-interactive-panel">
+              <label style="font-size: 0.74rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; display: block; margin-bottom: 6px;">Experience Level Band:</label>
+              <select id="aiSampleProfileSelect" class="form-control" style="padding: 6px 8px; font-size: 0.82rem; margin-bottom: 8px;">
+                <option value="Senior (8-12 Years)">Senior Professional (8-12 Years)</option>
+                <option value="Lead / Engineering Manager (12-18 Years)">Lead / Engineering Manager (12-18 Years)</option>
+                <option value="CXO / Business Unit Head (18+ Years)">CXO / Business Unit Head (18+ Years)</option>
+                <option value="Mid-Level (4-7 Years)">Mid-Level Specialist (4-7 Years)</option>
+              </select>
+
+              <label style="font-size: 0.74rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; display: block; margin-bottom: 6px;">Current Notice Period:</label>
+              <select id="aiNoticePeriodSelect" class="form-control" style="padding: 6px 8px; font-size: 0.82rem; margin-bottom: 8px;">
+                <option value="30">30 Days (Standard Notice)</option>
+                <option value="15">15 Days (Serving Notice • Immediate)</option>
+                <option value="60">60 Days (Tier-1 IT / Engineering)</option>
+                <option value="90">90 Days (Corporate Policy / Buyout Required)</option>
+              </select>
+
+              <button type="button" class="zwc-cta-outlined" id="btnRunResumeAi" style="width: 100%; font-size: 0.82rem; padding: 7px 12px; color: var(--zoho-blue); border-color: var(--zoho-blue);">
+                Calculate CTC & Buyout Feasibility
+              </button>
+              <div id="aiResumeResult" style="margin-top: 10px;"></div>
+            </div>
+          </div>
+
+          <!-- AI Container 3: Indian Enterprise Job Spec Generator -->
+          <div class="zwc-promo-card green-top reveal-card">
+            <span class="zwc-promo-tag" style="color: var(--zoho-green);">JD Generator</span>
+            <h3 class="zwc-promo-title">Enterprise JD Spec</h3>
+            <p class="zwc-promo-desc">Synthesize market-ready job specifications with KRA benchmarks and DPDP/statutory compliance clauses.</p>
+
+            <div class="zwc-interactive-panel">
+              <label style="font-size: 0.74rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; display: block; margin-bottom: 6px;">Select Role Template:</label>
+              <select id="aiJdRoleSelect" class="form-control" style="padding: 6px 8px; font-size: 0.82rem; margin-bottom: 8px;">
+                <option value="Principal Software Architect">Principal Software Architect (IT / GCC)</option>
+                <option value="Plant Operations Head">Plant Operations Head (Tier-1 Precision Auto)</option>
+                <option value="VP International Merchandising">VP - Global Sourcing & Merchandising (Textiles)</option>
+                <option value="Chief Risk Officer">Chief Risk Officer (BFSI / FinTech)</option>
+              </select>
+              <button type="button" class="zwc-cta-outlined" id="btnRunJdGen" style="width: 100%; font-size: 0.82rem; padding: 7px 12px; color: var(--zoho-green); border-color: var(--zoho-green);">
+                Synthesize Enterprise Job Spec
+              </button>
+              <div id="aiJdResult" style="margin-top: 10px;"></div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======================================================================= -->
+    <!-- COMPREHENSIVE SOLUTIONS CATALOG (9 DEDICATED PRACTICES)                -->
+    <!-- ======================================================================= -->
+    <section class="services-section reveal-up" id="services">
+      <div class="content-wrap">
+        
+        <div class="section-header">
+          <div style="font-size: 0.8rem; font-weight: 800; color: var(--color-primary); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 6px;">
+            Structured Delivery Framework
+          </div>
+          <h2 class="zwc-divider-line blue center">
+            Enterprise Solutions & Dedicated Practices
+          </h2>
+          <p class="section-subtitle">
+            From confidential board appointments to factory labor compliance and GCC turnkey hiring pods, explore our 9 specialized practices.
+          </p>
+        </div>
+
+        <!-- Practice Filter Tabs -->
+        <div class="services-tabs">
+          <button type="button" class="tab-btn active" data-cat="all">All 9 Practices</button>
+          <button type="button" class="tab-btn" data-cat="talent acquisition">Talent Acquisition</button>
+          <button type="button" class="tab-btn" data-cat="staffing solutions">Staffing Solutions</button>
+          <button type="button" class="tab-btn" data-cat="strategic advisory">Strategic Advisory & Compliance</button>
+        </div>
+
+        <!-- Solutions Catalog Grid (Populated dynamically by Services.js) -->
+        <div class="services-grid" id="servicesGrid"></div>
+
+        <!-- Directory Banner -->
+        <div style="text-align: center; margin-top: 36px;">
+          <a href="/services/index.html" class="zwc-primary-red-btn" style="display: inline-flex;">
+            VIEW FULL PRACTICE DIRECTORY & COMMERCIALS &gt;
+          </a>
+        </div>
+
+        <!-- Commercial Engagement Models Comparison -->
+        <div style="margin-top: 48px; background: #FFFFFF; border: 1px solid var(--border-light); border-radius: var(--radius-card); padding: 32px; box-shadow: 0 4px 16px rgba(15,23,42,0.03);">
+          <h3 class="zwc-divider-line" style="font-size: 1.3rem;">Flexible Commercial Engagement Models</h3>
+          <p style="color: var(--text-muted); font-size: 0.92rem; margin-bottom: 24px;">Commercial terms aligned with corporate procurement and statutory compliance standards.</p>
+
+          <div class="grid grid-3">
+            <div style="border-left: 3px solid var(--zoho-blue); padding-left: 16px;">
+              <h4 style="color: var(--zoho-blue); font-size: 1.1rem; margin-bottom: 6px;">Contingency Search</h4>
+              <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.55;">Zero upfront commitment. Invoiced only upon successful candidate joining with 90-day replacement warranty.</p>
+              <a href="/services/permanent-staffing.html" style="font-size: 0.78rem; font-weight: 700; color: var(--zoho-blue); text-decoration: underline;">Explore Lateral Staffing &rarr;</a>
+            </div>
+            <div style="border-left: 3px solid var(--color-indian-red); padding-left: 16px;">
+              <h4 style="color: var(--color-indian-red); font-size: 1.1rem; margin-bottom: 6px;">Retained Leadership</h4>
+              <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.55;">Exclusive CXO headhunting pod, discrete candidate approach, and comprehensive reference & background dossiers.</p>
+              <a href="/services/executive-search.html" style="font-size: 0.78rem; font-weight: 700; color: var(--color-indian-red); text-decoration: underline;">Explore Executive Search &rarr;</a>
+            </div>
+            <div style="border-left: 3px solid var(--zoho-green); padding-left: 16px;">
+              <h4 style="color: var(--zoho-green); font-size: 1.1rem; margin-bottom: 6px;">Turnkey RPO (GCC Pods)</h4>
+              <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.55;">Dedicated recruiters on-site or remote to hire 20 to 200+ team members for new capability centers and plant setups.</p>
+              <a href="/services/turnkey-rpo.html" style="font-size: 0.78rem; font-weight: 700; color: var(--zoho-green); text-decoration: underline;">Explore Turnkey RPO &rarr;</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======================================================================= -->
+    <!-- FOR EMPLOYERS (REQUISITION INTAKE FORM)                                 -->
+    <!-- ======================================================================= -->
+    <section class="section" id="employers">
+      <div class="content-wrap">
+        
+        <div class="grid grid-2 items-center" style="gap: 52px;">
+          <div>
+            <h2 class="zwc-divider-line">
+              Scale Your Workforce with <span>Guaranteed 48-Hour Shortlists</span>
+            </h2>
+            <p class="lead">
+              Critical leadership vacancies shouldn't delay your product release dates or operational expansion.
+            </p>
+            <p>
+              Submit your hiring requirement in under 2 minutes. A Dedicated Senior Talent Acquisition Director will initiate an intake call within 2 business hours.
+            </p>
+
+            <ul class="employer-value-list">
+              <li><span class="value-check">✓</span> Zero upfront fee for standard contingency searches</li>
+              <li><span class="value-check">✓</span> 90-Day free candidate replacement guarantee</li>
+              <li><span class="value-check">✓</span> Pre-authenticated 4-tier candidate reference dossiers</li>
+            </ul>
+
+            <div class="employer-quick-cta-row">
+              <button type="button" class="btn-whatsapp-consult" id="btnQuickConsultWhatsApp">
+                <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2ZM12.05 20.15C10.57 20.15 9.12 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.07 16.3C4.24 14.98 3.8 13.47 3.8 11.91C3.8 7.37 7.5 3.67 12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.05 20.15ZM16.57 14.36C16.32 14.24 15.1 13.64 14.87 13.56C14.65 13.47 14.48 13.43 14.32 13.68C14.15 13.93 13.68 14.48 13.54 14.64C13.4 14.81 13.26 14.83 13.01 14.71C12.76 14.58 11.97 14.32 11.03 13.49C10.29 12.83 9.79 12.02 9.65 11.77C9.51 11.52 9.63 11.39 9.76 11.26C9.87 11.15 10.01 10.97 10.14 10.82C10.27 10.67 10.31 10.56 10.39 10.39C10.47 10.23 10.43 10.08 10.37 9.96C10.31 9.84 9.81 8.62 9.61 8.11C9.41 7.62 9.21 7.69 9.06 7.68C8.92 7.67 8.76 7.67 8.59 7.67C8.42 7.67 8.15 7.73 7.92 7.98C7.69 8.23 7.05 8.83 7.05 10.05C7.05 11.27 7.94 12.44 8.06 12.61C8.19 12.78 9.8 15.26 12.28 16.33C12.87 16.59 13.33 16.74 13.69 16.85C14.29 17.04 14.83 17.01 15.26 16.95C15.74 16.88 16.74 16.35 16.95 15.76C17.15 15.17 17.15 14.67 17.09 14.56C17.03 14.46 16.82 14.48 16.57 14.36Z"/></svg>
+                Quick WhatsApp Consultation
+              </button>
+            </div>
+          </div>
+
+          <!-- Employer Intake Form -->
+          <div class="form-card employer-form-card">
+            <div class="form-card-badge">⚡ 48-Hour Shortlist Guarantee</div>
+            <h3 class="form-card-title">Submit Hiring Requisition</h3>
+            <p class="form-card-subtitle">A Dedicated Senior Practice Lead will initiate an intake call within 2 business hours.</p>
+
+            <form id="clientRequirementForm">
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="companyName">Company / Organization <span class="required">*</span></label>
+                  <input type="text" id="companyName" name="companyName" class="form-control" placeholder="e.g. Bosch Global Software" required>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="contactPerson">Contact Person Name <span class="required">*</span></label>
+                  <input type="text" id="contactPerson" name="contactPerson" class="form-control" placeholder="e.g. Anandha Kumar" required>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="officialEmail">Official Corporate Email <span class="required">*</span></label>
+                  <input type="email" id="officialEmail" name="officialEmail" class="form-control" placeholder="anand@company.com" required>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="clientMobile">Mobile / Direct Phone <span class="required">*</span></label>
+                  <input type="tel" id="clientMobile" name="clientMobile" class="form-control" placeholder="+91 94420 98765" required>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="companyIndustry">Industry Vertical <span class="required">*</span></label>
+                  <select id="companyIndustry" name="companyIndustry" class="form-control" required>
+                    <option value="Automotive, EV & Auto Components">Automotive, EV & Auto Components</option>
+                    <option value="IT, Software, Cloud & GCCs">IT, Software, Cloud & GCCs</option>
+                    <option value="Heavy Engineering, Pumps & Foundries">Heavy Engineering, Pumps & Foundries</option>
+                    <option value="Textiles, Technical Fabrics & Apparel">Textiles, Technical Fabrics & Apparel</option>
+                    <option value="BFSI, FinTech, Wealth & Insurance">BFSI, FinTech, Wealth & Insurance</option>
+                    <option value="Pharma, Lifesciences & Healthcare">Pharma, Lifesciences & Healthcare</option>
+                    <option value="FMCG, FMCD & Modern Retail">FMCG, FMCD & Modern Retail</option>
+                    <option value="Renewable Energy, Solar & Automation">Renewable Energy, Solar & Automation</option>
+                    <option value="Real Estate, EPC & Infrastructure">Real Estate, EPC & Infrastructure</option>
+                    <option value="Agro-Processing & Food Tech">Agro-Processing & Food Tech</option>
+                    <option value="Logistics, Cold-Chain & Warehousing">Logistics, Cold-Chain & Warehousing</option>
+                    <option value="Chemicals, Polymers & Petrochemicals">Chemicals, Polymers & Petrochemicals</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="jobTitle">Position / Role Title <span class="required">*</span></label>
+                  <input type="text" id="jobTitle" name="jobTitle" class="form-control" placeholder="e.g. Principal Cloud Architect" required>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="vacancies">Number of Vacancies <span class="required">*</span></label>
+                  <input type="number" id="vacancies" name="vacancies" class="form-control" value="1" min="1" max="100" required>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="jobLocation">Job Location <span class="required">*</span></label>
+                  <input type="text" id="jobLocation" name="jobLocation" class="form-control" placeholder="e.g. Coimbatore / Hybrid" required>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="jobDescriptionText">Job Description & Essential Skills</label>
+                <textarea id="jobDescriptionText" name="jobDescriptionText" class="form-control" placeholder="Provide core responsibilities, years of experience, and tech stack..."></textarea>
+              </div>
+
+              <button type="submit" class="btn-primary-submit" id="btnSubmitRequisition">
+                Dispatch Hiring Requisition &rarr;
+              </button>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======================================================================= -->
+    <!-- FOR CANDIDATES (CAREER PORTAL WITH RESUME DROPZONE)                    -->
+    <!-- ======================================================================= -->
+    <section class="section section-bg-alt" id="candidates">
+      <div class="content-wrap container-narrow">
+        
+        <div class="section-header">
+          <h2 class="zwc-divider-line green center">
+            Submit Your Resume for Confidential Representation
+          </h2>
+          <p class="section-subtitle">
+            Our talent advisors represent senior professionals and engineers for unadvertised corporate appointments.
+          </p>
+        </div>
+
+        <div class="form-card" style="border-top: 4px solid var(--zoho-green);">
+          <div class="stepper">
+            <div class="stepper-progress" id="stepperProgress" style="width: 0%;"></div>
+            <div class="step-item active" data-step="1">
+              <div class="step-circle">1</div>
+              <span class="step-label">Personal Info</span>
+            </div>
+            <div class="step-item" data-step="2">
+              <div class="step-circle">2</div>
+              <span class="step-label">Experience</span>
+            </div>
+            <div class="step-item" data-step="3">
+              <div class="step-circle">3</div>
+              <span class="step-label">Resume Upload</span>
+            </div>
+          </div>
+
+          <form id="candidateForm" novalidate>
+            <!-- Step 1 -->
+            <div class="step-panel" data-step="1">
+              <h4 style="margin-bottom: 16px; color: var(--zoho-blue);">Step 1: Contact Details</h4>
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="candidateName">Full Name <span class="required">*</span></label>
+                  <input type="text" id="candidateName" name="candidateName" class="form-control" placeholder="e.g. Senthil Nathan" required>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="candidateEmail">Email Address <span class="required">*</span></label>
+                  <input type="email" id="candidateEmail" name="candidateEmail" class="form-control" placeholder="senthil.n@example.com" required>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="candidateMobile">Mobile Number <span class="required">*</span></label>
+                  <input type="tel" id="candidateMobile" name="candidateMobile" class="form-control" placeholder="+91 98400 12345" required>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="candidateLocation">Current City <span class="required">*</span></label>
+                  <input type="text" id="candidateLocation" name="candidateLocation" class="form-control" placeholder="e.g. Coimbatore" required>
+                </div>
+              </div>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="step-panel" data-step="2" style="display: none;">
+              <h4 style="margin-bottom: 16px; color: var(--zoho-blue);">Step 2: Professional Profile</h4>
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="candidateQualification">Highest Qualification <span class="required">*</span></label>
+                  <select id="candidateQualification" name="candidateQualification" class="form-control" required>
+                    <option value="">Select Qualification</option>
+                    <option value="B.E. / B.Tech">B.E. / B.Tech</option>
+                    <option value="MBA / PGDM">MBA / PGDM</option>
+                    <option value="M.E. / M.Tech">M.E. / M.Tech</option>
+                    <option value="CA / ICWA">CA / ICWA</option>
+                    <option value="Other Post Graduate">Other Post Graduate</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="candidateExperience">Total Work Experience <span class="required">*</span></label>
+                  <select id="candidateExperience" name="candidateExperience" class="form-control" required>
+                    <option value="">Select Experience</option>
+                    <option value="0 - 2 Years">0 - 2 Years</option>
+                    <option value="3 - 5 Years">3 - 5 Years</option>
+                    <option value="6 - 9 Years">6 - 9 Years</option>
+                    <option value="10 - 15 Years">10 - 15 Years</option>
+                    <option value="15+ Years">15+ Years</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="candidateCompany">Current Employer</label>
+                  <input type="text" id="candidateCompany" name="candidateCompany" class="form-control" placeholder="Company Name">
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="candidateDesignation">Current Designation</label>
+                  <input type="text" id="candidateDesignation" name="candidateDesignation" class="form-control" placeholder="e.g. Lead Architect">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="candidateSkills">Core Competencies & Skills <span class="required">*</span></label>
+                <input type="text" id="candidateSkills" name="candidateSkills" class="form-control" placeholder="e.g. React, Node.js, AWS, Agile" required>
+              </div>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="step-panel" data-step="3" style="display: none;">
+              <h4 style="margin-bottom: 16px; color: var(--zoho-blue);">Step 3: Resume Attachment</h4>
+              
+              <div class="upload-dropzone" id="resumeDropzone">
+                <div style="font-size: 1.8rem; margin-bottom: 8px;">📄</div>
+                <div style="font-weight: 700; color: var(--text-heading);">Click to browse or drop your resume</div>
+                <div style="font-size: 0.8rem; color: var(--text-muted);">PDF, DOC, DOCX up to 5MB</div>
+                <input type="file" id="resumeFileInput" accept=".pdf,.doc,.docx" style="display: none;">
+              </div>
+
+              <div class="file-preview-card" id="resumeFilePreview" style="display: none;">
+                <div class="file-info">
+                  <span style="font-weight: 700;" class="file-name">Resume.pdf</span>
+                  <span class="file-size" style="color: var(--text-muted);">(1.8 MB)</span>
+                </div>
+                <button type="button" class="btn btn-outline" id="btnRemoveFile" style="font-size: 0.75rem; padding: 2px 8px; color: var(--zoho-red); border-color: var(--zoho-red);">Remove</button>
+              </div>
+
+              <div class="form-group" style="margin-top: 18px;">
+                <label class="checkbox-wrap">
+                  <input type="checkbox" id="candidateConsent" name="candidateConsent" required>
+                  <span class="checkbox-label">
+                    I grant THC permission to confidentially process and store my profile under the Indian Digital Personal Data Protection (DPDP) Act.
+                  </span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Controls -->
+            <div class="candidate-form-controls">
+              <button type="button" class="btn-step-prev" id="btnCandidatePrev" style="display: none;">&larr; Previous Step</button>
+              <div style="margin-left: auto; display: flex; gap: 10px;">
+                <button type="button" class="btn-step-next" id="btnCandidateNext">Continue &rarr;</button>
+                <button type="submit" class="btn-primary-submit" id="btnCandidateSubmit" style="display: none;">Submit Confidential Dossier &rarr;</button>
+              </div>
+            </div>
+
+          </form>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======================================================================= -->
+    <!-- REGIONAL HR INSIGHTS & CORRIDOR INTELLIGENCE (RESEARCH BLOGS)           -->
+    <!-- ======================================================================= -->
+    <section class="insights-section" id="insights">
+      <div class="content-wrap">
+        <div class="section-header reveal-up">
+          <div style="font-size: 0.8rem; font-weight: 800; color: var(--color-indian-red); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 6px;">
+            Regional Intelligence & Research
+          </div>
+          <h2 class="zwc-divider-line red center">
+            Industrial & Tech Corridor Insights
+          </h2>
+          <p class="section-subtitle">
+            Web-researched executive talent trends, 2026 Indian CTC benchmarks, and hiring dynamics across Western Tamil Nadu, Chennai, Hosur, Bengaluru, Pune, and Gujarat.
+          </p>
+        </div>
+
+        <!-- Filter & Search Controls -->
+        <div class="insights-controls-bar reveal-up">
+          <div class="insights-search-wrap">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <input type="text" id="blogSearchInput" class="insights-search-input" placeholder="Search by corridor, role, or keyword (e.g. Coimbatore, EV, GCC, Pune)...">
+          </div>
+          
+          <div class="insights-filter-pills">
+            <button type="button" class="blog-filter-btn active" data-category="all">All Corridors</button>
+            <button type="button" class="blog-filter-btn" data-category="Western Tamil Nadu">Western Tamil Nadu</button>
+            <button type="button" class="blog-filter-btn" data-category="Chennai & Hosur">Chennai & Hosur EV</button>
+            <button type="button" class="blog-filter-btn" data-category="Bengaluru">Bengaluru GCCs</button>
+            <button type="button" class="blog-filter-btn" data-category="Pune">Pune Industrial</button>
+            <button type="button" class="blog-filter-btn" data-category="Gujarat">Gujarat Industrial</button>
+          </div>
+        </div>
+
+        <!-- Dynamic Blogs Grid (Populated by Insights.js) -->
+        <div class="blogs-grid" id="blogsGrid"></div>
+      </div>
+    </section>
+
+    <!-- ======================================================================= -->
+    <!-- COMPANY & CORE VALUES (Zoho Style)                                     -->
+    <!-- ======================================================================= -->
+    <section class="zwc-section-values" id="about">
+      <div class="content-wrap">
+        <h2 class="zwc-divider-line center">The core values and principles that drive us</h2>
+        
+        <div class="zwc-box-wrap">
+          <div class="zwc-box">
+            <h3>Long-term commitment</h3>
+            <p>Our relationships with Tamil Nadu's industrial and tech conglomerates span over two decades. We build sustainable leadership pipelines that endure.</p>
+          </div>
+          <div class="zwc-box">
+            <h3>Customer-first philosophy</h3>
+            <p>We work as an organic extension of your corporate HR desk, prioritizing candidate quality and cultural alignment above transaction volume.</p>
+          </div>
+          <div class="zwc-box">
+            <h3>Privacy and data sovereignty</h3>
+            <p>We do not sell, scrape, or monetize candidate data. All recruitment profiles are handled under strict consent and DPDP compliance.</p>
+          </div>
+          <div class="zwc-box">
+            <h3>Focus on talent science & R&D</h3>
+            <p>We continuously invest in candidate calibration techniques and proprietary 4-tier screening methodologies to eliminate attrition risk.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================= -->
+    <!-- STATS (Made in India. Made for the World.)                             -->
+    <!-- ======================================================================= -->
+    <section class="zwc-section-stats">
+      <div class="content-wrap">
+        <h2 class="zwc-divider-line center">
+          Rooted in Coimbatore. <span>Empowering Enterprises Across India.</span>
+        </h2>
+        
+        <div class="zwc-stats-container">
+          <div class="zwc-user-count">
+            <div class="zwc-number"><span class="accent">500</span>+</div>
+            <p>Executive Placements</p>
+          </div>
+          <span class="zwc-stats-divider"></span>
+          <div class="zwc-user-count">
+            <div class="zwc-number"><span class="accent">98.4</span>%</div>
+            <p>12-Month Retention</p>
+          </div>
+          <span class="zwc-stats-divider"></span>
+          <div class="zwc-user-count">
+            <div class="zwc-number"><span class="accent">150</span>+</div>
+            <p>Corporate Clients</p>
+          </div>
+          <span class="zwc-stats-divider"></span>
+          <div class="zwc-user-count">
+            <div class="zwc-number"><span class="accent">48</span>h</div>
+            <p>Shortlist Turnaround SLA</p>
+          </div>
+          <span class="zwc-stats-divider"></span>
+          <div class="zwc-user-count">
+            <div class="zwc-number"><span class="accent">18</span>K+</div>
+            <p>Pre-vetted Talent Registry</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================= -->
+    <!-- BOTTOM CONVERSION BANNER (Ready to do your best work?)                 -->
+    <!-- ======================================================================= -->
+    <section class="zwc-section-footer-cta">
+      <div class="content-wrap">
+        <h2>Ready to build your high-performance team?</h2>
+        <p>Let's get your next key leadership requisition filled.</p>
+        <div>
+          <a class="zwc-cta-main zwc-cta-arrow" href="#employers">
+            Post a Requirement Now
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========================================================================= -->
+  <!-- HR COMMAND CENTER / ADMIN PORTAL VIEW                                    -->
+  <!-- ========================================================================= -->
+  <div id="adminPortalView" class="admin-view-container">
+    <div class="admin-layout">
+      
+      <!-- Admin Sidebar -->
+      <aside class="admin-sidebar">
+        <div class="admin-profile-badge">
+          <div class="admin-avatar">THC</div>
+          <div class="admin-user-info">
+            <h6>Command Center</h6>
+            <span>Managing Director</span>
+          </div>
+        </div>
+
+        <div class="admin-nav-item active" data-tab="overview">
+          <div class="admin-nav-item-left">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+            <span>Dashboard</span>
+          </div>
+        </div>
+
+        <div class="admin-nav-item" data-tab="candidates">
+          <div class="admin-nav-item-left">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+            <span>Candidates</span>
+          </div>
+          <span class="admin-badge-count" id="sidebarCandCount">5</span>
+        </div>
+
+        <div class="admin-nav-item" data-tab="clients">
+          <div class="admin-nav-item-left">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+            <span>Requisitions</span>
+          </div>
+          <span class="admin-badge-count alert" id="sidebarReqCount">3</span>
+        </div>
+
+        <div class="admin-nav-item" data-tab="enquiries">
+          <div class="admin-nav-item-left">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <span>Inquiries</span>
+          </div>
+        </div>
+
+        <div class="admin-nav-item" data-tab="blogs">
+          <div class="admin-nav-item-left">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+            <span>Publish Blog</span>
+          </div>
+        </div>
+
+        <div style="margin-top: auto; padding-top: 20px; border-top: 1px solid var(--border-light);">
+          <button id="btnExitAdmin" class="zwc-cta-outlined" style="width: 100%; font-size: 0.82rem; padding: 6px;">
+            &larr; Return to Website
+          </button>
+        </div>
+      </aside>
+
+      <!-- Admin Main Body Area -->
+      <main class="admin-content">
+        
+        <!-- SUB-TAB 1: OVERVIEW DASHBOARD -->
+        <div class="admin-tab-content" id="adminTab-overview">
+          <div class="admin-top-header">
+            <div class="admin-page-title">
+              <h2>Executive Talent Intelligence Dashboard</h2>
+              <p>Real-time analytics for recruitment pipelines, candidate ingestion & corporate requisitions.</p>
+            </div>
+            <div class="admin-actions">
+              <button class="zwc-cta-main" onclick="document.querySelector('[data-tab=\'candidates\']').click()">
+                Review Applicants
+              </button>
+            </div>
+          </div>
+
+          <!-- KPI Cards -->
+          <div class="kpi-grid">
+            <div class="kpi-card">
+              <div class="kpi-icon-wrap">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+              </div>
+              <div class="kpi-data">
+                <div class="kpi-value" id="kpiTotalCandidates">5</div>
+                <div class="kpi-label">Registered Candidates</div>
+                <div class="kpi-growth">&uarr; +12% this week</div>
+              </div>
+            </div>
+
+            <div class="kpi-card">
+              <div class="kpi-icon-wrap teal">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+              </div>
+              <div class="kpi-data">
+                <div class="kpi-value" id="kpiTotalRequisitions">3</div>
+                <div class="kpi-label">Active Requisitions</div>
+                <div class="kpi-growth" style="color: var(--zoho-green);">&bull; 9 Open Vacancies</div>
+              </div>
+            </div>
+
+            <div class="kpi-card">
+              <div class="kpi-icon-wrap emerald">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <div class="kpi-data">
+                <div class="kpi-value" id="kpiShortlisted">2</div>
+                <div class="kpi-label">Shortlisted Profiles</div>
+                <div class="kpi-growth">&bull; Client Interviews Pending</div>
+              </div>
+            </div>
+
+            <div class="kpi-card">
+              <div class="kpi-icon-wrap blue">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/></svg>
+              </div>
+              <div class="kpi-data">
+                <div class="kpi-value" id="kpiTotalEnquiries">0</div>
+                <div class="kpi-label">General Enquiries</div>
+                <div class="kpi-growth" style="color: var(--zoho-blue);">Zero Unread Backlog</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Charts Row -->
+          <div class="admin-charts-grid">
+            <div class="chart-card">
+              <div class="chart-header">
+                <h4>Candidate Pipeline by Technical Discipline</h4>
+                <span style="font-size: 0.78rem; color: var(--zoho-blue); font-weight: 600;">Q3-Q4 Intake</span>
+              </div>
+              
+              <div class="bar-chart-container">
+                <div class="bar-col">
+                  <div class="bar-track">
+                    <div class="bar-fill" style="height: 85%;">
+                      <span class="bar-value-tooltip">38%</span>
+                    </div>
+                  </div>
+                  <span class="bar-label">Software / IT</span>
+                </div>
+
+                <div class="bar-col">
+                  <div class="bar-track">
+                    <div class="bar-fill teal" style="height: 65%;">
+                      <span class="bar-value-tooltip">26%</span>
+                    </div>
+                  </div>
+                  <span class="bar-label">Mech & Auto</span>
+                </div>
+
+                <div class="bar-col">
+                  <div class="bar-track">
+                    <div class="bar-fill" style="height: 48%; background: #64748B;">
+                      <span class="bar-value-tooltip">18%</span>
+                    </div>
+                  </div>
+                  <span class="bar-label">Corp HR & Ops</span>
+                </div>
+
+                <div class="bar-col">
+                  <div class="bar-track">
+                    <div class="bar-fill" style="height: 38%; background: var(--zoho-yellow);">
+                      <span class="bar-value-tooltip">12%</span>
+                    </div>
+                  </div>
+                  <span class="bar-label">Finance & CA</span>
+                </div>
+
+                <div class="bar-col">
+                  <div class="bar-track">
+                    <div class="bar-fill teal" style="height: 25%;">
+                      <span class="bar-value-tooltip">6%</span>
+                    </div>
+                  </div>
+                  <span class="bar-label">Textile & Mfg</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="chart-card">
+              <div class="chart-header">
+                <h4>Pipeline Velocity</h4>
+                <span style="font-size: 0.78rem; color: var(--zoho-green); font-weight: 700;">98.4% SLA</span>
+              </div>
+
+              <div class="distribution-list">
+                <div class="dist-item">
+                  <div class="dist-header">
+                    <span class="name">48-Hr TAT Compliance</span>
+                    <span class="pct">96.8%</span>
+                  </div>
+                  <div class="dist-bar-track">
+                    <div class="dist-bar-fill" style="width: 96.8%;"></div>
+                  </div>
+                </div>
+
+                <div class="dist-item">
+                  <div class="dist-header">
+                    <span class="name">Client Interview Conversion</span>
+                    <span class="pct">78.5%</span>
+                  </div>
+                  <div class="dist-bar-track">
+                    <div class="dist-bar-fill teal" style="width: 78.5%;"></div>
+                  </div>
+                </div>
+
+                <div class="dist-item">
+                  <div class="dist-header">
+                    <span class="name">Offer Acceptance Ratio</span>
+                    <span class="pct">92.0%</span>
+                  </div>
+                  <div class="dist-bar-track">
+                    <div class="dist-bar-fill blue" style="width: 92%;"></div>
+                  </div>
+                </div>
+
+                <div class="dist-item">
+                  <div class="dist-header">
+                    <span class="name">90-Day Retention Guarantee</span>
+                    <span class="pct">98.4%</span>
+                  </div>
+                  <div class="dist-bar-track">
+                    <div class="dist-bar-fill" style="width: 98.4%;"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SUB-TAB 2: CANDIDATE MANAGER -->
+        <div class="admin-tab-content" id="adminTab-candidates" style="display: none;">
+          <div class="admin-top-header">
+            <div class="admin-page-title">
+              <h2>Candidate Registry & Pipeline</h2>
+              <p>Review registered applicants, verify credentials, update hiring status, and export database.</p>
+            </div>
+            <div class="admin-actions">
+              <button class="zwc-cta-outlined" id="btnExportCandidatesCSV" style="font-size: 0.85rem; padding: 6px 14px;">
+                Export CSV
+              </button>
+            </div>
+          </div>
+
+          <div class="table-panel">
+            <div class="table-toolbar">
+              <div class="table-search">
+                <input type="text" id="adminCandidateSearch" placeholder="Search by name, email, skill, or Ref ID...">
+              </div>
+
+              <div class="table-filters">
+                <label style="font-size: 0.8rem; color: var(--text-muted); font-weight: 600;">Status:</label>
+                <select class="table-select" id="adminCandidateFilter">
+                  <option value="all">All Statuses</option>
+                  <option value="new">New</option>
+                  <option value="contacted">Contacted</option>
+                  <option value="shortlisted">Shortlisted</option>
+                  <option value="rejected">Rejected</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="data-table-wrap">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Ref ID</th>
+                    <th>Candidate</th>
+                    <th>Role & Experience</th>
+                    <th>Location</th>
+                    <th>Status</th>
+                    <th>Applied</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="adminCandidatesTableBody"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- SUB-TAB 3: CLIENT REQUISITIONS MANAGER -->
+        <div class="admin-tab-content" id="adminTab-clients" style="display: none;">
+          <div class="admin-top-header">
+            <div class="admin-page-title">
+              <h2>Client Hiring Requisitions</h2>
+              <p>Corporate recruitment requirements lodged through the employer portal.</p>
+            </div>
+          </div>
+
+          <div class="table-panel">
+            <div class="data-table-wrap">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Requisition ID</th>
+                    <th>Company</th>
+                    <th>Position Required</th>
+                    <th>Contact Person</th>
+                    <th>Status</th>
+                    <th>Submitted</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="adminClientsTableBody"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- SUB-TAB 4: INQUIRIES -->
+        <div class="admin-tab-content" id="adminTab-enquiries" style="display: none;">
+          <div class="admin-top-header">
+            <div class="admin-page-title">
+              <h2>Contact Inquiries</h2>
+              <p>Submissions received from the website contact form.</p>
+            </div>
+          </div>
+
+          <div class="table-panel">
+            <div class="data-table-wrap">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Contact Info</th>
+                    <th>Subject</th>
+                    <th>Message</th>
+                    <th>Date</th>
+                  </tr>
+                </thead>
+                <tbody id="adminEnquiriesTableBody"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- SUB-TAB 5: PUBLISH BLOG -->
+        <div class="admin-tab-content" id="adminTab-blogs" style="display: none;">
+          <div class="admin-top-header">
+            <div class="admin-page-title">
+              <h2>Publish New HR Insight</h2>
+              <p>Add industry reports and advice to the public insights hub.</p>
+            </div>
+          </div>
+
+          <div class="form-card" style="max-width: 800px;">
+            <form id="adminNewBlogForm">
+              <div class="form-group">
+                <label class="form-label" for="blogTitle">Article Title <span class="required">*</span></label>
+                <input type="text" id="blogTitle" name="blogTitle" class="form-control" placeholder="e.g. Compensation Benchmarking in Western Tamil Nadu 2026" required>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="blogCategory">Category</label>
+                  <select id="blogCategory" name="blogCategory" class="form-control">
+                    <option value="HR Compliance">HR Compliance</option>
+                    <option value="Hiring Trends">Hiring Trends</option>
+                    <option value="Recruitment Strategy">Recruitment Strategy</option>
+                    <option value="Career Guidance">Career Guidance</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="blogReadTime">Reading Time</label>
+                  <input type="text" id="blogReadTime" name="blogReadTime" class="form-control" value="5 min read">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="blogExcerpt">Short Excerpt / Executive Summary <span class="required">*</span></label>
+                <textarea id="blogExcerpt" name="blogExcerpt" class="form-control" style="min-height: 80px;" placeholder="Brief synopsis displayed on article cards..." required></textarea>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="blogContent">Full Body Content (HTML supported) <span class="required">*</span></label>
+                <textarea id="blogContent" name="blogContent" class="form-control" style="min-height: 180px;" placeholder="Write the complete article content..." required></textarea>
+              </div>
+
+              <button type="submit" class="zwc-cta-main">
+                Publish Insight Now
+              </button>
+            </form>
+          </div>
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- MODALS                                                                    -->
+  <!-- ========================================================================= -->
+
+  <!-- Candidate Success Modal -->
+  <div class="modal-overlay" id="candidateSuccessModal">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h4 class="modal-title" style="color: var(--zoho-green); font-weight: 700;">
+          Application Registered Successfully!
+        </h4>
+        <button class="modal-close modal-close-trigger">&times;</button>
+      </div>
+      <div class="modal-body text-center" style="padding: 24px;">
+        <h3 style="margin-bottom: 6px;">Welcome, <span id="candidateConfirmName">Candidate</span></h3>
+        <p style="color: var(--text-muted); font-size: 0.92rem;">
+          Your profile and resume have been securely received into Thathvamasi HR Consultancy's talent ecosystem.
+        </p>
+
+        <div style="background: #F8FAFC; border: 1px dashed var(--zoho-blue); border-radius: var(--radius-card); padding: 14px; margin: 18px 0;">
+          <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); font-weight: 700;">Application Reference ID</div>
+          <div id="candidateRefId" style="font-size: 1.6rem; font-weight: 800; color: var(--zoho-blue); margin-top: 4px;">
+            THC-CAN-00000
+          </div>
+        </div>
+
+        <p style="font-size: 0.86rem; color: var(--text-secondary); text-align: left; line-height: 1.55;">
+          Our sector talent specialists benchmark your qualifications against active client requisitions. Quote your Reference ID for any status checks with our Coimbatore desk.
+        </p>
+      </div>
+      <div class="modal-footer">
+        <button class="zwc-cta-main modal-close-trigger" style="width: 100%;">Acknowledge & Close</button>
+      </div>
+    </div>
+  <!-- Industry Practice Detail & Indian CTC Benchmarks Modal -->
+  <div class="modal-overlay" id="industryDetailModal" role="dialog" aria-modal="true" aria-labelledby="modalIndName">
+    <div class="modal-dialog modal-dialog-large">
+      <div class="modal-header">
+        <div>
+          <span class="modal-badge-pill" id="modalIndCategory">Sector Vertical</span>
+          <h3 class="modal-title" id="modalIndName" style="margin-top: 4px; font-size: 1.35rem; color: #0F172A;">Industry Practice</h3>
+        </div>
+        <button class="modal-close modal-close-trigger" aria-label="Close dialog">&times;</button>
+      </div>
+      <div class="modal-body" id="modalIndBody" style="padding: 24px;">
+        <!-- Dynamic content injected by openIndustryModal -->
+      </div>
+      <div class="modal-footer" style="display: flex; justify-content: space-between; align-items: center; background: #F8FAFC; border-top: 1px solid var(--border-light); padding: 16px 24px;">
+        <button type="button" class="btn btn-outline modal-close-trigger">Close</button>
+        <button type="button" class="btn-primary-submit" id="modalIndHireBtn" style="width: auto; padding: 10px 24px;">
+          Hire for this Sector (48-Hr SLA) &rarr;
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Client Success Modal -->
+  <div class="modal-overlay" id="clientSuccessModal">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h4 class="modal-title" style="color: var(--zoho-blue); font-weight: 700;">
+          Requisition Lodged Successfully!
+        </h4>
+        <button class="modal-close modal-close-trigger">&times;</button>
+      </div>
+      <div class="modal-body" style="padding: 24px;">
+        <h3 style="margin-bottom: 4px;">Requirement Received</h3>
+        <p style="color: var(--text-muted); font-size: 0.9rem;">
+          Thank you for entrusting Thathvamasi HR Consultancy with your organization's recruitment mandate.
+        </p>
+
+        <div style="background: #F8FAFC; border: 1px solid var(--border-light); border-radius: var(--radius-card); padding: 14px; margin: 16px 0;">
+          <div style="display: flex; justify-content: space-between; margin-bottom: 6px;">
+            <span style="font-size: 0.8rem; color: var(--text-muted);">Requisition ID:</span>
+            <strong id="clientRefId" style="color: var(--zoho-blue); font-family: monospace;">THC-REQ-00000</strong>
+          </div>
+          <div style="display: flex; justify-content: space-between; margin-bottom: 6px;">
+            <span style="font-size: 0.8rem; color: var(--text-muted);">Organization:</span>
+            <strong id="clientConfirmCompany">Company</strong>
+          </div>
+          <div style="display: flex; justify-content: space-between;">
+            <span style="font-size: 0.8rem; color: var(--text-muted);">Role & Vacancies:</span>
+            <strong id="clientConfirmRole" style="color: var(--zoho-red);">Role</strong>
+          </div>
+        </div>
+
+        <div style="background: var(--zoho-green-light); border-left: 3px solid var(--zoho-green); padding: 10px 14px; border-radius: var(--radius-btn);">
+          <strong style="color: var(--zoho-green); font-size: 0.86rem;">48-Hour Shortlist Guarantee Active</strong>
+          <p style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 0; margin-top: 2px;">
+            A Dedicated Senior Account Director has been assigned. You will receive an intake call within 2 business hours.
+          </p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="zwc-cta-main modal-close-trigger" style="width: 100%;">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Applicant / JD Detail Modal -->
+  <div class="modal-overlay" id="applicantDetailModal">
+    <div class="modal-dialog modal-dialog-large">
+      <div class="modal-header">
+        <h4 class="modal-title">Record Inspection</h4>
+        <button class="modal-close modal-close-trigger">&times;</button>
+      </div>
+      <div class="modal-body" id="applicantDetailBody"></div>
+      <div class="modal-footer">
+        <button class="zwc-cta-outlined modal-close-trigger">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Blog Reader Modal -->
+  <div class="modal-overlay" id="blogDetailModal">
+    <div class="modal-dialog modal-dialog-large">
+      <div class="modal-header">
+        <span id="modalBlogCategory" class="zwc-promo-tag" style="margin-bottom: 0;">Category</span>
+        <button class="modal-close modal-close-trigger">&times;</button>
+      </div>
+      <div class="modal-body">
+        <img id="modalBlogImage" src="/images/heroes/thc_hero.jpg" alt="Article Cover" style="width: 100%; max-height: 280px; object-fit: cover; border-radius: var(--radius-card); margin-bottom: 18px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; font-size: 0.82rem; color: var(--text-muted);">
+          <span id="modalBlogDate">Date</span>
+          <span id="modalBlogAuthor" style="color: var(--zoho-blue); font-weight: 600;">Author</span>
+        </div>
+        <h2 id="modalBlogTitle" style="font-size: 1.5rem; margin-bottom: 16px;">Article Title</h2>
+        <div id="modalBlogContent" style="color: var(--text-secondary); line-height: 1.7; font-size: 0.98rem;"></div>
+      </div>
+      <div class="modal-footer">
+        <button class="zwc-cta-main modal-close-trigger">Finished Reading</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating Actions (WhatsApp & Back-to-Top) -->
+  <div class="floating-actions-bar">
+    <button class="back-to-top" id="backToTopBtn" aria-label="Scroll to top">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"/></svg>
+    </button>
+    <button class="whatsapp-float-btn" id="whatsappFloatBtn" aria-label="WhatsApp">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.668-.699c.983.538 1.848.814 2.792.814 3.182 0 5.768-2.587 5.768-5.766 0-3.18-2.586-5.766-5.768-5.766zm9.969 5.766c0 5.518-4.482 10-10 10-1.748 0-3.387-.45-4.821-1.242l-5.179 1.356 1.378-5.04c-.888-1.488-1.378-3.218-1.378-5.074 0-5.518 4.482-10 10-10s10 4.482 10 10z"/></svg>
+    </button>
+  </div>
+
+  <!-- Zoho Style Global Footer -->
+  <footer class="zw-global-footer">
+    <div class="content-wrap">
+      <div class="footer-grid">
+        <!-- Col 1 -->
+        <div>
+          <div style="font-size: 1.2rem; font-weight: 800; color: #FFFFFF; margin-bottom: 8px;">
+            THATHVAMASI <span style="color: var(--zoho-blue);">HR</span>
+          </div>
+          <p style="color: #999999; font-size: 0.88rem; line-height: 1.6; max-width: 320px;">
+            A premier recruitment and talent advisory ecosystem engineered for South India's industrial and technology leaders.
+          </p>
+        </div>
+
+        <!-- Col 2 -->
+        <div>
+          <h4 class="footer-title">Dedicated Practices</h4>
+          <ul class="footer-list">
+            <li><a href="/services/executive-search.html">Executive Search & CXO</a></li>
+            <li><a href="/services/permanent-staffing.html">Permanent Lateral Staffing</a></li>
+            <li><a href="/services/it-recruitment.html">IT & GCC Tech Hiring</a></li>
+            <li><a href="/services/industrial-manufacturing.html">Industrial & Manufacturing</a></li>
+            <li><a href="/services/turnkey-rpo.html">Turnkey RPO Pods</a></li>
+            <li><a href="/services/contract-staffing.html">Contract Staffing Flex</a></li>
+            <li><a href="/services/hr-compliance.html">HR Compliance & POSH</a></li>
+            <li><a href="/services/payroll-management.html">Payroll Management</a></li>
+            <li><a href="/services/campus-hiring.html">Campus Hiring Drives</a></li>
+            <li><a href="/services/index.html" style="color: #60A5FA; font-weight: 600;">View All 9 Practices &rarr;</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3 -->
+        <div>
+          <h4 class="footer-title">Platform</h4>
+          <ul class="footer-list">
+            <li><a href="#ai-studio">TalentAI™ Scanner</a></li>
+            <li><a href="#employers">For Employers</a></li>
+            <li><a href="#candidates">For Candidates</a></li>
+            <li><a href="#about">Company Values</a></li>
+            <li><a href="#insights">Research Insights</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4 -->
+        <div>
+          <h4 class="footer-title">Coimbatore Desk</h4>
+          <p style="font-size: 0.85rem; color: #999999; line-height: 1.6; margin-bottom: 8px;">
+            Avinashi Road, Peelamedu,<br>
+            Coimbatore - 641004, Tamil Nadu
+          </p>
+          <div style="color: #FFFFFF; font-weight: 700; margin-bottom: 4px;">
+            +91 94422 18900
+          </div>
+          <div>
+            <a href="mailto:info@thathvamasi.com" style="color: #60A5FA;">info@thathvamasi.com</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          &copy; 2026 Thathvamasi HR Consultancy. All rights reserved.
+        </div>
+        <div style="display: flex; gap: 18px;">
+          <a href="#privacy" onclick="window.showToast('DPDP Act compliant privacy policy active.', 'info')">Privacy Policy</a>
+          <a href="#terms" onclick="window.showToast('Corporate recruitment SLA applies.', 'info')">Terms of Service</a>
+          <a href="#admin" onclick="document.getElementById('btnToggleAdmin').click(); return false;" style="color: var(--zoho-blue);">HR Console Login</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Application Entry Script (ES Modules) -->
+  <script type="module" src="/src/main.js"></script>
+
+</body>
+</html>

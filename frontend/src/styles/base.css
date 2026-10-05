@@ -1,0 +1,155 @@
+/* ==========================================================================
+   Thathvamasi HR Consultancy (THC) - Base & Layout
+   AUTHENTIC ZOHO.COM STYLING & TYPOGRAPHY
+   ========================================================================== */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  scroll-padding-top: 85px;
+  color-scheme: light;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--bg-body);
+  color: var(--text-secondary);
+  line-height: 1.6;
+  min-height: 100vh;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Zoho Typography Standards */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 500;
+  color: var(--text-heading);
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: clamp(2.4rem, 4.2vw, 3.4rem);
+  font-weight: 400;                   /* Pure Zoho Regular weight - clean, airy, elegant */
+  letter-spacing: -0.015em;
+  color: #111111;
+}
+
+h2 {
+  font-size: clamp(1.6rem, 2.6vw, 2.1rem);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+h3 {
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+h4 {
+  font-size: 1.05rem;
+  font-weight: 500;
+}
+
+p {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  line-height: 1.65;
+}
+
+p.lead {
+  font-size: 1.18rem;
+  color: var(--text-main);
+  line-height: 1.65;
+}
+
+a {
+  color: var(--text-link);
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Zoho Divider Line Accent (Signature Zoho design element) */
+.zwc-divider-line {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 14px;
+}
+
+.zwc-divider-line::after {
+  content: '';
+  display: block;
+  width: 44px;
+  height: 3px;
+  background: var(--zoho-red);
+  margin-top: 10px;
+}
+
+.zwc-divider-line.center::after {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.zwc-divider-line.blue::after { background: var(--zoho-blue); }
+.zwc-divider-line.green::after { background: var(--zoho-green); }
+.zwc-divider-line.purple::after { background: var(--color-ai-purple); }
+
+/* Containers */
+.content-wrap, .container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+.container-narrow {
+  max-width: 860px;
+}
+
+/* Section Spacing */
+.section {
+  padding: 80px 0;
+  position: relative;
+}
+
+.section-bg-alt {
+  background-color: var(--bg-subtle);
+  border-top: 1px solid var(--border-light);
+  border-bottom: 1px solid var(--border-light);
+}
+
+.section-header {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 52px auto;
+}
+
+.section-subtitle {
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+/* Grid Layouts */
+.grid {
+  display: grid;
+  gap: 24px;
+}
+
+.grid-2 { grid-template-columns: repeat(2, 1fr); }
+.grid-3 { grid-template-columns: repeat(3, 1fr); }
+.grid-4 { grid-template-columns: repeat(4, 1fr); }

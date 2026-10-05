@@ -1,0 +1,392 @@
+/* ==========================================================================
+   Thathvamasi HR Consultancy (THC) - Responsive Media Queries
+   Theme: Zoho-Inspired Professional Enterprise Light Theme
+   ========================================================================== */
+
+@media (max-width: 1200px) {
+  .hero-grid {
+    gap: 36px;
+  }
+  
+  .ai-container-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .kpi-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+}
+
+@media (max-width: 992px) {
+  :root {
+    --header-height: 68px;
+  }
+
+  .section {
+    padding: 60px 0;
+  }
+
+  .hero-section {
+    padding: 40px 0 60px 0;
+  }
+
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .hero-visual-wrap {
+    order: -1;
+    max-width: 580px;
+    margin: 0 auto;
+  }
+
+  .hero-metrics {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .ai-container-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-sidebar {
+    border-right: none;
+    border-bottom: 1px solid var(--border-light);
+    flex-direction: row;
+    overflow-x: auto;
+    padding: 10px 14px;
+  }
+
+  .admin-profile-badge {
+    display: none;
+  }
+
+  .admin-charts-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Mobile Nav Drawer */
+  .mobile-toggle {
+    display: block;
+  }
+
+  .nav-menu {
+    position: fixed;
+    top: 72px;
+    left: 0;
+    width: 100%;
+    background: #FFFFFF;
+    border-bottom: 1px solid var(--border-light);
+    flex-direction: column;
+    padding: 20px;
+    gap: 8px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    transform: translateY(-120%);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 99;
+  }
+
+  .nav-menu.open {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .nav-link {
+    width: 100%;
+    padding: 10px 14px;
+    font-size: 1rem;
+  }
+
+  .nav-link.active::after {
+    display: none;
+  }
+
+  .zwc-banner-split {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .thc-story-banner {
+    grid-template-columns: 1fr;
+  }
+
+  .thc-story-media {
+    min-height: 260px;
+    max-height: 300px;
+  }
+
+  .thc-enterprise-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .thc-suite-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .thc-usecases-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .header-region {
+    display: none;
+  }
+
+  .zwc-hero-headline {
+    font-size: 2.2rem;
+  }
+
+  .zwc-solutions-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .thc-usecases-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-ctas {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .hero-ctas .btn {
+    width: 100%;
+  }
+
+  .hero-search-bar {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .search-divider {
+    display: none;
+  }
+
+  .hero-search-bar .btn {
+    width: 100%;
+  }
+
+  .grid-2, .grid-3, .grid-4 {
+    grid-template-columns: 1fr;
+  }
+
+  .kpi-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .form-card {
+    padding: 24px 18px;
+  }
+
+  .stepper {
+    padding: 0 10px;
+  }
+
+  .step-label {
+    display: none;
+  }
+
+  .step-item.active .step-label {
+    display: block;
+  }
+
+  .hero-floating-card {
+    position: static;
+    margin-top: 14px;
+    max-width: 100%;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+    gap: 12px;
+  }
+
+  .admin-content {
+    padding: 16px;
+  }
+}
+
+/* Tablet & Mobile Breakpoints for Multi-Page & Industries */
+@media (max-width: 992px) {
+  .nav-dropdown-menu {
+    position: static;
+    width: 100%;
+    box-shadow: none;
+    border: 1px solid #E2E8F0;
+    margin-top: 8px;
+    display: none;
+  }
+
+  .nav-item.has-dropdown.open .nav-dropdown-menu {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+  }
+
+  .dropdown-grid {
+    grid-template-columns: 1fr;
+    max-height: none;
+  }
+
+  .industries-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .service-hero-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .service-hero-media {
+    order: -1;
+    max-height: 280px;
+  }
+
+  .page-cta-inner {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-live-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .thc-hero-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .thc-hero-right {
+    order: -1;
+  }
+
+  .hero-executive-image {
+    height: 300px;
+  }
+
+  .hero-glass-pill.pill-top {
+    top: 10px;
+    left: 10px;
+  }
+
+  .hero-glass-pill.pill-bottom {
+    bottom: 10px;
+    right: 10px;
+  }
+}
+
+@media (max-width: 640px) {
+  .industries-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .service-stats-strip {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .service-stats-strip .sep-line {
+    width: 100%;
+    height: 1px;
+  }
+
+  .hero-live-stats {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .ind-ctc-tiers-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ind-modal-guarantees {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-executive-image {
+    height: 220px;
+  }
+
+  .hero-glass-pill {
+    padding: 6px 12px;
+  }
+
+  .glass-pill-text {
+    font-size: 0.72rem;
+  }
+
+  .tp-card {
+    height: 180px;
+  }
+
+  .tp-card-title {
+    font-size: 1.05rem;
+  }
+
+  .drawer-content-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .drawer-ctc-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .blogs-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .drawer-inner-box {
+    padding: 22px 18px;
+  }
+
+  .drawer-header-strip {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .drawer-header-meta {
+    width: 100%;
+  }
+
+  .drawer-title {
+    font-size: 1.25rem;
+  }
+}
+

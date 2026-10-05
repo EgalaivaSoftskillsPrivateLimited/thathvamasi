@@ -1,0 +1,10 @@
+{
+  "editor.formatOnSave": true,
+  "editor.tabSize": 2,
+  "editor.defaultFormatter": "vscode.html-language-features",
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true,
+  "html.format.wrapLineLength": 120,
+  "css.validate": true,
+  "javascript.validate.enable": true
+}

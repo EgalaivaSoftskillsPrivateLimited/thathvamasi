@@ -1,0 +1,26 @@
+{
+  "name": "thathvamasi",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EgalaivaSoftskillsPrivateLimited/thathvamasi.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EgalaivaSoftskillsPrivateLimited/thathvamasi/issues"
+  },
+  "homepage": "https://github.com/EgalaivaSoftskillsPrivateLimited/thathvamasi#readme",
+  "description": "",
+  "devDependencies": {
+    "vite": "^8.3.2"
+  }
+}

@@ -1,0 +1,89 @@
+/* ==========================================================================
+   Thathvamasi HR Consultancy (THC) - Design Tokens
+   AUTHENTIC ZOHO.COM DESIGN SYSTEM & FONT STACK
+   ========================================================================== */
+
+/* Modern Executive Typography System: Plus Jakarta Sans & Inter */
+
+:root {
+  /* Zoho Iconic 4-Color Palette */
+  --zoho-red: #F60014;                /* Official Zoho Primary Red */
+  --zoho-red-hover: #D90012;
+  --zoho-red-light: #FFF0F1;
+
+  --zoho-green: #008844;
+  --zoho-green-hover: #006E37;
+  --zoho-green-light: #EBF8F2;
+
+  --zoho-blue: #0060B4;               /* Official Zoho Highlight Blue */
+  --zoho-blue-hover: #004D91;
+  --zoho-blue-light: #EEF5FC;
+
+  --zoho-yellow: #FFB900;
+  --zoho-yellow-hover: #E0A300;
+  --zoho-yellow-light: #FFF9E6;
+
+  /* Primary Brand Bindings */
+  --color-primary: #0060B4;           /* Zoho Blue */
+  --color-primary-hover: #004D91;
+  --color-primary-light: #EEF5FC;
+
+  --color-cta: #F60014;               /* Zoho Signature Red CTA */
+  --color-cta-hover: #D90012;
+
+  --color-ai-purple: #7047EB;         /* Zia / Catalyst AI Purple */
+  --color-ai-light: #F4F0FF;
+
+  /* Surfaces & Backgrounds - Premium Indian Enterprise Polish */
+  --bg-body: #FFFFFF;
+  --bg-surface: #FFFFFF;
+  --bg-subtle: #F8FAFC;               /* Clean corporate slate */
+  --bg-header: #FFFFFF;
+  --bg-hero: #FFFFFF;                 /* Pure crisp white canvas */
+  --bg-alt: #F8FAFC;
+  --bg-zoho-cream: #F8FAFC;          /* Clean slate fallback */
+  --bg-banner: #0A192F;               /* Authoritative executive navy */
+  --bg-card: #FFFFFF;
+  --bg-dark: #0A0F1D;
+
+  /* Borders & Dividers */
+  --border-light: #E2E8F0;
+  --border-medium: #CBD5E1;
+  --border-dark: #334155;
+
+  /* Typography Colors */
+  --text-main: #0F172A;               /* Deep slate charcoal */
+  --text-heading: #0A0F1D;
+  --text-secondary: #334155;
+  --text-muted: #64748B;
+  --text-light: #94A3B8;
+  --text-white: #FFFFFF;
+  --text-link: #0060B4;
+
+  /* Indian Enterprise Accent Colors */
+  --color-indian-red: #D32F2F;        /* High-credibility Indian Red CTA */
+  --color-indian-red-hover: #B71C1C;
+  --color-navy: #0A192F;
+  --color-emerald: #059669;           /* 48-Hr SLA badge */
+  --color-gold: #D97706;
+
+  /* Typography Stack: Google Fonts Plus Jakarta Sans - Crisp, High-End Enterprise Sans */
+  --font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-heading: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+
+  /* Corner Radii */
+  --radius-btn: 6px;
+  --radius-card: 12px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-full: 9999px;
+
+  /* Elevations */
+  --shadow-card: 0 4px 18px rgba(15, 23, 42, 0.05);
+  --shadow-hover: 0 16px 36px rgba(15, 23, 42, 0.1);
+  --shadow-btn: 0 4px 12px rgba(211, 47, 47, 0.25);
+
+  /* Layout */
+  --container-max: 1240px;
+  --header-height: 72px;
+}
