@@ -1,11 +1,13 @@
 # Dependencies
 node_modules/
+frontend/node_modules/
 .pnp
 .pnp.js
 
 # Build Outputs & Caches
 dist/
 build/
+frontend/dist/
 .vite/
 .cache/
 
