@@ -1,0 +1,223 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+
+# Translations
+*.mo
+*.pot
+
+# Django stuff:
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+
+# Flask stuff:
+instance/
+.webassets-cache
+
+# Scrapy stuff:
+.scrapy
+
+# Sphinx documentation
+docs/_build/
+
+# PyBuilder
+target/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# IPython
+profile_default/
+ipython_config.py
+
+# pyenv
+.python-version
+
+# pipenv
+Pipfile.lock
+
+# PEP 582
+__pypackages__/
+
+# Celery stuff
+celerybeat-schedule
+celerybeat.pid
+
+# SageMath parsed files
+*.sage.py
+
+# Environments
+.env
+.env.local
+.env.*.local
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Spyder project settings
+.spyderproject
+.spyproject
+
+# Rope project settings
+.ropeproject
+
+# mkdocs documentation
+/site
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre type checker
+.pyre/
+
+# IDE settings
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+*.sublime-project
+*.sublime-workspace
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+.pnpm-debug.log*
+
+# Dependencies
+node_modules/
+vendor/
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# OS files
+.DS_Store
+Thumbs.db
+.env.example.local
+
+# Docker
+docker-compose.override.yml
+.dockerignore
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+postgres_data/
+data/
+
+# Static files
+static/uploads/*
+!static/uploads/.gitkeep
+media/
+
+# Cloudinary cache
+cloudinary_cache/
+
+# FastAPI/Uvicorn
+__pycache__/
+.pytest_cache/
+
+# Backend specific
+backend/.env
+backend/.env.local
+backend/.env.*.local
+backend/.venv
+backend/venv/
+# Uploads
+app/static/uploads/*
+!app/static/uploads/.gitkeep
+app/static/resumes/*
+!app/static/resumes/.gitkeep
+app/static/jds/*
+!app/static/jds/.gitkeep
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Testing
+.pytest_cache/
+htmlcov/
+
+# IDE
+.vscode/settings.json
+.idea/workspace.xml
+.idea/tasks.xml
+
+# OS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Misc
+.env.test
+.env.production
+
+# Email logs
+email_logs/
+
+# Application specific
+*.pid
+*.sock
+*.log
+debug/
