@@ -16,7 +16,8 @@
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .footer-grid {
+  .footer-grid,
+  .footer-inner {
     grid-template-columns: 1fr 1fr;
     gap: 32px;
   }
@@ -221,12 +222,14 @@
     max-width: 100%;
   }
 
-  .footer-grid {
+  .footer-grid,
+  .footer-inner {
     grid-template-columns: 1fr;
     gap: 32px;
   }
 
-  .footer-bottom {
+  .footer-bottom,
+  .footer-bottom-inner {
     flex-direction: column;
     text-align: center;
     gap: 12px;
