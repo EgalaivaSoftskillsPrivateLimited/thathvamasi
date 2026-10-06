@@ -1,0 +1,150 @@
+# ==========================================
+# Thathvamasi Monorepo Root .gitignore
+# ==========================================
+
+# Environment & Secret Files (Keep .env.example tracked)
+.env
+.env.local
+.env.*.local
+.env.development
+.env.test
+.env.production
+!.env.example
+!backend/.env.example
+!frontend/.env.example
+
+# Logs and runtime artifacts
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+*.pid
+*.sock
+
+# Temporary & Cache files
+tmp/
+temp/
+*.tmp
+.cache/
+
+# ==========================================
+# Backend (Python / FastAPI)
+# ==========================================
+venv/
+.venv/
+env/
+ENV/
+
+# Python bytecode and cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.pyo
+*.pyd
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+
+# Pyre type checker
+.pyre/
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# PyCharm
+.idea/
+.idea/*
+!.idea/runConfigurations/
+!.idea/inspectionProfiles/
+
+# VS Code
+.vscode/
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Alembic (migration auto-generated files should be tracked)
+# alembic/versions/*.py (tracked)
+# Only ignore compiled files
+alembic/versions/__pycache__/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# SQLite databases (if local)
+*.db
+*.sqlite
+*.sqlite3
+
+# Uploads & Media (keep directory structure via .gitkeep)
+app/static/uploads/*
+!app/static/uploads/.gitkeep
+app/static/resumes/*
+!app/static/resumes/.gitkeep
+app/static/jds/*
+!app/static/jds/.gitkeep
+
+# Docker volumes
+postgres_data/
+pgadmin_data/
+redis_data/
+
+# Node.js (if any Node packages in backend)
+node_modules/
