@@ -90,6 +90,11 @@ app.add_middleware(RequestValidationMiddleware)
 # Mount static files
 app.mount("/static", StaticFiles(directory="app/static"), name="static")
 
+# Mount frontend production dist assets if built
+frontend_dist = os.path.abspath(os.path.join(os.path.dirname(__file__), "../../frontend/dist"))
+if os.path.exists(os.path.join(frontend_dist, "assets")):
+    app.mount("/assets", StaticFiles(directory=os.path.join(frontend_dist, "assets")), name="dist_assets")
+
 # Include API routers
 app.include_router(auth.router, prefix="/api/auth", tags=["Authentication"])
 app.include_router(candidates.router, prefix="/api/candidates", tags=["Candidates"])
@@ -97,6 +102,23 @@ app.include_router(clients.router, prefix="/api/clients", tags=["Clients"])
 app.include_router(blogs.router, prefix="/api/blogs", tags=["Blogs"])
 app.include_router(upload.router, prefix="/api/upload", tags=["Upload"])
 app.include_router(contact.router, prefix="/api/contact", tags=["Contact"])
+
+@app.get("/admin", include_in_schema=False)
+@app.get("/admin/", include_in_schema=False)
+async def serve_admin_portal():
+    """Serve the Admin Command Center at domain.com/admin"""
+    from fastapi.responses import FileResponse
+    admin_dist_file = os.path.join(frontend_dist, "admin/index.html")
+    if os.path.exists(admin_dist_file):
+        return FileResponse(admin_dist_file)
+    admin_src_file = os.path.abspath(os.path.join(os.path.dirname(__file__), "../../frontend/admin/index.html"))
+    if os.path.exists(admin_src_file):
+        return FileResponse(admin_src_file)
+    return {
+        "status": "admin_portal",
+        "message": "Admin portal entry point at domain.com/admin",
+        "login_api": "/api/auth/login"
+    }
 
 @app.get("/")
 async def root():
@@ -114,6 +136,7 @@ async def root():
     }
 
 @app.get("/health")
+@app.get("/api/health")
 async def health_check():
     """
     Health check endpoint

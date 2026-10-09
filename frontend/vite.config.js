@@ -1,22 +1,36 @@
-import { resolve } from 'path';
+import { fileURLToPath } from 'url';
+import { resolve, dirname } from 'path';
 import { defineConfig } from 'vite';
 
-const rootDir = import.meta.dirname;
+const rootDir = typeof import.meta.dirname !== 'undefined'
+  ? import.meta.dirname
+  : dirname(fileURLToPath(import.meta.url));
 
 export default defineConfig({
   server: {
     port: 5173,
     proxy: {
       '/api': {
-        target: 'http://127.0.0.1:8000',
+        target: process.env.VITE_API_PROXY_TARGET || 'http://127.0.0.1:8000',
         changeOrigin: true
       }
     }
   },
+  preview: {
+    port: 4173,
+    host: true
+  },
   build: {
+    outDir: 'dist',
+    emptyOutDir: true,
+    sourcemap: false,
+    minify: true,
+    chunkSizeWarningLimit: 1200,
     rollupOptions: {
       input: {
         main: resolve(rootDir, 'index.html'),
+        admin: resolve(rootDir, 'admin/index.html'),
+        notFound: resolve(rootDir, '404.html'),
         services: resolve(rootDir, 'services/index.html'),
         erpCrm: resolve(rootDir, 'services/erp-crm.html'),
         executiveSearch: resolve(rootDir, 'services/executive-search.html'),

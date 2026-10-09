@@ -249,7 +249,10 @@ function initBusinessConsultationForm() {
     }
 
     try {
-      const res = await fetch('/api/contact/enquiry', {
+      const apiEndpoint = (typeof import.meta !== 'undefined' && import.meta.env && import.meta.env.VITE_API_ENDPOINT)
+        ? `${import.meta.env.VITE_API_ENDPOINT}/contact/enquiry`
+        : '/api/contact/enquiry';
+      const res = await fetch(apiEndpoint, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

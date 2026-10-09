@@ -1,0 +1,1201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GST & TDS Workflow Automation — Private Intranet AI System</title>
+    <style>
+        :root {
+            --navy: #1a365d;
+            --blue: #2b6cb0;
+            --teal: #2c7a7b;
+            --green: #276749;
+            --amber: #b7791f;
+            --red: #c53030;
+            --bg: #f7fafc;
+            --border: #e2e8f0;
+            --text: #2d3748;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
+            color: var(--text);
+            background: #fff;
+            font-size: 15px;
+        }
+        .page {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 50px;
+        }
+        /* ── cover ── */
+        .cover {
+            text-align: center;
+            padding: 60px 0 40px;
+            border-bottom: 3px solid var(--navy);
+            margin-bottom: 50px;
+        }
+        .cover h1 { color: var(--navy); font-size: 34px; line-height: 1.3; margin-bottom: 12px; }
+        .cover h2 { color: var(--blue); font-size: 20px; font-weight: 400; margin-bottom: 20px; }
+        .cover .badge {
+            display: inline-block;
+            background: var(--navy);
+            color: #fff;
+            padding: 8px 22px;
+            border-radius: 20px;
+            font-size: 14px;
+            margin: 6px;
+        }
+        /* ── sections ── */
+        .section { margin-bottom: 50px; page-break-inside: avoid; }
+        .section-title {
+            color: var(--navy);
+            font-size: 22px;
+            font-weight: 700;
+            border-left: 5px solid var(--blue);
+            padding: 8px 15px;
+            background: #ebf4ff;
+            margin-bottom: 20px;
+            border-radius: 0 6px 6px 0;
+        }
+        h3 { color: var(--blue); font-size: 17px; margin: 20px 0 8px; }
+        h4 { color: var(--teal); font-size: 15px; margin: 14px 0 6px; }
+        p { margin-bottom: 10px; }
+        /* ── flow diagram ── */
+        .flow {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 4px;
+            margin: 16px 0;
+        }
+        .flow-step {
+            background: var(--navy);
+            color: #fff;
+            padding: 8px 14px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 600;
+            text-align: center;
+        }
+        .flow-step.green { background: var(--green); }
+        .flow-step.amber { background: var(--amber); }
+        .flow-step.red { background: var(--red); }
+        .flow-step.teal { background: var(--teal); }
+        .flow-step.blue { background: var(--blue); }
+        .flow-arrow { color: var(--navy); font-size: 20px; font-weight: bold; }
+        /* ── box styles ── */
+        .box {
+            background: var(--bg);
+            border: 1px solid var(--border);
+            padding: 16px 20px;
+            border-radius: 8px;
+            margin: 12px 0;
+        }
+        .box.green { border-left: 4px solid #38a169; background: #f0fff4; }
+        .box.amber { border-left: 4px solid #d69e2e; background: #fffff0; }
+        .box.red   { border-left: 4px solid var(--red); background: #fff5f5; }
+        .box.blue  { border-left: 4px solid var(--blue); background: #ebf8ff; }
+        .box.navy  { border-left: 4px solid var(--navy); background: #ebf4ff; }
+        /* ── highlight quote ── */
+        .quote {
+            font-size: 17px;
+            font-style: italic;
+            border-left: 5px solid var(--teal);
+            padding: 14px 20px;
+            background: #e6fffa;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        /* ── grid ── */
+        .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 14px 0; }
+        .grid3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; margin: 14px 0; }
+        /* ── table ── */
+        table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 14px; }
+        th { background: var(--navy); color: #fff; padding: 10px 12px; text-align: left; }
+        td { padding: 9px 12px; border: 1px solid var(--border); vertical-align: top; }
+        tr:nth-child(even) td { background: var(--bg); }
+        /* ── step boxes ── */
+        .steps { counter-reset: step; }
+        .step {
+            counter-increment: step;
+            display: flex;
+            gap: 16px;
+            margin-bottom: 14px;
+            align-items: flex-start;
+        }
+        .step-num {
+            min-width: 36px;
+            height: 36px;
+            background: var(--navy);
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 14px;
+            flex-shrink: 0;
+        }
+        .step-body strong { color: var(--navy); display: block; margin-bottom: 4px; }
+        /* ── ai action tag ── */
+        .ai-tag {
+            display: inline-block;
+            background: #2d3748;
+            color: #90cdf4;
+            font-size: 12px;
+            padding: 2px 8px;
+            border-radius: 4px;
+            margin-left: 6px;
+            font-weight: 600;
+        }
+        .human-tag {
+            display: inline-block;
+            background: #276749;
+            color: #c6f6d5;
+            font-size: 12px;
+            padding: 2px 8px;
+            border-radius: 4px;
+            margin-left: 6px;
+            font-weight: 600;
+        }
+        /* ── status pills ── */
+        .pill {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 13px;
+            font-weight: 600;
+        }
+        .pill.green { background: #c6f6d5; color: #276749; }
+        .pill.amber { background: #fefcbf; color: #744210; }
+        .pill.red   { background: #fed7d7; color: #9b2c2c; }
+        /* ── report card ── */
+        .report-card {
+            border: 1px solid #718096;
+            border-radius: 8px;
+            overflow: hidden;
+            margin: 16px 0;
+        }
+        .report-card-header {
+            background: var(--navy);
+            color: #fff;
+            padding: 12px 18px;
+            font-weight: 700;
+            font-size: 15px;
+        }
+        .report-card-body { padding: 16px 18px; }
+        /* ── footer ── */
+        .footer {
+            text-align: center;
+            margin-top: 60px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+            color: #718096;
+            font-size: 13px;
+        }
+        @media print {
+            .page { padding: 15mm; }
+            .section { page-break-inside: avoid; }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+<!-- ═══════════════════════════════ COVER ═══════════════════════════════ -->
+<div class="cover">
+    <h1>GST & TDS Workflow Automation<br>Using Private Intranet AI</h1>
+    <h2>Understanding Real Workflows — Then Automating Each Step</h2>
+    <br>
+    <span class="badge">GSTR-1</span>
+    <span class="badge">GSTR-2B</span>
+    <span class="badge">GSTR-3B</span>
+    <span class="badge">TDS / TCS</span>
+    <span class="badge">Intranet AI</span>
+    <br><br>
+    <p style="color:#718096; font-size:14px;">Internal Proposal — Version 2.0 — October 2026</p>
+</div>
+
+<!-- ═══════════════════════ SECTION 1: HOW AI WORKS ON INTRANET ════════ -->
+<div class="section">
+    <div class="section-title">1. How the Intranet AI Works — Architecture First</div>
+
+    <p>Before diving into GSTR or TDS workflows, it is important to understand what we mean by <strong>intranet AI</strong> and why it is the right approach for a tax firm.</p>
+
+    <div class="grid2">
+        <div class="box red">
+            <strong>❌ Public AI (ChatGPT / Cloud)</strong><br>
+            Client PAN, GSTIN, bank data, returns sent to external servers. Not acceptable for statutory and confidential client data.
+        </div>
+        <div class="box green">
+            <strong>✅ Private Intranet AI</strong><br>
+            AI model runs inside your office network (LAN). No data leaves your premises. Fully controlled, fully private.
+        </div>
+    </div>
+
+    <h3>How It Works Inside the Office:</h3>
+    <div class="flow">
+        <div class="flow-step">Office LAN / Intranet</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step blue">AI Server<br>(On-Premise)</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step green">Employee Laptop<br>/ Desktop</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step teal">Browser-Based<br>Work Dashboard</div>
+    </div>
+
+    <div class="box navy">
+        <strong>What the AI Server Contains:</strong><br>
+        • A locally running AI language model (e.g., Llama 3, Mistral)<br>
+        • Document processing engine (reads PDF, Excel, JSON)<br>
+        • GST reconciliation engine<br>
+        • TDS matching engine<br>
+        • Report generation engine<br>
+        • Client data stored in local PostgreSQL database<br>
+        • All accessible only from within office network
+    </div>
+
+    <div class="quote">
+        "An employee opens a browser, uploads documents, clicks 'Process', and within minutes gets a complete working, reconciliation, and exception report — all processed inside the office, no data ever leaving."
+    </div>
+</div>
+
+<!-- ═══════════════════════ SECTION 2: GSTR-1 WORKFLOW ════════════════ -->
+<div class="section">
+    <div class="section-title">2. GSTR-1 — What It Is & How AI Automates It</div>
+
+    <h3>What Is GSTR-1?</h3>
+    <p>GSTR-1 is the <strong>statement of outward supplies</strong> — every sale invoice a business issues in a month must be reported here. It must be filed monthly (or quarterly for small businesses) on the GST portal.</p>
+
+    <h3>What a GST Team Does Today (Manual Process):</h3>
+    <div class="steps">
+        <div class="step">
+            <div class="step-num">1</div>
+            <div class="step-body">
+                <strong>Collect sales data from the client</strong>
+                Client sends: Sales register / Tally export / ERP export / Manual invoices as PDF or Excel.
+            </div>
+        </div>
+        <div class="step">
+            <div class="step-num">2</div>
+            <div class="step-body">
+                <strong>Validate each invoice</strong>
+                Check: Invoice number format, Date, GSTIN of buyer, Taxable value, Tax rate applied, HSN code, Place of supply (IGST vs CGST+SGST).
+            </div>
+        </div>
+        <div class="step">
+            <div class="step-num">3</div>
+            <div class="step-body">
+                <strong>Classify supplies</strong>
+                B2B (registered buyers) / B2C (unregistered, value above ₹2.5L) / B2CS (small unregistered) / Exports / Nil-rated / Exempt / RCM.
+            </div>
+        </div>
+        <div class="step">
+            <div class="step-num">4</div>
+            <div class="step-body">
+                <strong>Prepare HSN summary</strong>
+                Group invoices by HSN code, calculate total quantity and taxable value for each code.
+            </div>
+        </div>
+        <div class="step">
+            <div class="step-num">5</div>
+            <div class="step-body">
+                <strong>Check for errors</strong>
+                Duplicate invoice numbers, invalid GSTINs, wrong tax rates, missing details, value mismatches.
+            </div>
+        </div>
+        <div class="step">
+            <div class="step-num">6</div>
+            <div class="step-body">
+                <strong>Prepare JSON / portal upload</strong>
+                Convert working to GST portal format. Upload or enter data on the portal. File.
+            </div>
+        </div>
+    </div>
+
+    <h3>How the Intranet AI Automates This:</h3>
+    <table>
+        <tr>
+            <th>Step</th>
+            <th>What AI Does</th>
+            <th>Who Does It</th>
+        </tr>
+        <tr>
+            <td>Collect data</td>
+            <td>Accepts PDF invoices, Excel registers, Tally exports. Extracts all fields automatically.</td>
+            <td><span class="ai-tag">AI</span></td>
+        </tr>
+        <tr>
+            <td>Validate invoices</td>
+            <td>Checks GSTIN format (15-digit), invoice numbering, tax rate vs HSN, place of supply logic.</td>
+            <td><span class="ai-tag">AI</span></td>
+        </tr>
+        <tr>
+            <td>Classify supplies</td>
+            <td>Reads buyer GSTIN → checks if registered → classifies B2B / B2C / Export automatically.</td>
+            <td><span class="ai-tag">AI</span></td>
+        </tr>
+        <tr>
+            <td>HSN summary</td>
+            <td>Groups by HSN code, computes totals per code, flags unusual HSN codes.</td>
+            <td><span class="ai-tag">AI</span></td>
+        </tr>
+        <tr>
+            <td>Error detection</td>
+            <td>Flags duplicates, invalid GSTINs, rate mismatches, missing fields with line-by-line detail.</td>
+            <td><span class="ai-tag">AI</span></td>
+        </tr>
+        <tr>
+            <td>Exception review</td>
+            <td>Employee reviews only the flagged items — not all 500 invoices.</td>
+            <td><span class="human-tag">HUMAN</span></td>
+        </tr>
+        <tr>
+            <td>JSON generation</td>
+            <td>Produces portal-ready JSON file. Employee downloads and uploads to GST portal.</td>
+            <td><span class="ai-tag">AI</span></td>
+        </tr>
+        <tr>
+            <td>Final approval & filing</td>
+            <td>Employee verifies, files on portal, updates status in system.</td>
+            <td><span class="human-tag">HUMAN</span></td>
+        </tr>
+    </table>
+
+    <div class="report-card">
+        <div class="report-card-header">GSTR-1 AI OUTPUT — ABC Pvt Ltd — September 2026</div>
+        <div class="report-card-body">
+            <div class="grid2">
+                <div>
+                    <strong>Total Invoices Processed:</strong> 847<br>
+                    <strong>B2B Invoices:</strong> 612<br>
+                    <strong>B2C Large:</strong> 89<br>
+                    <strong>B2CS (Small):</strong> 146<br>
+                    <strong>Exports:</strong> 0
+                </div>
+                <div>
+                    <strong>Total Taxable Value:</strong> ₹1,24,50,000<br>
+                    <strong>Total CGST:</strong> ₹6,18,000<br>
+                    <strong>Total SGST:</strong> ₹6,18,000<br>
+                    <strong>Total IGST:</strong> ₹2,34,000<br>
+                    <strong>Total Tax:</strong> ₹14,70,000
+                </div>
+            </div>
+            <hr style="margin: 14px 0; border-color: #e2e8f0;">
+            <strong>⚠ Exceptions Requiring Attention (23 items):</strong><br>
+            <span class="pill red">12 Invalid GSTINs</span>&nbsp;
+            <span class="pill amber">7 Rate Mismatches</span>&nbsp;
+            <span class="pill red">4 Duplicate Invoice Numbers</span>
+            <br><br>
+            <strong>Files Ready:</strong> GSTR1_Working.xlsx &nbsp;|&nbsp; GSTR1_HSN_Summary.xlsx &nbsp;|&nbsp; GSTR1_Portal.json &nbsp;|&nbsp; GSTR1_Exceptions.pdf
+        </div>
+    </div>
+
+    <div class="box green">
+        <strong>Productivity Gain:</strong> An employee who manually processes 847 invoices in 6–8 hours now reviews 23 exceptions in 30 minutes. <strong>Time saved: ~7 hours per client per month.</strong>
+    </div>
+</div>
+
+<!-- ═══════════════════════ SECTION 3: GSTR-2B WORKFLOW ═══════════════ -->
+<div class="section">
+    <div class="section-title">3. GSTR-2B — What It Is & How AI Automates It</div>
+
+    <h3>What Is GSTR-2B?</h3>
+    <p>GSTR-2B is an <strong>auto-drafted ITC (Input Tax Credit) statement</strong> generated by the GST portal. It shows all purchase invoices that your suppliers have uploaded in their GSTR-1. The client uses this to know which ITC they are eligible to claim.</p>
+
+    <div class="box amber">
+        <strong>The Core Problem Today:</strong><br>
+        The GSTR-2B from the portal must be matched against the company's own purchase register (books). Mismatches mean ITC is either over-claimed (risky) or under-claimed (money left on table). This matching is done manually, entry by entry, often involving thousands of records.
+    </div>
+
+    <h3>What a GST Team Does Today (Manual Process):</h3>
+    <div class="steps">
+        <div class="step">
+            <div class="step-num">1</div>
+            <div class="step-body">
+                <strong>Download GSTR-2B from portal</strong>
+                Available as JSON or Excel on the 14th of every month.
+            </div>
+        </div>
+        <div class="step">
+            <div class="step-num">2</div>
+            <div class="step-body">
+                <strong>Get purchase register from client</strong>
+                Client sends Tally export / ERP data / manual purchase Excel.
+            </div>
+        </div>
+        <div class="step">
+            <div class="step-num">3</div>
+            <div class="step-body">
+                <strong>Match invoice by invoice</strong>
+                For every entry in GSTR-2B: find the matching entry in purchase register using Supplier GSTIN + Invoice Number + Invoice Date + Amount.
+            </div>
+        </div>
+        <div class="step">
+            <div class="step-num">4</div>
+            <div class="step-body">
+                <strong>Identify mismatches</strong>
+                • Invoice in 2B but not in books (supplier filed, client hasn't recorded) <br>
+                • Invoice in books but not in 2B (supplier hasn't filed yet) <br>
+                • Amount difference between 2B and books <br>
+                • GSTIN mismatch <br>
+                • Date difference
+            </div>
+        </div>
+        <div class="step">
+            <div class="step-num">5</div>
+            <div class="step-body">
+                <strong>Decide on ITC</strong>
+                Only invoices in GSTR-2B can be claimed as ITC. Mismatches need resolution.
+            </div>
+        </div>
+        <div class="step">
+            <div class="step-num">6</div>
+            <div class="step-body">
+                <strong>Prepare ITC working</strong>
+                Eligible ITC, ineligible ITC (blocked credits u/s 17(5)), ITC to be reversed.
+            </div>
+        </div>
+    </div>
+
+    <h3>How the Intranet AI Automates This:</h3>
+    <table>
+        <tr>
+            <th>Step</th>
+            <th>What AI Does</th>
+            <th>Who Does It</th>
+        </tr>
+        <tr>
+            <td>Load GSTR-2B</td>
+            <td>Reads JSON or Excel from portal. Parses all supplier entries, invoice-wise.</td>
+            <td><span class="ai-tag">AI</span></td>
+        </tr>
+        <tr>
+            <td>Load Purchase Register</td>
+            <td>Reads Tally export, ERP data or manual Excel. Normalises formats.</td>
+            <td><span class="ai-tag">AI</span></td>
+        </tr>
+        <tr>
+            <td>Match invoices</td>
+            <td>Fuzzy-matches on GSTIN + Invoice No + Amount (allows for small formatting differences). Assigns match status to every line.</td>
+            <td><span class="ai-tag">AI</span></td>
+        </tr>
+        <tr>
+            <td>Classify mismatches</td>
+            <td>Categorises: Matched / In 2B not in Books / In Books not in 2B / Amount diff / GSTIN diff / Date diff.</td>
+            <td><span class="ai-tag">AI</span></td>
+        </tr>
+        <tr>
+            <td>Apply ITC rules</td>
+            <td>Checks HSN codes against Section 17(5) blocked credit list. Flags ineligible ITC automatically.</td>
+            <td><span class="ai-tag">AI</span></td>
+        </tr>
+        <tr>
+            <td>Review exceptions</td>
+            <td>Employee sees only the mismatch list with suggested action for each item.</td>
+            <td><span class="human-tag">HUMAN</span></td>
+        </tr>
+        <tr>
+            <td>Prepare ITC working</td>
+            <td>Generates ITC eligibility statement ready for GSTR-3B entry.</td>
+            <td><span class="ai-tag">AI</span></td>
+        </tr>
+    </table>
+
+    <div class="report-card">
+        <div class="report-card-header">GSTR-2B RECONCILIATION — ABC Pvt Ltd — September 2026</div>
+        <div class="report-card-body">
+            <table>
+                <tr>
+                    <th>Category</th>
+                    <th>Invoices</th>
+                    <th>ITC Amount</th>
+                    <th>Action</th>
+                </tr>
+                <tr>
+                    <td>✅ Matched — Eligible ITC</td>
+                    <td>412</td>
+                    <td>₹2,18,400</td>
+                    <td><span class="pill green">Claim</span></td>
+                </tr>
+                <tr>
+                    <td>⚠ In 2B, Not in Books</td>
+                    <td>18</td>
+                    <td>₹14,200</td>
+                    <td><span class="pill amber">Verify & Book</span></td>
+                </tr>
+                <tr>
+                    <td>⚠ In Books, Not in 2B</td>
+                    <td>31</td>
+                    <td>₹22,700</td>
+                    <td><span class="pill amber">Supplier Follow-up</span></td>
+                </tr>
+                <tr>
+                    <td>❌ Amount Mismatch</td>
+                    <td>7</td>
+                    <td>₹3,100 diff</td>
+                    <td><span class="pill red">Reconcile</span></td>
+                </tr>
+                <tr>
+                    <td>🚫 Blocked Credit (Sec 17(5))</td>
+                    <td>9</td>
+                    <td>₹8,900</td>
+                    <td><span class="pill red">Cannot Claim</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Total Eligible ITC</strong></td>
+                    <td><strong>421</strong></td>
+                    <td><strong>₹2,32,600</strong></td>
+                    <td><span class="pill green">Ready for 3B</span></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="box green">
+        <strong>Productivity Gain:</strong> Manual reconciliation of 477 purchase entries vs 430 GSTR-2B entries: 4–5 hours. AI reconciliation: 3 minutes processing + 30 minutes human review of 56 exceptions. <strong>Time saved: ~4.5 hours per client per month.</strong>
+    </div>
+</div>
+
+<!-- ═══════════════════════ SECTION 4: GSTR-3B WORKFLOW ═══════════════ -->
+<div class="section">
+    <div class="section-title">4. GSTR-3B — What It Is & How AI Automates It</div>
+
+    <h3>What Is GSTR-3B?</h3>
+    <p>GSTR-3B is the <strong>monthly summary return and tax payment</strong> form. The business declares its total outward supply tax, claims ITC, and pays the net GST liability. It must be filed every month, and the tax must be paid before filing. <strong>This is the most critical return because it involves actual tax payment.</strong></p>
+
+    <div class="box amber">
+        <strong>Why This Is Difficult:</strong><br>
+        GSTR-3B requires consolidating data from GSTR-1 working (outward), GSTR-2B reconciliation (inward/ITC), and applying various rules for ITC reversal, RCM liability, and previous month adjustments. Getting any figure wrong means tax demand or excess payment.
+    </div>
+
+    <h3>What a GST Team Does Today (Manual Process):</h3>
+    <div class="steps">
+        <div class="step">
+            <div class="step-num">1</div>
+            <div class="step-body">
+                <strong>Prepare outward tax summary</strong>
+                From GSTR-1 working: total CGST, SGST, IGST on outward supplies. Separate taxable / nil-rated / exempt / zero-rated.
+            </div>
+        </div>
+        <div class="step">
+            <div class="step-num">2</div>
+            <div class="step-body">
+                <strong>Calculate eligible ITC</strong>
+                From GSTR-2B reconciliation: total eligible ITC, split by CGST / SGST / IGST / Cess. Less blocked credits, less ITC reversal (Rule 42/43 for personal use, exempt supplies).
+            </div>
+        </div>
+        <div class="step">
+            <div class="step-num">3</div>
+            <div class="step-body">
+                <strong>Calculate RCM liability</strong>
+                RCM (Reverse Charge Mechanism) applies to certain purchases from unregistered vendors or specified services. This becomes both a liability AND eligible ITC.
+            </div>
+        </div>
+        <div class="step">
+            <div class="step-num">4</div>
+            <div class="step-body">
+                <strong>Carry forward / utilisation of ITC</strong>
+                ITC utilisation order is prescribed: IGST first (against IGST, then CGST, then SGST). CGST only against CGST and IGST. SGST only against SGST and IGST. Cannot cross-utilise CGST with SGST.
+            </div>
+        </div>
+        <div class="step">
+            <div class="step-num">5</div>
+            <div class="step-body">
+                <strong>Calculate net tax payable</strong>
+                Output tax minus eligible ITC. Pay via Electronic Cash Ledger. Check for excess in Electronic Credit Ledger.
+            </div>
+        </div>
+        <div class="step">
+            <div class="step-num">6</div>
+            <div class="step-body">
+                <strong>File GSTR-3B</strong>
+                Enter all figures in portal. Make payment. File.
+            </div>
+        </div>
+    </div>
+
+    <h3>How the Intranet AI Automates This:</h3>
+    <table>
+        <tr>
+            <th>Step</th>
+            <th>What AI Does</th>
+            <th>Who Does It</th>
+        </tr>
+        <tr>
+            <td>Outward tax summary</td>
+            <td>Reads directly from GSTR-1 working already processed. Splits by supply type and tax head automatically.</td>
+            <td><span class="ai-tag">AI</span></td>
+        </tr>
+        <tr>
+            <td>ITC calculation</td>
+            <td>Reads from GSTR-2B reconciliation output. Applies Section 17(5) exclusions. Computes Rule 42/43 reversal if applicable.</td>
+            <td><span class="ai-tag">AI</span></td>
+        </tr>
+        <tr>
+            <td>RCM computation</td>
+            <td>Identifies RCM transactions from purchase data. Calculates liability and ITC offset.</td>
+            <td><span class="ai-tag">AI</span></td>
+        </tr>
+        <tr>
+            <td>ITC utilisation order</td>
+            <td>Applies prescribed utilisation sequence (IGST → CGST → SGST). Computes optimum utilisation automatically.</td>
+            <td><span class="ai-tag">AI</span></td>
+        </tr>
+        <tr>
+            <td>Net tax computation</td>
+            <td>Calculates net payable per head (CGST/SGST/IGST/Cess). Checks credit ledger balance. Shows cash to be paid.</td>
+            <td><span class="ai-tag">AI</span></td>
+        </tr>
+        <tr>
+            <td>Professional review</td>
+            <td>Employee reviews full computation. Checks for any adjustments. Approves figures.</td>
+            <td><span class="human-tag">HUMAN</span></td>
+        </tr>
+        <tr>
+            <td>Portal entry & filing</td>
+            <td>Employee enters figures in portal, makes payment, files.</td>
+            <td><span class="human-tag">HUMAN</span></td>
+        </tr>
+    </table>
+
+    <div class="report-card">
+        <div class="report-card-header">GSTR-3B COMPUTATION — ABC Pvt Ltd — September 2026</div>
+        <div class="report-card-body">
+            <table>
+                <tr>
+                    <th>Particular</th>
+                    <th>CGST</th>
+                    <th>SGST</th>
+                    <th>IGST</th>
+                    <th>Total</th>
+                </tr>
+                <tr>
+                    <td><strong>Output Tax (from GSTR-1)</strong></td>
+                    <td>₹6,18,000</td>
+                    <td>₹6,18,000</td>
+                    <td>₹2,34,000</td>
+                    <td>₹14,70,000</td>
+                </tr>
+                <tr>
+                    <td>Less: RCM ITC Offset</td>
+                    <td>₹12,000</td>
+                    <td>₹12,000</td>
+                    <td>₹8,400</td>
+                    <td>₹32,400</td>
+                </tr>
+                <tr>
+                    <td><strong>Net Output Tax</strong></td>
+                    <td>₹6,06,000</td>
+                    <td>₹6,06,000</td>
+                    <td>₹2,25,600</td>
+                    <td>₹14,37,600</td>
+                </tr>
+                <tr>
+                    <td><strong>Eligible ITC (from 2B Recon)</strong></td>
+                    <td>₹98,400</td>
+                    <td>₹98,400</td>
+                    <td>₹35,800</td>
+                    <td>₹2,32,600</td>
+                </tr>
+                <tr>
+                    <td>Less: ITC Reversal (Rule 42)</td>
+                    <td>₹4,200</td>
+                    <td>₹4,200</td>
+                    <td>—</td>
+                    <td>₹8,400</td>
+                </tr>
+                <tr style="background:#f0fff4;">
+                    <td><strong>Net ITC Available</strong></td>
+                    <td>₹94,200</td>
+                    <td>₹94,200</td>
+                    <td>₹35,800</td>
+                    <td>₹2,24,200</td>
+                </tr>
+                <tr style="background:#fff5f5;">
+                    <td><strong>Net Tax Payable (Cash)</strong></td>
+                    <td>₹5,11,800</td>
+                    <td>₹5,11,800</td>
+                    <td>₹1,89,800</td>
+                    <td>₹12,13,400</td>
+                </tr>
+            </table>
+            <br>
+            <strong>Files Ready:</strong> GSTR3B_Computation.xlsx &nbsp;|&nbsp; ITC_Utilisation_Working.xlsx &nbsp;|&nbsp; GSTR3B_Review.pdf
+        </div>
+    </div>
+
+    <div class="box green">
+        <strong>Productivity Gain:</strong> Preparing GSTR-3B manually (after GSTR-1 and 2B work): 2–3 hours. AI computation (using already processed GSTR-1 and 2B outputs): 5 minutes + 20 minutes review. <strong>Time saved: ~2.5 hours per client per month.</strong>
+    </div>
+</div>
+
+<!-- ═══════════════════════ SECTION 5: TDS WORKFLOW ═══════════════════ -->
+<div class="section">
+    <div class="section-title">5. TDS — What It Is & How AI Automates It</div>
+
+    <h3>What Is TDS?</h3>
+    <p>TDS (Tax Deducted at Source) is a system where the <strong>payer deducts tax at the time of payment</strong> and deposits it with the government. For example, if a company pays ₹1,00,000 to a contractor, it must deduct TDS at 1% (₹1,000) and pay only ₹99,000 to the contractor. The ₹1,000 goes to the government under the deductor's TAN.</p>
+
+    <div class="box navy">
+        <strong>Key TDS Compliance Activities:</strong><br>
+        • Quarterly TDS returns: Form 24Q (salary), 26Q (non-salary), 27Q (non-resident), 27EQ (TCS)<br>
+        • Monthly TDS payment (Challan 281) by 7th of next month<br>
+        • Annual TDS certificates: Form 16 (salary), Form 16A (non-salary)<br>
+        • Reconciliation of TDS with Form 26AS / AIS of deductee
+    </div>
+
+    <h3>What a TDS Team Does Today (Manual Process):</h3>
+    <div class="steps">
+        <div class="step">
+            <div class="step-num">1</div>
+            <div class="step-body">
+                <strong>Collect payment data from client</strong>
+                Client sends: Salary register / Vendor payment list / Contractor payments / Rent payments / Professional fee payments — for the quarter.
+            </div>
+        </div>
+        <div class="step">
+            <div class="step-num">2</div>
+            <div class="step-body">
+                <strong>Identify TDS-applicable transactions</strong>
+                Check each payment against Section 192 (salary), 194C (contractor), 194J (professional), 194I (rent), 194A (interest), 194H (commission) etc. Check threshold limits.
+            </div>
+        </div>
+        <div class="step">
+            <div class="step-num">3</div>
+            <div class="step-body">
+                <strong>Verify PAN of deductees</strong>
+                If PAN is missing or invalid: TDS rate doubles (Section 206AA). Must identify all such cases.
+            </div>
+        </div>
+        <div class="step">
+            <div class="step-num">4</div>
+            <div class="step-body">
+                <strong>Check TDS certificates / lower deduction</strong>
+                Some deductees provide Form 15G / 15H (nil deduction). Some provide lower deduction certificate u/s 197. Must be verified and applied.
+            </div>
+        </div>
+        <div class="step">
+            <div class="step-num">5</div>
+            <div class="step-body">
+                <strong>Calculate TDS amount</strong>
+                Apply correct rate per section. Check cumulative payments (threshold may be crossed during year). Calculate on gross or net depending on section.
+            </div>
+        </div>
+        <div class="step">
+            <div class="step-num">6</div>
+            <div class="step-body">
+                <strong>Reconcile with challan payments</strong>
+                TDS deposited via Challan 281. Must match challan amounts with computed TDS. Check for short deduction, late payment, interest liability.
+            </div>
+        </div>
+        <div class="step">
+            <div class="step-num">7</div>
+            <div class="step-body">
+                <strong>Prepare quarterly TDS return</strong>
+                Enter all deductee details in TDS software (TRACES / Winman / ClearTDS). Generate FVU file. Upload to TRACES portal.
+            </div>
+        </div>
+        <div class="step">
+            <div class="step-num">8</div>
+            <div class="step-body">
+                <strong>Issue TDS certificates</strong>
+                After return filing, generate Form 16 / 16A from TRACES. Send to deductees within due date.
+            </div>
+        </div>
+    </div>
+
+    <h3>How the Intranet AI Automates This:</h3>
+    <table>
+        <tr>
+            <th>Step</th>
+            <th>What AI Does</th>
+            <th>Who Does It</th>
+        </tr>
+        <tr>
+            <td>Collect & parse data</td>
+            <td>Reads salary registers, vendor payment sheets. Extracts: payee name, PAN, payment type, amount, date.</td>
+            <td><span class="ai-tag">AI</span></td>
+        </tr>
+        <tr>
+            <td>Classify transactions</td>
+            <td>Maps payment type to TDS section automatically (salary→192, contractor→194C, rent→194I etc.). Checks thresholds.</td>
+            <td><span class="ai-tag">AI</span></td>
+        </tr>
+        <tr>
+            <td>PAN validation</td>
+            <td>Validates PAN format. Flags missing or invalid PANs. Calculates higher rate (20%) for such cases automatically.</td>
+            <td><span class="ai-tag">AI</span></td>
+        </tr>
+        <tr>
+            <td>Apply exemptions</td>
+            <td>Checks for 15G/15H certificates in client records. Applies lower deduction orders if on file.</td>
+            <td><span class="ai-tag">AI</span></td>
+        </tr>
+        <tr>
+            <td>Calculate TDS</td>
+            <td>Applies correct rate per section. Tracks cumulative payments across quarters. Flags threshold breaches.</td>
+            <td><span class="ai-tag">AI</span></td>
+        </tr>
+        <tr>
+            <td>Challan reconciliation</td>
+            <td>Matches computed TDS against challan data. Flags short deduction. Calculates interest u/s 201 for late payment.</td>
+            <td><span class="ai-tag">AI</span></td>
+        </tr>
+        <tr>
+            <td>Professional review</td>
+            <td>Employee reviews computation, validates exceptions, approves.</td>
+            <td><span class="human-tag">HUMAN</span></td>
+        </tr>
+        <tr>
+            <td>Return preparation & filing</td>
+            <td>Generates FVU-compatible data. Employee uses TDS software to prepare and upload.</td>
+            <td><span class="ai-tag">AI</span> + <span class="human-tag">HUMAN</span></td>
+        </tr>
+    </table>
+
+    <div class="report-card">
+        <div class="report-card-header">TDS COMPUTATION SUMMARY — XYZ Ltd — Q2 (July–September 2026)</div>
+        <div class="report-card-body">
+            <table>
+                <tr>
+                    <th>Section</th>
+                    <th>Nature</th>
+                    <th>Payments</th>
+                    <th>TDS Rate</th>
+                    <th>TDS Amount</th>
+                </tr>
+                <tr>
+                    <td>192</td>
+                    <td>Salary</td>
+                    <td>₹48,00,000</td>
+                    <td>Slab</td>
+                    <td>₹4,80,000</td>
+                </tr>
+                <tr>
+                    <td>194C</td>
+                    <td>Contractor</td>
+                    <td>₹12,50,000</td>
+                    <td>1%</td>
+                    <td>₹12,500</td>
+                </tr>
+                <tr>
+                    <td>194J</td>
+                    <td>Professional</td>
+                    <td>₹8,00,000</td>
+                    <td>10%</td>
+                    <td>₹80,000</td>
+                </tr>
+                <tr>
+                    <td>194I</td>
+                    <td>Rent</td>
+                    <td>₹6,00,000</td>
+                    <td>10%</td>
+                    <td>₹60,000</td>
+                </tr>
+                <tr style="background:#f0fff4;">
+                    <td colspan="4"><strong>Total TDS for Quarter</strong></td>
+                    <td><strong>₹6,32,500</strong></td>
+                </tr>
+            </table>
+            <br>
+            <div class="box red" style="margin: 8px 0; padding: 10px;">
+                <strong>⚠ Exceptions (8 items):</strong>&nbsp;
+                <span class="pill red">3 Missing PAN — Higher rate (20%) applied</span>&nbsp;
+                <span class="pill amber">2 Threshold just crossed — TDS now applicable</span>&nbsp;
+                <span class="pill amber">3 Lower deduction certificates expired</span>
+            </div>
+            <strong>Files Ready:</strong> TDS_Computation_Q2.xlsx &nbsp;|&nbsp; Challan_Reconciliation.xlsx &nbsp;|&nbsp; TDS_Exceptions.pdf &nbsp;|&nbsp; FVU_Data.txt
+        </div>
+    </div>
+
+    <div class="box green">
+        <strong>Productivity Gain:</strong> Manual TDS computation for 150 deductees across 4 sections: 8–10 hours per quarter. AI processing: 10 minutes + 1 hour professional review of exceptions. <strong>Time saved: ~9 hours per client per quarter.</strong>
+    </div>
+</div>
+
+<!-- ═══════════════════════ SECTION 6: INTEGRATED WORKFLOW ════════════ -->
+<div class="section">
+    <div class="section-title">6. Integrated Monthly Compliance Workflow</div>
+
+    <p>In a real tax practice, GST and TDS don't work in isolation. The intranet AI manages the <strong>complete monthly compliance calendar</strong> for every client.</p>
+
+    <div class="report-card">
+        <div class="report-card-header">MONTHLY COMPLIANCE TIMELINE — AI-MANAGED</div>
+        <div class="report-card-body">
+            <table>
+                <tr>
+                    <th>Date</th>
+                    <th>Activity</th>
+                    <th>AI Role</th>
+                    <th>Due Date</th>
+                </tr>
+                <tr>
+                    <td>1st–10th</td>
+                    <td>Collect client documents for previous month</td>
+                    <td>Auto-reminder, document tracker</td>
+                    <td>Ongoing</td>
+                </tr>
+                <tr>
+                    <td>10th–14th</td>
+                    <td>Process GSTR-1 (outward supplies)</td>
+                    <td>Invoice extraction, validation, JSON</td>
+                    <td>11th</td>
+                </tr>
+                <tr>
+                    <td>14th–18th</td>
+                    <td>GSTR-2B available, start reconciliation</td>
+                    <td>Auto-download, reconcile vs books</td>
+                    <td>20th</td>
+                </tr>
+                <tr>
+                    <td>16th–19th</td>
+                    <td>Prepare GSTR-3B computation</td>
+                    <td>Auto-compute from GSTR-1 + 2B outputs</td>
+                    <td>20th</td>
+                </tr>
+                <tr>
+                    <td>20th</td>
+                    <td>GSTR-3B due — professional review + file</td>
+                    <td>Alert, final checklist, payment summary</td>
+                    <td>20th</td>
+                </tr>
+                <tr>
+                    <td>7th of month</td>
+                    <td>TDS payment (Challan 281)</td>
+                    <td>Calculate amount due, alert, challan data</td>
+                    <td>7th</td>
+                </tr>
+                <tr>
+                    <td>Quarterly</td>
+                    <td>TDS return (24Q/26Q)</td>
+                    <td>Compute, reconcile challans, generate FVU</td>
+                    <td>31st after qtr</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="flow" style="justify-content: center; flex-wrap: nowrap; overflow-x: auto; padding: 10px 0;">
+        <div class="flow-step blue">Client Docs</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">AI Reads</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step green">GSTR-1<br>Working</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step teal">2B<br>Recon</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step amber">3B<br>Compute</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">TDS<br>Working</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step green">Review &<br>File</div>
+    </div>
+</div>
+
+<!-- ═══════════════════════ SECTION 7: PRODUCTIVITY NUMBERS ══════════ -->
+<div class="section">
+    <div class="section-title">7. Productivity Impact — Real Numbers</div>
+
+    <table>
+        <tr>
+            <th>Activity</th>
+            <th>Manual Time (per client/month)</th>
+            <th>With AI (per client/month)</th>
+            <th>Time Saved</th>
+        </tr>
+        <tr>
+            <td>GSTR-1 preparation</td>
+            <td>6–8 hours</td>
+            <td>30 min (review only)</td>
+            <td><strong>~7 hours</strong></td>
+        </tr>
+        <tr>
+            <td>GSTR-2B reconciliation</td>
+            <td>4–5 hours</td>
+            <td>30 min (exceptions only)</td>
+            <td><strong>~4.5 hours</strong></td>
+        </tr>
+        <tr>
+            <td>GSTR-3B computation</td>
+            <td>2–3 hours</td>
+            <td>20 min (review only)</td>
+            <td><strong>~2.5 hours</strong></td>
+        </tr>
+        <tr>
+            <td>TDS computation (quarterly)</td>
+            <td>8–10 hours</td>
+            <td>1 hour (review only)</td>
+            <td><strong>~9 hours</strong></td>
+        </tr>
+        <tr>
+            <td>Client document follow-up</td>
+            <td>2 hours</td>
+            <td>15 min (approve messages)</td>
+            <td><strong>~1.75 hours</strong></td>
+        </tr>
+        <tr style="background: #f0fff4;">
+            <td><strong>Monthly total per client</strong></td>
+            <td><strong>~17 hours</strong></td>
+            <td><strong>~2 hours</strong></td>
+            <td><strong>~15 hours saved</strong></td>
+        </tr>
+    </table>
+
+    <div class="box green">
+        <strong>If a team handles 30 GST clients:</strong><br>
+        Manual: 30 × 17 = <strong>510 hours/month</strong> on GST alone.<br>
+        With AI: 30 × 2 = <strong>60 hours/month</strong>.<br>
+        <strong>450 hours freed every month — roughly 3 full-time employees worth of GST work automated.</strong>
+    </div>
+
+    <div class="quote">
+        "This means the same team of 5 can handle the work that previously required 8 people — or handle 60 clients instead of 30 with the same team."
+    </div>
+</div>
+
+<!-- ═══════════════════════ SECTION 8: INTRANET SETUP ════════════════ -->
+<div class="section">
+    <div class="section-title">8. Intranet AI Setup — What Is Needed</div>
+
+    <div class="grid2">
+        <div class="box navy">
+            <strong>Hardware (One-Time):</strong><br>
+            • 1 dedicated server / workstation<br>
+            • Minimum: 32GB RAM, 8-core CPU<br>
+            • Better: NVIDIA GPU (faster processing)<br>
+            • 2TB SSD storage<br>
+            • Connected to office LAN
+        </div>
+        <div class="box navy">
+            <strong>Software:</strong><br>
+            • Linux Ubuntu Server (free)<br>
+            • Local AI model (Llama 3 / Mistral — free)<br>
+            • FastAPI backend (already built)<br>
+            • PostgreSQL database (already built)<br>
+            • Browser-based dashboard (React)
+        </div>
+    </div>
+
+    <div class="box green">
+        <strong>Key Point:</strong> Once the server is set up, there is no per-query cost. Unlike ChatGPT which charges per use, the intranet AI runs as many queries as needed at zero marginal cost. The investment is the server hardware (₹1.5–3 lakh) and development cost.
+    </div>
+
+    <h3>Employee Access — Simple Browser Interface:</h3>
+    <div class="flow" style="flex-direction: column; align-items: flex-start; gap: 8px;">
+        <div style="display:flex; align-items:center; gap:10px;">
+            <div class="flow-step blue" style="min-width: 180px;">Employee opens browser</div>
+            <span>→ Types <code style="background:#eee; padding:2px 6px; border-radius:4px;">http://ai.office.local</code> (intranet address)</span>
+        </div>
+        <div style="display:flex; align-items:center; gap:10px;">
+            <div class="flow-step blue" style="min-width: 180px;">Selects client</div>
+            <span>→ Chooses month/quarter, uploads documents or links existing files</span>
+        </div>
+        <div style="display:flex; align-items:center; gap:10px;">
+            <div class="flow-step blue" style="min-width: 180px;">Clicks "Process"</div>
+            <span>→ AI runs in background (2–10 minutes depending on volume)</span>
+        </div>
+        <div style="display:flex; align-items:center; gap:10px;">
+            <div class="flow-step green" style="min-width: 180px;">Reviews results</div>
+            <span>→ Sees working, exceptions, reports. Approves or makes corrections.</span>
+        </div>
+        <div style="display:flex; align-items:center; gap:10px;">
+            <div class="flow-step green" style="min-width: 180px;">Downloads output</div>
+            <span>→ Gets Excel, PDF, JSON files ready for portal / client / records.</span>
+        </div>
+    </div>
+</div>
+
+<!-- ═══════════════════════ SECTION 9: HUMAN OVERSIGHT ═══════════════ -->
+<div class="section">
+    <div class="section-title">9. Human Oversight — What the Professional Always Controls</div>
+
+    <div class="grid3">
+        <div class="box green">
+            <strong>AI Handles</strong><br>
+            Data reading<br>
+            Matching &amp; reconciliation<br>
+            Rate application<br>
+            Exception flagging<br>
+            Report generation
+        </div>
+        <div class="box amber">
+            <strong>Human Reviews</strong><br>
+            Exception items<br>
+            Unusual transactions<br>
+            Client-specific rules<br>
+            Judgement calls<br>
+            Final computation
+        </div>
+        <div class="box red">
+            <strong>Human Approves &amp; Does</strong><br>
+            Final filing on portal<br>
+            Tax payment<br>
+            Signing returns<br>
+            Client communication<br>
+            Professional responsibility
+        </div>
+    </div>
+
+    <div class="quote">
+        "The AI never files anything. The AI never pays any tax. Every return is filed by a professional who has reviewed and approved the computation. AI is the preparation engine — the professional is the decision maker."
+    </div>
+</div>
+
+<!-- ═══════════════════════ SECTION 10: SUMMARY ══════════════════════ -->
+<div class="section">
+    <div class="section-title">10. Summary — One Page</div>
+
+    <table>
+        <tr>
+            <th>Return / Form</th>
+            <th>What It Is</th>
+            <th>What AI Does</th>
+            <th>Time Saved</th>
+        </tr>
+        <tr>
+            <td><strong>GSTR-1</strong></td>
+            <td>Monthly outward supply statement</td>
+            <td>Reads invoices, validates, classifies, HSN summary, error detection, JSON output</td>
+            <td>~7 hrs/client</td>
+        </tr>
+        <tr>
+            <td><strong>GSTR-2B</strong></td>
+            <td>Auto-drafted ITC statement from portal</td>
+            <td>Downloads, reconciles vs purchase register, classifies mismatches, ITC eligibility</td>
+            <td>~4.5 hrs/client</td>
+        </tr>
+        <tr>
+            <td><strong>GSTR-3B</strong></td>
+            <td>Monthly summary return &amp; tax payment</td>
+            <td>Computes from GSTR-1 + 2B outputs, ITC utilisation, RCM, net tax payable</td>
+            <td>~2.5 hrs/client</td>
+        </tr>
+        <tr>
+            <td><strong>TDS</strong></td>
+            <td>Quarterly deduction &amp; return</td>
+            <td>Classifies payments, validates PAN, applies rates, challan recon, FVU data</td>
+            <td>~9 hrs/qtr</td>
+        </tr>
+        <tr style="background:#f0fff4;">
+            <td colspan="3"><strong>Total monthly saving per client (GST + TDS)</strong></td>
+            <td><strong>~15 hrs/month</strong></td>
+        </tr>
+    </table>
+
+    <div class="box green" style="margin-top: 20px; font-size: 17px; text-align: center;">
+        <strong>For a firm with 30 GST + TDS clients: 450 hours freed per month.</strong><br>
+        Same team. More clients. Fewer errors. Faster service.
+    </div>
+</div>
+
+<div class="footer">
+    <strong>Private Intranet AI System — GST & TDS Workflow Automation</strong><br>
+    Internal Proposal | Version 2.0 | October 2026 | Confidential
+</div>
+
+</div><!-- end page -->
+</body>
+</html>

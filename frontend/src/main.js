@@ -94,35 +94,10 @@ function setupNavigation() {
 // View Switcher (Main Website vs HR Command Center)
 function setupViewSwitching() {
   const btnToggleAdmin = document.getElementById('btnToggleAdmin');
-  const btnExitAdmin = document.getElementById('btnExitAdmin');
-  const mainSiteView = document.getElementById('mainSiteView');
-  const adminPortalView = document.getElementById('adminPortalView');
-  const navLinks = document.querySelectorAll('.nav-link');
-
-  function showAdmin() {
-    if (mainSiteView && adminPortalView) {
-      mainSiteView.style.display = 'none';
-      adminPortalView.classList.add('active');
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-      window.showToast('Logged into THC HR Command Center (Admin Mode)', 'info');
-    }
-  }
-
-  function showMainSite() {
-    if (mainSiteView && adminPortalView) {
-      adminPortalView.classList.remove('active');
-      mainSiteView.style.display = 'block';
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-  }
-
-  if (btnToggleAdmin) btnToggleAdmin.addEventListener('click', showAdmin);
-  if (btnExitAdmin) btnExitAdmin.addEventListener('click', showMainSite);
-
-  const brandLink = document.querySelector('.brand');
-  if (brandLink) {
-    brandLink.addEventListener('click', () => {
-      showMainSite();
+  if (btnToggleAdmin) {
+    btnToggleAdmin.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.location.href = '/admin/';
     });
   }
 
@@ -383,7 +358,9 @@ document.addEventListener('DOMContentLoaded', () => {
   initCandidateForm();
   initClientForm();
   initContactForm();
-  initAdminDashboard();
+  if (document.getElementById('adminPortalView')) {
+    initAdminDashboard();
+  }
   initScrollReveal();
   initSmoothScroll();
 

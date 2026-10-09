@@ -1,0 +1,23 @@
+{
+  "name": "thathvamasi-workspace",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Thathvamasi Corporate Web Platform Workspace",
+  "scripts": {
+    "dev": "npm --prefix frontend run dev",
+    "build": "npm --prefix frontend run build:prod",
+    "build:prod": "npm --prefix frontend run build:prod",
+    "build:staging": "npm --prefix frontend run build:staging",
+    "preview": "npm --prefix frontend run preview",
+    "preview:prod": "npm --prefix frontend run preview:prod",
+    "install:frontend": "npm --prefix frontend install"
+  },
+  "keywords": [
+    "thathvamasi",
+    "hr-consultancy",
+    "executive-search",
+    "business-solutions"
+  ],
+  "author": "Thathvamasi Business Solutions Private Limited",
+  "license": "ISC"
+}

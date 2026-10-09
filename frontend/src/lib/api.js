@@ -266,6 +266,135 @@ class ApiService {
     Storage.addBlog(blogPayload);
     return { success: true, source: 'local' };
   }
+
+  /**
+   * Admin Authentication - Login
+   */
+  async adminLogin(email, password) {
+    const cleanEmail = (email || '').trim().toLowerCase();
+    const cleanPass = (password || '').trim();
+
+    try {
+      const response = await fetch(`${API_BASE}/auth/login`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: cleanEmail, password: cleanPass })
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        const token = data.access_token;
+        const user = data.user || {
+          email: cleanEmail,
+          full_name: 'THC Administrator',
+          role: 'admin'
+        };
+
+        localStorage.setItem('thc_admin_token', token);
+        localStorage.setItem('thc_admin_user', JSON.stringify(user));
+
+        return { success: true, token, user, source: 'backend' };
+      }
+
+      if (response.status === 401 || response.status === 403) {
+        const errorData = await response.json().catch(() => ({}));
+        return {
+          success: false,
+          error: errorData.detail || 'Invalid email or password. Access denied.'
+        };
+      }
+
+      return {
+        success: false,
+        error: 'Authentication failed. Please verify your credentials.'
+      };
+    } catch (err) {
+      console.error('Authentication service unreachable:', err);
+      return {
+        success: false,
+        error: 'Unable to connect to authentication server. Please check your network or server status.'
+      };
+    }
+  }
+
+  /**
+   * Get currently stored admin token
+   */
+  getAdminToken() {
+    return localStorage.getItem('thc_admin_token');
+  }
+
+  /**
+   * Get currently stored admin user profile
+   */
+  getAdminUser() {
+    try {
+      const raw = localStorage.getItem('thc_admin_user');
+      return raw ? JSON.parse(raw) : null;
+    } catch {
+      return null;
+    }
+  }
+
+  /**
+   * Check if an admin token exists
+   */
+  isAdminAuthenticated() {
+    return Boolean(this.getAdminToken());
+  }
+
+  /**
+   * Admin Authentication - Logout
+   */
+  async adminLogout() {
+    const token = this.getAdminToken();
+    localStorage.removeItem('thc_admin_token');
+    localStorage.removeItem('thc_admin_user');
+
+    if (token && !token.startsWith('thc-local-jwt-')) {
+      try {
+        await fetch(`${API_BASE}/auth/logout`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+          }
+        });
+      } catch (err) {
+        // Ignore network errors on logout
+      }
+    }
+
+    return { success: true };
+  }
+
+  /**
+   * Verify if current session is still valid
+   */
+  async verifyAdminSession() {
+    const token = this.getAdminToken();
+    if (!token) return false;
+
+    try {
+      const response = await fetch(`${API_BASE}/auth/me`, {
+        method: 'GET',
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+      });
+
+      if (response.ok) {
+        const user = await response.json();
+        localStorage.setItem('thc_admin_user', JSON.stringify(user));
+        return true;
+      }
+
+      await this.adminLogout();
+      return false;
+    } catch {
+      return false;
+    }
+  }
 }
 
 export const Api = new ApiService();

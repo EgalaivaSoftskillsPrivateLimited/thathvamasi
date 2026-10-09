@@ -1,0 +1,8 @@
+# Thathvamasi Production Routing & Reverse Proxy Rules
+# Compatible with Netlify, Cloudflare Pages, etc.
+
+# API Reverse Proxy (can be redirected to live backend)
+/api/*  https://api.thathvamasi.com/api/:splat  200
+
+# 404 Fallback
+/*      /404.html                               404

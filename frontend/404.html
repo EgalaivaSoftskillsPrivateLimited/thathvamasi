@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>404 - Page Not Found | Thathvamasi Business Solutions</title>
+  <meta name="description" content="The requested page could not be found. Navigate back to Thathvamasi Business Solutions and HR Consultancy services.">
+  <meta name="robots" content="noindex, follow">
+  <meta name="theme-color" content="#fe4f56">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="/src/styles/variables.css">
+  <link rel="stylesheet" href="/src/styles/base.css">
+  <link rel="stylesheet" href="/src/styles/esight-theme.css">
+  <link rel="stylesheet" href="/src/styles/business-theme.css">
+  <link rel="stylesheet" href="/src/styles/components.css">
+  <link rel="stylesheet" href="/src/styles/responsive.css">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon.png">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+  <style>
+    .not-found-container {
+      min-height: 80vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4rem 1.5rem;
+      background: radial-gradient(circle at top right, rgba(0, 96, 180, 0.05), transparent 70%),
+                  radial-gradient(circle at bottom left, rgba(246, 0, 20, 0.04), transparent 70%);
+    }
+    .not-found-card {
+      max-width: 680px;
+      width: 100%;
+      text-align: center;
+      background: #ffffff;
+      border: 1px solid var(--border-light, #e2e8f0);
+      border-radius: 16px;
+      padding: 3.5rem 2.5rem;
+      box-shadow: 0 20px 40px -15px rgba(10, 25, 47, 0.08);
+    }
+    .not-found-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.35rem 1rem;
+      border-radius: 9999px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #F60014;
+      background: #FFF0F1;
+      margin-bottom: 1.5rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    .not-found-code {
+      font-size: clamp(4.5rem, 12vw, 7.5rem);
+      font-weight: 800;
+      line-height: 1;
+      color: #0A192F;
+      letter-spacing: -0.04em;
+      margin: 0 0 1rem;
+      background: linear-gradient(135deg, #0A192F 0%, #0060B4 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .not-found-title {
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--text-main, #0f172a);
+      margin-bottom: 1rem;
+    }
+    .not-found-desc {
+      font-size: 1.05rem;
+      color: var(--text-secondary, #475569);
+      line-height: 1.6;
+      margin-bottom: 2.5rem;
+    }
+    .not-found-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+      margin-bottom: 2.5rem;
+    }
+    .btn-primary-action {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: #0060B4;
+      color: #ffffff;
+      padding: 0.85rem 1.75rem;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+    .btn-primary-action:hover {
+      background: #004d91;
+      transform: translateY(-2px);
+    }
+    .btn-secondary-action {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: #F8FAFC;
+      color: #0F172A;
+      border: 1px solid #CBD5E1;
+      padding: 0.85rem 1.75rem;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+    .btn-secondary-action:hover {
+      background: #EEF5FC;
+      border-color: #0060B4;
+      color: #0060B4;
+      transform: translateY(-2px);
+    }
+    .quick-directory {
+      border-top: 1px solid #E2E8F0;
+      padding-top: 2rem;
+      text-align: left;
+    }
+    .quick-directory h4 {
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #64748B;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+    .quick-links-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 0.75rem;
+    }
+    .quick-link-item {
+      display: flex;
+      align-items: center;
+      padding: 0.65rem 0.9rem;
+      border-radius: 6px;
+      background: #F8FAFC;
+      color: #1E293B;
+      font-size: 0.9rem;
+      text-decoration: none;
+      font-weight: 500;
+      transition: background 0.15s ease, color 0.15s ease;
+    }
+    .quick-link-item:hover {
+      background: #EEF5FC;
+      color: #0060B4;
+    }
+  </style>
+</head>
+<body class="esightTheme antialiased">
+
+  <!-- Header Navigation -->
+  <header style="background: #ffffff; border-bottom: 1px solid #E2E8F0; padding: 1rem 1.5rem;">
+    <div style="max-width: 1240px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between;">
+      <a href="/" style="display: flex; align-items: center; gap: 0.75rem; text-decoration: none;">
+        <img src="/images/logo/logo-main.png" alt="Thathvamasi Logo" height="42" onerror="this.onerror=null; this.src='/favicon.png';" style="display: block;">
+        <div>
+          <strong style="color: #0A192F; font-size: 1.2rem; display: block; line-height: 1.2;">THATHVAMASI</strong>
+          <span style="color: #64748B; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase;">Business Solutions & HR</span>
+        </div>
+      </a>
+      <a href="tel:+919442218900" style="display: inline-flex; align-items: center; gap: 0.5rem; color: #0060B4; font-weight: 600; text-decoration: none; font-size: 0.9rem;">
+        <span>Direct Advisory:</span>
+        <strong>+91 94422 18900</strong>
+      </a>
+    </div>
+  </header>
+
+  <!-- 404 Main Content -->
+  <main class="not-found-container">
+    <div class="not-found-card">
+      <div class="not-found-badge">HTTP 404 • Resource Not Found</div>
+      <h1 class="not-found-code">404</h1>
+      <h2 class="not-found-title">Page Relocated or Unavailable</h2>
+      <p class="not-found-desc">
+        The destination you are trying to reach does not exist or may have been updated during our corporate platform enhancement. Please use the navigation pathways below to locate our enterprise services.
+      </p>
+
+      <div class="not-found-actions">
+        <a href="/" class="btn-primary-action">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+          Return to Corporate Home
+        </a>
+        <a href="/business/index.html" class="btn-secondary-action">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+          Corporate & Tax Advisory
+        </a>
+      </div>
+
+      <div class="quick-directory">
+        <h4>Key Solution Practices</h4>
+        <div class="quick-links-grid">
+          <a href="/services/index.html" class="quick-link-item">→ All HR Solutions</a>
+          <a href="/services/executive-search.html" class="quick-link-item">→ CXO Executive Search</a>
+          <a href="/services/industrial-manufacturing.html" class="quick-link-item">→ Manufacturing Staffing</a>
+          <a href="/services/turnkey-rpo.html" class="quick-link-item">→ Turnkey Plant RPO</a>
+          <a href="/services/payroll-management.html" class="quick-link-item">→ Managed Payroll (EPF/ESI)</a>
+          <a href="/business/company-registration.html" class="quick-link-item">→ 3-Day Pvt Ltd Inc.</a>
+          <a href="/business/gst-tax.html" class="quick-link-item">→ GST Filings & Audit</a>
+          <a href="/business/trademark-ipr.html" class="quick-link-item">→ Trademark & IP Registry</a>
+          <a href="/industries/index.html" class="quick-link-item">→ Industry Verticals</a>
+          <a href="/business/accounting-cfo.html" class="quick-link-item">→ Virtual CFO & Accounts</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer style="background: #0A192F; color: #94A3B8; padding: 2rem 1.5rem; text-align: center; font-size: 0.85rem; border-top: 1px solid #1E293B;">
+    <p style="margin: 0 0 0.5rem;">
+      © 2026 Thathvamasi Business Solutions Private Limited. All Rights Reserved.
+    </p>
+    <p style="margin: 0; color: #64748B;">
+      Headquarters: Avinashi Road, Peelamedu, Coimbatore - 641004, Tamil Nadu, India.
+    </p>
+  </footer>
+
+</body>
+</html>

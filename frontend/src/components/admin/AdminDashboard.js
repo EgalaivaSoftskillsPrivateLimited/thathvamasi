@@ -108,6 +108,9 @@ export function initAdminDashboard() {
     if (badgeReqCount) badgeReqCount.textContent = clients.length;
   }
 
+  let currentCandidatesList = [];
+  let currentClientsList = [];
+
   async function renderCandidatesTable() {
     const tbody = document.getElementById('adminCandidatesTableBody');
     if (!tbody) return;
@@ -116,6 +119,7 @@ export function initAdminDashboard() {
     const statusFilter = candidateStatusFilter?.value || 'all';
 
     const candidates = await Api.getCandidates();
+    currentCandidatesList = candidates;
     const filtered = candidates.filter(c => {
       const matchesStatus = statusFilter === 'all' || c.status === statusFilter;
       const matchesSearch = !searchTerm || 
@@ -192,6 +196,7 @@ export function initAdminDashboard() {
     if (!tbody) return;
 
     const clients = await Api.getClients();
+    currentClientsList = clients;
     if (clients.length === 0) {
       tbody.innerHTML = `<tr><td colspan="7" style="text-align: center; padding: 36px; color: var(--text-muted);">No employer requisitions logged.</td></tr>`;
       return;
@@ -270,7 +275,7 @@ export function initAdminDashboard() {
   }
 
   function openCandidateDetailModal(candidateId) {
-    const candidate = Storage.getCandidates().find(c => c.id === candidateId);
+    const candidate = currentCandidatesList.find(c => c.id === candidateId) || Storage.getCandidates().find(c => c.id === candidateId);
     if (!candidate) return;
 
     const content = document.getElementById('applicantDetailBody');
@@ -344,7 +349,7 @@ export function initAdminDashboard() {
   }
 
   function openJdModal(clientId) {
-    const client = Storage.getClients().find(c => c.id === clientId);
+    const client = currentClientsList.find(c => c.id === clientId) || Storage.getClients().find(c => c.id === clientId);
     if (!client) return;
 
     const content = document.getElementById('applicantDetailBody');

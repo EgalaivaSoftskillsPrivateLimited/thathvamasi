@@ -1,0 +1,29 @@
+{
+  "name": "Thathvamasi Business Solutions & HR Consultancy",
+  "short_name": "Thathvamasi",
+  "description": "Executive Search, Industrial Plant Staffing, and Statutory Corporate Advisory in Coimbatore and Pan-India",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#002046",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}
