@@ -966,26 +966,60 @@ nav.esightNav.scrolled {
   flex: 1;
 }
 
+.sidemenuToggleBtn {
+  width: 100%;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  font-family: inherit;
+  user-select: none;
+}
+
 .sidemenuLink .sidemenuArrow {
-  opacity: 0.35;
-  transition: transform 0.2s ease, opacity 0.2s ease;
+  opacity: 0.4;
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease, color 0.2s ease;
+  flex-shrink: 0;
 }
 
 .sidemenuLink:hover .sidemenuArrow {
   opacity: 1;
-  transform: translateX(3px);
   color: #fe4f56;
+}
+
+.sidemenuHasSub.open .sidemenuArrow {
+  transform: rotate(90deg) !important;
+  opacity: 1;
+  color: #fe4f56;
+}
+
+.sidemenuHasSub.open .sidemenuLink {
+  background: #f8fafc;
+  color: #0f172a;
 }
 
 .sidemenuSubList {
   list-style: none;
-  padding: 2px 0 4px 18px;
-  margin: 0;
+  padding: 0 0 0 16px;
+  margin: 0 0 0 22px;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
-  gap: 3px;
-  border-left: 2px solid #f1f5f9;
-  margin-left: 22px;
+  gap: 2px;
+  border-left: 2px solid #e2e8f0;
+  transition: max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.28s ease, padding 0.28s ease, margin 0.28s ease;
+  pointer-events: none;
+}
+
+.sidemenuHasSub.open .sidemenuSubList {
+  max-height: 480px;
+  opacity: 1;
+  padding: 6px 0 8px 16px;
+  margin-top: 4px;
+  margin-bottom: 6px;
+  pointer-events: auto;
 }
 
 .sidemenuSubLink {
@@ -3167,13 +3201,19 @@ nav.esightNav.scrolled {
 @media (max-width: 992px) {
   .serviceHeroSplit {
     grid-template-columns: 1fr;
-    gap: 36px;
+    gap: 32px;
+  }
+  .serviceHeroLeft {
+    order: 1;
+    width: 100%;
   }
   .serviceHeroRight {
-    order: -1;
+    order: 2;
+    width: 100%;
+    margin-top: 10px;
   }
   .serviceHeroVisual img {
-    height: 300px;
+    height: 280px;
   }
 }
 
@@ -3216,6 +3256,208 @@ nav.esightNav.scrolled {
 }
 
 @media (max-width: 768px) {
+  /* Container mobile gutters: prevent cramped floating island effect */
+  .container,
+  .content-wrap {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
+  /* Service Inner Hero Outer Banner */
+  .serviceInnerBanner {
+    padding: 12px 0 28px 0 !important;
+  }
+
+  /* Service Inner Hero Card */
+  .serviceInnerBannerBox.squircle {
+    padding: 30px 18px !important;
+    border-radius: 20px !important;
+    margin: 0 !important;
+    box-shadow: 0 16px 40px rgba(10, 15, 29, 0.22) !important;
+  }
+
+  /* Breadcrumbs */
+  .breadCrumb,
+  .breadCrumbs {
+    margin-bottom: 12px !important;
+    font-size: 0.8rem !important;
+  }
+  .breadCrumb ul,
+  .breadCrumbs ul {
+    gap: 6px !important;
+  }
+
+  /* Subtitle Eyebrow Badge */
+  .serviceInnerBannerBox .subTitle,
+  .serviceInnerBanner .subTitle {
+    display: inline-flex !important;
+    font-size: 0.72rem !important;
+    padding: 5px 12px !important;
+    letter-spacing: 0.05em !important;
+    margin-bottom: 14px !important;
+    max-width: 100% !important;
+    white-space: normal !important;
+    line-height: 1.35 !important;
+  }
+
+  /* Main Title: Fluid typography preventing choppy word breaks */
+  .serviceInnerBannerBox h1.title,
+  .serviceInnerBannerBox .title,
+  .serviceInnerBannerBoxMain h1.title,
+  .serviceInnerBanner h1,
+  .thc-hero-title,
+  .biz-hero-title {
+    font-size: clamp(1.6rem, 5.6vw, 2.15rem) !important;
+    line-height: 1.22 !important;
+    letter-spacing: -0.025em !important;
+    margin: 0 0 14px 0 !important;
+    word-break: normal !important;
+    overflow-wrap: break-word !important;
+    text-wrap: balance !important;
+  }
+
+  /* Lead / Body Description */
+  .serviceInnerBannerBox .serviceInnerBannerText,
+  .serviceInnerBannerText,
+  .serviceInnerBannerBoxMain p.lead {
+    font-size: 0.94rem !important;
+    line-height: 1.55 !important;
+    margin: 0 0 20px 0 !important;
+    color: #cbd5e1 !important;
+  }
+
+  /* Hero Action Buttons: Full-width stacked buttons for thumb accessibility */
+  .serviceInnerBannerBox .buttonFlex,
+  .serviceInnerBanner .buttonFlex {
+    flex-direction: column !important;
+    width: 100% !important;
+    gap: 12px !important;
+    align-items: stretch !important;
+    margin-top: 4px !important;
+  }
+
+  .serviceInnerBannerBox .primaryBtn,
+  .serviceInnerBanner .primaryBtn,
+  .serviceInnerBannerBox .callBackBtn,
+  .serviceInnerBanner .callBackBtn {
+    width: 100% !important;
+    justify-content: center !important;
+    text-align: center !important;
+    padding: 13px 20px !important;
+    font-size: 0.94rem !important;
+    box-sizing: border-box !important;
+    border-radius: 999px !important;
+  }
+
+  /* Hero Metrics: Balanced 3-column data grid */
+  .serviceHeroMetrics {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 12px !important;
+    margin-top: 24px !important;
+    padding-top: 18px !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.12) !important;
+  }
+
+  .serviceHeroDivider {
+    display: none !important;
+  }
+
+  .serviceHeroMetric strong {
+    font-size: 1.2rem !important;
+    line-height: 1.15 !important;
+  }
+
+  .serviceHeroMetric span {
+    font-size: 0.68rem !important;
+    line-height: 1.25 !important;
+    letter-spacing: 0.03em !important;
+    margin-top: 4px !important;
+  }
+
+  /* Hero Visual Card: Rendered second under text & actions */
+  .serviceHeroRight {
+    order: 2 !important;
+    width: 100% !important;
+    margin-top: 22px !important;
+  }
+
+  .serviceHeroVisual {
+    position: relative !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .serviceHeroVisual img {
+    width: 100% !important;
+    height: 240px !important;
+    object-fit: cover !important;
+    border-radius: 18px !important;
+  }
+
+  /* Floating badges inside image */
+  .hero-glass-pill {
+    padding: 6px 11px !important;
+    gap: 6px !important;
+    border-radius: 999px !important;
+  }
+
+  .hero-glass-pill.pill-top {
+    top: 10px !important;
+    left: 10px !important;
+  }
+
+  .hero-glass-pill.pill-bottom {
+    bottom: 10px !important;
+    right: 10px !important;
+    max-width: calc(100% - 20px) !important;
+  }
+
+  .glass-pill-text {
+    font-size: 0.7rem !important;
+    letter-spacing: -0.01em !important;
+  }
+
+  .glass-pill-check {
+    width: 15px !important;
+    height: 15px !important;
+    font-size: 9px !important;
+  }
+
+  /* Other Section Visuals & Cards on Mobile */
+  .previewVisual.squircle,
+  .benefitsVisual.squircle,
+  .previewVisual,
+  .benefitsVisual {
+    padding: 22px 16px !important;
+    border-radius: 18px !important;
+  }
+
+  .includeGrid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+
+  .includeCard.squircle {
+    padding: 22px 18px !important;
+    border-radius: 18px !important;
+  }
+
+  .workflowMain {
+    grid-template-columns: 1fr !important;
+    gap: 28px !important;
+  }
+
+  .phaseCard.squircle {
+    padding: 22px 18px !important;
+    border-radius: 18px !important;
+  }
+
+  .counterGrid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+
   .contactFormCard,
   .serviceContactCard,
   .contactEnquirySec .container > div[style*="padding: 48px"],
@@ -3307,6 +3549,46 @@ nav.esightNav.scrolled {
 
   .serviceHeroVisual img {
     height: 220px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .container,
+  .content-wrap {
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+  }
+
+  .serviceInnerBannerBox.squircle {
+    padding: 24px 14px !important;
+    border-radius: 16px !important;
+  }
+
+  .serviceInnerBannerBox h1.title,
+  .serviceInnerBannerBox .title,
+  .serviceInnerBannerBoxMain h1.title,
+  .serviceInnerBanner h1,
+  .thc-hero-title,
+  .biz-hero-title {
+    font-size: clamp(1.42rem, 6.4vw, 1.75rem) !important;
+    line-height: 1.24 !important;
+  }
+
+  .serviceHeroVisual img {
+    height: 200px !important;
+  }
+
+  .serviceHeroMetrics {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 8px !important;
+  }
+
+  .serviceHeroMetric strong {
+    font-size: 1.05rem !important;
+  }
+
+  .serviceHeroMetric span {
+    font-size: 0.62rem !important;
   }
 }
 
