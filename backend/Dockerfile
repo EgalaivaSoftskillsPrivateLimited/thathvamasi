@@ -28,6 +28,9 @@ RUN mkdir -p app/static/uploads/resumes \
     app/static/uploads/blog_images \
     alembic/versions
 
+COPY entrypoint.sh .
+RUN chmod +x entrypoint.sh
+
 # Environment variables
 ENV PYTHONPATH=/app
 ENV PYTHONUNBUFFERED=1
@@ -36,8 +39,7 @@ ENV PYTHONUNBUFFERED=1
 EXPOSE 8000
 
 # Health check
-HEALTHCHECK --interval=30s --timeout=30s --start-period=5s --retries=3 \
+HEALTHCHECK --interval=30s --timeout=15s --start-period=10s --retries=3 \
     CMD curl -f http://localhost:8000/health || exit 1
 
-# Run database migrations and start the application
-CMD ["sh", "-c", "alembic upgrade head && uvicorn app.main:app --host 0.0.0.0 --port 8000"]
+ENTRYPOINT ["./entrypoint.sh"]

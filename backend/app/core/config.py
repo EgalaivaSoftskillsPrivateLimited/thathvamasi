@@ -56,10 +56,24 @@ class Settings(BaseSettings):
     # Database URL for SQLAlchemy
     @property
     def DATABASE_URL(self) -> str:
+        env_url = os.getenv("DATABASE_URL")
+        if env_url:
+            if env_url.startswith("postgresql://"):
+                return env_url.replace("postgresql://", "postgresql+asyncpg://", 1)
+            elif env_url.startswith("postgres://"):
+                return env_url.replace("postgres://", "postgresql+asyncpg://", 1)
+            return env_url
         return f"postgresql+asyncpg://{self.POSTGRES_USER}:{self.POSTGRES_PASSWORD}@{self.POSTGRES_HOST}:{self.POSTGRES_PORT}/{self.POSTGRES_DB}"
     
     @property
     def DATABASE_URL_SYNC(self) -> str:
+        env_url = os.getenv("DATABASE_URL")
+        if env_url:
+            if env_url.startswith("postgresql+asyncpg://"):
+                return env_url.replace("postgresql+asyncpg://", "postgresql://", 1)
+            elif env_url.startswith("postgres://"):
+                return env_url.replace("postgres://", "postgresql://", 1)
+            return env_url
         return f"postgresql://{self.POSTGRES_USER}:{self.POSTGRES_PASSWORD}@{self.POSTGRES_HOST}:{self.POSTGRES_PORT}/{self.POSTGRES_DB}"
     
     # Pool configuration
