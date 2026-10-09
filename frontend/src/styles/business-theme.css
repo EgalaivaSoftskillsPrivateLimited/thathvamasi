@@ -970,14 +970,33 @@
     width: 100%;
   }
 
-  .biz-hero-grid,
+  .biz-hero-grid {
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+  }
+
+  .biz-hero-media {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 24px 0 0 0 !important;
+    border-radius: 18px !important;
+    overflow: hidden !important;
+  }
+
+  .biz-hero-media img {
+    width: 100% !important;
+    height: 240px !important;
+    object-fit: cover !important;
+    display: block !important;
+  }
+
   .biz-calc-grid,
   .division-cards-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr !important;
   }
 
   .biz-practice-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr) !important;
   }
 
   .biz-hero-title {
@@ -1010,18 +1029,63 @@
     padding: 6px 10px !important;
   }
 
+  .biz-hero-grid {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+  }
+
+  .biz-hero-media {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 20px 0 0 0 !important;
+    border-radius: 16px !important;
+  }
+
+  .biz-hero-media img {
+    width: 100% !important;
+    height: 210px !important;
+    object-fit: cover !important;
+  }
+
+  .biz-hero-checklist {
+    flex-direction: column !important;
+    gap: 10px !important;
+  }
+
+  .biz-hero-cta-group {
+    flex-direction: column !important;
+    width: 100% !important;
+    gap: 12px !important;
+  }
+
+  .biz-hero-cta-btn {
+    width: 100% !important;
+    justify-content: center !important;
+    text-align: center !important;
+  }
+
   .biz-practice-grid,
   .pillar-practices,
   .biz-stats-strip {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr !important;
   }
 
   .biz-hero {
-    padding: 40px 0;
+    padding: 36px 0 !important;
   }
 
   .biz-hero-title {
-    font-size: 1.8rem;
+    font-size: 1.8rem !important;
+  }
+
+  .biz-bottom-grid {
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+  }
+
+  .biz-split-input {
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
   }
 }
 

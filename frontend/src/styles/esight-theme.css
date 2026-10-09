@@ -724,45 +724,54 @@ nav.esightNav.scrolled {
   gap: 12px;
 }
 
-.navWhatsappBtn {
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  background: var(--esight-whatsapp);
-  color: #ffffff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  font-size: 1.25rem;
-  transition: all 0.25s ease;
-  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.28);
-}
-
-.navWhatsappBtn:hover {
-  background: var(--esight-whatsapp-hover);
-  transform: scale(1.08);
-  box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
-}
-
-.navConatctBox {
+/* Unified Professional Header Action Buttons (Phone, WhatsApp, Menu Toggle) */
+.navConatctBox,
+.nav-phone-btn,
+.navWhatsapp,
+.navWhatsappBtn,
+.navToggle,
+.navBarBox {
   width: 44px;
   height: 44px;
   border-radius: 14px;
   background: #f1f5f9;
   border: 1px solid #e2e8f0;
   color: #0f172a;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  font-size: 1.15rem;
-  transition: all 0.25s ease;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+  padding: 0;
+  flex-shrink: 0;
 }
 
-.navConatctBox:hover {
+.navConatctBox svg,
+.nav-phone-btn svg,
+.navWhatsapp svg,
+.navWhatsappBtn svg,
+.navToggle svg,
+.navBarBox svg {
+  display: block;
+  stroke: currentColor;
+}
+
+.navConatctBox:hover,
+.nav-phone-btn:hover,
+.navToggle:hover,
+.navBarBox:hover {
   background: #e2e8f0;
-  color: var(--esight-primary);
+  color: var(--esight-primary, #0060B4);
+  transform: translateY(-1px);
+}
+
+.navWhatsapp:hover,
+.navWhatsappBtn:hover {
+  background: #dcfce7;
+  border-color: #86efac;
+  color: #16a34a;
   transform: translateY(-1px);
 }
 
@@ -770,22 +779,6 @@ nav.esightNav.scrolled {
 .navToggle,
 .navBarBox {
   display: none;
-  width: 44px;
-  height: 44px;
-  border-radius: 14px;
-  background: #f1f5f9;
-  border: 1px solid #e2e8f0;
-  color: #0f172a;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.navToggle:hover,
-.navBarBox:hover {
-  background: #e2e8f0;
-  color: var(--esight-primary);
 }
 
 /* ==========================================================================
@@ -848,17 +841,23 @@ nav.esightNav.scrolled {
   flex-shrink: 0;
 }
 
-.sidemenuHead .logo {
+.sidemenuHead .logo,
+.sidemenuHead .sidemenuBrand,
+.sidemenuBrand {
   display: flex;
   align-items: center;
+  max-width: 190px;
 }
 
-.sidemenuHead .logo img {
-  height: 34px;
-  width: auto;
-  max-width: 190px;
-  object-fit: contain;
-  display: block;
+.sidemenuHead .logo img,
+.sidemenuHead .sidemenuBrand img,
+.sidemenuBrand img,
+.sidemenuHead img {
+  height: 36px !important;
+  width: auto !important;
+  max-width: 180px !important;
+  object-fit: contain !important;
+  display: block !important;
 }
 
 .sidemenuHead .closeSidemenu {
@@ -3503,15 +3502,48 @@ nav.esightNav.scrolled {
   }
 
   .navCol2 {
+    display: flex !important;
+    align-items: center !important;
     gap: 8px !important;
   }
 
   .navConatctBox,
+  .nav-phone-btn,
   .navWhatsappBtn,
   .navWhatsapp,
-  .navToggle {
+  .navToggle,
+  .navBarBox {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
     width: 38px !important;
     height: 38px !important;
+    border-radius: 12px !important;
+    background: #f8fafc !important;
+    border: 1px solid #e2e8f0 !important;
+    color: #0f172a !important;
+    padding: 0 !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05) !important;
+    flex-shrink: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  .navConatctBox svg,
+  .nav-phone-btn svg {
+    width: 17px !important;
+    height: 17px !important;
+  }
+
+  .navWhatsapp svg,
+  .navWhatsappBtn svg {
+    width: 18px !important;
+    height: 18px !important;
+  }
+
+  .navToggle svg,
+  .navBarBox svg {
+    width: 20px !important;
+    height: 20px !important;
   }
 
   div[style*="minmax(340px"],
@@ -3527,8 +3559,13 @@ nav.esightNav.scrolled {
   }
 
   .thc-hero-buttons {
+    display: flex !important;
     flex-direction: column !important;
+    align-items: center !important;
+    gap: 12px !important;
     width: 100% !important;
+    max-width: 320px !important;
+    margin: 0 auto 24px auto !important;
   }
 
   .thc-hero-buttons a {
@@ -3538,9 +3575,18 @@ nav.esightNav.scrolled {
   }
 
   .thc-hero-metrics {
-    flex-direction: column !important;
-    align-items: flex-start !important;
-    gap: 16px !important;
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 10px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 18px 12px !important;
+    background: #FFFFFF !important;
+    border: 1px solid #E2E8F0 !important;
+    border-radius: 14px !important;
+    box-shadow: 0 4px 18px rgba(15, 23, 42, 0.05) !important;
+    margin: 0 auto 12px auto !important;
+    box-sizing: border-box !important;
   }
 
   .metric-divider {
