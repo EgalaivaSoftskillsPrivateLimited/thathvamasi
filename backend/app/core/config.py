@@ -23,14 +23,28 @@ class Settings(BaseSettings):
     PORT: int = int(os.getenv("PORT", 8000))
     
     # CORS
-    CORS_ORIGINS: List[str] = [
-        "http://localhost:5173",
-        "http://127.0.0.1:5173",
-        "http://localhost:3000",
-        "http://127.0.0.1:3000",
-        "https://thathvamasi.com",
-        "https://www.thathvamasi.com",
-    ]
+    @property
+    def CORS_ORIGINS(self) -> List[str]:
+        default_origins = [
+            "http://localhost:5173",
+            "http://127.0.0.1:5173",
+            "http://localhost:3000",
+            "http://127.0.0.1:3000",
+            "https://thathvamasi.com",
+            "https://www.thathvamasi.com",
+        ]
+        raw = os.getenv("CORS_ORIGINS")
+        if not raw:
+            return default_origins
+        import json
+        try:
+            parsed = json.loads(raw)
+            if isinstance(parsed, list):
+                return list(set(default_origins + parsed))
+        except Exception:
+            pass
+        custom = [item.strip() for item in raw.split(",") if item.strip()]
+        return list(set(default_origins + custom))
     
     # PostgreSQL Database
     POSTGRES_USER: str = os.getenv("POSTGRES_USER", "postgres")

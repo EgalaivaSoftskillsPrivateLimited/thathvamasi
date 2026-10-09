@@ -249,9 +249,13 @@ function initBusinessConsultationForm() {
     }
 
     try {
-      const apiEndpoint = (typeof import.meta !== 'undefined' && import.meta.env && import.meta.env.VITE_API_ENDPOINT)
-        ? `${import.meta.env.VITE_API_ENDPOINT}/contact/enquiry`
-        : '/api/contact/enquiry';
+      const rawEndpoint = (typeof import.meta !== 'undefined' && import.meta.env && import.meta.env.VITE_API_ENDPOINT)
+        ? String(import.meta.env.VITE_API_ENDPOINT).trim().replace(/\/+$/, '')
+        : '/api';
+      const normalizedBase = (rawEndpoint.startsWith('http') && !rawEndpoint.endsWith('/api'))
+        ? `${rawEndpoint}/api`
+        : rawEndpoint;
+      const apiEndpoint = `${normalizedBase}/contact/enquiry`;
       const res = await fetch(apiEndpoint, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },

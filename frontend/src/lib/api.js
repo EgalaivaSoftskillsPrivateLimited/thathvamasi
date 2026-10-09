@@ -6,7 +6,19 @@
 
 import { Storage } from './storage.js';
 
-const API_BASE = import.meta.env.VITE_API_ENDPOINT || '/api';
+function resolveApiBase() {
+  const envVal = (typeof import.meta !== 'undefined' && import.meta.env && import.meta.env.VITE_API_ENDPOINT)
+    ? String(import.meta.env.VITE_API_ENDPOINT).trim().replace(/\/+$/, '')
+    : '/api';
+  
+  if (!envVal || envVal === '/') return '/api';
+  if (envVal.startsWith('http') && !envVal.endsWith('/api')) {
+    return `${envVal}/api`;
+  }
+  return envVal;
+}
+
+const API_BASE = resolveApiBase();
 
 class ApiService {
   /**

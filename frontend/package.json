@@ -4,6 +4,7 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
+    "start": "vite preview",
     "dev": "vite",
     "build": "vite build",
     "build:prod": "vite build --mode production",

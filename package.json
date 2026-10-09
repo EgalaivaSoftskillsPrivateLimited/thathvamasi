@@ -4,6 +4,7 @@
   "private": true,
   "description": "Thathvamasi Corporate Web Platform Workspace",
   "scripts": {
+    "start": "npm --prefix frontend run start",
     "dev": "npm --prefix frontend run dev",
     "build": "npm --prefix frontend run build:prod",
     "build:prod": "npm --prefix frontend run build:prod",
