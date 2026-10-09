@@ -3,15 +3,17 @@
   "version": "1.0.0",
   "private": true,
   "description": "Thathvamasi Corporate Web Platform Workspace",
+  "workspaces": [
+    "frontend"
+  ],
   "scripts": {
-    "start": "npm --prefix frontend run start",
-    "dev": "npm --prefix frontend run dev",
-    "build": "npm --prefix frontend run build:prod",
-    "build:prod": "npm --prefix frontend run build:prod",
-    "build:staging": "npm --prefix frontend run build:staging",
-    "preview": "npm --prefix frontend run preview",
-    "preview:prod": "npm --prefix frontend run preview:prod",
-    "install:frontend": "npm --prefix frontend install"
+    "start": "npm run start --workspace=frontend",
+    "dev": "npm run dev --workspace=frontend",
+    "build": "npm run build:prod --workspace=frontend",
+    "build:prod": "npm run build:prod --workspace=frontend",
+    "build:staging": "npm run build:staging --workspace=frontend",
+    "preview": "npm run preview --workspace=frontend",
+    "preview:prod": "npm run preview:prod --workspace=frontend"
   },
   "keywords": [
     "thathvamasi",
