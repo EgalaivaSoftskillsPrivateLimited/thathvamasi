@@ -1,0 +1,101 @@
+version: '3.8'
+
+services:
+  backend:
+    build: .
+    container_name: thathvamasi-backend
+    ports:
+      - "8000:8000"
+    environment:
+      - DEBUG=True
+      - ENVIRONMENT=development
+      - POSTGRES_USER=thathvamasi
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_HOST=postgres
+      - POSTGRES_PORT=5432
+      - POSTGRES_DB=thathvamasi_hr
+      - JWT_SECRET_KEY=development-secret-key-change-in-production
+      - CLOUDINARY_CLOUD_NAME=${CLOUDINARY_CLOUD_NAME:-}
+      - CLOUDINARY_API_KEY=${CLOUDINARY_API_KEY:-}
+      - CLOUDINARY_API_SECRET=${CLOUDINARY_API_SECRET:-}
+      - EMAIL_HOST=${EMAIL_HOST:-smtp.gmail.com}
+      - EMAIL_PORT=${EMAIL_PORT:-587}
+      - EMAIL_USERNAME=${EMAIL_USERNAME:-}
+      - EMAIL_PASSWORD=${EMAIL_PASSWORD:-}
+      - EMAIL_FROM=${EMAIL_FROM:-noreply@thathvamasi.com}
+      - EMAIL_USE_TLS=${EMAIL_USE_TLS:-True}
+    volumes:
+      - ./app:/app/app
+      - ./uploads:/app/static/uploads
+    depends_on:
+      - postgres
+    restart: unless-stopped
+    networks:
+      - thathvamasi-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  postgres:
+    image: postgres:15-alpine
+    container_name: thathvamasi-postgres
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=thathvamasi
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=thathvamasi_hr
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./postgres-init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    restart: unless-stopped
+    networks:
+      - thathvamasi-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U thathvamasi"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  pgadmin:
+    image: dpage/pgadmin4:7
+    container_name: thathvamasi-pgadmin
+    ports:
+      - "5050:80"
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=admin@thathvamasi.com
+      - PGADMIN_DEFAULT_PASSWORD=admin123
+    volumes:
+      - pgadmin_data:/var/lib/pgadmin
+    restart: unless-stopped
+    networks:
+      - thathvamasi-network
+    depends_on:
+      - postgres
+
+  redis:
+    image: redis:7-alpine
+    container_name: thathvamasi-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    restart: unless-stopped
+    networks:
+      - thathvamasi-network
+    command: redis-server --appendonly yes
+
+networks:
+  thathvamasi-network:
+    driver: bridge
+
+volumes:
+  postgres_data:
+    driver: local
+  pgadmin_data:
+    driver: local
+  redis_data:
+    driver: local

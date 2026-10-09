@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>ERP & CRM Software Solutions & Talent | Thathvamasi</title>
+  <meta name="description" content="Custom ERP & CRM software development and elite tech deployment delivering integrated business systems for sales, finance, HR, inventory, and operations.">
+  <meta name="keywords" content="ERP & CRM software development, custom crm development, erp implementation, enterprise hr systems">
+  <meta name="theme-color" content="#fe4f56">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/src/styles/variables.css">
+  <link rel="stylesheet" href="/src/styles/base.css">
+  <link rel="stylesheet" href="/src/styles/components.css">
+  <link rel="stylesheet" href="/src/styles/esight-theme.css">
+  <link rel="stylesheet" href="/src/styles/responsive.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon.png">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+</head>
+<body class="antialiased">
+
+  <!-- Toast Container -->
+  <div id="toastContainer" class="toast-container" aria-live="polite"></div>
+
+  <!-- Talk to a Sales Advisor Modal (callPopup) -->
+  <div class="callPopup" id="callPopup" role="dialog" aria-modal="true" aria-label="Talk to a sales advisor">
+    <div class="callPopupBox squircle">
+      <button type="button" class="callPopupClose" aria-label="Close dialog">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+      <h2>Talk to a sales advisor</h2>
+      <p>We have a team of enterprise specialists available to help you find the best ERP, CRM, and talent solution for your business.</p>
+      
+      <a href="tel:+919442218900" class="phoneNumber">
+        <div class="icon">
+          <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" height="20" width="20"><path d="M15.05 5A5 5 0 0 1 19 8.95M15.05 1A9 9 0 0 1 23 8.94m-1 7.98v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+        </div>
+        +91 94422 18900
+      </a>
+      
+      <a class="requestCallBack" href="#contactEnquirySec" onclick="document.getElementById('callPopup').classList.remove('active');">
+        <div class="requestCallBackBox1">
+          <div class="icon">
+            <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" height="22" width="22"><path d="M12 3a9 9 0 0 0-9 9v7c0 1.1.9 2 2 2h4v-8H5v-1c0-3.87 3.13-7 7-7s7 3.13 7 7v1h-4v8h4c1.1 0 2-.9 2-2v-7a9 9 0 0 0-9-9z"></path></svg>
+          </div>
+        </div>
+        <div class="requestCallBackBox2">
+          <h3>Request a call back</h3>
+          <p>Call backs typically happen in a few minutes or less</p>
+        </div>
+        <div class="requestCallBackBox3">
+          <div class="icon">
+            <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" height="18" width="18"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <!-- Ultra-Modern Floating Navbar -->
+  <nav class="esightNav" id="mainHeader">
+    <div class="container">
+      <div class="navMain">
+        <div class="navCol1">
+          <a class="navLogo" aria-label="Thathvamasi Home" href="/">
+            <img src="/images/logo/logo-main.png" alt="Thathvamasi Business Solutions" onerror="this.src='/images/logo/logo main.png'">
+            <span>THATHVAMASI</span>
+          </a>
+          <div class="navLink">
+            <ul>
+              <li><a href="/">Home</a></li>
+              <li><a href="/#about">About</a></li>
+              <li class="hasDropdown">
+                <a href="/services/index.html">
+                  Services
+                  <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" height="14" width="14"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </a>
+                <div class="dropdownMega twoColClean">
+                  <div class="cleanCol">
+                    <div class="colHeader">
+                      <h4 class="colTitle">HR &amp; Talent Solutions</h4>
+                      <div class="colUnderline"></div>
+                    </div>
+                    <ul class="cleanList">
+                      <li><a href="/services/executive-search.html">Executive Search &amp; CXO</a></li>
+                      <li><a href="/services/industrial-manufacturing.html">Industrial &amp; Manufacturing</a></li>
+                      <li><a href="/services/it-recruitment.html">IT &amp; Tech Recruitment</a></li>
+                      <li><a href="/services/turnkey-rpo.html">Turnkey RPO Scale Pods</a></li>
+                      <li><a href="/services/payroll-management.html">Payroll &amp; HR Compliance</a></li>
+                      <li><a href="/services/permanent-staffing.html">Permanent Lateral Staffing</a></li>
+                    </ul>
+                  </div>
+
+                  <div class="cleanCol">
+                    <div class="colHeader">
+                      <h4 class="colTitle">Finance &amp; Business Advisory</h4>
+                      <div class="colUnderline"></div>
+                    </div>
+                    <ul class="cleanList">
+                      <li><a href="/business/company-registration.html">Company Registration (Pvt Ltd &amp; LLP)</a></li>
+                      <li><a href="/business/gst-tax.html">GST Registration &amp; Filings</a></li>
+                      <li><a href="/business/mca-compliance.html">Annual RoC &amp; MCA Compliance</a></li>
+                      <li><a href="/business/trademark-ipr.html">Trademark &amp; IPR Protection</a></li>
+                      <li><a href="/business/accounting-cfo.html">Virtual CFO &amp; Accounts</a></li>
+                      <li><a href="/business/index.html">Business Advisory Hub</a></li>
+                    </ul>
+                  </div>
+
+                  <div class="dropdownFooter">
+                    <span>Integrated Enterprise Infrastructure</span>
+                    <a href="/services/index.html">Explore All Business Solutions &rarr;</a>
+                  </div>
+                </div>
+              </li>
+              <li><a href="/#industries">Industries</a></li>
+              <li><a href="/#employers">Employers</a></li>
+              <li><a href="/#insights">Blogs</a></li>
+              <li><a href="#contactEnquirySec">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="navCol2">
+          <div class="navConatct">
+            <a href="https://wa.me/919442218900?text=Hi%21%20I%20am%20interested%20in%20ERP%20and%20CRM%20services.%20Can%20you%20help%20me%3F" target="_blank" rel="noopener noreferrer" class="navWhatsappBtn" aria-label="Chat on WhatsApp">
+              <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" height="18" width="18"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"></path></svg>
+            </a>
+            <div class="navConatctBox" role="button" tabindex="0" aria-label="Talk to a sales advisor" data-action="open-call-popup">
+              <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" height="20" width="20"><path d="M15.05 5A5 5 0 0 1 19 8.95M15.05 1A9 9 0 0 1 23 8.94m-1 7.98v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            </div>
+            <a class="primaryBtn" href="#contactEnquirySec">Get a Quote</a>
+          </div>
+          <div class="navBarBox" role="button" tabindex="0" aria-label="Open navigation menu">
+            <span></span><span></span><span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Backdrop Overlay for Mobile Drawer -->
+  <div class="sidemenuBackdrop" id="sidemenuBackdrop"></div>
+
+  <!-- Mobile Drawer Sidemenu -->
+  <aside class="sidemenu" id="sidemenu" aria-label="Mobile Navigation">
+    <div class="sidemenuHead">
+      <div class="logo">
+        <img src="/images/logo/logo-main.png" alt="Thathvamasi Business Solutions" style="height: 34px;">
+      </div>
+      <button class="closeSidemenu" aria-label="Close menu">
+        <svg stroke="currentColor" fill="none" stroke-width="2.5" viewBox="0 0 24 24" height="18" width="18"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+    </div>
+
+    <div class="sidemenuBody">
+      <div>
+        <div class="sidemenuGroupTitle">Main Portals</div>
+        <ul class="sidemenuNavList">
+          <li>
+            <a href="/" class="sidemenuLink">
+              <div class="sidemenuIcon">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+              </div>
+              <span>Home</span>
+            </a>
+          </li>
+          <li>
+            <a href="/services/index.html" class="sidemenuLink active">
+              <div class="sidemenuIcon">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+              </div>
+              <span>HR &amp; Talent Solutions</span>
+              <svg class="sidemenuArrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+            </a>
+            <ul class="sidemenuSubList">
+              <li><a href="/services/erp-crm.html" class="sidemenuSubLink">ERP &amp; CRM Solutions</a></li>
+              <li><a href="/services/it-recruitment.html" class="sidemenuSubLink">IT &amp; GCC Tech Recruitment</a></li>
+              <li><a href="/services/permanent-staffing.html" class="sidemenuSubLink">Permanent Lateral Staffing</a></li>
+              <li><a href="/services/executive-search.html" class="sidemenuSubLink">Executive Search &amp; CXO</a></li>
+              <li><a href="/services/industrial-manufacturing.html" class="sidemenuSubLink">Industrial &amp; Plant Engineering</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="/business/index.html" class="sidemenuLink">
+              <div class="sidemenuIcon blue">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M3 10h18M5 6l7-3 7 3M4 10v11M20 10v11M8 14v4M12 14v4M16 14v4"/></svg>
+              </div>
+              <span>Corporate Advisory &amp; Legal</span>
+              <svg class="sidemenuArrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+            </a>
+            <ul class="sidemenuSubList">
+              <li><a href="/business/company-registration.html" class="sidemenuSubLink">Company Registration (Pvt Ltd)</a></li>
+              <li><a href="/business/gst-tax.html" class="sidemenuSubLink">GST Registration &amp; Filings</a></li>
+              <li><a href="/business/mca-compliance.html" class="sidemenuSubLink">Annual RoC &amp; MCA Secretarial</a></li>
+              <li><a href="/business/trademark-ipr.html" class="sidemenuSubLink">Trademark &amp; IPR Protection</a></li>
+              <li><a href="/business/accounting-cfo.html" class="sidemenuSubLink">Virtual CFO &amp; Accounting</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="/industries/index.html" class="sidemenuLink">
+              <div class="sidemenuIcon">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8l-7 5V8l-7 5V4a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/></svg>
+              </div>
+              <span>Industry Practices (12)</span>
+            </a>
+          </li>
+          <li>
+            <a href="/#blogs" class="sidemenuLink">
+              <div class="sidemenuIcon">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+              </div>
+              <span>Insights &amp; Executive Briefings</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="sidemenuActionBox">
+        <a href="tel:+919442218900" class="sidemenuHotline">
+          <div class="hotlineIcon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </div>
+          <div class="hotlineText">
+            <strong>Direct Advisory Desk</strong>
+            <span>+91 94422 18900</span>
+          </div>
+        </a>
+        <a href="https://wa.me/919442218900?text=Hello%20Thathvamasi,%20I%20would%20like%20to%20discuss%20corporate%20services" class="sidemenuWaBtn" target="_blank" rel="noopener">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+          Chat on WhatsApp
+        </a>
+        <a href="#contactEnquirySec" class="sidemenuCtaBtn">
+          Request ERP &amp; Tech Consultation &rarr;
+        </a>
+        <div class="sidemenuFooterText">Peelamedu, Coimbatore &bull; Pan-India Practices</div>
+      </div>
+    </div>
+  </aside>
+
+  <main>
+    <!-- Section 1: Hero Banner (serviceInnerBanner) -->
+    <!-- Section 1: Hero Banner in Executive Split 2-Column Layout -->
+    <section class="serviceInnerBanner">
+      <div class="container">
+        <div class="serviceInnerBannerBox squircle">
+          <div class="serviceHeroSplit">
+            
+            <!-- Left: Value Proposition & Actions -->
+            <div class="serviceHeroLeft">
+              <div class="breadCrumb">
+                <ul>
+                  <li><a href="/">Home</a></li>
+                  <li>/</li>
+                  <li><a href="/services/index.html">Services</a></li>
+                  <li>/</li>
+                  <li class="active">ERP &amp; CRM Solutions</li>
+                </ul>
+              </div>
+
+              <span class="subTitle">Enterprise Architecture &amp; System Integration</span>
+              <h1 class="title">ERP &amp; CRM Software Development &amp; Tech Deployment</h1>
+              <p class="serviceInnerBannerText">
+                Integrated enterprise architecture, automated customer journeys, and custom business workflows tailored for corporate speed and scale across South India. SAP, Salesforce, and bespoke ERP deployments.
+              </p>
+
+              <div class="buttonFlex">
+                <a class="primaryBtn" href="#contactEnquirySec">
+                  Request Solution Quote &rarr;
+                </a>
+                <a class="callBackBtn" href="javascript:void(0);" onclick="document.getElementById('callPopup').classList.add('active');">
+                  <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" height="18" width="18"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                  Consult Solutions Architect
+                </a>
+              </div>
+
+              <!-- Trust Metrics Row -->
+              <div class="serviceHeroMetrics">
+                <div class="serviceHeroMetric">
+                  <strong>240+</strong>
+                  <span>Implementers Placed</span>
+                </div>
+                <div class="serviceHeroDivider"></div>
+                <div class="serviceHeroMetric">
+                  <strong class="green">48-Hr SLA</strong>
+                  <span>Certified Architect Profiles</span>
+                </div>
+                <div class="serviceHeroDivider"></div>
+                <div class="serviceHeroMetric">
+                  <strong class="accent">90 Days</strong>
+                  <span>Deployment Warranty</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right: Real High-Impact Tech Visual -->
+            <div class="serviceHeroRight">
+              <div class="serviceHeroVisual">
+                <img 
+                  src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=800&q=80" 
+                  alt="Enterprise ERP and CRM Solutions Engineering" 
+                  loading="eager"
+                  onerror="this.src='/images/heroes/thc_hero.jpg'"
+                >
+                <div class="hero-glass-pill pill-top">
+                  <span class="live-dot"></span>
+                  <span class="glass-pill-text"><strong>Certified SAP, Salesforce &amp; Oracle Architects</strong></span>
+                </div>
+                <div class="hero-glass-pill pill-bottom">
+                  <div class="glass-pill-check">&#10003;</div>
+                  <span class="glass-pill-text"><strong>Sales &bull; Finance &bull; HR &bull; Supply Chain Integration</strong></span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2: Overview (serviceInnerOverView) -->
+    <section class="serviceInnerOverView">
+      <div class="container">
+        <div class="serviceInnerOverViewMain">
+          <div class="serviceInnerOverViewCol1">
+            <h2 class="title">The Operational Backbone Your Business Needs</h2>
+          </div>
+          <div class="serviceInnerOverViewCol2">
+            <p class="description">Growing businesses outgrow spreadsheets. We build custom ERP and CRM systems that become the operational backbone of your company — connecting all your departments and giving you real-time visibility into your entire business.</p>
+            <a class="primaryBtn" href="#contactEnquirySec">Get a Free Quote</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: Benefits & Transformation (serviceInnerBenefits) -->
+    <section class="serviceInnerBenefits">
+      <div class="container">
+        <div class="serviceInnerBenefitsMain">
+          <div class="serviceInnerBenefitsThumbnail squircle">
+            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1000&q=80" alt="ERP & CRM Dashboard Platform" loading="lazy">
+          </div>
+          <div class="serviceInnerBenefitsDetails">
+            <h2 class="title">From Disconnected Systems to One Smart Platform</h2>
+            <p class="description">As an enterprise ERP & CRM solutions leader in Coimbatore and Kochi, we transform scattered tools, spreadsheets, and manual processes into a unified ERP + CRM system that connects your entire business in real time.</p>
+            
+            <div class="serviceInnerBenefitsDetailsList">
+              <div class="serviceInnerBenefitsDetailsListBox squircle">
+                <div class="icon squircle">
+                  <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" height="22" width="22"><rect x="4" y="4" width="16" height="16" rx="2"></rect><rect x="9" y="9" width="6" height="6"></rect><line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line><line x1="9" y1="20" x2="9" y2="23"></line><line x1="15" y1="20" x2="15" y2="23"></line><line x1="20" y1="9" x2="23" y2="9"></line><line x1="20" y1="14" x2="23" y2="14"></line><line x1="1" y1="9" x2="4" y2="9"></line><line x1="1" y1="14" x2="4" y2="14"></line></svg>
+                </div>
+                <h3 class="subTitle">Unified Operations</h3>
+                <p class="description">Bring sales, finance, HR, inventory, and customer management into one connected system with complete visibility and control.</p>
+              </div>
+
+              <div class="serviceInnerBenefitsDetailsListBox squircle">
+                <div class="icon squircle">
+                  <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" height="22" width="22"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
+                </div>
+                <h3 class="subTitle">Real-Time Data Sync</h3>
+                <p class="description">Ensure every department works on accurate, updated information with seamless synchronization across all modules.</p>
+              </div>
+
+              <div class="serviceInnerBenefitsDetailsListBox squircle">
+                <div class="icon squircle">
+                  <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" height="22" width="22"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                </div>
+                <h3 class="subTitle">Smarter Decisions</h3>
+                <p class="description">Gain clear, real-time insights through dashboards and reports that help you make faster, data-driven business decisions.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4: What's Included (serviceInnerInclude) -->
+    <section class="serviceInnerInclude">
+      <div class="container">
+        <div class="serviceInnerIncludeHead">
+          <h2 class="title">What's Included</h2>
+          <p class="description">Modular, secure, and production-tested building blocks configured specifically to your operational blueprint.</p>
+        </div>
+        <div class="serviceInnerIncludeMain">
+          <div class="serviceInnerIncludeBox">
+            <div class="icon squircle">
+              <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" height="24" width="24"><rect x="2" y="7" width="20" height="14" rx="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+            </div>
+            <h3 class="subTitle">Custom ERP development</h3>
+            <p class="description">An ERP solution that is complete and flexible enough to adapt to your business processes exactly.</p>
+          </div>
+
+          <div class="serviceInnerIncludeBox">
+            <div class="icon squircle">
+              <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" height="24" width="24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
+            </div>
+            <h3 class="subTitle">Sales CRM with pipeline management</h3>
+            <p class="description">Monitor leads, manage sales pipelines and drive conversions through custom CRM capabilities.</p>
+          </div>
+
+          <div class="serviceInnerIncludeBox">
+            <div class="icon squircle">
+              <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" height="24" width="24"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>
+            </div>
+            <h3 class="subTitle">Inventory and warehouse management</h3>
+            <p class="description">Real time stock tracking, stock alerts, stock PO and multi-bin warehouse management.</p>
+          </div>
+
+          <div class="serviceInnerIncludeBox">
+            <div class="icon squircle">
+              <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" height="24" width="24"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+            </div>
+            <h3 class="subTitle">Purchase and vendor management</h3>
+            <p class="description">Simplify vendor enrollment, handle purchase orders, keep track of deliveries, and automate procurement.</p>
+          </div>
+
+          <div class="serviceInnerIncludeBox">
+            <div class="icon squircle">
+              <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" height="24" width="24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+            </div>
+            <h3 class="subTitle">HR and payroll modules</h3>
+            <p class="description">Employee Database, attendance, leaves and automated Salary Slip generation compliant with 2026 Labor Codes.</p>
+          </div>
+
+          <div class="serviceInnerIncludeBox">
+            <div class="icon squircle">
+              <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" height="24" width="24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+            </div>
+            <h3 class="subTitle">Financial accounting integration</h3>
+            <p class="description">Double Entry Bookkeeping, Invoicing, Expense Tracking and automated GST / TDS calculations.</p>
+          </div>
+
+          <div class="serviceInnerIncludeBox">
+            <div class="icon squircle">
+              <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" height="24" width="24"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+            </div>
+            <h3 class="subTitle">Custom reports and dashboards</h3>
+            <p class="description">Interactive and real-time financial summaries, operational KPIs, and management intelligence.</p>
+          </div>
+
+          <div class="serviceInnerIncludeBox">
+            <div class="icon squircle">
+              <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" height="24" width="24"><rect x="5" y="2" width="14" height="20" rx="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
+            </div>
+            <h3 class="subTitle">Mobile access for field teams</h3>
+            <p class="description">Give on-the-road sales, service, or delivery teams secure access to critical modules from anywhere.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 5: Interactive Multi-Phase Workflow (customSoftwareWorkflow) -->
+    <section class="customSoftwareWorkflow">
+      <div class="container">
+        <div class="workflowContent">
+          <div class="workflowLeft">
+            <div class="workflowHeader">
+              <h2 class="title">Designed for Efficiency Built for Growth</h2>
+              <p class="description">Your business runs faster when everything works together. Our ERP & CRM solutions bring your teams, data, and processes into one connected system—so you can operate smarter, respond quicker, and grow without limits.</p>
+            </div>
+            <div class="workflowImageWrapper squircle">
+              <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" alt="Workflow architecture visualization" loading="lazy">
+            </div>
+          </div>
+          
+          <div class="workflowRight">
+            <div class="workflowStepList">
+              <div class="workflowStepItem">
+                <div class="stepHeader">
+                  <div class="iconBox">
+                    <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" height="20" width="20"><rect x="2" y="7" width="20" height="14" rx="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+                  </div>
+                  <div class="titleGroup">
+                    <span class="phaseTag">Phase 01 / Operations</span>
+                    <h3 class="stepTitle">All-in-One Operations</h3>
+                  </div>
+                </div>
+                <p class="stepDescription">Bring sales, finance, HR, inventory, procurement, and customer management into a single integrated platform for complete operational control.</p>
+              </div>
+
+              <div class="workflowStepItem">
+                <div class="stepHeader">
+                  <div class="iconBox">
+                    <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" height="20" width="20"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+                  </div>
+                  <div class="titleGroup">
+                    <span class="phaseTag">Phase 02 / Visibility</span>
+                    <h3 class="stepTitle">Instant Business Visibility</h3>
+                  </div>
+                </div>
+                <p class="stepDescription">Access accurate dashboards and reports that provide clear visibility into performance across all departments for faster decision-making.</p>
+              </div>
+
+              <div class="workflowStepItem">
+                <div class="stepHeader">
+                  <div class="iconBox">
+                    <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" height="20" width="20"><rect x="4" y="4" width="16" height="16" rx="2"></rect><rect x="9" y="9" width="6" height="6"></rect><line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line><line x1="9" y1="20" x2="9" y2="23"></line><line x1="15" y1="20" x2="15" y2="23"></line></svg>
+                  </div>
+                  <div class="titleGroup">
+                    <span class="phaseTag">Phase 03 / Automation</span>
+                    <h3 class="stepTitle">Automation That Saves Time</h3>
+                  </div>
+                </div>
+                <p class="stepDescription">Automate repetitive tasks such as approvals, notifications, and task assignments to improve efficiency and reduce manual effort.</p>
+              </div>
+
+              <div class="workflowStepItem">
+                <div class="stepHeader">
+                  <div class="iconBox">
+                    <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" height="20" width="20"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>
+                  </div>
+                  <div class="titleGroup">
+                    <span class="phaseTag">Phase 04 / Ecosystem</span>
+                    <h3 class="stepTitle">Connected Ecosystem</h3>
+                  </div>
+                </div>
+                <p class="stepDescription">Connect effortlessly with accounting tools, payment gateways, WhatsApp bots, and existing third-party enterprise applications.</p>
+              </div>
+
+              <div class="workflowStepItem">
+                <div class="stepHeader">
+                  <div class="iconBox">
+                    <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" height="20" width="20"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
+                  </div>
+                  <div class="titleGroup">
+                    <span class="phaseTag">Phase 05 / Scaling</span>
+                    <h3 class="stepTitle">Built to Scale</h3>
+                  </div>
+                </div>
+                <p class="stepDescription">A future-ready system engineered on scalable cloud frameworks designed to grow with your business while maintaining sub-second latency.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 6: Our Stacks (serviceInnerStacks) -->
+    <section class="serviceInnerStacks">
+      <div class="container">
+        <div class="serviceInnerStacksHead">
+          <div class="serviceInnerStacksHeadCol1">
+            <span class="titleTag">Our Stacks</span>
+          </div>
+          <div class="serviceInnerStacksHeadCol2">
+            <h2 class="title">Built on proven, battle-tested technology</h2>
+            <p class="description">From speed to maintainability, every framework we use is selected to keep your system reliable, secure, and future-ready.</p>
+          </div>
+        </div>
+        
+        <div class="serviceInnerStacksListCol2">
+          <div class="serviceInnerStacksBox squircle">
+            <div class="icon">
+              <svg stroke="currentColor" fill="none" stroke-width="1.8" viewBox="0 0 24 24"><circle cx="12" cy="12" r="2"/><ellipse cx="12" cy="12" rx="10" ry="4.5"/><ellipse cx="12" cy="12" rx="10" ry="4.5" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="10" ry="4.5" transform="rotate(120 12 12)"/></svg>
+            </div>
+            <h4>React &amp; Vite</h4>
+          </div>
+          <div class="serviceInnerStacksBox squircle">
+            <div class="icon">
+              <svg stroke="currentColor" fill="none" stroke-width="1.8" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            </div>
+            <h4>Next.js</h4>
+          </div>
+          <div class="serviceInnerStacksBox squircle">
+            <div class="icon">
+              <svg stroke="currentColor" fill="none" stroke-width="1.8" viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            </div>
+            <h4>Python FastAPI</h4>
+          </div>
+          <div class="serviceInnerStacksBox squircle">
+            <div class="icon">
+              <svg stroke="currentColor" fill="none" stroke-width="1.8" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+            </div>
+            <h4>PostgreSQL</h4>
+          </div>
+          <div class="serviceInnerStacksBox squircle">
+            <div class="icon">
+              <svg stroke="currentColor" fill="none" stroke-width="1.8" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+            </div>
+            <h4>Node.js</h4>
+          </div>
+          <div class="serviceInnerStacksBox squircle">
+            <div class="icon">
+              <svg stroke="currentColor" fill="none" stroke-width="1.8" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            </div>
+            <h4>Laravel</h4>
+          </div>
+          <div class="serviceInnerStacksBox squircle">
+            <div class="icon">
+              <svg stroke="currentColor" fill="none" stroke-width="1.8" viewBox="0 0 24 24"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/></svg>
+            </div>
+            <h4>AWS &amp; Cloud</h4>
+          </div>
+          <div class="serviceInnerStacksBox squircle">
+            <div class="icon">
+              <svg stroke="currentColor" fill="none" stroke-width="1.8" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            </div>
+            <h4>WhatsApp API</h4>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 7: FAQs Accordion (serviceInnerFaq) -->
+    <section class="serviceInnerFaq">
+      <div class="container">
+        <div class="serviceInnerFaqBg squircle">
+          <div class="serviceInnerFaqHead">
+            <h2 class="title">Frequently Asked Questions</h2>
+          </div>
+          <div class="serviceInnerFaqMain">
+            <div class="faqBox squircle">
+              <div class="faqBoxHead">
+                <h3>Do you provide ERP & CRM software development services in Coimbatore & Kerala?</h3>
+                <div class="faqBoxHeadIcon">
+                  <svg stroke="currentColor" fill="none" stroke-width="2.5" viewBox="0 0 24 24" height="16" width="16"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </div>
+              </div>
+              <div class="faqBoxBody">
+                <div class="faqBoxBodyMain">
+                  <p class="description">Yes, we deliver customized ERP & CRM software development across Coimbatore, Kochi, Bangalore, and Pan-India. We develop ERP and CRM platforms to manage sales, customers, finance, inventory, employees, workflows, and business processes with local engineering support.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="faqBox squircle">
+              <div class="faqBoxHead">
+                <h3>How do I know if my business needs an ERP system?</h3>
+                <div class="faqBoxHeadIcon">
+                  <svg stroke="currentColor" fill="none" stroke-width="2.5" viewBox="0 0 24 24" height="16" width="16"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </div>
+              </div>
+              <div class="faqBoxBody">
+                <div class="faqBoxBodyMain">
+                  <p class="description">If you're managing multiple departments using spreadsheets or disconnected software, an ERP system will streamline operations, eliminate data silos, improve financial visibility, and increase team efficiency immediately.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="faqBox squircle">
+              <div class="faqBoxHead">
+                <h3>Can the software be customized for our specific business workflows?</h3>
+                <div class="faqBoxHeadIcon">
+                  <svg stroke="currentColor" fill="none" stroke-width="2.5" viewBox="0 0 24 24" height="16" width="16"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </div>
+              </div>
+              <div class="faqBoxBody">
+                <div class="faqBoxBodyMain">
+                  <p class="description">Yes. Every enterprise operates differently. We design and build tailor-made data schemas, approval hierarchies, reporting dashboards, and role permissions that fit your exact commercial process.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="faqBox squircle">
+              <div class="faqBoxHead">
+                <h3>What modules can be included in an ERP solution?</h3>
+                <div class="faqBoxHeadIcon">
+                  <svg stroke="currentColor" fill="none" stroke-width="2.5" viewBox="0 0 24 24" height="16" width="16"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </div>
+              </div>
+              <div class="faqBoxBody">
+                <div class="faqBoxBodyMain">
+                  <p class="description">ERP systems can include inventory tracking, financial double-entry accounting, automated billing, HR & payroll with 2026 Labor Code compliance, vendor procurement, production planning, and real-time executive analytics.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="faqBox squircle">
+              <div class="faqBoxHead">
+                <h3>Can the ERP system integrate with existing software and WhatsApp?</h3>
+                <div class="faqBoxHeadIcon">
+                  <svg stroke="currentColor" fill="none" stroke-width="2.5" viewBox="0 0 24 24" height="16" width="16"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </div>
+              </div>
+              <div class="faqBoxBody">
+                <div class="faqBoxBodyMain">
+                  <p class="description">Absolutely. We connect ERP and CRM solutions with existing accounting software (Tally, Zoho), payment gateways (Razorpay, Cashfree), biometric attendance devices, and automated WhatsApp Business workflows.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="faqBox squircle">
+              <div class="faqBoxHead">
+                <h3>Do you provide ongoing support, maintenance, and training?</h3>
+                <div class="faqBoxHeadIcon">
+                  <svg stroke="currentColor" fill="none" stroke-width="2.5" viewBox="0 0 24 24" height="16" width="16"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </div>
+              </div>
+              <div class="faqBoxBody">
+                <div class="faqBoxBodyMain">
+                  <p class="description">Yes. We provide complete onboarding, employee role training, SLA-backed maintenance, automated database backups, security patches, and scalable feature upgrades as your operations expand.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 8: Locations Matrix (Where We Work) -->
+    <section class="serviceLocation-module__-gGcUq__areas" id="service-location">
+      <div class="container">
+        <div class="serviceLocation-module__-gGcUq__head">
+          <div>
+            <div class="titleTag">Where We Work</div>
+            <h2 class="title">ERP & CRM Solutions Across India</h2>
+          </div>
+          <p class="description">Our enterprise specialists deliver customized ERP, CRM, and technical engineering solutions across prime industrial and commercial corridors with dedicated advisory support.</p>
+        </div>
+
+        <div class="serviceLocation-module__-gGcUq__liveGrid">
+          <div class="serviceLocation-module__-gGcUq__liveCard">
+            <div class="serviceLocation-module__-gGcUq__liveBody">
+              <h3>Enterprise Solutions in <span>Coimbatore</span> →</h3>
+            </div>
+          </div>
+          <div class="serviceLocation-module__-gGcUq__liveCard">
+            <div class="serviceLocation-module__-gGcUq__liveBody">
+              <h3>Enterprise Solutions in <span>Kochi</span> →</h3>
+            </div>
+          </div>
+          <div class="serviceLocation-module__-gGcUq__liveCard">
+            <div class="serviceLocation-module__-gGcUq__liveBody">
+              <h3>Enterprise Solutions in <span>Bangalore</span> →</h3>
+            </div>
+          </div>
+          <div class="serviceLocation-module__-gGcUq__liveCard">
+            <div class="serviceLocation-module__-gGcUq__liveBody">
+              <h3>Enterprise Solutions in <span>Chennai</span> →</h3>
+            </div>
+          </div>
+          <div class="serviceLocation-module__-gGcUq__liveCard">
+            <div class="serviceLocation-module__-gGcUq__liveBody">
+              <h3>Enterprise Solutions in <span>Hyderabad</span> →</h3>
+            </div>
+          </div>
+          <div class="serviceLocation-module__-gGcUq__liveCard">
+            <div class="serviceLocation-module__-gGcUq__liveBody">
+              <h3>Enterprise Solutions in <span>Mumbai</span> →</h3>
+            </div>
+          </div>
+          <div class="serviceLocation-module__-gGcUq__liveCard">
+            <div class="serviceLocation-module__-gGcUq__liveBody">
+              <h3>Enterprise Solutions in <span>Pune</span> →</h3>
+            </div>
+          </div>
+          <div class="serviceLocation-module__-gGcUq__liveCard">
+            <div class="serviceLocation-module__-gGcUq__liveBody">
+              <h3>Enterprise Solutions in <span>Calicut</span> →</h3>
+            </div>
+          </div>
+          <div class="serviceLocation-module__-gGcUq__liveCard">
+            <div class="serviceLocation-module__-gGcUq__liveBody">
+              <h3>Enterprise Solutions in <span>Trivandrum</span> →</h3>
+            </div>
+          </div>
+          <div class="serviceLocation-module__-gGcUq__liveCard">
+            <div class="serviceLocation-module__-gGcUq__liveBody">
+              <h3>Enterprise Solutions in <span>Delhi NCR</span> →</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 9: Blogs & Insights (homeBlogs) -->
+    <section class="homeBlogs">
+      <div class="container">
+        <div class="homeBlogsHead">
+          <div class="homeBlogsHeadCol1">
+            <div class="titleTag">Blog & Insights</div>
+            <h2 class="title">Technology & Growth Insights</h2>
+          </div>
+          <div class="homeBlogsHeadCol2">
+            <p class="description">Practical insights on enterprise automation, CRM integration, and software architectures for growing companies.</p>
+            <a class="linkBtn" href="/#insights">View All Blogs →</a>
+          </div>
+        </div>
+
+        <div class="homeBlogsGrid">
+          <a class="homeBlogsBox" href="/#insights">
+            <div class="homeBlogsBoxThumbnail squircle">
+              <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=600&q=80" alt="CRM and WhatsApp Integration" loading="lazy">
+            </div>
+            <div class="homeBlogsBoxDetails squircle">
+              <h3>Connecting Your CRM With WhatsApp, Email, and Website Forms</h3>
+              <p class="description">Learn how to link your central CRM with WhatsApp API, lead magnets, and customer forms so every inquiry lands in one real-time dashboard.</p>
+              <div class="homeBlogsBoxDetailsFooter">
+                <div class="date">Oct 08, 2026</div>
+                <div class="exploreBtn">↗</div>
+              </div>
+            </div>
+          </a>
+
+          <a class="homeBlogsBox" href="/#insights">
+            <div class="homeBlogsBoxThumbnail squircle">
+              <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=600&q=80" alt="ERP Cloud Architecture" loading="lazy">
+            </div>
+            <div class="homeBlogsBoxDetails squircle">
+              <h3>Why Custom ERP Outperforms Generic Off-The-Shelf Software</h3>
+              <p class="description">Discover the operational leverage of purpose-built ERP systems designed around proprietary manufacturing and service workflows.</p>
+              <div class="homeBlogsBoxDetailsFooter">
+                <div class="date">Oct 05, 2026</div>
+                <div class="exploreBtn">↗</div>
+              </div>
+            </div>
+          </a>
+
+          <a class="homeBlogsBox" href="/#insights">
+            <div class="homeBlogsBoxThumbnail squircle">
+              <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=600&q=80" alt="Automated HR & Payroll" loading="lazy">
+            </div>
+            <div class="homeBlogsBoxDetails squircle">
+              <h3>Automating HR & Payroll Under the 2026 Indian Labor Codes</h3>
+              <p class="description">How modern cloud HR modules ensure 100% compliance with wage codes, gratuity rules, and monthly statutory remittances.</p>
+              <div class="homeBlogsBoxDetailsFooter">
+                <div class="date">Oct 02, 2026</div>
+                <div class="exploreBtn">↗</div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 10: Interactive Quote / Contact Section (Connected to Live DB Backend) -->
+    <section class="section" id="contactEnquirySec" style="padding: 90px 0; background: #f8fafc; border-top: 1px solid #e2e8f0;">
+      <div class="container" style="max-width: 860px;">
+        <div style="text-align: center; margin-bottom: 40px;">
+          <span class="titleTag">Get in Touch</span>
+          <h2 style="font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 800; color: #0f172a; margin: 12px 0 8px 0;">Request a Free Consultation & Quote</h2>
+          <p style="color: #64748b; font-size: 1.05rem;">Submit your requirement below. Our Coimbatore & regional advisory desk will connect with you within 2 business hours.</p>
+        </div>
+
+        <div style="background: #ffffff; border-radius: 32px; padding: 48px; box-shadow: 0 16px 48px rgba(15, 23, 42, 0.06); border: 1px solid #e2e8f0;">
+          <form id="contactForm">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px;">
+              <div>
+                <label style="display: block; font-weight: 700; font-size: 0.9rem; color: #334155; margin-bottom: 8px;">Your Name *</label>
+                <input type="text" id="contactName" required placeholder="Full Name" style="width: 100%; padding: 14px 18px; border-radius: 14px; border: 1.5px solid #e2e8f0; font-size: 0.95rem; outline: none;">
+              </div>
+              <div>
+                <label style="display: block; font-weight: 700; font-size: 0.9rem; color: #334155; margin-bottom: 8px;">Work Email *</label>
+                <input type="email" id="contactEmail" required placeholder="corporate@company.com" style="width: 100%; padding: 14px 18px; border-radius: 14px; border: 1.5px solid #e2e8f0; font-size: 0.95rem; outline: none;">
+              </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px;">
+              <div>
+                <label style="display: block; font-weight: 700; font-size: 0.9rem; color: #334155; margin-bottom: 8px;">Contact Number *</label>
+                <input type="tel" id="contactMobile" required placeholder="10-digit mobile number" style="width: 100%; padding: 14px 18px; border-radius: 14px; border: 1.5px solid #e2e8f0; font-size: 0.95rem; outline: none;">
+              </div>
+              <div>
+                <label style="display: block; font-weight: 700; font-size: 0.9rem; color: #334155; margin-bottom: 8px;">Subject / Solution Domain</label>
+                <select id="contactSubject" style="width: 100%; padding: 14px 18px; border-radius: 14px; border: 1.5px solid #e2e8f0; font-size: 0.95rem; outline: none; background: #ffffff;">
+                  <option value="ERP & CRM Software Development">ERP & CRM Software Development</option>
+                  <option value="Enterprise Tech Staffing Pod">Enterprise Tech Staffing Pod</option>
+                  <option value="Executive CXO Search">Executive CXO Search</option>
+                  <option value="Labor Code Compliance & Advisory">Labor Code Compliance & Advisory</option>
+                </select>
+              </div>
+            </div>
+
+            <div style="margin-bottom: 28px;">
+              <label style="display: block; font-weight: 700; font-size: 0.9rem; color: #334155; margin-bottom: 8px;">Requirements Summary *</label>
+              <textarea id="contactMessage" required rows="4" placeholder="Briefly describe your current tools, team size, desired workflows, or target hiring timelines..." style="width: 100%; padding: 14px 18px; border-radius: 14px; border: 1.5px solid #e2e8f0; font-size: 0.95rem; outline: none; resize: vertical;"></textarea>
+            </div>
+
+            <button type="submit" class="primaryBtn" style="width: 100%; padding: 16px; font-size: 1.05rem; border-radius: 16px;">
+              Submit Mandate & Request Quote →
+            </button>
+          </form>
+          <!-- Executive Office Trust Strip -->
+          <div class="serviceContactTrust" style="margin-top: 28px; padding-top: 20px; border-top: 1px solid #e2e8f0; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; font-size: 0.85rem; color: #64748b;">
+            <div style="display: flex; align-items: center; gap: 10px;">
+              <span style="display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 8px; background: rgba(254,79,86,0.1); color: #fe4f56; flex-shrink: 0;">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+              </span>
+              <span><strong>Headquarters:</strong> Peelamedu, Coimbatore - 641004</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 10px;">
+              <span style="display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 8px; background: rgba(254,79,86,0.1); color: #fe4f56; flex-shrink: 0;">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              </span>
+              <span><strong>Direct Desk:</strong> +91 94422 18900</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 10px;">
+              <span style="display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 8px; background: rgba(254,79,86,0.1); color: #fe4f56; flex-shrink: 0;">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              </span>
+              <span><strong>Turnaround:</strong> Response within 2 business hours</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Global Footer -->
+  <footer style="background: #0a0f1d; color: #94a3b8; padding: 70px 0 30px 0;">
+    <div class="container">
+      <div style="display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 50px;">
+        <div>
+          <div style="margin-bottom: 16px;">
+            <a href="/" style="display: inline-block; background: #ffffff; padding: 6px 14px; border-radius: 10px;">
+              <img src="/images/logo/logo-main.png" alt="Thathvamasi Business Solutions" style="height: 38px; width: auto; max-width: 220px; object-fit: contain; display: block;" onerror="this.src='/images/logo/logo main.png'">
+            </a>
+          </div>
+          <p style="font-size: 0.92rem; line-height: 1.65; max-width: 340px;">Integrated enterprise systems, deep-tech engineering staffing, and executive leadership recruitment. Headquartered in Coimbatore with Pan-India delivery.</p>
+        </div>
+        <div>
+          <h4 style="color: #ffffff; font-size: 1.05rem; margin-bottom: 18px;">Solutions</h4>
+          <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; font-size: 0.9rem;">
+            <li><a href="/services/erp-crm.html" style="color: inherit; text-decoration: none;">ERP & CRM Solutions</a></li>
+            <li><a href="/services/it-recruitment.html" style="color: inherit; text-decoration: none;">IT Recruitment</a></li>
+            <li><a href="/services/executive-search.html" style="color: inherit; text-decoration: none;">Executive Search</a></li>
+            <li><a href="/services/turnkey-rpo.html" style="color: inherit; text-decoration: none;">Turnkey RPO</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 style="color: #ffffff; font-size: 1.05rem; margin-bottom: 18px;">Locations</h4>
+          <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; font-size: 0.9rem;">
+            <li>Coimbatore (HQ)</li>
+            <li>Kochi</li>
+            <li>Bangalore</li>
+            <li>Chennai</li>
+            <li>Hyderabad</li>
+          </ul>
+        </div>
+        <div>
+          <h4 style="color: #ffffff; font-size: 1.05rem; margin-bottom: 18px;">Contact</h4>
+          <p style="font-size: 0.9rem; line-height: 1.6; margin: 0 0 10px 0;">Avinashi Road, Peelamedu, Coimbatore, Tamil Nadu - 641004</p>
+          <p style="font-size: 0.9rem; margin: 0 0 10px 0;"><a href="tel:+919442218900" style="color: var(--esight-primary); text-decoration: none; font-weight: 700;">+91 94422 18900</a></p>
+          <p style="font-size: 0.9rem; margin: 0;"><a href="mailto:info@thathvamasi.com" style="color: #94a3b8; text-decoration: none;">info@thathvamasi.com</a></p>
+        </div>
+      </div>
+      <div style="border-top: 1px solid rgba(255, 255, 255, 0.08); padding-top: 24px; text-align: center; font-size: 0.85rem;">
+        © 2026 Thathvamasi HR Consultancy. All rights reserved. Built with modern high-performance frameworks.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Application Entry Script -->
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

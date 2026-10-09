@@ -3,26 +3,34 @@
  */
 
 import { Storage } from '../../lib/storage.js';
+import { Api } from '../../lib/api.js';
 import { Validation } from '../../lib/validation.js';
 import { SITE_CONFIG } from '../../config/site.config.js';
 
 export function initContactForm() {
-  const contactForm = document.getElementById('generalContactForm');
+  const contactForms = document.querySelectorAll('#generalContactForm, #contactForm');
   const whatsappFloat = document.getElementById('whatsappFloatBtn');
   const quickConsultBtn = document.getElementById('btnQuickConsultWhatsApp');
 
-  if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
+  contactForms.forEach(contactForm => {
+    contactForm.addEventListener('submit', async (e) => {
       e.preventDefault();
 
-      const name = contactForm.elements['contactName']?.value.trim();
-      const email = contactForm.elements['contactEmail']?.value.trim();
-      const mobile = contactForm.elements['contactMobile']?.value.trim();
-      const subject = contactForm.elements['contactSubject']?.value;
-      const message = contactForm.elements['contactMessage']?.value.trim();
+      const getVal = (key) => (
+        contactForm.elements[key]?.value ||
+        contactForm.querySelector(`#${key}`)?.value ||
+        contactForm.querySelector(`[name="${key}"]`)?.value ||
+        ''
+      ).trim();
 
-      if (!name || !email || !message) {
-        window.showToast('Please fill out all required contact fields', 'error');
+      const name = getVal('contactName');
+      const email = getVal('contactEmail');
+      const mobile = getVal('contactMobile');
+      const subject = getVal('contactSubject');
+      const message = getVal('contactMessage');
+
+      if (!name || !email) {
+        window.showToast('Please provide your name and work email address', 'error');
         return;
       }
 
@@ -31,18 +39,39 @@ export function initContactForm() {
         return;
       }
 
-      Storage.addEnquiry({
-        name,
-        email,
-        mobile: mobile || 'Not Provided',
-        subject: subject || 'General Recruitment Query',
-        message
-      });
+      if (!message) {
+        window.showToast('Please provide brief details of your requirement', 'error');
+        return;
+      }
 
-      window.showToast('Thank you! Your message has been routed to our Coimbatore advisory desk. We will respond within 4 business hours.', 'success');
-      contactForm.reset();
+      const submitBtn = contactForm.querySelector('button[type="submit"]');
+      const originalHtml = submitBtn ? submitBtn.innerHTML : 'Submit Consultation Request &rarr;';
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Transmitting Request...';
+      }
+
+      try {
+        await Api.submitContactEnquiry({
+          name,
+          email,
+          mobile: mobile || 'Not Provided',
+          subject: subject || 'General Advisory Query',
+          message
+        });
+
+        window.showToast('Thank you! Your message has been routed to our Coimbatore advisory desk. We will respond within 2 business hours.', 'success');
+        contactForm.reset();
+      } catch (err) {
+        window.showToast('Could not send message. Please reach us via WhatsApp or phone.', 'error');
+      } finally {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = originalHtml;
+        }
+      }
     });
-  }
+  });
 
   function launchWhatsApp(context = 'general') {
     const phone = SITE_CONFIG.social.whatsapp;

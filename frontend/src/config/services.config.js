@@ -15,7 +15,7 @@ export const SERVICES_CONFIG = [
       "Rigorous leadership profiling & culture fitment",
       "Discrete and confidential market mapping",
       "90-Day onboarding & alignment guarantee",
-      "₹35 Lakhs – ₹1.2 Crore compensation calibration"
+      "Senior executive compensation calibration"
     ]
   },
   {

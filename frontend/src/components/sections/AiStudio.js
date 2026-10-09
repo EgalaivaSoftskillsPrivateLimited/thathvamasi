@@ -19,7 +19,7 @@ export function initAiStudio() {
       exp: "9.5 Years",
       pedigree: "Ex-Bosch Global Software & Zoho Corp",
       location: "Coimbatore (Open to Bengaluru & Chennai)",
-      ctc: "₹28 LPA (Current) → ₹35 LPA (Expected)",
+      ctc: "Senior Cloud & DevOps Architect Track",
       notice: "30 Days (Serving Notice • 14 Days Left)",
       matchScore: 98,
       verified: "EPFO & PAN Cleared • Tier-1 Background Vetted"
@@ -30,7 +30,7 @@ export function initAiStudio() {
       exp: "14 Years",
       pedigree: "Tier-1 Auto OEM & Precision Engineering",
       location: "Coimbatore / Hosur Corridor",
-      ctc: "₹34 LPA (Current) → ₹42 LPA (Expected)",
+      ctc: "Plant Leadership & Tooling Track",
       notice: "45 Days (Buyout Eligible)",
       matchScore: 96,
       verified: "Six Sigma Black Belt • 100% Reference Checked"
@@ -41,7 +41,7 @@ export function initAiStudio() {
       exp: "12 Years",
       pedigree: "Big-4 Accounting & Enterprise Manufacturing",
       location: "Coimbatore / Chennai",
-      ctc: "₹32 LPA (Current) → ₹40 LPA (Expected)",
+      ctc: "Corporate Finance & Taxation Track",
       notice: "30 Days (Immediate Release Available)",
       matchScore: 95,
       verified: "ICAI Member • Statutory Audit & TDS Expert"
@@ -52,7 +52,7 @@ export function initAiStudio() {
       exp: "11 Years",
       pedigree: "Leading Tiruppur Export Garment Conglomerate",
       location: "Tiruppur / Coimbatore Hub",
-      ctc: "₹22 LPA (Current) → ₹28 LPA (Expected)",
+      ctc: "Global Merchandising & Sourcing Track",
       notice: "30 Days",
       matchScore: 94,
       verified: "SEDEX & Wrap Audited Facilities Specialist"
@@ -63,7 +63,7 @@ export function initAiStudio() {
       exp: "8 Years",
       pedigree: "Product Engineering & Cloud Native Systems",
       location: "Coimbatore / Hybrid South India",
-      ctc: "₹25 LPA (Current) → ₹32 LPA (Expected)",
+      ctc: "Principal Full-Stack Lead Track",
       notice: "30 Days",
       matchScore: 97,
       verified: "100% Technical Code Score • BGV Cleared"
@@ -129,7 +129,7 @@ export function initAiStudio() {
             <div><strong>Location:</strong> ${dossier.location}</div>
             <div><strong>CTC Calibration:</strong> ${dossier.ctc}</div>
             <div><strong>Notice Period:</strong> <span class="badge-notice">${dossier.notice}</span></div>
-            <div><strong>Verification:</strong> <span class="badge-verified">✓ ${dossier.verified}</span></div>
+            <div><strong>Verification:</strong> <span class="badge-verified"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:-1px; margin-right:4px;"><path d="M20 6L9 17l-5-5"/></svg>${dossier.verified}</span></div>
           </div>
 
           <div class="ai-card-action">
@@ -172,24 +172,24 @@ export function initAiStudio() {
       `;
 
       setTimeout(() => {
-        let ctcRange = "₹18 LPA – ₹28 LPA";
-        let buyoutCost = "₹1.5 Lakhs – ₹2.2 Lakhs";
+        let ctcRange = "Senior Professional Track";
+        let buyoutCost = "Standard Notice Buyout";
         let conversionRate = "95%";
         let retiralBreakdown = "EPF (12% of Basic) + Gratuity (4.81%) + Performance Bonus (15%)";
 
         if (expBand.includes("Lead") || expBand.includes("12-18")) {
-          ctcRange = "₹28 LPA – ₹45 LPA";
-          buyoutCost = "₹2.8 Lakhs – ₹3.8 Lakhs";
+          ctcRange = "Principal Technical Lead Track";
+          buyoutCost = "Senior Transition Buyout";
           conversionRate = "93%";
           retiralBreakdown = "EPF (12%) + Gratuity + Executive Medical + LTI / Retention Bonus";
         } else if (expBand.includes("CXO") || expBand.includes("18+")) {
-          ctcRange = "₹45 LPA – ₹90+ LPA";
+          ctcRange = "Executive Leadership / CXO Track";
           buyoutCost = "Executive Transition Clause";
           conversionRate = "96%";
           retiralBreakdown = "Fixed Basic + Performance Incentive + ESOPs / SARs + Retirals";
         } else if (expBand.includes("Mid") || expBand.includes("4-7")) {
-          ctcRange = "₹12 LPA – ₹18 LPA";
-          buyoutCost = "₹90,000 – ₹1.4 Lakhs";
+          ctcRange = "Specialist Professional Track";
+          buyoutCost = "Immediate Release Option";
           conversionRate = "92%";
           retiralBreakdown = "Standard CTC: 50% Basic + HRA + EPF (12%) + ESI/Medical";
         }
@@ -225,7 +225,7 @@ export function initAiStudio() {
             </div>
 
             <p class="ai-calc-note">
-              ✓ Compliant with 2026 Code on Wages (Minimum 50% Basic Salary Structuring).
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:-2px; margin-right:5px;"><path d="M20 6L9 17l-5-5"/></svg>Compliant with 2026 Code on Wages (Minimum 50% Basic Salary Structuring).
             </p>
           </div>
         `;
@@ -249,7 +249,7 @@ export function initAiStudio() {
       title: "Principal Software Architect (Cloud / GCC)",
       sector: "IT & Global Capability Centers",
       exp: "10 - 15 Years",
-      ctc: "₹35 LPA – ₹50 LPA",
+      ctc: "Principal Architect Track",
       location: "Coimbatore (TIDEL) / Hybrid",
       kras: [
         "Architect enterprise microservices & cloud-native infrastructure (AWS/Azure/GCP).",
@@ -262,7 +262,7 @@ export function initAiStudio() {
       title: "Plant Operations Head (Tier-1 Precision Auto)",
       sector: "Automotive & Heavy Manufacturing",
       exp: "12 - 18 Years",
-      ctc: "₹28 LPA – ₹42 LPA",
+      ctc: "Plant Operations Leadership Track",
       location: "Coimbatore / Hosur Corridor",
       kras: [
         "Oversee end-to-end plant operations, CNC machining, tooling, and fabrication lines.",
@@ -275,7 +275,7 @@ export function initAiStudio() {
       title: "Vice President - Global Sourcing & Merchandising",
       sector: "Textiles & Garment Exports",
       exp: "12 - 16 Years",
-      ctc: "₹24 LPA – ₹36 LPA",
+      ctc: "Executive Sourcing & Merchandising Track",
       location: "Tiruppur / Coimbatore",
       kras: [
         "Drive international retail accounts across North America, UK, and European fashion brands.",
@@ -288,7 +288,7 @@ export function initAiStudio() {
       title: "Chief Risk Officer (CRO / Basel III)",
       sector: "BFSI & FinTech",
       exp: "15 - 20 Years",
-      ctc: "₹50 LPA – ₹80 LPA",
+      ctc: "Chief Risk Officer Executive Track",
       location: "Mumbai / Bengaluru / Chennai",
       kras: [
         "Formulate comprehensive credit risk, market risk, and operational risk frameworks.",

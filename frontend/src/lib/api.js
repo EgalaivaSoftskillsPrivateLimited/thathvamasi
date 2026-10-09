@@ -1,0 +1,271 @@
+/**
+ * Thathvamasi HR Consultancy (THC) - API Integration Service
+ * Connects frontend forms and dashboards to FastAPI PostgreSQL backend
+ * with graceful fallback to local storage for guaranteed offline/dev resilience.
+ */
+
+import { Storage } from './storage.js';
+
+const API_BASE = import.meta.env.VITE_API_ENDPOINT || '/api';
+
+class ApiService {
+  /**
+   * Check if backend is alive
+   */
+  async checkHealth() {
+    try {
+      const res = await fetch(`${API_BASE}/health`, { method: 'GET' });
+      return res.ok;
+    } catch {
+      return false;
+    }
+  }
+
+  /**
+   * Submit candidate registration with resume upload
+   */
+  async submitCandidate(candidatePayload, resumeFile = null) {
+    try {
+      const formData = new FormData();
+
+      if (resumeFile) {
+        formData.append('resume_file', resumeFile);
+      }
+
+      // Append standard candidate fields
+      formData.append('candidate_name', candidatePayload.name || '');
+      formData.append('candidate_email', candidatePayload.email || '');
+      formData.append('candidate_mobile', candidatePayload.mobile || '');
+      formData.append('candidate_whatsapp', candidatePayload.whatsapp || candidatePayload.mobile || '');
+      formData.append('candidate_location', candidatePayload.currentLocation || 'Coimbatore');
+      formData.append('candidate_pref_location', candidatePayload.preferredLocation || 'Coimbatore');
+      formData.append('candidate_qualification', candidatePayload.qualification || 'Graduate');
+      formData.append('candidate_experience', candidatePayload.experience || '1 - 3 Years');
+      formData.append('candidate_company', candidatePayload.currentCompany || 'Confidential');
+      formData.append('candidate_designation', candidatePayload.currentDesignation || 'Professional');
+      formData.append('candidate_ctc', candidatePayload.currentCtc || 'Not Disclosed');
+      formData.append('candidate_exp_ctc', candidatePayload.expectedCtc || 'Negotiable');
+      formData.append('candidate_notice', candidatePayload.noticePeriod || 'Immediate');
+      formData.append('candidate_skills', Array.isArray(candidatePayload.skills) ? candidatePayload.skills.join(', ') : (candidatePayload.skills || ''));
+
+      const response = await fetch(`${API_BASE}/candidates/submit-form`, {
+        method: 'POST',
+        body: formData
+      });
+
+      if (response.ok) {
+        const result = await response.json();
+        // Also save to local storage cache for offline viewing
+        const savedItem = Storage.addCandidate({
+          ...candidatePayload,
+          id: result.data?.id || `THC-CAN-${Date.now().toString().slice(-5)}`,
+          synced: true
+        });
+        return {
+          success: true,
+          id: result.data?.id || savedItem.id,
+          name: result.data?.name || candidatePayload.name,
+          source: 'backend'
+        };
+      } else {
+        const errorText = await response.text();
+        console.warn('Backend rejected candidate submission, falling back to local storage:', errorText);
+      }
+    } catch (err) {
+      console.warn('Backend unreachable for candidate registration, using local storage fallback:', err);
+    }
+
+    // Graceful offline fallback
+    const localSaved = Storage.addCandidate(candidatePayload);
+    return {
+      success: true,
+      id: localSaved.id,
+      name: localSaved.name,
+      source: 'local'
+    };
+  }
+
+  /**
+   * Submit client hiring requisition
+   */
+  async submitClientRequisition(clientPayload) {
+    try {
+      const response = await fetch(`${API_BASE}/clients/requisition`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          company_name: clientPayload.companyName,
+          contact_person: clientPayload.contactPerson,
+          designation: clientPayload.designation || 'Hiring Lead',
+          email: clientPayload.email,
+          mobile: clientPayload.mobile || 'Not Provided',
+          location: clientPayload.location || 'Coimbatore',
+          industry: clientPayload.industry || 'Corporate Enterprise',
+          position: clientPayload.position,
+          vacancies: parseInt(clientPayload.vacancies, 10) || 1,
+          experience: clientPayload.experience || '3 - 6 Years',
+          salary_range: clientPayload.salaryRange || 'Best in Industry',
+          employment_type: clientPayload.employmentType || 'permanent',
+          timeline: clientPayload.timeline || 'Within 30 Days',
+          jd_summary: clientPayload.jdSummary || ''
+        })
+      });
+
+      if (response.ok) {
+        const result = await response.json();
+        const savedItem = Storage.addClient({
+          ...clientPayload,
+          id: result.data?.id || `THC-REQ-${Date.now().toString().slice(-5)}`,
+          synced: true
+        });
+        return {
+          success: true,
+          id: result.data?.id || savedItem.id,
+          companyName: clientPayload.companyName,
+          position: clientPayload.position,
+          vacancies: clientPayload.vacancies,
+          source: 'backend'
+        };
+      } else {
+        const errorText = await response.text();
+        console.warn('Backend rejected requisition, falling back to local storage:', errorText);
+      }
+    } catch (err) {
+      console.warn('Backend unreachable for requisition, using local storage fallback:', err);
+    }
+
+    // Graceful offline fallback
+    const localSaved = Storage.addClient(clientPayload);
+    return {
+      success: true,
+      id: localSaved.id,
+      companyName: localSaved.companyName,
+      position: localSaved.position,
+      vacancies: localSaved.vacancies,
+      source: 'local'
+    };
+  }
+
+  /**
+   * Submit contact form enquiry
+   */
+  async submitContactEnquiry(enquiryPayload) {
+    try {
+      const response = await fetch(`${API_BASE}/contact/enquiry`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: enquiryPayload.name,
+          email: enquiryPayload.email,
+          mobile: enquiryPayload.mobile || '',
+          subject: enquiryPayload.subject || 'General Recruitment Query',
+          message: enquiryPayload.message
+        })
+      });
+
+      if (response.ok) {
+        Storage.addEnquiry({ ...enquiryPayload, synced: true });
+        return { success: true, source: 'backend' };
+      }
+    } catch (err) {
+      console.warn('Backend unreachable for enquiry, using local storage fallback:', err);
+    }
+
+    Storage.addEnquiry(enquiryPayload);
+    return { success: true, source: 'local' };
+  }
+
+  /**
+   * Get candidates for Admin Command Center
+   */
+  async getCandidates() {
+    try {
+      const response = await fetch(`${API_BASE}/candidates/?size=100`, { method: 'GET' });
+      if (response.ok) {
+        const result = await response.json();
+        if (result.items && result.items.length > 0) {
+          return result.items.map(item => ({
+            id: `THC-CAN-${item.id.slice(0, 6).toUpperCase()}`,
+            name: item.personal_details?.full_name || 'Candidate',
+            email: item.personal_details?.email || '',
+            mobile: item.personal_details?.mobile || '',
+            currentLocation: item.personal_details?.current_location || 'Coimbatore',
+            qualification: item.professional_details?.highest_qualification || 'Graduate',
+            experience: item.professional_details?.total_experience || '1-3 Years',
+            currentCompany: item.professional_details?.current_company || 'Confidential',
+            currentDesignation: item.professional_details?.current_designation || 'Professional',
+            skills: item.professional_details?.skills || ['General'],
+            status: item.status || 'new',
+            appliedDate: item.created_at ? item.created_at.split('T')[0] : new Date().toISOString().split('T')[0]
+          }));
+        }
+      }
+    } catch (err) {
+      console.warn('Unable to fetch live candidates, serving local registry:', err);
+    }
+
+    return Storage.getCandidates();
+  }
+
+  /**
+   * Get clients for Admin Command Center
+   */
+  async getClients() {
+    try {
+      const response = await fetch(`${API_BASE}/clients/`, { method: 'GET' });
+      if (response.ok) {
+        const result = await response.json();
+        if (result.data && result.data.length > 0) {
+          return result.data;
+        }
+      }
+    } catch (err) {
+      console.warn('Unable to fetch live clients, serving local cache:', err);
+    }
+
+    return Storage.getClients();
+  }
+
+  /**
+   * Get enquiries for Admin Command Center
+   */
+  async getEnquiries() {
+    try {
+      const response = await fetch(`${API_BASE}/contact/enquiries`, { method: 'GET' });
+      if (response.ok) {
+        const result = await response.json();
+        if (result.data && result.data.length > 0) {
+          return result.data;
+        }
+      }
+    } catch (err) {
+      console.warn('Unable to fetch live enquiries, serving local cache:', err);
+    }
+
+    return Storage.getEnquiries();
+  }
+
+  /**
+   * Publish new blog post
+   */
+  async createBlog(blogPayload) {
+    try {
+      const response = await fetch(`${API_BASE}/blogs/`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(blogPayload)
+      });
+      if (response.ok) {
+        Storage.addBlog({ ...blogPayload, synced: true });
+        return { success: true, source: 'backend' };
+      }
+    } catch (err) {
+      console.warn('Backend unreachable for publishing blog:', err);
+    }
+
+    Storage.addBlog(blogPayload);
+    return { success: true, source: 'local' };
+  }
+}
+
+export const Api = new ApiService();
