@@ -10,7 +10,7 @@
   z-index: 1000;
   background-color: #FFFFFF;
   border-bottom: 1px solid var(--border-light);
-  height: 72px;
+  height: 78px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
 }
 
@@ -23,26 +23,27 @@
 
 /* Brand: Thathvamasi Original Identity */
 .brand {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 12px;
   text-decoration: none;
   flex-shrink: 0;
+  line-height: 1;
 }
 
 .brand-logo-img {
-  width: 38px;
-  height: 38px;
-  border-radius: 6px;
-  object-fit: cover;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.12);
-  border: 1px solid rgba(0, 0, 0, 0.08);
+  height: 52px;
+  width: auto;
+  max-width: 280px;
+  object-fit: contain;
+  border-radius: 0;
+  box-shadow: none;
+  border: none;
   flex-shrink: 0;
+  display: block;
 }
 
 .brand-text-wrap {
-  display: flex;
-  flex-direction: column;
+  display: none;
 }
 
 .brand-title {
@@ -104,11 +105,13 @@
 /* Navigation Dropdown Container */
 .nav-item.has-dropdown {
   position: relative;
+  padding-bottom: 14px;
+  margin-bottom: -14px;
 }
 
 .nav-dropdown-menu {
   position: absolute;
-  top: calc(100% + 8px);
+  top: 100%;
   left: 0;
   width: 660px;
   background: #FFFFFF;
@@ -118,10 +121,23 @@
   padding: 0;
   opacity: 0;
   visibility: hidden;
-  transform: translateY(8px);
-  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateY(6px);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   z-index: 1000;
-  overflow: hidden;
+  overflow: visible;
+  pointer-events: none;
+}
+
+/* Invisible hover bridge spanning between trigger link and menu */
+.nav-dropdown-menu::before {
+  content: '';
+  position: absolute;
+  top: -24px;
+  left: 0;
+  right: 0;
+  height: 28px;
+  background: transparent;
+  pointer-events: auto;
 }
 
 .nav-item.has-dropdown:hover .nav-dropdown-menu,
@@ -129,6 +145,7 @@
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
+  pointer-events: auto;
 }
 
 .nav-item.has-dropdown:hover .nav-chevron {
@@ -202,15 +219,50 @@
   flex-shrink: 0;
 }
 
-.dropdown-icon-box.blue { background: #EFF6FF; color: #1D4ED8; }
-.dropdown-icon-box.red { background: #FEF2F2; color: #DC2626; }
-.dropdown-icon-box.cyan { background: #ECFEFF; color: #0891B2; }
-.dropdown-icon-box.orange { background: #FFF7ED; color: #EA580C; }
-.dropdown-icon-box.green { background: #ECFDF5; color: #059669; }
-.dropdown-icon-box.purple { background: #F5F3FF; color: #7C3AED; }
-.dropdown-icon-box.teal { background: #F0FDFA; color: #0D9488; }
-.dropdown-icon-box.yellow { background: #FEFCE8; color: #CA8A04; }
-.dropdown-icon-box.rose { background: #FFF1F2; color: #E11D48; }
+.dropdown-icon-box.blue {
+  background: #EFF6FF;
+  color: #1D4ED8;
+}
+
+.dropdown-icon-box.red {
+  background: #FEF2F2;
+  color: #DC2626;
+}
+
+.dropdown-icon-box.cyan {
+  background: #ECFEFF;
+  color: #0891B2;
+}
+
+.dropdown-icon-box.orange {
+  background: #FFF7ED;
+  color: #EA580C;
+}
+
+.dropdown-icon-box.green {
+  background: #ECFDF5;
+  color: #059669;
+}
+
+.dropdown-icon-box.purple {
+  background: #F5F3FF;
+  color: #7C3AED;
+}
+
+.dropdown-icon-box.teal {
+  background: #F0FDFA;
+  color: #0D9488;
+}
+
+.dropdown-icon-box.yellow {
+  background: #FEFCE8;
+  color: #CA8A04;
+}
+
+.dropdown-icon-box.rose {
+  background: #FFF1F2;
+  color: #E11D48;
+}
 
 .dropdown-item-info {
   flex: 1;
@@ -390,9 +442,17 @@
 }
 
 @keyframes livePulse {
-  0% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); }
-  70% { box-shadow: 0 0 0 6px rgba(34, 197, 94, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+  0% {
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
+  }
+
+  70% {
+    box-shadow: 0 0 0 6px rgba(34, 197, 94, 0);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0);
+  }
 }
 
 .thc-hero-title,
@@ -800,7 +860,9 @@
 }
 
 @keyframes spinSlow {
-  100% { transform: rotate(360deg); }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 .ai-candidate-card,
@@ -1503,7 +1565,8 @@
    VIBRANT ALL-IN-ONE TALENT SUITE (Modeled on Zoho One vibrant yellow block)
    ========================================================================== */
 .thc-suite-navy-section {
-  background: #0F172A;                /* Sophisticated deep executive navy */
+  background: #0F172A;
+  /* Sophisticated deep executive navy */
   padding: 80px 0;
   color: #FFFFFF;
   border-top: 1px solid #1E293B;
@@ -1679,7 +1742,7 @@
   border-radius: 4px;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .thc-usecase-body {
@@ -1966,7 +2029,7 @@ textarea.form-control {
 
 /* Chrome Autofill & Dropdown Overhaul */
 input:-webkit-autofill,
-input:-webkit-autofill:hover, 
+input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 textarea:-webkit-autofill,
 select:-webkit-autofill {
@@ -2268,10 +2331,13 @@ select.form-control {
 }
 
 .footer-col.brand-col .brand-logo-img {
-  width: 44px;
-  height: 44px;
-  border-radius: 8px;
-  object-fit: cover;
+  height: 48px;
+  width: auto;
+  max-width: 250px;
+  object-fit: contain;
+  background: #ffffff;
+  padding: 6px 14px;
+  border-radius: 10px;
 }
 
 .footer-col.brand-col .brand-title {
@@ -2640,6 +2706,7 @@ select.form-control {
     opacity: 0;
     transform: translateY(-12px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -3352,9 +3419,20 @@ select.form-control {
   width: fit-content;
 }
 
-.commercial-tag.blue { background: #EFF6FF; color: #1D4ED8; }
-.commercial-tag.red { background: #FEF2F2; color: #DC2626; }
-.commercial-tag.green { background: #ECFDF5; color: #059669; }
+.commercial-tag.blue {
+  background: #EFF6FF;
+  color: #1D4ED8;
+}
+
+.commercial-tag.red {
+  background: #FEF2F2;
+  color: #DC2626;
+}
+
+.commercial-tag.green {
+  background: #ECFDF5;
+  color: #059669;
+}
 
 .commercial-title {
   font-size: 1.25rem;
@@ -3608,6 +3686,7 @@ select.form-control {
   margin: 0 0 16px 0;
   display: -webkit-box;
   -webkit-line-clamp: 3;
+  line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
@@ -3643,4 +3722,3 @@ select.form-control {
   color: #991B1B;
   transform: translateX(4px);
 }
-

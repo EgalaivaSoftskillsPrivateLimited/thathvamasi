@@ -1,4 +1,4 @@
-    """
+"""
 PostgreSQL database configuration for Thathvamasi HR Consultancy
 """
 
@@ -63,6 +63,8 @@ async def init_db():
     """
     Initialize database - create tables
     """
+    # Import all models to ensure they're registered with Base.metadata
+    import app.models  # noqa: F401
     from sqlalchemy import create_engine
     from sqlalchemy_utils import database_exists, create_database
     
@@ -71,7 +73,7 @@ async def init_db():
     
     if not database_exists(sync_engine.url):
         create_database(sync_engine.url)
-        print(f"✅ Created database: {settings.POSTGRES_DB}")
+        print(f"[OK] Created database: {settings.POSTGRES_DB}")
     
     sync_engine.dispose()
     
@@ -79,7 +81,7 @@ async def init_db():
     async with engine.begin() as conn:
         await conn.run_sync(Base.metadata.create_all)
     
-    print(f"✅ Database tables created successfully")
+    print(f"[OK] Database tables created successfully")
 
 
 async def close_db():
@@ -87,29 +89,12 @@ async def close_db():
     Close database connections
     """
     await engine.dispose()
-    print("✅ Database connections closed")
+    print("[OK] Database connections closed")
 
 
 # For backward compatibility and easier imports
 db = Base  # Alias for Base
 session = AsyncSessionLocal  # Alias for session factory
-
-
-# Import models here to ensure they're registered with Base
-from app.models.user_model import User, UserActivity
-from app.models.candidate_model import (
-    Candidate, CandidatePersonalDetails, CandidateProfessionalDetails,
-    CandidateResume, CandidateMetadata, CandidateWorkExperience,
-    CandidateEducation, CandidateNote, CandidateInterview
-)
-from app.models.client_model import (
-    Client, HiringRequirement, JobDescriptionDocument, ClientContact,
-    ClientDocument, ClientMetadata, ClientNote, ClientMeeting,
-    HiringRequirementCandidate
-)
-from app.models.blog_model import (
-    Blog, BlogImage, BlogComment, BlogCategory, BlogTag
-)
 
 __all__ = [
     "Base", "engine", "AsyncSessionLocal", "get_db", "get_db_session", "init_db", "close_db", "metadata",

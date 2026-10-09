@@ -3,6 +3,7 @@
  */
 
 import { Storage } from '../../lib/storage.js';
+import { Api } from '../../lib/api.js';
 import { Validation } from '../../lib/validation.js';
 import { openModal } from '../ui/Modal.js';
 
@@ -194,7 +195,7 @@ export function initCandidateForm() {
     });
   }
 
-  form.addEventListener('submit', (e) => {
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
     if (!validateStep3()) return;
 
@@ -220,22 +221,36 @@ export function initCandidateForm() {
       resumeFileSize: uploadedFile ? `${(uploadedFile.size / (1024 * 1024)).toFixed(2)} MB` : '1.8 MB'
     };
 
-    const saved = Storage.addCandidate(candidatePayload);
+    if (btnSubmit) {
+      btnSubmit.disabled = true;
+      btnSubmit.textContent = 'Registering Profile...';
+    }
 
-    // Show Confirmation Modal
-    const refEl = document.getElementById('candidateRefId');
-    const nameEl = document.getElementById('candidateConfirmName');
-    if (refEl) refEl.textContent = saved.id;
-    if (nameEl) nameEl.textContent = saved.name;
-    openModal('candidateSuccessModal');
+    try {
+      const saved = await Api.submitCandidate(candidatePayload, uploadedFile);
 
-    // Reset Form
-    form.reset();
-    uploadedFile = null;
-    if (previewArea) previewArea.style.display = 'none';
-    if (dropzone) dropzone.style.display = 'block';
-    currentStep = 1;
-    updateStepper();
+      // Show Confirmation Modal
+      const refEl = document.getElementById('candidateRefId');
+      const nameEl = document.getElementById('candidateConfirmName');
+      if (refEl) refEl.textContent = saved.id;
+      if (nameEl) nameEl.textContent = saved.name;
+      openModal('candidateSuccessModal');
+
+      // Reset Form
+      form.reset();
+      uploadedFile = null;
+      if (previewArea) previewArea.style.display = 'none';
+      if (dropzone) dropzone.style.display = 'block';
+      currentStep = 1;
+      updateStepper();
+    } catch (err) {
+      window.showToast('Registration encountered an error. Please try again.', 'error');
+    } finally {
+      if (btnSubmit) {
+        btnSubmit.disabled = false;
+        btnSubmit.textContent = 'Submit Application';
+      }
+    }
   });
 
   updateStepper();

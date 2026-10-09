@@ -24,6 +24,8 @@ class Settings(BaseSettings):
     
     # CORS
     CORS_ORIGINS: List[str] = [
+        "http://localhost:5173",
+        "http://127.0.0.1:5173",
         "http://localhost:3000",
         "http://127.0.0.1:3000",
         "https://thathvamasi.com",
@@ -31,15 +33,20 @@ class Settings(BaseSettings):
     ]
     
     # PostgreSQL Database
-    POSTGRES_USER: str = os.getenv("POSTGRES_USER", "thathvamasi")
-    POSTGRES_PASSWORD: str = os.getenv("POSTGRES_PASSWORD", "password")
+    POSTGRES_USER: str = os.getenv("POSTGRES_USER", "postgres")
+    POSTGRES_PASSWORD: str = os.getenv("POSTGRES_PASSWORD", "postgres")
     POSTGRES_HOST: str = os.getenv("POSTGRES_HOST", "localhost")
     POSTGRES_PORT: str = os.getenv("POSTGRES_PORT", "5432")
     POSTGRES_DB: str = os.getenv("POSTGRES_DB", "thathvamasi_hr")
     
     # Database URL for SQLAlchemy
-    DATABASE_URL: str = f"postgresql+asyncpg://{POSTGRES_USER}:{POSTGRES_PASSWORD}@{POSTGRES_HOST}:{POSTGRES_PORT}/{POSTGRES_DB}"
-    DATABASE_URL_SYNC: str = f"postgresql://{POSTGRES_USER}:{POSTGRES_PASSWORD}@{POSTGRES_HOST}:{POSTGRES_PORT}/{POSTGRES_DB}"
+    @property
+    def DATABASE_URL(self) -> str:
+        return f"postgresql+asyncpg://{self.POSTGRES_USER}:{self.POSTGRES_PASSWORD}@{self.POSTGRES_HOST}:{self.POSTGRES_PORT}/{self.POSTGRES_DB}"
+    
+    @property
+    def DATABASE_URL_SYNC(self) -> str:
+        return f"postgresql://{self.POSTGRES_USER}:{self.POSTGRES_PASSWORD}@{self.POSTGRES_HOST}:{self.POSTGRES_PORT}/{self.POSTGRES_DB}"
     
     # Pool configuration
     DB_POOL_SIZE: int = int(os.getenv("DB_POOL_SIZE", "20"))

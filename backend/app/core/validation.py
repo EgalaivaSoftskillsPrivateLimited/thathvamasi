@@ -30,7 +30,7 @@ class ValidationUtils:
             True if valid, False otherwise
         """
         try:
-            validate_email(email)
+            validate_email(email, check_deliverability=False)
             return True
         except EmailNotValidError:
             return False

@@ -3,6 +3,7 @@
  */
 
 import { Storage } from '../../lib/storage.js';
+import { Api } from '../../lib/api.js';
 import { openModal } from '../ui/Modal.js';
 
 export function initAdminDashboard() {
@@ -53,7 +54,7 @@ export function initAdminDashboard() {
   // Add Blog Form
   const newBlogForm = document.getElementById('adminNewBlogForm');
   if (newBlogForm) {
-    newBlogForm.addEventListener('submit', (e) => {
+    newBlogForm.addEventListener('submit', async (e) => {
       e.preventDefault();
       const title = newBlogForm.elements['blogTitle']?.value.trim();
       const category = newBlogForm.elements['blogCategory']?.value;
@@ -67,7 +68,7 @@ export function initAdminDashboard() {
         return;
       }
 
-      Storage.addBlog({
+      await Api.createBlog({
         title,
         category,
         readTime,
@@ -82,10 +83,10 @@ export function initAdminDashboard() {
     });
   }
 
-  function updateKPIs() {
-    const candidates = Storage.getCandidates();
-    const clients = Storage.getClients();
-    const enquiries = Storage.getEnquiries();
+  async function updateKPIs() {
+    const candidates = await Api.getCandidates();
+    const clients = await Api.getClients();
+    const enquiries = await Api.getEnquiries();
 
     const totalCandEl = document.getElementById('kpiTotalCandidates');
     const totalReqEl = document.getElementById('kpiTotalRequisitions');
@@ -107,14 +108,14 @@ export function initAdminDashboard() {
     if (badgeReqCount) badgeReqCount.textContent = clients.length;
   }
 
-  function renderCandidatesTable() {
+  async function renderCandidatesTable() {
     const tbody = document.getElementById('adminCandidatesTableBody');
     if (!tbody) return;
 
     const searchTerm = candidateSearch?.value.toLowerCase().trim() || '';
     const statusFilter = candidateStatusFilter?.value || 'all';
 
-    const candidates = Storage.getCandidates();
+    const candidates = await Api.getCandidates();
     const filtered = candidates.filter(c => {
       const matchesStatus = statusFilter === 'all' || c.status === statusFilter;
       const matchesSearch = !searchTerm || 
@@ -186,11 +187,11 @@ export function initAdminDashboard() {
     });
   }
 
-  function renderClientsTable() {
+  async function renderClientsTable() {
     const tbody = document.getElementById('adminClientsTableBody');
     if (!tbody) return;
 
-    const clients = Storage.getClients();
+    const clients = await Api.getClients();
     if (clients.length === 0) {
       tbody.innerHTML = `<tr><td colspan="7" style="text-align: center; padding: 36px; color: var(--text-muted);">No employer requisitions logged.</td></tr>`;
       return;
@@ -247,11 +248,11 @@ export function initAdminDashboard() {
     });
   }
 
-  function renderEnquiriesTable() {
+  async function renderEnquiriesTable() {
     const tbody = document.getElementById('adminEnquiriesTableBody');
     if (!tbody) return;
 
-    const enquiries = Storage.getEnquiries();
+    const enquiries = await Api.getEnquiries();
     if (enquiries.length === 0) {
       tbody.innerHTML = `<tr><td colspan="5" style="text-align: center; padding: 36px; color: var(--text-muted);">No general inquiries received yet.</td></tr>`;
       return;

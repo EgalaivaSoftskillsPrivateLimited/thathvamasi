@@ -34,28 +34,28 @@ async def lifespan(app: FastAPI):
     logger = logging.getLogger(__name__)
     
     # Startup
-    logger.info("🚀 Starting Thathvamasi HR Consultancy Backend...")
-    logger.info(f"📊 Environment: {settings.ENVIRONMENT}")
-    logger.info(f"🐘 Database: {settings.POSTGRES_DB}@{settings.POSTGRES_HOST}:{settings.POSTGRES_PORT}")
+    logger.info("[START] Starting Thathvamasi HR Consultancy Backend...")
+    logger.info(f"[ENV] Environment: {settings.ENVIRONMENT}")
+    logger.info(f"[DB] Database: {settings.POSTGRES_DB}@{settings.POSTGRES_HOST}:{settings.POSTGRES_PORT}")
     
     # Initialize database connection and create tables
     try:
         await init_db()
-        logger.info("✅ Database initialized successfully")
+        logger.info("[OK] Database initialized successfully")
     except Exception as e:
-        logger.error(f"❌ Database initialization failed: {e}", exc_info=True)
+        logger.error(f"[ERROR] Database initialization failed: {e}", exc_info=True)
         raise
     
     # Create upload directories if they don't exist
     os.makedirs("app/static/uploads/resumes", exist_ok=True)
     os.makedirs("app/static/uploads/jds", exist_ok=True)
     os.makedirs("app/static/uploads/blog_images", exist_ok=True)
-    logger.info("📁 Upload directories created")
+    logger.info("[DIR] Upload directories created")
     
     yield
     
     # Shutdown
-    logger.info("🛑 Shutting down Thathvamasi HR Consultancy Backend...")
+    logger.info("[STOP] Shutting down Thathvamasi HR Consultancy Backend...")
     await close_db()
 
 # Create FastAPI application

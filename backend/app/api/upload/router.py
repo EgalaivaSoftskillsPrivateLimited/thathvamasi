@@ -4,7 +4,7 @@ File upload API endpoints with PostgreSQL integration
 
 import uuid
 from typing import Optional
-from fastapi import APIRouter, UploadFile, File, Form, HTTPException, status, Depends
+from fastapi import APIRouter, UploadFile, File, Form, HTTPException, status, Depends, Request
 from fastapi.responses import JSONResponse
 from sqlalchemy.ext.asyncio import AsyncSession
 
@@ -22,6 +22,7 @@ router = APIRouter()
 @router.post("/resume", response_model=BaseResponseModel)
 @rate_limit_public
 async def upload_resume(
+    request: Request,
     file: UploadFile = File(..., description="Resume file (PDF, DOC, DOCX, max 5MB)"),
     candidate_id: str = Form(..., description="Candidate ID (UUID)"),
     is_primary: bool = Form(True, description="Whether this is the primary resume"),
@@ -99,6 +100,7 @@ async def upload_resume(
 @router.post("/job-description", response_model=BaseResponseModel)
 @rate_limit_public
 async def upload_job_description(
+    request: Request,
     file: UploadFile = File(..., description="Job description file (PDF, DOC, DOCX, max 10MB)"),
     hiring_requirement_id: str = Form(..., description="Hiring requirement ID (UUID)"),
     is_primary: bool = Form(True, description="Whether this is the primary JD"),
@@ -176,6 +178,7 @@ async def upload_job_description(
 @router.post("/blog-image", response_model=BaseResponseModel)
 @rate_limit_public
 async def upload_blog_image(
+    request: Request,
     file: UploadFile = File(..., description="Blog image (JPEG, PNG, GIF, WebP, max 5MB)"),
     blog_id: str = Form(..., description="Blog ID (UUID)"),
     alt_text: Optional[str] = Form(None, description="Image alt text for accessibility"),
@@ -266,6 +269,7 @@ async def upload_blog_image(
 @router.post("/general", response_model=BaseResponseModel)
 @rate_limit_public
 async def upload_general_file(
+    request: Request,
     file: UploadFile = File(..., description="General file (max 10MB)"),
     category: str = Form(..., description="File category"),
     description: str = Form(..., description="File description"),
@@ -640,6 +644,7 @@ async def get_storage_config(
 @router.post("/validate")
 @rate_limit_public
 async def validate_file(
+    request: Request,
     file: UploadFile = File(..., description="File to validate"),
     file_category: str = Form("general", description="File category for validation rules"),
     max_size_mb: int = Form(10, description="Maximum file size in MB")

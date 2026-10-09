@@ -2,11 +2,22 @@
 Utility functions and helpers
 """
 
+import os
 import re
 from typing import Any, Dict
 from datetime import datetime, date
-from bson import ObjectId
+from uuid import UUID
 import json
+
+
+def sanitize_filename(filename: str) -> str:
+    """
+    Sanitize filename by removing potentially unsafe characters
+    """
+    clean_name = os.path.basename(filename)
+    clean_name = re.sub(r'[^a-zA-Z0-9._-]', '_', clean_name)
+    clean_name = re.sub(r'\.{2,}', '.', clean_name)
+    return clean_name or "file"
 
 
 def to_camel_case(snake_str: str) -> str:
@@ -108,8 +119,10 @@ def serialize_object(obj: Any) -> Dict:
         return format_datetime(obj)
     elif isinstance(obj, date):
         return obj.isoformat()
-    elif isinstance(obj, ObjectId):
+    elif isinstance(obj, UUID):
         return str(obj)
+    elif hasattr(obj, 'model_dump'):
+        return obj.model_dump()
     elif hasattr(obj, 'dict'):
         return obj.dict()
     elif hasattr(obj, '__dict__'):

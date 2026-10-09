@@ -7,7 +7,7 @@ from datetime import datetime
 from typing import List, Optional
 from uuid import UUID
 
-from fastapi import APIRouter, Depends, HTTPException, Query, Request, status, UploadFile, File
+from fastapi import APIRouter, Depends, HTTPException, Query, Request, status, UploadFile, File, Form
 from fastapi.responses import JSONResponse
 from sqlalchemy.ext.asyncio import AsyncSession
 
@@ -27,35 +27,7 @@ from app.services.db_file_service import DBFileService
 from app.core.config import settings
 from app.core.validation import business_rules_validator, validation_utils
 
-router = APIRouter(prefix="/candidates", tags=["candidates"])
-
-
-# Exception handlers
-@router.exception_handler(NotFoundError)
-async def not_found_exception_handler(request: Request, exc: NotFoundError):
-    return JSONResponse(
-        status_code=exc.status_code,
-        content=ErrorResponse(detail=exc.message, error_code=exc.error_code).dict()
-    )
-
-
-@router.exception_handler(ValidationError)
-async def validation_exception_handler(request: Request, exc: ValidationError):
-    return JSONResponse(
-        status_code=exc.status_code,
-        content=ErrorResponse(detail=exc.message, error_code=exc.error_code).dict()
-    )
-
-
-@router.exception_handler(Exception)
-async def generic_exception_handler(request: Request, exc: Exception):
-    return JSONResponse(
-        status_code=500,
-        content=ErrorResponse(
-            detail="Internal server error",
-            error_code="INTERNAL_SERVER_ERROR"
-        ).dict()
-    )
+router = APIRouter(tags=["candidates"])
 
 
 # Candidate registration and management endpoints
@@ -100,6 +72,106 @@ async def register_candidate(
         
     except Exception as e:
         raise HTTPException(status_code=400, detail=str(e))
+
+
+@router.post(
+    "/submit-form",
+    summary="Register candidate via multipart form or JSON with resume upload"
+)
+async def submit_candidate_form(
+    request: Request,
+    candidate_name: Optional[str] = Form(None),
+    candidate_email: Optional[str] = Form(None),
+    candidate_mobile: Optional[str] = Form(None),
+    candidate_whatsapp: Optional[str] = Form(None),
+    candidate_location: Optional[str] = Form(None),
+    candidate_pref_location: Optional[str] = Form(None),
+    candidate_qualification: Optional[str] = Form(None),
+    candidate_experience: Optional[str] = Form(None),
+    candidate_skills: Optional[str] = Form(None),
+    candidate_company: Optional[str] = Form(None),
+    candidate_designation: Optional[str] = Form(None),
+    candidate_ctc: Optional[str] = Form(None),
+    candidate_exp_ctc: Optional[str] = Form(None),
+    candidate_notice: Optional[str] = Form(None),
+    candidate_json: Optional[str] = Form(None),
+    resume_file: Optional[UploadFile] = File(None),
+    candidate_service: CandidateService = Depends(get_candidate_service),
+    db_file_service: DBFileService = Depends(get_db_file_service)
+):
+    """
+    Direct registration endpoint accepting multipart form data from the website candidate modal
+    """
+    import json
+    try:
+        if candidate_json:
+            raw_data = json.loads(candidate_json)
+        else:
+            raw_skills = [s.strip() for s in (candidate_skills or "").split(",") if s.strip()]
+            raw_data = {
+                "name": candidate_name or "Candidate",
+                "email": candidate_email or "",
+                "mobile": candidate_mobile or "",
+                "whatsapp": candidate_whatsapp or candidate_mobile or "",
+                "current_location": candidate_location or "Coimbatore",
+                "preferred_location": candidate_pref_location or "Coimbatore",
+                "qualification": candidate_qualification or "Graduate",
+                "experience": candidate_experience or "1 - 3 Years",
+                "current_company": candidate_company or "Confidential",
+                "current_designation": candidate_designation or "Professional",
+                "current_ctc": candidate_ctc or "Not Disclosed",
+                "expected_ctc": candidate_exp_ctc or "Negotiable",
+                "notice_period": candidate_notice or "Immediate",
+                "skills": raw_skills if raw_skills else ["General Skills"],
+                "consent_accepted": True
+            }
+
+        candidate_obj = CandidateCreate.model_validate(raw_data)
+        metadata = {
+            "ip_address": request.client.host if request.client else None,
+            "user_agent": request.headers.get("user-agent"),
+            "source": "website_candidate_form"
+        }
+
+        candidate = await candidate_service.create_candidate(candidate_obj, metadata)
+
+        # Upload resume if provided
+        resume_url = None
+        if resume_file and resume_file.filename:
+            try:
+                upload_res = await file_upload_service.upload_resume(
+                    file=resume_file,
+                    candidate_name=candidate_obj.personal_details.full_name,
+                    metadata={"candidate_id": str(candidate.id)}
+                )
+                await db_file_service.save_resume_metadata(
+                    candidate_id=candidate.id,
+                    upload_result=upload_res,
+                    is_primary=True,
+                    uploaded_by="candidate"
+                )
+                resume_url = upload_res.get("file_url")
+            except Exception as up_err:
+                print(f"Resume upload warning: {up_err}")
+
+        ref_id = f"THC-CAN-{str(candidate.id)[:6].upper()}"
+
+        return {
+            "success": True,
+            "message": "Candidate profile registered successfully in THC Talent Ecosystem",
+            "data": {
+                "id": ref_id,
+                "candidateId": str(candidate.id),
+                "name": candidate_obj.personal_details.full_name,
+                "email": candidate_obj.personal_details.email,
+                "status": candidate.status,
+                "resumeUrl": resume_url,
+                "appliedDate": datetime.utcnow().strftime("%Y-%m-%d")
+            }
+        }
+    except Exception as e:
+        raise HTTPException(status_code=400, detail=str(e))
+
 
 
 @router.post(

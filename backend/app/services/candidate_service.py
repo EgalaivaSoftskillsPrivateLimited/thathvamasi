@@ -108,154 +108,153 @@ class CandidateService:
                 logger.warning(f"Invalid tags list: {candidate_data.tags}")
                 raise ValidationError("Tags list is invalid. Maximum 10 tags allowed, each tag max 50 characters")
             
-            # Start transaction
-            async with self.db.begin():
-                # Create main candidate record
-                candidate = Candidate(
-                    status=candidate_data.status,
-                    priority=candidate_data.priority,
-                    tags=candidate_data.tags,
-                    source=candidate_data.source,
-                    referrer=candidate_data.referrer,
-                    consent_accepted=candidate_data.consent_accepted,
-                    consent_accepted_at=datetime.utcnow() if candidate_data.consent_accepted else None
+            # Create main candidate record
+            candidate = Candidate(
+                status=candidate_data.status,
+                priority=candidate_data.priority,
+                tags=candidate_data.tags,
+                source=candidate_data.source,
+                referrer=candidate_data.referrer,
+                consent_accepted=candidate_data.consent_accepted,
+                consent_accepted_at=datetime.utcnow() if candidate_data.consent_accepted else None
+            )
+            self.db.add(candidate)
+            await self.db.flush()  # Get the candidate ID
+            
+            # Create personal details
+            personal_details = CandidatePersonalDetails(
+                candidate_id=candidate.id,
+                full_name=candidate_data.personal_details.full_name,
+                email=candidate_data.personal_details.email,
+                mobile=candidate_data.personal_details.mobile,
+                whatsapp=candidate_data.personal_details.whatsapp,
+                current_location=candidate_data.personal_details.current_location,
+                preferred_location=candidate_data.personal_details.preferred_location,
+                date_of_birth=candidate_data.personal_details.date_of_birth,
+                gender=candidate_data.personal_details.gender,
+                marital_status=candidate_data.personal_details.marital_status,
+                address=candidate_data.personal_details.address,
+                city=candidate_data.personal_details.city,
+                state=candidate_data.personal_details.state,
+                country=candidate_data.personal_details.country,
+                pincode=candidate_data.personal_details.pincode,
+                emergency_contact_name=candidate_data.personal_details.emergency_contact_name,
+                emergency_contact_phone=candidate_data.personal_details.emergency_contact_phone,
+                emergency_contact_relation=candidate_data.personal_details.emergency_contact_relation
+            )
+            self.db.add(personal_details)
+            
+            # Create professional details
+            professional_details = CandidateProfessionalDetails(
+                candidate_id=candidate.id,
+                highest_qualification=candidate_data.professional_details.highest_qualification,
+                specialization=candidate_data.professional_details.specialization,
+                university=candidate_data.professional_details.university,
+                graduation_year=candidate_data.professional_details.graduation_year,
+                total_experience=candidate_data.professional_details.total_experience,
+                years_of_experience=candidate_data.professional_details.years_of_experience,
+                current_company=candidate_data.professional_details.current_company,
+                current_designation=candidate_data.professional_details.current_designation,
+                current_salary=candidate_data.professional_details.current_salary,
+                current_salary_currency=candidate_data.professional_details.current_salary_currency,
+                expected_salary=candidate_data.professional_details.expected_salary,
+                expected_salary_currency=candidate_data.professional_details.expected_salary_currency,
+                notice_period=candidate_data.professional_details.notice_period,
+                notice_period_days=candidate_data.professional_details.notice_period_days,
+                skills=candidate_data.professional_details.skills,
+                preferred_job_role=candidate_data.professional_details.preferred_job_role,
+                preferred_industry=candidate_data.professional_details.preferred_industry,
+                job_type_preference=candidate_data.professional_details.job_type_preference,
+                work_preference=candidate_data.professional_details.work_preference,
+                languages_known=candidate_data.professional_details.languages_known,
+                certifications=candidate_data.professional_details.certifications,
+                achievements=candidate_data.professional_details.achievements
+            )
+            self.db.add(professional_details)
+            await self.db.flush()  # Get the professional details ID
+            
+            # Create work experiences
+            for work_exp in candidate_data.work_experiences:
+                work_experience = CandidateWorkExperience(
+                    professional_details_id=professional_details.id,
+                    company_name=work_exp.company_name,
+                    company_industry=work_exp.company_industry,
+                    company_size=work_exp.company_size,
+                    designation=work_exp.designation,
+                    department=work_exp.department,
+                    employment_type=work_exp.employment_type,
+                    start_date=work_exp.start_date,
+                    end_date=work_exp.end_date,
+                    is_current=work_exp.is_current,
+                    location=work_exp.location,
+                    work_mode=work_exp.work_mode,
+                    responsibilities=work_exp.responsibilities,
+                    achievements=work_exp.achievements,
+                    salary=work_exp.salary,
+                    salary_currency=work_exp.salary_currency,
+                    reason_for_leaving=work_exp.reason_for_leaving,
+                    references=work_exp.references
                 )
-                self.db.add(candidate)
-                await self.db.flush()  # Get the candidate ID
-                
-                # Create personal details
-                personal_details = CandidatePersonalDetails(
-                    candidate_id=candidate.id,
-                    full_name=candidate_data.personal_details.full_name,
-                    email=candidate_data.personal_details.email,
-                    mobile=candidate_data.personal_details.mobile,
-                    whatsapp=candidate_data.personal_details.whatsapp,
-                    current_location=candidate_data.personal_details.current_location,
-                    preferred_location=candidate_data.personal_details.preferred_location,
-                    date_of_birth=candidate_data.personal_details.date_of_birth,
-                    gender=candidate_data.personal_details.gender,
-                    marital_status=candidate_data.personal_details.marital_status,
-                    address=candidate_data.personal_details.address,
-                    city=candidate_data.personal_details.city,
-                    state=candidate_data.personal_details.state,
-                    country=candidate_data.personal_details.country,
-                    pincode=candidate_data.personal_details.pincode,
-                    emergency_contact_name=candidate_data.personal_details.emergency_contact_name,
-                    emergency_contact_phone=candidate_data.personal_details.emergency_contact_phone,
-                    emergency_contact_relation=candidate_data.personal_details.emergency_contact_relation
+                self.db.add(work_experience)
+            
+            # Create educations
+            for edu in candidate_data.educations:
+                education = CandidateEducation(
+                    professional_details_id=professional_details.id,
+                    institution_name=edu.institution_name,
+                    institution_type=edu.institution_type,
+                    institution_location=edu.institution_location,
+                    qualification=edu.qualification,
+                    specialization=edu.specialization,
+                    degree_type=edu.degree_type,
+                    start_date=edu.start_date,
+                    end_date=edu.end_date,
+                    is_completed=edu.is_completed,
+                    grade=edu.grade,
+                    score=edu.score,
+                    max_score=edu.max_score,
+                    description=edu.description,
+                    achievements=edu.achievements
                 )
-                self.db.add(personal_details)
-                
-                # Create professional details
-                professional_details = CandidateProfessionalDetails(
-                    candidate_id=candidate.id,
-                    highest_qualification=candidate_data.professional_details.highest_qualification,
-                    specialization=candidate_data.professional_details.specialization,
-                    university=candidate_data.professional_details.university,
-                    graduation_year=candidate_data.professional_details.graduation_year,
-                    total_experience=candidate_data.professional_details.total_experience,
-                    years_of_experience=candidate_data.professional_details.years_of_experience,
-                    current_company=candidate_data.professional_details.current_company,
-                    current_designation=candidate_data.professional_details.current_designation,
-                    current_salary=candidate_data.professional_details.current_salary,
-                    current_salary_currency=candidate_data.professional_details.current_salary_currency,
-                    expected_salary=candidate_data.professional_details.expected_salary,
-                    expected_salary_currency=candidate_data.professional_details.expected_salary_currency,
-                    notice_period=candidate_data.professional_details.notice_period,
-                    notice_period_days=candidate_data.professional_details.notice_period_days,
-                    skills=candidate_data.professional_details.skills,
-                    preferred_job_role=candidate_data.professional_details.preferred_job_role,
-                    preferred_industry=candidate_data.professional_details.preferred_industry,
-                    job_type_preference=candidate_data.professional_details.job_type_preference,
-                    work_preference=candidate_data.professional_details.work_preference,
-                    languages_known=candidate_data.professional_details.languages_known,
-                    certifications=candidate_data.professional_details.certifications,
-                    achievements=candidate_data.professional_details.achievements
-                )
-                self.db.add(professional_details)
-                await self.db.flush()  # Get the professional details ID
-                
-                # Create work experiences
-                for work_exp in candidate_data.work_experiences:
-                    work_experience = CandidateWorkExperience(
-                        professional_details_id=professional_details.id,
-                        company_name=work_exp.company_name,
-                        company_industry=work_exp.company_industry,
-                        company_size=work_exp.company_size,
-                        designation=work_exp.designation,
-                        department=work_exp.department,
-                        employment_type=work_exp.employment_type,
-                        start_date=work_exp.start_date,
-                        end_date=work_exp.end_date,
-                        is_current=work_exp.is_current,
-                        location=work_exp.location,
-                        work_mode=work_exp.work_mode,
-                        responsibilities=work_exp.responsibilities,
-                        achievements=work_exp.achievements,
-                        salary=work_exp.salary,
-                        salary_currency=work_exp.salary_currency,
-                        reason_for_leaving=work_exp.reason_for_leaving,
-                        references=work_exp.references
-                    )
-                    self.db.add(work_experience)
-                
-                # Create educations
-                for edu in candidate_data.educations:
-                    education = CandidateEducation(
-                        professional_details_id=professional_details.id,
-                        institution_name=edu.institution_name,
-                        institution_type=edu.institution_type,
-                        institution_location=edu.institution_location,
-                        qualification=edu.qualification,
-                        specialization=edu.specialization,
-                        degree_type=edu.degree_type,
-                        start_date=edu.start_date,
-                        end_date=edu.end_date,
-                        is_completed=edu.is_completed,
-                        grade=edu.grade,
-                        score=edu.score,
-                        max_score=edu.max_score,
-                        description=edu.description,
-                        achievements=edu.achievements
-                    )
-                    self.db.add(education)
-                
-                # Create metadata
-                if metadata or candidate_data.metadata:
-                    meta_data = metadata or {}
-                    if candidate_data.metadata:
+                self.db.add(education)
+            
+            # Create metadata
+            if metadata or candidate_data.metadata:
+                meta_data = metadata or {}
+                if candidate_data.metadata:
+                    if hasattr(candidate_data.metadata, 'model_dump'):
+                        meta_data.update(candidate_data.metadata.model_dump(exclude_none=True))
+                    else:
                         meta_data.update(candidate_data.metadata.dict(exclude_none=True))
-                    
-                    candidate_metadata = CandidateMetadata(
-                        candidate_id=candidate.id,
-                        ip_address=meta_data.get('ip_address'),
-                        user_agent=meta_data.get('user_agent'),
-                        device_type=meta_data.get('device_type'),
-                        browser=meta_data.get('browser'),
-                        operating_system=meta_data.get('operating_system'),
-                        referrer_url=meta_data.get('referrer_url'),
-                        landing_page=meta_data.get('landing_page'),
-                        utm_source=meta_data.get('utm_source'),
-                        utm_medium=meta_data.get('utm_medium'),
-                        utm_campaign=meta_data.get('utm_campaign'),
-                        utm_term=meta_data.get('utm_term'),
-                        utm_content=meta_data.get('utm_content'),
-                        form_version=meta_data.get('form_version'),
-                        form_fields=meta_data.get('form_fields')
-                    )
-                    self.db.add(candidate_metadata)
                 
-                # Commit transaction
-                await self.db.commit()
-                
-                # Refresh and return candidate
-                await self.db.refresh(candidate)
-                
-                duration_ms = (time.time() - start_time) * 1000
-                logger.info(f"Successfully created candidate {candidate.id} in {duration_ms:.2f}ms")
-                database_logger.log_connection("candidate_created", f"Candidate ID: {candidate.id}")
-                
-                return candidate
+                candidate_metadata = CandidateMetadata(
+                    candidate_id=candidate.id,
+                    ip_address=meta_data.get('ip_address'),
+                    user_agent=meta_data.get('user_agent'),
+                    device_type=meta_data.get('device_type'),
+                    browser=meta_data.get('browser'),
+                    operating_system=meta_data.get('operating_system'),
+                    referrer_url=meta_data.get('referrer_url'),
+                    landing_page=meta_data.get('landing_page'),
+                    utm_source=meta_data.get('utm_source'),
+                    utm_medium=meta_data.get('utm_medium'),
+                    utm_campaign=meta_data.get('utm_campaign'),
+                    utm_term=meta_data.get('utm_term'),
+                    utm_content=meta_data.get('utm_content'),
+                    form_version=meta_data.get('form_version'),
+                    form_fields=meta_data.get('form_fields')
+                )
+                self.db.add(candidate_metadata)
+            
+            # Commit transaction
+            await self.db.commit()
+            
+            duration_ms = (time.time() - start_time) * 1000
+            logger.info(f"Successfully created candidate {candidate.id} in {duration_ms:.2f}ms")
+            database_logger.log_connection("candidate_created", f"Candidate ID: {candidate.id}")
+            
+            # Return fully populated candidate record
+            return await self.get_candidate(candidate.id)
                 
         except Exception as e:
             await self.db.rollback()
@@ -273,7 +272,7 @@ class CandidateService:
                 selectinload(Candidate.personal_details),
                 selectinload(Candidate.professional_details),
                 selectinload(Candidate.resumes),
-                selectinload(Candidate.metadata),
+                selectinload(Candidate.candidate_metadata),
                 selectinload(Candidate.notes),
                 selectinload(Candidate.interviews)
             )
@@ -338,7 +337,9 @@ class CandidateService:
                 selectinload(Candidate.personal_details),
                 selectinload(Candidate.professional_details),
                 selectinload(Candidate.resumes),
-                selectinload(Candidate.metadata)
+                selectinload(Candidate.candidate_metadata),
+                selectinload(Candidate.notes),
+                selectinload(Candidate.interviews)
             )
         )
         

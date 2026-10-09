@@ -12,7 +12,7 @@ class PaginationParams(BaseModel):
     size: int = Field(20, ge=1, le=100, description="Page size")
     
     class Config:
-        schema_extra = {
+        json_schema_extra = {
             "example": {
                 "page": 1,
                 "size": 20
@@ -26,7 +26,7 @@ class ErrorResponse(BaseModel):
     error_code: Optional[str] = None
     
     class Config:
-        schema_extra = {
+        json_schema_extra = {
             "example": {
                 "detail": "Resource not found",
                 "error_code": "RESOURCE_NOT_FOUND"
@@ -40,7 +40,7 @@ class SuccessResponse(BaseModel):
     data: Optional[dict] = None
     
     class Config:
-        schema_extra = {
+        json_schema_extra = {
             "example": {
                 "message": "Operation successful",
                 "data": {"id": "123e4567-e89b-12d3-a456-426614174000"}
@@ -55,7 +55,7 @@ class HealthCheckResponse(BaseModel):
     timestamp: str
     
     class Config:
-        schema_extra = {
+        json_schema_extra = {
             "example": {
                 "status": "healthy",
                 "database": "connected",

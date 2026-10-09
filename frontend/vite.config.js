@@ -4,11 +4,21 @@ import { defineConfig } from 'vite';
 const rootDir = import.meta.dirname;
 
 export default defineConfig({
+  server: {
+    port: 5173,
+    proxy: {
+      '/api': {
+        target: 'http://127.0.0.1:8000',
+        changeOrigin: true
+      }
+    }
+  },
   build: {
     rollupOptions: {
       input: {
         main: resolve(rootDir, 'index.html'),
         services: resolve(rootDir, 'services/index.html'),
+        erpCrm: resolve(rootDir, 'services/erp-crm.html'),
         executiveSearch: resolve(rootDir, 'services/executive-search.html'),
         permanentStaffing: resolve(rootDir, 'services/permanent-staffing.html'),
         itRecruitment: resolve(rootDir, 'services/it-recruitment.html'),
@@ -31,6 +41,16 @@ export default defineConfig({
         industryElectronicsEms: resolve(rootDir, 'industries/electronics-ems.html'),
         industryChemicalsMaterials: resolve(rootDir, 'industries/chemicals-materials.html'),
         industriesIndex: resolve(rootDir, 'industries/index.html'),
+        businessIndex: resolve(rootDir, 'business/index.html'),
+        businessCompanyRegistration: resolve(rootDir, 'business/company-registration.html'),
+        businessGstTax: resolve(rootDir, 'business/gst-tax.html'),
+        businessMcaCompliance: resolve(rootDir, 'business/mca-compliance.html'),
+        businessTrademarkIpr: resolve(rootDir, 'business/trademark-ipr.html'),
+        businessAccountingCfo: resolve(rootDir, 'business/accounting-cfo.html'),
+        businessAuditAssurance: resolve(rootDir, 'business/audit-assurance.html'),
+        businessTdsTcs: resolve(rootDir, 'business/tds-tcs.html'),
+        businessEsiEpf: resolve(rootDir, 'business/esi-epf.html'),
+        businessFinancialAdvisory: resolve(rootDir, 'business/financial-advisory.html'),
       }
     }
   }

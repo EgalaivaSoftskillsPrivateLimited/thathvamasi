@@ -7,6 +7,7 @@
 import './styles/variables.css';
 import './styles/base.css';
 import './styles/components.css';
+import './styles/esight-theme.css';
 import './styles/admin.css';
 import './styles/responsive.css';
 
@@ -74,9 +75,9 @@ function setupNavigation() {
   }
 
   // Handle dropdown toggle for mobile/touch
-  const dropdownContainers = document.querySelectorAll('.nav-item.has-dropdown');
+  const dropdownContainers = document.querySelectorAll('.nav-item.has-dropdown, .hasDropdown');
   dropdownContainers.forEach(container => {
-    const toggle = container.querySelector('.dropdown-toggle');
+    const toggle = container.querySelector('.dropdown-toggle, a');
     if (toggle) {
       toggle.addEventListener('click', (e) => {
         if (window.innerWidth <= 992) {
@@ -211,6 +212,158 @@ function setupHeroMandates() {
   });
 }
 
+// Esight-Inspired Component Logic (Advisor Modal, FAQs, Mobile Drawer)
+export function initEsightComponents() {
+  const callPopup = document.getElementById('callPopup');
+  const openTriggers = document.querySelectorAll('.navConatctBox, [data-action="open-call-popup"]');
+  const closeBtns = document.querySelectorAll('.callPopupClose');
+
+  openTriggers.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      if (callPopup) callPopup.classList.add('active');
+    });
+  });
+
+  closeBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      if (callPopup) callPopup.classList.remove('active');
+    });
+  });
+
+  if (callPopup) {
+    callPopup.addEventListener('click', (e) => {
+      if (e.target === callPopup) {
+        callPopup.classList.remove('active');
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && callPopup.classList.contains('active')) {
+        callPopup.classList.remove('active');
+      }
+    });
+  }
+
+  // Interactive FAQ Accordions (Supports both .faqBox and .faqItem patterns)
+  const faqBoxes = document.querySelectorAll('.faqBox');
+  faqBoxes.forEach(box => {
+    const head = box.querySelector('.faqBoxHead');
+    const body = box.querySelector('.faqBoxBody');
+    if (head && body) {
+      head.addEventListener('click', () => {
+        const isOpen = box.classList.contains('active');
+        faqBoxes.forEach(other => {
+          if (other !== box) {
+            other.classList.remove('active');
+            const otherBody = other.querySelector('.faqBoxBody');
+            if (otherBody) otherBody.style.maxHeight = '0px';
+          }
+        });
+
+        if (isOpen) {
+          box.classList.remove('active');
+          body.style.maxHeight = '0px';
+        } else {
+          box.classList.add('active');
+          body.style.maxHeight = `${body.scrollHeight + 40}px`;
+        }
+      });
+    }
+  });
+
+  const faqItems = document.querySelectorAll('.faqItem');
+  faqItems.forEach(item => {
+    const header = item.querySelector('.faqHeader');
+    const body = item.querySelector('.faqBody');
+    if (header && body) {
+      header.addEventListener('click', () => {
+        const isOpen = item.classList.contains('active');
+        faqItems.forEach(other => {
+          if (other !== item) {
+            other.classList.remove('active');
+            const otherBody = other.querySelector('.faqBody');
+            if (otherBody) otherBody.style.maxHeight = '0px';
+          }
+        });
+
+        if (isOpen) {
+          item.classList.remove('active');
+          body.style.maxHeight = '0px';
+        } else {
+          item.classList.add('active');
+          body.style.maxHeight = `${body.scrollHeight + 40}px`;
+        }
+      });
+    }
+  });
+
+  // Mobile Sidemenu
+  const sidemenu = document.getElementById('sidemenu');
+  const backdrop = document.getElementById('sidemenuBackdrop');
+  const navToggleBtns = document.querySelectorAll('.navToggle, .navBarBox, #mobileNavToggle');
+  const closeSidemenu = document.querySelectorAll('.closeSidemenu');
+
+  function openMobileMenu() {
+    if (sidemenu) sidemenu.classList.add('active');
+    if (backdrop) backdrop.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeMobileMenu() {
+    if (sidemenu) sidemenu.classList.remove('active');
+    if (backdrop) backdrop.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  if (sidemenu) {
+    navToggleBtns.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        if (sidemenu.classList.contains('active')) {
+          closeMobileMenu();
+        } else {
+          openMobileMenu();
+        }
+      });
+    });
+
+    closeSidemenu.forEach(btn => {
+      btn.addEventListener('click', closeMobileMenu);
+    });
+
+    if (backdrop) {
+      backdrop.addEventListener('click', closeMobileMenu);
+    }
+
+    // Close when clicking outside on mobile
+    document.addEventListener('click', (e) => {
+      if (sidemenu.classList.contains('active') && !sidemenu.contains(e.target)) {
+        let isToggle = false;
+        navToggleBtns.forEach(btn => {
+          if (btn.contains(e.target)) isToggle = true;
+        });
+        if (!isToggle) closeMobileMenu();
+      }
+    });
+
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && sidemenu.classList.contains('active')) {
+        closeMobileMenu();
+      }
+    });
+
+    // Close when clicking navigation links inside drawer
+    sidemenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        closeMobileMenu();
+      });
+    });
+  }
+}
+
 // Application Initialization
 document.addEventListener('DOMContentLoaded', () => {
   initToastSystem();
@@ -219,6 +372,7 @@ document.addEventListener('DOMContentLoaded', () => {
   setupViewSwitching();
   setupHeroSearch();
   setupHeroMandates();
+  initEsightComponents();
 
   initServicesSection();
   initIndustriesSection();

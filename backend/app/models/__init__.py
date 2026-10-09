@@ -41,6 +41,7 @@ from app.models.blog_model import (
     BlogCategory,
     BlogTag,
 )
+from app.models.contact_model import ContactEnquiry
 from app.models.db_mixins import (
     TimestampMixin,
     UUIDMixin,

@@ -219,9 +219,9 @@ export const INITIAL_BLOGS = [
       <h3>3. 2026 Compensation Benchmarks & Transition Premiums</h3>
       <p>According to THC's Q3 2026 industrial salary index, professionals transitioning from traditional ICE powertrain design to EV systems are commanding starting premiums of 45% to 50%:</p>
       <ul>
-        <li><strong>Mid-Level Engineers (4–7 Years Experience):</strong> ₹16.0 – ₹28.0 LPA in BMS firmware, inverter controls, and thermal simulation.</li>
-        <li><strong>Senior Technical Leads / Engineering Managers (8–12 Years):</strong> ₹30.0 – ₹52.0 LPA.</li>
-        <li><strong>Chief Technology Officers / VP - Powertrain (15+ Years):</strong> ₹60.0 LPA to ₹1.2 Crore + equity incentives.</li>
+        <li><strong>Mid-Level Engineers (4–7 Years Experience):</strong> High-demand bracket in BMS firmware, inverter controls, and thermal simulation.</li>
+        <li><strong>Senior Technical Leads / Engineering Managers (8–12 Years):</strong> Leadership bracket across powertrain systems.</li>
+        <li><strong>Chief Technology Officers / VP - Powertrain (15+ Years):</strong> Executive board tier with equity incentives.</li>
       </ul>
       
       <h3>4. Overcoming 90-Day Notice Periods via Structured Buyouts</h3>
@@ -286,7 +286,7 @@ export const INITIAL_BLOGS = [
       <p>Because Coimbatore and Pune share deeply complementary industrial heritage in pump casting, metallurgy, and precision motor manufacturing, THC frequently facilitates high-level leadership cross-pollination between these two hubs. Metallurgy specialists and plant general managers from Tamil Nadu's industrial clusters find exceptional career scale in Maharashtra's automotive Tier-1 supplier ecosystem.</p>
       
       <h3>4. Succession Planning for Family-Owned Industrial Powerhouses</h3>
-      <p>Dozens of mid-market engineering enterprises in the ₹200 Cr to ₹1,500 Cr bracket are actively transitioning management from founding families to professional leadership teams. THC's executive advisory practice specializes in discrete, retained CXO searches that balance professional operational governance with the cultural fabric of family enterprises.</p>
+      <p>Dozens of mid-market engineering enterprises in the large-scale manufacturing bracket are actively transitioning management from founding families to professional leadership teams. THC's executive advisory practice specializes in discrete, retained CXO searches that balance professional operational governance with the cultural fabric of family enterprises.</p>
     `,
     image: "/images/heroes/thc_hero.jpg"
   },
@@ -299,7 +299,7 @@ export const INITIAL_BLOGS = [
     readTime: "7 min read",
     author: "Dr. Ananya R., Principal Lifesciences Consultant",
     date: "Sep 19, 2026",
-    excerpt: "As the Sanand semiconductor corridor and Dahej specialty chemical hub attract over ₹1.2 Lakh Crore in private investments, the demand for USFDA-compliant plant leaders, process safety (HAZOP) directors, and green hydrogen engineers has reached record highs.",
+    excerpt: "As the Sanand semiconductor corridor and Dahej specialty chemical hub attract massive private investments, the demand for USFDA-compliant plant leaders, process safety (HAZOP) directors, and green hydrogen engineers has reached record highs.",
     content: `
       <h3>1. The Chemical & Clean Energy Epicenter</h3>
       <p>Gujarat's industrial spine—anchored by the Dahej Petroleum, Chemicals and Petrochemicals Investment Region (PCPIR), Ankleshwar chemical parks, and the Sanand-Dholera high-tech cluster—is witnessing unprecedented capital deployment. With global pharmaceutical supply chains de-risking active pharmaceutical ingredient (API) procurement, Gujarat's formulation and bulk chemical manufacturers are investing heavily in continuous flow synthesis and closed-loop effluent treatment plants.</p>
@@ -307,9 +307,9 @@ export const INITIAL_BLOGS = [
       <h3>2. USFDA & Process Safety (HAZOP) Regulatory Scarcity</h3>
       <p>Stringent compliance enforcement by the USFDA, European Medicines Agency (EMA), and the Central Pollution Control Board (CPCB) has made regulatory compliance officers the highest-demand executives in Western India. Key requisitions handled by THC in this corridor include:</p>
       <ul>
-        <li><strong>Vice President - Global Regulatory Affairs:</strong> Managing multi-site USFDA inspections and ANDA drug filings (₹45 – ₹80+ LPA).</li>
-        <li><strong>Head of Process Safety & EHS:</strong> Implementing quantitative risk assessments (QRA) and Process Safety Management (PSM) standards (₹28 – ₹45 LPA).</li>
-        <li><strong>Continuous Flow Chemistry Scientists:</strong> Converting batch synthesis to high-yield continuous micro-reactors (₹18 – ₹32 LPA).</li>
+        <li><strong>Vice President - Global Regulatory Affairs:</strong> Managing multi-site USFDA inspections and ANDA drug filings (Executive Leadership).</li>
+        <li><strong>Head of Process Safety & EHS:</strong> Implementing quantitative risk assessments (QRA) and Process Safety Management (PSM) standards (Senior Management).</li>
+        <li><strong>Continuous Flow Chemistry Scientists:</strong> Converting batch synthesis to high-yield continuous micro-reactors (Specialist Scientists).</li>
       </ul>
       
       <h3>3. Reverse Migration to Plant-Adjacent Executive Hubs</h3>

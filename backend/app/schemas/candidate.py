@@ -1,5 +1,6 @@
 """
 Candidate schemas for Thathvamasi HR Consultancy
+Pydantic v2 Compatible
 """
 
 import re
@@ -7,8 +8,10 @@ from datetime import date, datetime
 from typing import Optional, List, Dict, Any
 from uuid import UUID
 
-from pydantic import BaseModel, Field, EmailStr, validator, constr
-from pydantic.types import conint
+from pydantic import (
+    BaseModel, Field, EmailStr, field_validator, ValidationInfo,
+    ConfigDict, model_validator, AliasChoices
+)
 
 from app.schemas.base import PaginationParams
 
@@ -18,18 +21,20 @@ class CandidateBase(BaseModel):
     """Base schema for candidate"""
     status: Optional[str] = Field("new", description="Candidate status")
     priority: Optional[str] = Field("medium", description="Priority level")
-    tags: Optional[List[str]] = Field([], description="Tags for categorization")
-    source: Optional[str] = Field(None, description="Source of candidate")
+    tags: Optional[List[str]] = Field(default_factory=list, description="Tags for categorization")
+    source: Optional[str] = Field("website", description="Source of candidate")
     referrer: Optional[str] = Field(None, description="Referrer information")
     
-    @validator('status')
+    @field_validator('status')
+    @classmethod
     def validate_status(cls, v):
         allowed_statuses = ["new", "contacted", "shortlisted", "rejected", "hired", "on_hold"]
         if v and v not in allowed_statuses:
             raise ValueError(f"Status must be one of: {allowed_statuses}")
         return v
     
-    @validator('priority')
+    @field_validator('priority')
+    @classmethod
     def validate_priority(cls, v):
         allowed_priorities = ["low", "medium", "high", "urgent"]
         if v and v not in allowed_priorities:
@@ -42,7 +47,7 @@ class CandidatePersonalDetailsBase(BaseModel):
     full_name: str = Field(..., min_length=2, max_length=255, description="Full name")
     email: EmailStr = Field(..., description="Email address")
     mobile: str = Field(..., min_length=10, max_length=20, description="Mobile number")
-    whatsapp: Optional[str] = Field(None, min_length=10, max_length=20, description="WhatsApp number")
+    whatsapp: Optional[str] = Field(None, max_length=20, description="WhatsApp number")
     current_location: str = Field(..., min_length=2, max_length=255, description="Current location")
     preferred_location: Optional[str] = Field(None, max_length=255, description="Preferred location")
     date_of_birth: Optional[date] = Field(None, description="Date of birth")
@@ -54,26 +59,28 @@ class CandidatePersonalDetailsBase(BaseModel):
     country: str = Field("India", description="Country")
     pincode: Optional[str] = Field(None, max_length=10, description="Pincode")
     emergency_contact_name: Optional[str] = Field(None, max_length=255, description="Emergency contact name")
-    emergency_contact_phone: Optional[str] = Field(None, min_length=10, max_length=20, description="Emergency contact phone")
+    emergency_contact_phone: Optional[str] = Field(None, max_length=20, description="Emergency contact phone")
     emergency_contact_relation: Optional[str] = Field(None, max_length=50, description="Emergency contact relation")
     
-    @validator('mobile', 'whatsapp', 'emergency_contact_phone')
-    def validate_phone_number(cls, v, field):
+    @field_validator('mobile', 'whatsapp', 'emergency_contact_phone')
+    @classmethod
+    def validate_phone_number(cls, v, info: ValidationInfo):
         if v is None:
             return v
-        # Remove any non-digit characters
-        cleaned = re.sub(r'\D', '', v)
+        cleaned = re.sub(r'\D', '', str(v))
         if len(cleaned) < 10:
-            raise ValueError(f"{field.name} must be at least 10 digits")
-        return v
+            raise ValueError(f"{info.field_name} must be at least 10 digits")
+        return cleaned
     
-    @validator('gender')
+    @field_validator('gender')
+    @classmethod
     def validate_gender(cls, v):
         if v and v.lower() not in ["male", "female", "other", "prefer not to say"]:
             raise ValueError("Gender must be male, female, other, or prefer not to say")
         return v
     
-    @validator('marital_status')
+    @field_validator('marital_status')
+    @classmethod
     def validate_marital_status(cls, v):
         if v and v.lower() not in ["single", "married", "divorced", "widowed"]:
             raise ValueError("Marital status must be single, married, divorced, or widowed")
@@ -96,22 +103,24 @@ class CandidateProfessionalDetailsBase(BaseModel):
     expected_salary_currency: str = Field("INR", description="Expected salary currency")
     notice_period: Optional[str] = Field(None, max_length=50, description="Notice period")
     notice_period_days: Optional[int] = Field(None, ge=0, description="Notice period in days")
-    skills: List[str] = Field([], description="Skills")
+    skills: List[str] = Field(default_factory=list, description="Skills")
     preferred_job_role: Optional[str] = Field(None, max_length=255, description="Preferred job role")
     preferred_industry: Optional[str] = Field(None, max_length=255, description="Preferred industry")
     job_type_preference: Optional[str] = Field(None, description="Job type preference")
     work_preference: Optional[str] = Field(None, description="Work preference")
-    languages_known: List[str] = Field([], description="Languages known")
-    certifications: List[str] = Field([], description="Certifications")
+    languages_known: List[str] = Field(default_factory=list, description="Languages known")
+    certifications: List[str] = Field(default_factory=list, description="Certifications")
     achievements: Optional[str] = Field(None, description="Achievements")
     
-    @validator('job_type_preference')
+    @field_validator('job_type_preference')
+    @classmethod
     def validate_job_type(cls, v):
         if v and v.lower() not in ["permanent", "contract", "temporary", "internship"]:
             raise ValueError("Job type must be permanent, contract, temporary, or internship")
         return v
     
-    @validator('work_preference')
+    @field_validator('work_preference')
+    @classmethod
     def validate_work_preference(cls, v):
         if v and v.lower() not in ["onsite", "remote", "hybrid"]:
             raise ValueError("Work preference must be onsite, remote, or hybrid")
@@ -131,28 +140,32 @@ class CandidateWorkExperienceBase(BaseModel):
     is_current: bool = Field(False, description="Is current job")
     location: Optional[str] = Field(None, max_length=255, description="Location")
     work_mode: Optional[str] = Field(None, description="Work mode")
-    responsibilities: List[str] = Field([], description="Responsibilities")
-    achievements: List[str] = Field([], description="Achievements")
+    responsibilities: List[str] = Field(default_factory=list, description="Responsibilities")
+    achievements: List[str] = Field(default_factory=list, description="Achievements")
     salary: Optional[float] = Field(None, ge=0, description="Salary")
     salary_currency: str = Field("INR", description="Salary currency")
     reason_for_leaving: Optional[str] = Field(None, description="Reason for leaving")
     references: Optional[Dict[str, Any]] = Field(None, description="References")
     
-    @validator('employment_type')
+    @field_validator('employment_type')
+    @classmethod
     def validate_employment_type(cls, v):
         if v and v.lower() not in ["full_time", "part_time", "contract", "internship", "freelance"]:
             raise ValueError("Employment type must be full_time, part_time, contract, internship, or freelance")
         return v
     
-    @validator('work_mode')
+    @field_validator('work_mode')
+    @classmethod
     def validate_work_mode(cls, v):
         if v and v.lower() not in ["onsite", "remote", "hybrid"]:
             raise ValueError("Work mode must be onsite, remote, or hybrid")
         return v
     
-    @validator('end_date')
-    def validate_dates(cls, v, values):
-        if v and 'start_date' in values and v < values['start_date']:
+    @field_validator('end_date')
+    @classmethod
+    def validate_dates(cls, v, info: ValidationInfo):
+        start_date = info.data.get('start_date') if info.data else None
+        if v and start_date and v < start_date:
             raise ValueError("End date must be after start date")
         return v
 
@@ -172,17 +185,20 @@ class CandidateEducationBase(BaseModel):
     score: Optional[float] = Field(None, description="Score")
     max_score: Optional[float] = Field(None, description="Maximum score")
     description: Optional[str] = Field(None, description="Description")
-    achievements: List[str] = Field([], description="Achievements")
+    achievements: List[str] = Field(default_factory=list, description="Achievements")
     
-    @validator('degree_type')
+    @field_validator('degree_type')
+    @classmethod
     def validate_degree_type(cls, v):
         if v and v.lower() not in ["bachelors", "masters", "diploma", "phd", "high_school", "certification"]:
             raise ValueError("Degree type must be bachelors, masters, diploma, phd, high_school, or certification")
         return v
     
-    @validator('end_date')
-    def validate_education_dates(cls, v, values):
-        if v and 'start_date' in values and values['start_date'] and v < values['start_date']:
+    @field_validator('end_date')
+    @classmethod
+    def validate_education_dates(cls, v, info: ValidationInfo):
+        start_date = info.data.get('start_date') if info.data else None
+        if v and start_date and v < start_date:
             raise ValueError("End date must be after start date")
         return v
 
@@ -207,16 +223,63 @@ class CandidateMetadataBase(BaseModel):
 
 # Request schemas
 class CandidateCreate(CandidateBase):
-    """Schema for creating a new candidate"""
+    """
+    Schema for creating a new candidate.
+    Supports both nested structure and flat form payloads.
+    """
     personal_details: CandidatePersonalDetailsBase
     professional_details: CandidateProfessionalDetailsBase
-    work_experiences: Optional[List[CandidateWorkExperienceBase]] = []
-    educations: Optional[List[CandidateEducationBase]] = []
+    work_experiences: Optional[List[CandidateWorkExperienceBase]] = Field(default_factory=list)
+    educations: Optional[List[CandidateEducationBase]] = Field(default_factory=list)
     metadata: Optional[CandidateMetadataBase] = None
-    consent_accepted: bool = Field(..., description="Whether consent was accepted")
-    
-    class Config:
-        schema_extra = {
+    consent_accepted: bool = Field(True, description="Whether consent was accepted")
+
+    @model_validator(mode='before')
+    @classmethod
+    def handle_flat_payload(cls, data: Any) -> Any:
+        if isinstance(data, dict):
+            # If flat fields are passed at root without personal_details/professional_details
+            if "personal_details" not in data and ("name" in data or "full_name" in data):
+                name = data.get("full_name") or data.get("name", "Unknown Candidate")
+                email = data.get("email", "")
+                mobile = data.get("mobile", "")
+                current_location = data.get("current_location") or data.get("currentLocation", "Coimbatore")
+                whatsapp = data.get("whatsapp") or mobile
+                pref_location = data.get("preferred_location") or data.get("preferredLocation")
+
+                data["personal_details"] = {
+                    "full_name": name,
+                    "email": email,
+                    "mobile": mobile,
+                    "whatsapp": whatsapp,
+                    "current_location": current_location,
+                    "preferred_location": pref_location,
+                    "country": "India"
+                }
+
+            if "professional_details" not in data and ("qualification" in data or "highest_qualification" in data or "skills" in data):
+                qual = data.get("highest_qualification") or data.get("qualification", "Graduate")
+                exp = data.get("total_experience") or data.get("experience", "1-3 Years")
+                raw_skills = data.get("skills", [])
+                if isinstance(raw_skills, str):
+                    raw_skills = [s.strip() for s in raw_skills.split(",") if s.strip()]
+
+                data["professional_details"] = {
+                    "highest_qualification": qual,
+                    "total_experience": str(exp),
+                    "current_company": data.get("current_company") or data.get("currentCompany"),
+                    "current_designation": data.get("current_designation") or data.get("currentDesignation"),
+                    "notice_period": data.get("notice_period") or data.get("noticePeriod", "Immediate"),
+                    "skills": raw_skills
+                }
+
+            if "consent_accepted" not in data:
+                data["consent_accepted"] = True
+
+        return data
+
+    model_config = ConfigDict(
+        json_schema_extra={
             "example": {
                 "status": "new",
                 "priority": "medium",
@@ -262,39 +325,16 @@ class CandidateCreate(CandidateBase):
                     "preferred_industry": "Technology",
                     "job_type_preference": "permanent",
                     "work_preference": "hybrid",
-                    "languages_known": ["English", "Hindi", "Kannada"],
-                    "certifications": ["AWS Certified Developer", "Python Certification"],
-                    "achievements": "Developed a microservices architecture that improved performance by 40%"
+                    "languages_known": ["English", "Hindi"],
+                    "certifications": ["AWS Certified Developer"],
+                    "achievements": "Developed microservices architecture"
                 },
-                "work_experiences": [
-                    {
-                        "company_name": "Tech Solutions Inc.",
-                        "designation": "Senior Software Engineer",
-                        "start_date": "2020-01-15",
-                        "end_date": None,
-                        "is_current": True,
-                        "responsibilities": ["API development", "System design", "Team mentoring"],
-                        "achievements": ["Reduced API response time by 60%"]
-                    }
-                ],
-                "educations": [
-                    {
-                        "institution_name": "IIT Delhi",
-                        "qualification": "M.Tech",
-                        "specialization": "Computer Science",
-                        "start_date": "2013-07-01",
-                        "end_date": "2015-05-31"
-                    }
-                ],
-                "metadata": {
-                    "ip_address": "192.168.1.1",
-                    "user_agent": "Mozilla/5.0",
-                    "device_type": "desktop",
-                    "browser": "Chrome"
-                },
+                "work_experiences": [],
+                "educations": [],
                 "consent_accepted": True
             }
         }
+    )
 
 
 class CandidateUpdate(CandidateBase):
@@ -308,21 +348,51 @@ class CandidateUpdate(CandidateBase):
     status_notes: Optional[str] = None
 
 
-class CandidatePersonalDetailsUpdate(CandidatePersonalDetailsBase):
+class CandidatePersonalDetailsUpdate(BaseModel):
     """Schema for updating candidate personal details"""
     full_name: Optional[str] = None
     email: Optional[EmailStr] = None
     mobile: Optional[str] = None
+    whatsapp: Optional[str] = None
     current_location: Optional[str] = None
+    preferred_location: Optional[str] = None
+    date_of_birth: Optional[date] = None
+    gender: Optional[str] = None
+    marital_status: Optional[str] = None
+    address: Optional[str] = None
+    city: Optional[str] = None
+    state: Optional[str] = None
     country: Optional[str] = None
+    pincode: Optional[str] = None
+    emergency_contact_name: Optional[str] = None
+    emergency_contact_phone: Optional[str] = None
+    emergency_contact_relation: Optional[str] = None
 
 
-class CandidateProfessionalDetailsUpdate(CandidateProfessionalDetailsBase):
+class CandidateProfessionalDetailsUpdate(BaseModel):
     """Schema for updating candidate professional details"""
     highest_qualification: Optional[str] = None
+    specialization: Optional[str] = None
+    university: Optional[str] = None
+    graduation_year: Optional[int] = None
     total_experience: Optional[str] = None
+    years_of_experience: Optional[float] = None
+    current_company: Optional[str] = None
+    current_designation: Optional[str] = None
+    current_salary: Optional[float] = None
+    current_salary_currency: Optional[str] = None
+    expected_salary: Optional[float] = None
+    expected_salary_currency: Optional[str] = None
+    notice_period: Optional[str] = None
+    notice_period_days: Optional[int] = None
     skills: Optional[List[str]] = None
+    preferred_job_role: Optional[str] = None
+    preferred_industry: Optional[str] = None
+    job_type_preference: Optional[str] = None
+    work_preference: Optional[str] = None
     languages_known: Optional[List[str]] = None
+    certifications: Optional[List[str]] = None
+    achievements: Optional[str] = None
 
 
 # Response schemas
@@ -333,8 +403,7 @@ class CandidatePersonalDetailsResponse(CandidatePersonalDetailsBase):
     created_at: datetime
     updated_at: datetime
     
-    class Config:
-        orm_mode = True
+    model_config = ConfigDict(from_attributes=True)
 
 
 class CandidateProfessionalDetailsResponse(CandidateProfessionalDetailsBase):
@@ -344,8 +413,7 @@ class CandidateProfessionalDetailsResponse(CandidateProfessionalDetailsBase):
     created_at: datetime
     updated_at: datetime
     
-    class Config:
-        orm_mode = True
+    model_config = ConfigDict(from_attributes=True)
 
 
 class CandidateWorkExperienceResponse(CandidateWorkExperienceBase):
@@ -355,8 +423,7 @@ class CandidateWorkExperienceResponse(CandidateWorkExperienceBase):
     created_at: datetime
     updated_at: datetime
     
-    class Config:
-        orm_mode = True
+    model_config = ConfigDict(from_attributes=True)
 
 
 class CandidateEducationResponse(CandidateEducationBase):
@@ -366,8 +433,7 @@ class CandidateEducationResponse(CandidateEducationBase):
     created_at: datetime
     updated_at: datetime
     
-    class Config:
-        orm_mode = True
+    model_config = ConfigDict(from_attributes=True)
 
 
 class CandidateMetadataResponse(CandidateMetadataBase):
@@ -376,8 +442,7 @@ class CandidateMetadataResponse(CandidateMetadataBase):
     candidate_id: UUID
     created_at: datetime
     
-    class Config:
-        orm_mode = True
+    model_config = ConfigDict(from_attributes=True)
 
 
 class CandidateResumeResponse(BaseModel):
@@ -388,33 +453,31 @@ class CandidateResumeResponse(BaseModel):
     file_name: str
     file_size: int
     file_type: str
-    cloudinary_id: Optional[str]
-    version: int
-    is_primary: bool
+    cloudinary_id: Optional[str] = None
+    version: int = 1
+    is_primary: bool = True
     uploaded_at: datetime
-    uploaded_by: Optional[str]
-    is_parsed: bool
-    parsed_data: Optional[Dict[str, Any]]
+    uploaded_by: Optional[str] = None
+    is_parsed: bool = False
+    parsed_data: Optional[Dict[str, Any]] = None
     
-    class Config:
-        orm_mode = True
+    model_config = ConfigDict(from_attributes=True)
 
 
 class CandidateNoteResponse(BaseModel):
     """Response schema for candidate note"""
     id: UUID
     candidate_id: UUID
-    title: Optional[str]
+    title: Optional[str] = None
     content: str
-    note_type: str
-    created_by: Optional[UUID]
-    created_by_name: Optional[str]
-    is_private: bool
+    note_type: str = "general"
+    created_by: Optional[UUID] = None
+    created_by_name: Optional[str] = None
+    is_private: bool = False
     created_at: datetime
     updated_at: datetime
     
-    class Config:
-        orm_mode = True
+    model_config = ConfigDict(from_attributes=True)
 
 
 class CandidateInterviewResponse(BaseModel):
@@ -425,50 +488,52 @@ class CandidateInterviewResponse(BaseModel):
     interview_stage: str
     scheduled_at: datetime
     duration_minutes: int
-    timezone: str
-    interviewer_ids: List[UUID]
-    interviewer_names: List[str]
-    meeting_link: Optional[str]
-    meeting_platform: Optional[str]
-    location: Optional[str]
-    status: str
-    feedback: Optional[str]
-    rating: Optional[int]
+    timezone: str = "IST"
+    interviewer_ids: List[UUID] = Field(default_factory=list)
+    interviewer_names: List[str] = Field(default_factory=list)
+    meeting_link: Optional[str] = None
+    meeting_platform: Optional[str] = None
+    location: Optional[str] = None
+    status: str = "scheduled"
+    feedback: Optional[str] = None
+    rating: Optional[int] = None
     created_at: datetime
     updated_at: datetime
     
-    class Config:
-        orm_mode = True
+    model_config = ConfigDict(from_attributes=True)
 
 
 class CandidateResponse(CandidateBase):
     """Response schema for candidate"""
     id: UUID
-    assigned_to: Optional[UUID]
-    consent_accepted: bool
-    consent_accepted_at: Optional[datetime]
-    status_changed_at: Optional[datetime]
-    status_notes: Optional[str]
+    assigned_to: Optional[UUID] = None
+    consent_accepted: bool = True
+    consent_accepted_at: Optional[datetime] = None
+    status_changed_at: Optional[datetime] = None
+    status_notes: Optional[str] = None
     created_at: datetime
     updated_at: datetime
     
     # Relationships
-    personal_details: Optional[CandidatePersonalDetailsResponse]
-    professional_details: Optional[CandidateProfessionalDetailsResponse]
-    resumes: List[CandidateResumeResponse] = []
-    metadata: Optional[CandidateMetadataResponse]
-    notes: List[CandidateNoteResponse] = []
-    interviews: List[CandidateInterviewResponse] = []
+    personal_details: Optional[CandidatePersonalDetailsResponse] = None
+    professional_details: Optional[CandidateProfessionalDetailsResponse] = None
+    resumes: List[CandidateResumeResponse] = Field(default_factory=list)
+    metadata: Optional[CandidateMetadataResponse] = Field(
+        default=None,
+        validation_alias=AliasChoices('candidate_metadata', 'metadata'),
+        serialization_alias='metadata'
+    )
+    notes: List[CandidateNoteResponse] = Field(default_factory=list)
+    interviews: List[CandidateInterviewResponse] = Field(default_factory=list)
     
-    class Config:
-        orm_mode = True
+    model_config = ConfigDict(from_attributes=True)
 
 
 class CandidateDetailResponse(CandidateResponse):
     """Detailed response schema for candidate with nested data"""
     professional_details_with_experience: Optional[CandidateProfessionalDetailsResponse] = None
-    work_experiences: List[CandidateWorkExperienceResponse] = []
-    educations: List[CandidateEducationResponse] = []
+    work_experiences: List[CandidateWorkExperienceResponse] = Field(default_factory=list)
+    educations: List[CandidateEducationResponse] = Field(default_factory=list)
 
 
 # List schemas
@@ -496,8 +561,8 @@ class CandidateFilterParams(BaseModel):
     date_to: Optional[date] = None
     search: Optional[str] = None
     
-    class Config:
-        schema_extra = {
+    model_config = ConfigDict(
+        json_schema_extra={
             "example": {
                 "status": "new",
                 "priority": "high",
@@ -507,3 +572,4 @@ class CandidateFilterParams(BaseModel):
                 "date_from": "2024-01-01"
             }
         }
+    )

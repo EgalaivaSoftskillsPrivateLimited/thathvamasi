@@ -1,7 +1,7 @@
 /**
  * Thathvamasi HR Consultancy (THC) - Comprehensive Indian Industry Practices
  * Authoritative Indian Enterprise Coverage across 12 Core Sectors
- * Calibrated to Indian CTC Bands (₹ LPA), Notice Buyout Rules & Statutory Compliance
+ * Calibrated to Senior Corporate Profiles, Notice Buyout Rules & Statutory Compliance
  */
 
 export const INDUSTRIES_CONFIG = [
@@ -13,13 +13,13 @@ export const INDUSTRIES_CONFIG = [
     summary: "From precision casting and motor hubs in Coimbatore to EV powertrain assembly in Chennai (Oragadam/Sriperumbudur) and Hosur, we calibrate CXO and engineering leaders for Tier-1 OEMs.",
     hubs: "Coimbatore • Chennai (Oragadam/Sriperumbudur) • Hosur • Pune (Chakan) • NCR (Gurugram/Manesar)",
     image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=600&q=80",
-    ctcBand: "₹18 LPA – ₹75+ LPA",
+    ctcBand: "Plant & Powertrain Pods",
     sla: "48-Hour Shortlist Delivery",
     placements: "140+ Leaders Placed",
     compensationTiers: [
-      { level: "CXO / Plant Head / VP Operations", range: "₹45 – ₹85+ LPA", notice: "60–90 Days (Buyout Support)" },
-      { level: "Principal Engineer / BMS & Powertrain Lead", range: "₹24 – ₹45 LPA", notice: "30–60 Days" },
-      { level: "Tooling / Quality / CNC Specialist", range: "₹14 – ₹24 LPA", notice: "15–30 Days (Immediate)" }
+      { level: "CXO / Plant Head / VP Operations", range: "Executive Leadership Track", notice: "60–90 Days (Buyout Support)" },
+      { level: "Principal Engineer / BMS & Powertrain Lead", range: "Specialist Engineering Track", notice: "30–60 Days" },
+      { level: "Tooling / Quality / CNC Specialist", range: "Technical Lead Track", notice: "15–30 Days (Immediate)" }
     ],
     keyRoles: [
       "Plant Head / VP Operations",
@@ -37,13 +37,13 @@ export const INDUSTRIES_CONFIG = [
     summary: "Dedicated tech recruitment pod for Global Capability Centers (GCCs) and product engineering hubs across Bengaluru, Hyderabad, Chennai, Coimbatore (TIDEL Park), and Pune.",
     hubs: "Bengaluru (ORR/Whitefield) • Hyderabad (HITEC City) • Chennai (OMR) • Coimbatore (TIDEL Park) • Pune (Hinjewadi)",
     image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80",
-    ctcBand: "₹24 LPA – ₹95+ LPA",
+    ctcBand: "Cloud & GCC Tech Leads",
     sla: "48-Hour Shortlist Delivery",
     placements: "320+ Engineers & Architects",
     compensationTiers: [
-      { level: "Director of Engineering / Enterprise Architect", range: "₹50 – ₹95+ LPA", notice: "60–90 Days (Buyout Feasible)" },
-      { level: "Staff AI/ML Engineer / Tech Lead", range: "₹28 – ₹50 LPA", notice: "30–60 Days" },
-      { level: "Senior Cloud / DevOps / Full-Stack Engineer", range: "₹16 – ₹28 LPA", notice: "15–30 Days (Immediate)" }
+      { level: "Director of Engineering / Enterprise Architect", range: "Engineering Leadership Track", notice: "60–90 Days (Buyout Feasible)" },
+      { level: "Staff AI/ML Engineer / Tech Lead", range: "Principal Specialist Track", notice: "30–60 Days" },
+      { level: "Senior Cloud / DevOps / Full-Stack Engineer", range: "Senior Engineering Track", notice: "15–30 Days (Immediate)" }
     ],
     keyRoles: [
       "Principal Enterprise Architect (AWS/Azure)",
@@ -61,13 +61,13 @@ export const INDUSTRIES_CONFIG = [
     summary: "Supplying metallurgy specialists, precision CNC plant managers, and industrial pump design directors to Coimbatore's world-renowned manufacturing clusters and export powerhouses.",
     hubs: "Coimbatore (Kurichi/Peelamedu) • Kolhapur • Belgaum • Rajkot • Ahmedabad",
     image: "https://images.unsplash.com/photo-1504917599217-d4dc5ebe6122?auto=format&fit=crop&w=600&q=80",
-    ctcBand: "₹16 LPA – ₹60+ LPA",
+    ctcBand: "Foundry & CNC Tooling Heads",
     sla: "90-Day Guarantee",
     placements: "180+ Plant Specialists",
     compensationTiers: [
-      { level: "Foundry Operations Director / General Manager", range: "₹38 – ₹65+ LPA", notice: "60–90 Days" },
-      { level: "Chief Metallurgy & Casting Technologist", range: "₹22 – ₹38 LPA", notice: "30–60 Days" },
-      { level: "Precision CNC Machining & Tooling Lead", range: "₹12 – ₹22 LPA", notice: "15–30 Days" }
+      { level: "Foundry Operations Director / General Manager", range: "Operations Leadership Track", notice: "60–90 Days" },
+      { level: "Chief Metallurgy & Casting Technologist", range: "Principal Metallurgist Track", notice: "30–60 Days" },
+      { level: "Precision CNC Machining & Tooling Lead", range: "Senior Technical Lead Track", notice: "15–30 Days" }
     ],
     keyRoles: [
       "Foundry Operations Director",
@@ -85,13 +85,13 @@ export const INDUSTRIES_CONFIG = [
     summary: "Representing top spinning masters, technical textile scientists, and global export merchandising directors for Tamil Nadu's textile belt and export clusters.",
     hubs: "Coimbatore • Tiruppur • Surat • Ludhiana • Ahmedabad",
     image: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=600&q=80",
-    ctcBand: "₹14 LPA – ₹50+ LPA",
+    ctcBand: "Export & Merchandising Directors",
     sla: "Turnkey Recruitment Drives",
     placements: "45+ Bulk Hiring Drives",
     compensationTiers: [
-      { level: "Vice President - Global Sourcing & Exports", range: "₹35 – ₹55+ LPA", notice: "60–90 Days" },
-      { level: "Spinning Master / Technical Plant Director", range: "₹20 – ₹35 LPA", notice: "30–60 Days" },
-      { level: "Head of Technical Textiles & Dyeing", range: "₹12 – ₹20 LPA", notice: "15–30 Days" }
+      { level: "Vice President - Global Sourcing & Exports", range: "Commercial Executive Track", notice: "60–90 Days" },
+      { level: "Spinning Master / Technical Plant Director", range: "Technical Plant Director Track", notice: "30–60 Days" },
+      { level: "Head of Technical Textiles & Dyeing", range: "Senior Specialist Track", notice: "15–30 Days" }
     ],
     keyRoles: [
       "Vice President - Global Sourcing & Exports",
@@ -109,13 +109,13 @@ export const INDUSTRIES_CONFIG = [
     summary: "Headhunting high-caliber Chief Risk Officers, credit underwriting directors, and fintech product specialists across Mumbai BKC, Bengaluru, and Chennai banking corridors.",
     hubs: "Mumbai (BKC) • Bengaluru • Chennai • Gurugram • Hyderabad",
     image: "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=600&q=80",
-    ctcBand: "₹25 LPA – ₹1.1 Cr",
+    ctcBand: "Risk & Quantitative Leaders",
     sla: "Confidential Headhunting",
     placements: "95+ Banking Leaders",
     compensationTiers: [
-      { level: "Chief Risk Officer (CRO) / Business Head", range: "₹60 – ₹1.1 Cr", notice: "60–90 Days (Buyout Support)" },
-      { level: "VP - Credit Underwriting & Risk Modeling", range: "₹32 – ₹60 LPA", notice: "30–60 Days" },
-      { level: "Senior FinTech Product Manager / Quantitative CA", range: "₹18 – ₹32 LPA", notice: "15–30 Days" }
+      { level: "Chief Risk Officer (CRO) / Business Head", range: "CXO Risk & Governance Track", notice: "60–90 Days (Buyout Support)" },
+      { level: "VP - Credit Underwriting & Risk Modeling", range: "Vice President Track", notice: "30–60 Days" },
+      { level: "Senior FinTech Product Manager / Quantitative CA", range: "Quantitative Specialist Track", notice: "15–30 Days" }
     ],
     keyRoles: [
       "Chief Risk Officer (CRO / Basel III)",
@@ -133,13 +133,13 @@ export const INDUSTRIES_CONFIG = [
     summary: "Placing regulatory affairs directors, formulation R&D leaders, and hospital superintendents adhering to stringent USFDA, MHRA, and Indian NABH statutory guidelines.",
     hubs: "Hyderabad (Genome Valley) • Ahmedabad • Chennai • Bengaluru • Baddi",
     image: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=600&q=80",
-    ctcBand: "₹20 LPA – ₹85+ LPA",
+    ctcBand: "Regulatory & Clinical Directors",
     sla: "100% Background Verified",
     placements: "110+ Scientific & Clinical Leads",
     compensationTiers: [
-      { level: "VP - Regulatory Affairs (USFDA/EMA) / Hospital COO", range: "₹45 – ₹85+ LPA", notice: "60–90 Days" },
-      { level: "Head of Formulation R&D (NDDS) / QA/QC", range: "₹26 – ₹45 LPA", notice: "30–60 Days" },
-      { level: "Senior Regulatory Scientist / Plant Microbiologist", range: "₹14 – ₹26 LPA", notice: "15–30 Days" }
+      { level: "VP - Regulatory Affairs (USFDA/EMA) / Hospital COO", range: "Executive Healthcare Track", notice: "60–90 Days" },
+      { level: "Head of Formulation R&D (NDDS) / QA/QC", range: "Principal Scientific Track", notice: "30–60 Days" },
+      { level: "Senior Regulatory Scientist / Plant Microbiologist", range: "Senior Scientist Track", notice: "15–30 Days" }
     ],
     keyRoles: [
       "VP - Regulatory Affairs (USFDA / EMA)",
@@ -157,13 +157,13 @@ export const INDUSTRIES_CONFIG = [
     summary: "Curating national sales leaders, modern trade heads, and quick-commerce operations directors for Indian FMCG majors and consumer tech unicorns.",
     hubs: "Mumbai • Bengaluru • Delhi-NCR • Chennai • Kolkata",
     image: "https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=600&q=80",
-    ctcBand: "₹18 LPA – ₹70+ LPA",
+    ctcBand: "National Sales & Brand VPs",
     sla: "48-Hour Shortlist Delivery",
     placements: "160+ Revenue Officers",
     compensationTiers: [
-      { level: "National Sales Manager (NSM) / Brand VP", range: "₹42 – ₹75+ LPA", notice: "60–90 Days" },
-      { level: "Regional Sales Manager (RSM South/West) / Trade Head", range: "₹24 – ₹42 LPA", notice: "30–60 Days" },
-      { level: "Area Sales Manager / Quick Commerce Lead", range: "₹14 – ₹24 LPA", notice: "15–30 Days" }
+      { level: "National Sales Manager (NSM) / Brand VP", range: "Executive Commercial Track", notice: "60–90 Days" },
+      { level: "Regional Sales Manager (RSM South/West) / Trade Head", range: "Regional Leadership Track", notice: "30–60 Days" },
+      { level: "Area Sales Manager / Quick Commerce Lead", range: "Territory Lead Track", notice: "15–30 Days" }
     ],
     keyRoles: [
       "National Sales Manager (NSM / General Trade)",
@@ -181,13 +181,13 @@ export const INDUSTRIES_CONFIG = [
     summary: "Calibrating project heads, grid integration specialists, and energy storage architects for utility-scale solar farms and wind assets across South & West India.",
     hubs: "Tamil Nadu (Kanyakumari/Coimbatore) • Gujarat • Rajasthan • Bengaluru",
     image: "https://images.unsplash.com/photo-1509391365360-2e959784a276?auto=format&fit=crop&w=600&q=80",
-    ctcBand: "₹18 LPA – ₹60+ LPA",
+    ctcBand: "Solar & Grid Storage Heads",
     sla: "Pan-India Deployment",
     placements: "85+ Energy Technologists",
     compensationTiers: [
-      { level: "Project Director - Utility-Scale Solar EPC", range: "₹40 – ₹65+ LPA", notice: "60–90 Days" },
-      { level: "Battery Energy Storage (BESS) / Grid Architect", range: "₹24 – ₹40 LPA", notice: "30–60 Days" },
-      { level: "SCADA & Substation Commissioning Lead", range: "₹14 – ₹24 LPA", notice: "15–30 Days" }
+      { level: "Project Director - Utility-Scale Solar EPC", range: "Executive Project Track", notice: "60–90 Days" },
+      { level: "Battery Energy Storage (BESS) / Grid Architect", range: "Principal Grid Architect Track", notice: "30–60 Days" },
+      { level: "SCADA & Substation Commissioning Lead", range: "Senior Commissioning Track", notice: "15–30 Days" }
     ],
     keyRoles: [
       "Project Director - Utility-Scale Solar EPC",
@@ -205,13 +205,13 @@ export const INDUSTRIES_CONFIG = [
     summary: "Placing civil engineering project directors, contract arbitration specialists, and MEP consultants for industrial corridors and commercial infrastructure.",
     hubs: "Pan-India Metro Corridors • Chennai • Bengaluru • NCR • Mumbai MMR",
     image: "https://images.unsplash.com/photo-1541888946425-d0fbb18615f8?auto=format&fit=crop&w=600&q=80",
-    ctcBand: "₹22 LPA – ₹80+ LPA",
+    ctcBand: "Civil & Mega EPC Directors",
     sla: "Executive Search Pod",
     placements: "90+ Infrastructure Directors",
     compensationTiers: [
-      { level: "Chief Project Officer (CPO - Civil/EPC)", range: "₹48 – ₹85+ LPA", notice: "60–90 Days" },
-      { level: "VP - Contracts, Claims & Arbitration / MEP Head", range: "₹28 – ₹48 LPA", notice: "30–60 Days" },
-      { level: "Project Manager - Structural Execution", range: "₹16 – ₹28 LPA", notice: "15–30 Days" }
+      { level: "Chief Project Officer (CPO - Civil/EPC)", range: "Chief Project Officer Track", notice: "60–90 Days" },
+      { level: "VP - Contracts, Claims & Arbitration / MEP Head", range: "Vice President Track", notice: "30–60 Days" },
+      { level: "Project Manager - Structural Execution", range: "Senior Execution Track", notice: "15–30 Days" }
     ],
     keyRoles: [
       "Chief Project Officer (CPO - Civil/EPC)",
@@ -229,13 +229,13 @@ export const INDUSTRIES_CONFIG = [
     summary: "Sourcing leaders in warehousing automation, multi-client Grade-A fulfillment, and multi-modal fleet logistics across South and West India hubs.",
     hubs: "Bhiwandi • Sriperumbudur • Hosur • Nhava Sheva • Gurugram",
     image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=600&q=80",
-    ctcBand: "₹16 LPA – ₹55+ LPA",
+    ctcBand: "Fulfillment & Supply Chain Heads",
     sla: "48-Hour Shortlist Delivery",
     placements: "130+ Supply Chain Heads",
     compensationTiers: [
-      { level: "Head of Integrated Supply Chain & Logistics", range: "₹38 – ₹60+ LPA", notice: "60–90 Days" },
-      { level: "General Manager - Multi-Client Fulfillment", range: "₹22 – ₹38 LPA", notice: "30–60 Days" },
-      { level: "Cold Chain Logistics Operations Lead", range: "₹14 – ₹22 LPA", notice: "15–30 Days" }
+      { level: "Head of Integrated Supply Chain & Logistics", range: "Supply Chain Leadership Track", notice: "60–90 Days" },
+      { level: "General Manager - Multi-Client Fulfillment", range: "General Management Track", notice: "30–60 Days" },
+      { level: "Cold Chain Logistics Operations Lead", range: "Operations Specialist Track", notice: "15–30 Days" }
     ],
     keyRoles: [
       "Head of Integrated Supply Chain Planning",
@@ -253,13 +253,13 @@ export const INDUSTRIES_CONFIG = [
     summary: "Engineering leadership for SMT manufacturing lines, embedded firmware, and semiconductor test assembly in Tamil Nadu (Sriperumbudur/Hosur) and Bengaluru.",
     hubs: "Sriperumbudur (Tamil Nadu) • Noida • Bengaluru • Hosur",
     image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80",
-    ctcBand: "₹18 LPA – ₹70+ LPA",
+    ctcBand: "SMT & Hardware Architecture Leads",
     sla: "Confidential Search",
     placements: "75+ Electronics Engineers",
     compensationTiers: [
-      { level: "SMT Production & Plant Operations Head", range: "₹40 – ₹70+ LPA", notice: "60–90 Days" },
-      { level: "Senior Hardware PCB Design Engineer / RTOS Lead", range: "₹24 – ₹40 LPA", notice: "30–60 Days" },
-      { level: "Quality Reliability & EHS Director", range: "₹15 – ₹24 LPA", notice: "15–30 Days" }
+      { level: "SMT Production & Plant Operations Head", range: "Plant Operations Leadership Track", notice: "60–90 Days" },
+      { level: "Senior Hardware PCB Design Engineer / RTOS Lead", range: "Hardware Architecture Track", notice: "30–60 Days" },
+      { level: "Quality Reliability & EHS Director", range: "Director of Reliability Track", notice: "15–30 Days" }
     ],
     keyRoles: [
       "SMT Production & Operations Head",
@@ -277,13 +277,13 @@ export const INDUSTRIES_CONFIG = [
     summary: "Placing plant directors, process safety (HAZOP) leaders, and specialty polymer researchers for industrial chemical manufacturing corridors.",
     hubs: "Gujarat (Dahej/Ankleshwar) • Maharashtra • Tamil Nadu (Ranipet/Manali)",
     image: "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&w=600&q=80",
-    ctcBand: "₹20 LPA – ₹65+ LPA",
+    ctcBand: "Process Safety & Plant VPs",
     sla: "100% Statutory Assured",
     placements: "60+ Chemical Directors",
     compensationTiers: [
-      { level: "Plant VP - Specialty Chemical Synthesis", range: "₹42 – ₹70+ LPA", notice: "60–90 Days" },
-      { level: "Head of Process Safety & EHS (HAZOP)", range: "₹24 – ₹42 LPA", notice: "30–60 Days" },
-      { level: "Chief Polymer R&D Scientist", range: "₹15 – ₹24 LPA", notice: "15–30 Days" }
+      { level: "Plant VP - Specialty Chemical Synthesis", range: "Process Plant Leadership Track", notice: "60–90 Days" },
+      { level: "Head of Process Safety & EHS (HAZOP)", range: "Process Safety Leadership Track", notice: "30–60 Days" },
+      { level: "Chief Polymer R&D Scientist", range: "Chief Scientist Track", notice: "15–30 Days" }
     ],
     keyRoles: [
       "Plant VP - Specialty Chemical Synthesis",
