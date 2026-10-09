@@ -1,9 +1,9 @@
 # Nixpacks configuration for Thathvamasi Workspace
 [phases.setup]
-nixPkgs = ["nodejs_20", "npm-9_x"]
+nixPkgs = ["nodejs_22", "npm-10_x"]
 
 [phases.install]
-cmds = ["npm --prefix frontend install"]
+cmds = ["npm --prefix frontend install --include=dev --include=optional"]
 
 [phases.build]
 cmds = ["npm --prefix frontend run build:prod"]

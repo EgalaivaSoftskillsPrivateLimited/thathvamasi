@@ -1,5 +1,5 @@
 # ==============================================================================
-# Thathvamasi Corporate Web Platform - Multi-Stage Production Dockerfile
+# Thathvamasi Corporate Web Platform - Root Production Dockerfile
 # Stage 1: Build static assets using Node.js Alpine
 # Stage 2: Serve optimized assets with hardened Nginx Alpine
 # ==============================================================================
@@ -7,15 +7,16 @@
 # ------------------------------------------------------------------------------
 # Stage 1: Build Environment
 # ------------------------------------------------------------------------------
-FROM node:22-alpine AS builder
+FROM node:20-alpine AS builder
 
 WORKDIR /app
 
 # Install dependency files first for layer caching
 COPY package*.json ./
+COPY frontend/package*.json ./frontend/
 
-# Install clean dependencies
-RUN npm ci --prefer-offline --no-audit
+# Install dependencies using workspaces
+RUN npm install
 
 # Copy application source tree
 COPY . .
@@ -33,7 +34,7 @@ ENV VITE_WHATSAPP_NUMBER=$VITE_WHATSAPP_NUMBER
 
 # Build production bundle
 ENV NODE_ENV=production
-RUN npm run build
+RUN npm run build:prod
 
 # ------------------------------------------------------------------------------
 # Stage 2: Production Web Server
@@ -44,10 +45,10 @@ FROM nginx:alpine
 RUN rm -rf /usr/share/nginx/html/*
 
 # Copy built distribution files from builder
-COPY --from=builder /app/dist /usr/share/nginx/html
+COPY --from=builder /app/frontend/dist /usr/share/nginx/html
 
 # Copy production nginx configuration
-COPY nginx.conf /etc/nginx/conf.d/default.conf
+COPY frontend/nginx.conf /etc/nginx/conf.d/default.conf
 
 # Expose HTTP port
 EXPOSE 80
