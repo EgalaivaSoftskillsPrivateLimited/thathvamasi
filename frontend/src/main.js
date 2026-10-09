@@ -10,6 +10,7 @@ import './styles/components.css';
 import './styles/esight-theme.css';
 import './styles/admin.css';
 import './styles/responsive.css';
+import './styles/funnel-showcase.css';
 
 // Core UI Components
 import { initToastSystem } from './components/ui/Toast.js';
@@ -23,6 +24,7 @@ import { initAiStudio } from './components/sections/AiStudio.js';
 
 // Scroll Reveal & Animations
 import { initScrollReveal } from './lib/scrollReveal.js';
+import { initSmoothScroll } from './lib/smoothScroll.js';
 
 // Form Components
 import { initCandidateForm } from './components/forms/CandidateRegistrationForm.js';
@@ -383,6 +385,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initContactForm();
   initAdminDashboard();
   initScrollReveal();
+  initSmoothScroll();
 
   console.log("Thathvamasi HR Consultancy (THC) Enterprise Application initialized.");
 });

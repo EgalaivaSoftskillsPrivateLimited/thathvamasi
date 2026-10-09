@@ -28,6 +28,7 @@
   <link rel="stylesheet" href="/src/styles/components.css">
   <link rel="stylesheet" href="/src/styles/admin.css">
   <link rel="stylesheet" href="/src/styles/responsive.css">
+  <link rel="stylesheet" href="/src/styles/funnel-showcase.css">
 
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="192x192" href="/favicon.png">
@@ -48,11 +49,11 @@
       <h2>Talk to an Enterprise Advisor</h2>
       <p>Speak directly with our senior practice leads for executive search, plant staffing, company incorporation, GST filings, or RoC compliance.</p>
       
-      <a href="tel:+919442218900" class="phoneNumber">
+      <a href="tel:+918940018882" class="phoneNumber">
         <div class="icon">
           <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" height="20" width="20"><path d="M15.05 5A5 5 0 0 1 19 8.95M15.05 1A9 9 0 0 1 23 8.94m-1 7.98v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
         </div>
-        +91 94422 18900
+        +91 89400 18882
       </a>
       
       <a class="requestCallBack" href="#contactEnquirySec" onclick="document.getElementById('callPopup').classList.remove('active');">
@@ -88,9 +89,9 @@
               <li><a href="/" class="active">Home</a></li>
               <li><a href="#about">About</a></li>
               
-              <!-- Unified Services Dropdown (2-Column TatvaSoft Style) -->
+              <!-- Unified Services Dropdown (2-Column TatvaSoft Style - Non-Clickable Page Link) -->
               <li class="hasDropdown">
-                <a href="/services/index.html">
+                <a href="javascript:void(0)" class="dropdown-trigger-link" role="button" aria-haspopup="true" onclick="event.preventDefault();" style="cursor: pointer;">
                   Services
                   <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" height="14" width="14"><polyline points="6 9 12 15 18 9"></polyline></svg>
                 </a>
@@ -247,7 +248,7 @@
 
                   <div class="dropdownFooter">
                     <span>Integrated Enterprise Infrastructure</span>
-                    <a href="/services/index.html">Explore All Business Solutions &rarr;</a>
+                    <a href="/business/index.html">Explore All Business Solutions &rarr;</a>
                   </div>
                 </div>
               </li>
@@ -263,7 +264,7 @@
           <button class="navConatctBox" aria-label="Talk to a sales advisor" data-action="open-call-popup" title="Talk to an Advisor">
             <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" height="18" width="18"><path d="M15.05 5A5 5 0 0 1 19 8.95M15.05 1A9 9 0 0 1 23 8.94m-1 7.98v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
           </button>
-          <a class="navWhatsapp" target="_blank" rel="noopener noreferrer" href="https://wa.me/919442218900?text=Hello%20Thathvamasi,%20I%20would%20like%20to%20discuss%20corporate%20services" aria-label="Chat on WhatsApp">
+          <a class="navWhatsapp" target="_blank" rel="noopener noreferrer" href="https://wa.me/918940018882?text=Hello%20Thathvamasi,%20I%20would%20like%20to%20discuss%20corporate%20services" aria-label="Chat on WhatsApp">
             <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" height="20" width="20"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
           </a>
           <a class="primaryBtn" href="#contactEnquirySec" style="border-radius: 999px; padding: 12px 24px; font-weight: 700; display: inline-flex; align-items: center; gap: 8px;">
@@ -306,7 +307,7 @@
             </a>
           </li>
           <li>
-            <a href="/services/index.html" class="sidemenuLink">
+            <a href="javascript:void(0)" onclick="event.preventDefault();" style="cursor: pointer;" class="sidemenuLink">
               <div class="sidemenuIcon">
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
               </div>
@@ -358,23 +359,23 @@
 
       <!-- Action Box at bottom -->
       <div class="sidemenuActionBox">
-        <a href="tel:+919442218900" class="sidemenuHotline">
+        <a href="tel:+918940018882" class="sidemenuHotline">
           <div class="hotlineIcon">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
           </div>
           <div class="hotlineText">
             <strong>Direct Advisory Desk</strong>
-            <span>+91 94422 18900</span>
+            <span>+91 89400 18882</span>
           </div>
         </a>
-        <a href="https://wa.me/919442218900?text=Hello%20Thathvamasi,%20I%20would%20like%20to%20discuss%20corporate%20services" class="sidemenuWaBtn" target="_blank" rel="noopener">
+        <a href="https://wa.me/918940018882?text=Hello%20Thathvamasi,%20I%20would%20like%20to%20discuss%20corporate%20services" class="sidemenuWaBtn" target="_blank" rel="noopener">
           <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
           Chat on WhatsApp
         </a>
         <a href="#contactEnquirySec" class="sidemenuCtaBtn">
           Request Free Consultation &rarr;
         </a>
-        <div class="sidemenuFooterText">Peelamedu, Coimbatore &bull; Pan-India Practices</div>
+        <div class="sidemenuFooterText">Gandipuram, Coimbatore &bull; Pan-India Practices</div>
       </div>
     </div>
   </aside>
@@ -409,7 +410,7 @@
               <a href="#contactEnquirySec" class="thc-btn-red">
                 Talk to an Advisor &rarr;
               </a>
-              <a href="/services/index.html" class="thc-btn-outline">
+              <a href="javascript:void(0)" onclick="event.preventDefault();" style="cursor: pointer;" class="thc-btn-outline">
                 Explore All Services
               </a>
             </div>
@@ -551,58 +552,124 @@
       </div>
     </section>
 
-    <!-- Section 4: Dual Division Operating Capabilities (Spotlight) -->
-    <section style="padding: 90px 0; background: #FBF9F4;">
-      <div class="container">
-        <div style="text-align: center; max-width: 800px; margin: 0 auto 54px auto;">
-          <span style="display: inline-block; padding: 6px 14px; background: rgba(37,99,235,0.12); color: #2563eb; border-radius: 20px; font-size: 0.82rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 14px;">
-            Dual Operating Capabilities
-          </span>
+    <!-- Section 4: Dual Division Operating Capabilities (Solution Spotlight Showcases - eSight Inspired) -->
+    <section class="spotlight-showcase-section" id="capabilities" style="background: #FBF9F4; border-top: 1px solid #e2e8f0; border-bottom: 1px solid #e2e8f0;">
+      <div class="spotlight-container">
+        
+        <div style="text-align: center; max-width: 800px; margin: 0 auto 64px auto;">
+          <span class="spotlight-pill-category peach" style="margin: 0 auto 14px auto;">Dual Operating Capabilities</span>
           <h2 style="font-size: clamp(2.2rem, 4vw, 3.2rem); font-weight: 800; color: #0f172a; margin-bottom: 16px;">
             Two Specialized Divisions. One High-Performance Corporate Partner.
           </h2>
-          <p style="font-size: 1.1rem; color: #64748b; line-height: 1.65;">
+          <p style="font-size: 1.1rem; color: #64748b; line-height: 1.65; margin: 0;">
             Supporting organizations across their entire corporate lifecycle — from legal entity registration and tax filings to CXO leadership search and plant engineering staffing.
           </p>
         </div>
 
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 32px;">
-          
-          <!-- Division I Card -->
-          <div class="squircle" style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 32px; padding: 40px 36px; box-shadow: 0 12px 36px rgba(0,0,0,0.05); position: relative; overflow: hidden;">
-            <div style="position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, #fe4f56, #f43f5e);"></div>
-            <span style="display: inline-block; padding: 4px 12px; background: rgba(254,79,86,0.12); color: #fe4f56; border-radius: 20px; font-size: 0.76rem; font-weight: 800; text-transform: uppercase; margin-bottom: 20px;">DIVISION I &bull; TALENT SOLUTIONS</span>
-            <h3 style="font-size: 1.65rem; font-weight: 800; color: #0f172a; margin-bottom: 14px;">HR Consultancy &amp; Executive Search</h3>
-            <p style="color: #64748b; font-size: 1rem; line-height: 1.65; margin-bottom: 24px;">
-              Executive search, lateral staffing, and turnkey RPO pods calibrated by former engineering leads. 18,500+ pre-vetted leaders with a verified 48-Hour Shortlist SLA.
-            </p>
-            <ul style="list-style: none; padding: 0; margin: 0 0 32px 0; display: flex; flex-direction: column; gap: 10px; font-size: 0.94rem; color: #334155;">
-              <li style="display: flex; align-items: center; gap: 10px;"><span style="color: #fe4f56; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span> Executive Search &amp; Board Appointments</li>
-              <li style="display: flex; align-items: center; gap: 10px;"><span style="color: #fe4f56; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span> Industrial, Pump, Motor &amp; EV Staffing</li>
-              <li style="display: flex; align-items: center; gap: 10px;"><span style="color: #fe4f56; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span> Deep-Tech GCC &amp; Cloud Recruitment</li>
-              <li style="display: flex; align-items: center; gap: 10px;"><span style="color: #fe4f56; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span> 90-Day Free Replacement Guarantee</li>
-            </ul>
-            <a href="/services/index.html" class="primaryBtn" style="width: 100%; text-align: center; justify-content: center;">Explore HR Services Directory &rarr;</a>
+        <!-- Showcase 1: Division I - HR & Executive Search (Visual Left, Content Right) -->
+        <div class="spotlight-row">
+          <div class="spotlight-visual-box">
+            <img src="/images/showcase/hr_interview.jpg" alt="HR Consultancy & Executive Search" class="spotlight-img" loading="lazy">
+            <div class="spotlight-floating-badge">
+              <div class="spotlight-badge-icon" style="background:#7E22CE;">&#9889;</div>
+              <div>
+                <div class="spotlight-badge-text">48-Hour Shortlist SLA</div>
+                <div class="spotlight-badge-sub">90-Day Free Replacement Protection</div>
+              </div>
+            </div>
           </div>
 
-          <!-- Division II Card -->
-          <div class="squircle" style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 32px; padding: 40px 36px; box-shadow: 0 12px 36px rgba(0,0,0,0.05); position: relative; overflow: hidden;">
-            <div style="position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, #2563eb, #3b82f6);"></div>
-            <span style="display: inline-block; padding: 4px 12px; background: rgba(37,99,235,0.12); color: #2563eb; border-radius: 20px; font-size: 0.76rem; font-weight: 800; text-transform: uppercase; margin-bottom: 20px;">DIVISION II &bull; CORPORATE ADVISORY</span>
-            <h3 style="font-size: 1.65rem; font-weight: 800; color: #0f172a; margin-bottom: 14px;">Business Consultancy &amp; Statutory Legal</h3>
-            <p style="color: #64748b; font-size: 1rem; line-height: 1.65; margin-bottom: 24px;">
-              In-house CAs, CSs, and corporate lawyers delivering end-to-end statutory registrations, tax filings, RoC compliances, and trademark protection (Kanakkupillai suite).
+          <div class="spotlight-details">
+            <span class="spotlight-pill-category lavender">Division I &bull; Talent Solutions</span>
+            <h3 class="spotlight-headline">HR Consultancy &amp; Executive Search</h3>
+            <div class="spotlight-subtitle">Direct headhunting calibrated by former engineering leads. 18,500+ pre-vetted leaders.</div>
+            <p class="spotlight-paragraph">
+              Whether building a new manufacturing facility in Kurichi or scaling software teams in Saravanampatti, our specialized recruitment pods deliver pre-screened talent across leadership, plant engineering, and digital domains.
             </p>
-            <ul style="list-style: none; padding: 0; margin: 0 0 32px 0; display: flex; flex-direction: column; gap: 10px; font-size: 0.94rem; color: #334155;">
-              <li style="display: flex; align-items: center; gap: 10px;"><span style="color: #2563eb; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span> Pvt Ltd &amp; LLP Incorporation in 3 Days</li>
-              <li style="display: flex; align-items: center; gap: 10px;"><span style="color: #2563eb; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span> 48-Hr GST ARN &amp; Monthly GSTR-1/3B</li>
-              <li style="display: flex; align-items: center; gap: 10px;"><span style="color: #2563eb; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span> Annual MCA Filings (AOC-4 &amp; MGT-7)</li>
-              <li style="display: flex; align-items: center; gap: 10px;"><span style="color: #2563eb; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span> Trademark Class Search &amp; Hearings</li>
-            </ul>
-            <a href="/business/index.html" class="primaryBtn" style="width: 100%; text-align: center; justify-content: center; background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%) !important;">Explore Business Consultancy Hub &rarr;</a>
+            <div class="spotlight-checklist">
+              <div class="spotlight-check-item">
+                <span class="spotlight-check-icon purple">&#10003;</span>
+                <span>Executive Search &amp; Board Leads</span>
+              </div>
+              <div class="spotlight-check-item">
+                <span class="spotlight-check-icon purple">&#10003;</span>
+                <span>48-Hour Shortlist Delivery</span>
+              </div>
+              <div class="spotlight-check-item">
+                <span class="spotlight-check-icon purple">&#10003;</span>
+                <span>Industrial, Pump &amp; EV Staffing</span>
+              </div>
+              <div class="spotlight-check-item">
+                <span class="spotlight-check-icon purple">&#10003;</span>
+                <span>90-Day Placement Warranty</span>
+              </div>
+              <div class="spotlight-check-item">
+                <span class="spotlight-check-icon purple">&#10003;</span>
+                <span>Turnkey RPO Scale-Up Pods</span>
+              </div>
+              <div class="spotlight-check-item">
+                <span class="spotlight-check-icon purple">&#10003;</span>
+                <span>Deep-Tech GCC &amp; Cloud Hiring</span>
+              </div>
+            </div>
+            <a href="javascript:void(0)" onclick="event.preventDefault();" style="cursor: pointer;" class="spotlight-cta-btn" style="background:#7E22CE; box-shadow:0 10px 24px rgba(126, 34, 206, 0.35);">
+              Explore HR Services Directory &rarr;
+            </a>
           </div>
-
         </div>
+
+        <!-- Showcase 2: Division II - Corporate Advisory & Virtual CFO (Content Left, Visual Right) -->
+        <div class="spotlight-row reverse">
+          <div class="spotlight-details">
+            <span class="spotlight-pill-category peach">Division II &bull; Corporate Advisory</span>
+            <h3 class="spotlight-headline">Business Advisory &amp; Statutory Legal</h3>
+            <div class="spotlight-subtitle">In-house CAs, CSs, and corporate lawyers delivering end-to-end statutory clarity.</div>
+            <p class="spotlight-paragraph">
+              Foundational entity incorporation, monthly GST audits, RoC annual compliances, brand trademark defense, and Virtual CFO capital advisory — all integrated under one single corporate desk with zero vendor fragmentation.
+            </p>
+            <div class="spotlight-checklist">
+              <div class="spotlight-check-item">
+                <span class="spotlight-check-icon coral">&#10003;</span>
+                <span>3-Day Pvt Ltd &amp; LLP Incorporation</span>
+              </div>
+              <div class="spotlight-check-item">
+                <span class="spotlight-check-icon coral">&#10003;</span>
+                <span>48-Hr GST ARN &amp; Monthly GSTR-1/3B</span>
+              </div>
+              <div class="spotlight-check-item">
+                <span class="spotlight-check-icon coral">&#10003;</span>
+                <span>Annual MCA Filings (AOC-4 &amp; MGT-7)</span>
+              </div>
+              <div class="spotlight-check-item">
+                <span class="spotlight-check-icon coral">&#10003;</span>
+                <span>Trademark Class 1–45 Protection</span>
+              </div>
+              <div class="spotlight-check-item">
+                <span class="spotlight-check-icon coral">&#10003;</span>
+                <span>Bank CMA Reports &amp; CC Enhancement</span>
+              </div>
+              <div class="spotlight-check-item">
+                <span class="spotlight-check-icon coral">&#10003;</span>
+                <span>100% Active RoC Standing Record</span>
+              </div>
+            </div>
+            <a href="/business/index.html" class="spotlight-cta-btn">
+              Explore Business Advisory Hub &rarr;
+            </a>
+          </div>
+
+          <div class="spotlight-visual-box">
+            <img src="/images/showcase/virtual_cfo.jpg" alt="Business Consultancy & Statutory Legal" class="spotlight-img" loading="lazy">
+            <div class="spotlight-floating-badge">
+              <div class="spotlight-badge-icon">&#10003;</div>
+              <div>
+                <div class="spotlight-badge-text">100% Active RoC Standing</div>
+                <div class="spotlight-badge-sub">Kanakkupillai Statutory Advisory Suite</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </section>
 
@@ -1253,6 +1320,438 @@
       </div>
     </section>
 
+    <!-- Real-World Industry Use Cases: High-Contrast Bento Grid (eSight Inspired) -->
+    <section class="bento-scenarios-section" id="practical-scenarios">
+      <div class="bento-container">
+        <div class="bento-header">
+          <span class="bento-badge-pill">Practical Scenarios</span>
+          <h2 class="bento-title">Real-World Client Scenarios <span>We Solve</span></h2>
+          <p class="bento-subtitle">How Coimbatore &amp; Tamil Nadu businesses leverage our combined corporate secretarial, tax, virtual CFO, and recruitment desk.</p>
+        </div>
+
+        <div class="bento-grid">
+          <!-- Card 1: Technology Startup (Image Card) -->
+          <div class="bento-card-image">
+            <img src="/images/showcase/fintech_mobile.jpg" alt="Technology Startup Incorporation & Seed Round" class="bento-img-bg" loading="lazy">
+            <div class="bento-img-overlay"></div>
+            <span class="bento-floating-tag">Saravanampatti &bull; Tech Startup</span>
+            <div class="bento-img-content">
+              <h4 class="bento-img-title">From Incorporation to Angel Seed Round</h4>
+              <p class="bento-img-meta">3-Day SPICe+ MCA &bull; DPIIT Certification &bull; Clean Cap Table</p>
+            </div>
+          </div>
+
+          <!-- Card 2: Industrial Foundry (Dark Bento Card) -->
+          <div class="bento-card-dark">
+            <div class="bento-card-top">
+              <span class="bento-pill-tag green">Foundry &amp; Engineering</span>
+              <h4 class="bento-card-title">Eliminating ₹18.4L Input Tax Credit Mismatch</h4>
+              <p class="bento-card-text">A Peelamedu foundry faced supplier invoice delays causing blocked working capital. We performed exhaustive GSTR-2B purchase audit, cleared missing E-Way bills, and regularized filings with zero penalty.</p>
+            </div>
+            <div class="bento-card-bottom">
+              <div class="bento-stat-chip">
+                <span class="chip-dot"></span>
+                <span>Turnaround: 14 Days &bull; 100% Recovered</span>
+              </div>
+              <a href="/business/gst-tax.html" class="bento-arrow-btn" aria-label="Explore GST Tax Solution">&nearr;</a>
+            </div>
+          </div>
+
+          <!-- Card 3: Textile Exporter (Image Card) -->
+          <div class="bento-card-image">
+            <img src="/images/showcase/tax_audit.jpg" alt="Textile Exporter CMA Data & Bank Loan" class="bento-img-bg" loading="lazy">
+            <div class="bento-img-overlay"></div>
+            <span class="bento-floating-tag">Tirupur &bull; Textile Exporter</span>
+            <div class="bento-img-content">
+              <h4 class="bento-img-title">CMA Data &amp; ₹3.5 Cr Working Capital Sanction</h4>
+              <p class="bento-img-meta">5-Year DPR Dossier &bull; CC Limit Sanctioned in 28 Days</p>
+            </div>
+          </div>
+
+          <!-- Card 4: Heavy Engineering / RPO (Dark Bento Card) -->
+          <div class="bento-card-dark">
+            <div class="bento-card-top">
+              <span class="bento-pill-tag purple">Manufacturing &amp; RPO</span>
+              <h4 class="bento-card-title">Plant Leadership &amp; CNC Specialists in 48 Hours</h4>
+              <p class="bento-card-text">An automotive components maker in Kurichi expanded 3 new production lines. Our dedicated engineering recruitment pod placed 1 VP of Operations and 14 technical specialists backed by 90-day retention protection.</p>
+            </div>
+            <div class="bento-card-bottom">
+              <div class="bento-stat-chip">
+                <span class="chip-dot" style="background:#A855F7; box-shadow:0 0 8px #A855F7;"></span>
+                <span>SLA: 48-Hr Shortlist &bull; 90-Day Retention</span>
+              </div>
+              <a href="/services/industrial-manufacturing.html" class="bento-arrow-btn" aria-label="Explore HR & Recruitment">&nearr;</a>
+            </div>
+          </div>
+
+          <!-- Card 5: Financial Advisory & Growth (Image Card) -->
+          <div class="bento-card-image">
+            <img src="/images/showcase/cma_growth.jpg" alt="Virtual CFO & Financial Growth Analytics" class="bento-img-bg" loading="lazy">
+            <div class="bento-img-overlay"></div>
+            <span class="bento-floating-tag">Virtual CFO &bull; +142% Growth</span>
+            <div class="bento-img-content">
+              <h4 class="bento-img-title">Financial Modelling &amp; Cash Runway Expansion</h4>
+              <p class="bento-img-meta">EBITDA Optimization &bull; Bank-Approved Debt Serviceability</p>
+            </div>
+          </div>
+
+          <!-- Card 6: Hospitality & Retail (Dark Bento Card) -->
+          <div class="bento-card-dark">
+            <div class="bento-card-top">
+              <span class="bento-pill-tag amber">Retail &amp; Hospitality</span>
+              <h4 class="bento-card-title">Brand Trademark Protection &amp; Multi-Branch Payroll</h4>
+              <p class="bento-card-text">A multi-outlet restaurant brand in RS Puram secured Class 43 trademark protection against local copycats while automating monthly EPF/ESI returns and wage registers for their 45-member culinary team.</p>
+            </div>
+            <div class="bento-card-bottom">
+              <div class="bento-stat-chip">
+                <span class="chip-dot" style="background:#F59E0B; box-shadow:0 0 8px #F59E0B;"></span>
+                <span>Outcome: Trademark Registered &bull; Zero Notices</span>
+              </div>
+              <a href="/business/trademark-ipr.html" class="bento-arrow-btn" aria-label="Explore Trademark Solution">&nearr;</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Connected Vertical Phase Stepper Timeline (eSight Reference Component C) -->
+    <section class="connected-stepper-section" id="process">
+      <div class="bento-container">
+        <div class="connected-stepper-grid">
+          
+          <!-- Left Sticky Narrative & Visual -->
+          <div class="stepper-sticky-col">
+            <span class="stepper-badge-pill">Execution Lifecycle</span>
+            <h2 class="stepper-main-title">The Way We Build Enterprise Compliance &amp; Talent Scale</h2>
+            <p class="stepper-main-desc">
+              As Coimbatore's premier dual corporate advisory, we follow a rigorous 5-phase delivery framework that eliminates statutory risk, ensures 100% active RoC standing, and accelerates talent acquisition.
+            </p>
+            <div class="stepper-visual-card">
+              <img src="/images/showcase/process_roadmap.jpg" alt="Compliance & Talent Execution Roadmap" class="stepper-visual-img" loading="lazy">
+              <div class="stepper-card-overlay-badge">
+                <span class="pulse-green"></span>
+                <span>ISO &amp; MCA AUDIT READY &bull; ZERO DEFECT</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Connected Stepper Nodes -->
+          <div class="stepper-timeline-container">
+            <div class="stepper-timeline-line"></div>
+
+            <!-- Step 1 -->
+            <div class="stepper-step-block">
+              <div class="stepper-node-pin">
+                <div class="stepper-node-inner"></div>
+              </div>
+              <div class="stepper-card-dark">
+                <div class="stepper-phase-header">
+                  <span class="stepper-phase-num">Phase 01 / Discovery</span>
+                  <span class="stepper-sla-badge">Days 1 &ndash; 2</span>
+                </div>
+                <h4 class="stepper-step-title">Diagnostic &amp; Entity Health Audit</h4>
+                <p class="stepper-step-desc">
+                  We audit your active MOA/AOA, shareholding structures, DIN standing, GST registrations, and organizational staffing bottlenecks to identify immediate statutory exposures and growth requirements.
+                </p>
+              </div>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="stepper-step-block">
+              <div class="stepper-node-pin">
+                <div class="stepper-node-inner"></div>
+              </div>
+              <div class="stepper-card-dark">
+                <div class="stepper-phase-header">
+                  <span class="stepper-phase-num" style="color:#FF8389;">Phase 02 / Architecture</span>
+                  <span class="stepper-sla-badge">Days 3 &ndash; 5</span>
+                </div>
+                <h4 class="stepper-step-title">Structuring, Filings &amp; Licences</h4>
+                <p class="stepper-step-desc">
+                  Execution of SPICe+ MCA incorporation, DPIIT Startup India certification, MSME Udyam registration, Class 43/35 Trademark IPR filings, and statutory wage structure optimization.
+                </p>
+              </div>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="stepper-step-block">
+              <div class="stepper-node-pin">
+                <div class="stepper-node-inner"></div>
+              </div>
+              <div class="stepper-card-dark">
+                <div class="stepper-phase-header">
+                  <span class="stepper-phase-num" style="color:#C084FC;">Phase 03 / Operations</span>
+                  <span class="stepper-sla-badge">Monthly Recurring</span>
+                </div>
+                <h4 class="stepper-step-title">Continuous GST, TDS &amp; Payroll Governance</h4>
+                <p class="stepper-step-desc">
+                  Monthly GSTR-1 &amp; GSTR-3B filings, supplier 2B purchase reconciliation to prevent blocked ITC, quarterly TDS returns, and compliant ESI/EPF wage disbursement registers.
+                </p>
+              </div>
+            </div>
+
+            <!-- Step 4 -->
+            <div class="stepper-step-block">
+              <div class="stepper-node-pin">
+                <div class="stepper-node-inner"></div>
+              </div>
+              <div class="stepper-card-dark">
+                <div class="stepper-phase-header">
+                  <span class="stepper-phase-num" style="color:#A855F7;">Phase 04 / Talent Scale</span>
+                  <span class="stepper-sla-badge">48-Hr SLA</span>
+                </div>
+                <h4 class="stepper-step-title">Executive Headhunting &amp; Turnkey RPO</h4>
+                <p class="stepper-step-desc">
+                  Deployment of specialized recruitment pods for CXO, plant operations, and tech specialists. Delivering 48-hour interview shortlists backed by 90-day replacement warranty.
+                </p>
+              </div>
+            </div>
+
+            <!-- Step 5 -->
+            <div class="stepper-step-block">
+              <div class="stepper-node-pin">
+                <div class="stepper-node-inner"></div>
+              </div>
+              <div class="stepper-card-dark">
+                <div class="stepper-phase-header">
+                  <span class="stepper-phase-num" style="color:#10B981;">Phase 05 / Expansion</span>
+                  <span class="stepper-sla-badge">Annual &amp; On-Demand</span>
+                </div>
+                <h4 class="stepper-step-title">Virtual CFO &amp; Bank Capital Financing</h4>
+                <p class="stepper-step-desc">
+                  Assembling 5-year Detailed Project Reports (DPR), audited CMA statements for bank working capital loan sanctions, and institutional annual RoC filings (MGT-7 &amp; AOC-4).
+                </p>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Section: Interactive 6-Stage Corporate Strategy Funnel (eSight-Inspired Architecture) -->
+    <section class="strategy-funnel-section" id="strategy-funnel">
+      <div class="funnel-container">
+        <div class="funnel-grid">
+          
+          <!-- Left: Narrative & Strategy Value -->
+          <div class="funnel-content-col">
+            <span class="funnel-badge-pill">
+              <span class="live-dot"></span>
+              Execution Framework
+            </span>
+            <h2 class="funnel-heading">
+              A Complete <span class="funnel-neon-word">Corporate Strategy</span> for Your Business
+            </h2>
+            <p class="funnel-description">
+              From foundational entity incorporation and tax structuring to CXO talent acquisition and Virtual CFO capital advisory, we build an integrated corporate ecosystem that connects every phase of your enterprise funnel, so nothing is left to chance.
+            </p>
+            <div class="funnel-checklist">
+              <div class="funnel-check-item">
+                <span class="funnel-check-icon">✓</span>
+                <span><strong>Institutional-Grade Compliance:</strong> 100% active ROC standing &amp; zero DIN disqualifications</span>
+              </div>
+              <div class="funnel-check-item">
+                <span class="funnel-check-icon">✓</span>
+                <span><strong>Dual-Engine Synergy:</strong> Recruitment leadership &amp; statutory advisory under one unified desk</span>
+              </div>
+              <div class="funnel-check-item">
+                <span class="funnel-check-icon">✓</span>
+                <span><strong>Guaranteed SLA Delivery:</strong> 48-hr candidate shortlists &amp; 90-day warranty protection</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Sleek Terminal Window with Glowing Neon Funnel -->
+          <div class="funnel-terminal-window">
+            <div class="terminal-header-bar">
+              <div class="terminal-dots">
+                <span class="terminal-dot red"></span>
+                <span class="terminal-dot yellow"></span>
+                <span class="terminal-dot green"></span>
+              </div>
+              <span class="terminal-title-tag">thathvamasi-enterprise-pipeline.exe</span>
+            </div>
+
+            <div class="funnel-stack">
+              <!-- Tier 01 -->
+              <a href="/business/company-registration.html" class="funnel-tier tier-01">
+                <div class="funnel-tier-inner">
+                  <div class="funnel-tier-num">01</div>
+                  <div class="funnel-tier-text">
+                    <span class="funnel-tier-title">FIND THE OPPORTUNITY</span>
+                    <span class="funnel-tier-sub">Entity Selection &bull; Capital Structuring &bull; SPICe+ MCA</span>
+                  </div>
+                </div>
+              </a>
+              <div class="funnel-arrow-down">&darr;</div>
+
+              <!-- Tier 02 -->
+              <a href="/business/trademark-ipr.html" class="funnel-tier tier-02">
+                <div class="funnel-tier-inner">
+                  <div class="funnel-tier-num">02</div>
+                  <div class="funnel-tier-text">
+                    <span class="funnel-tier-title">BUILD THE STRATEGY</span>
+                    <span class="funnel-tier-sub">Trademark IPR &bull; MSME Udyam &bull; Trade Licences</span>
+                  </div>
+                </div>
+              </a>
+              <div class="funnel-arrow-down">&darr;</div>
+
+              <!-- Tier 03 -->
+              <a href="/business/gst-tax.html" class="funnel-tier tier-03">
+                <div class="funnel-tier-inner">
+                  <div class="funnel-tier-num">03</div>
+                  <div class="funnel-tier-text">
+                    <span class="funnel-tier-title">CAPTURE THE AUDIENCE</span>
+                    <span class="funnel-tier-sub">Monthly GST Filings &bull; TDS/TCS &bull; ESI/EPF Payroll</span>
+                  </div>
+                </div>
+              </a>
+              <div class="funnel-arrow-down">&darr;</div>
+
+              <!-- Tier 04 -->
+              <a href="/services/executive-search.html" class="funnel-tier tier-04">
+                <div class="funnel-tier-inner">
+                  <div class="funnel-tier-num">04</div>
+                  <div class="funnel-tier-text">
+                    <span class="funnel-tier-title">CREATE THE CONNECTION</span>
+                    <span class="funnel-tier-sub">CXO Leadership &bull; Plant Engineering &bull; Turnkey RPO</span>
+                  </div>
+                </div>
+              </a>
+              <div class="funnel-arrow-down">&darr;</div>
+
+              <!-- Tier 05 -->
+              <a href="/business/financial-advisory.html" class="funnel-tier tier-05">
+                <div class="funnel-tier-inner">
+                  <div class="funnel-tier-num">05</div>
+                  <div class="funnel-tier-text">
+                    <span class="funnel-tier-title">CONVERT INTO REVENUE</span>
+                    <span class="funnel-tier-sub">Virtual CFO &bull; Bank CMA Project Reports &bull; Working Capital</span>
+                  </div>
+                </div>
+              </a>
+              <div class="funnel-arrow-down">&darr;</div>
+
+              <!-- Tier 06 -->
+              <a href="/business/audit-assurance.html" class="funnel-tier tier-06">
+                <div class="funnel-tier-inner">
+                  <div class="funnel-tier-num">06</div>
+                  <div class="funnel-tier-text">
+                    <span class="funnel-tier-title">SCALE THE SUCCESS</span>
+                    <span class="funnel-tier-sub">Internal Audit &bull; Clean RoC Standing &bull; Multi-Plant Growth</span>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Section: Client Showcase Reel & Dominate Market High-Conversion CTA -->
+    <section class="showcase-cta-section" id="dominate-market">
+      <div class="showcase-cta-container">
+        <div class="showcase-cta-grid">
+          
+          <!-- Left: Vertical Moving Showcase Reel (Image 1 style) -->
+          <div class="showcase-reel-col">
+            <div class="showcase-reel-track">
+              
+              <!-- Card 1 -->
+              <div class="showcase-pill-card">
+                <div class="showcase-card-img-row">
+                  <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=400&q=80" alt="Corporate Headquarters" loading="lazy">
+                  <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=500&q=80" alt="Corporate Legal Signing" loading="lazy">
+                  <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=400&q=80" alt="Statutory Audit Workspace" loading="lazy">
+                </div>
+                <div class="showcase-card-footer">
+                  <span class="showcase-card-title">Pvt Ltd Incorp &amp; RoC Filings</span>
+                  <span class="showcase-card-tag">3-Day SPICe+ MCA</span>
+                </div>
+              </div>
+
+              <!-- Card 2 -->
+              <div class="showcase-pill-card">
+                <div class="showcase-card-img-row">
+                  <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=400&q=80" alt="Industrial Manufacturing" loading="lazy">
+                  <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=500&q=80" alt="Plant Operations Team" loading="lazy">
+                  <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=400&q=80" alt="Boardroom Executive Search" loading="lazy">
+                </div>
+                <div class="showcase-card-footer">
+                  <span class="showcase-card-title">Automotive Engineering Talent</span>
+                  <span class="showcase-card-tag">48-Hr Shortlist SLA</span>
+                </div>
+              </div>
+
+              <!-- Card 3 -->
+              <div class="showcase-pill-card">
+                <div class="showcase-card-img-row">
+                  <img src="https://images.unsplash.com/photo-1554224154-26032ffc0d07?auto=format&fit=crop&w=400&q=80" alt="Tax Computation Ledgers" loading="lazy">
+                  <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=500&q=80" alt="Financial Analytics Platform" loading="lazy">
+                  <img src="https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=400&q=80" alt="Bank Credit Evaluation" loading="lazy">
+                </div>
+                <div class="showcase-card-footer">
+                  <span class="showcase-card-title">&#8377;18.5 Cr Bank Credit &amp; CMA Advisory</span>
+                  <span class="showcase-card-tag">Working Capital</span>
+                </div>
+              </div>
+
+              <!-- Duplicate Set for Seamless Infinite Vertical Reel -->
+              <div class="showcase-pill-card">
+                <div class="showcase-card-img-row">
+                  <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=400&q=80" alt="Corporate Headquarters" loading="lazy">
+                  <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=500&q=80" alt="Corporate Legal Signing" loading="lazy">
+                  <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=400&q=80" alt="Statutory Audit Workspace" loading="lazy">
+                </div>
+                <div class="showcase-card-footer">
+                  <span class="showcase-card-title">Pvt Ltd Incorp &amp; RoC Filings</span>
+                  <span class="showcase-card-tag">3-Day SPICe+ MCA</span>
+                </div>
+              </div>
+
+              <div class="showcase-pill-card">
+                <div class="showcase-card-img-row">
+                  <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=400&q=80" alt="Industrial Manufacturing" loading="lazy">
+                  <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=500&q=80" alt="Plant Operations Team" loading="lazy">
+                  <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=400&q=80" alt="Boardroom Executive Search" loading="lazy">
+                </div>
+                <div class="showcase-card-footer">
+                  <span class="showcase-card-title">Automotive Engineering Talent</span>
+                  <span class="showcase-card-tag">48-Hr Shortlist SLA</span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Right: High-Impact Punchline & Dual Pill CTA (Image 1 style) -->
+          <div class="showcase-cta-content">
+            <span class="showcase-prehead">Ready to Scale?</span>
+            <h2 class="showcase-cta-title">
+              Don't Just Exist in the Market.<br>
+              <span class="cta-glow-title">Dominate Your Industry.</span>
+            </h2>
+            <p class="showcase-cta-desc">
+              Build an unassailable corporate foundation: elite CXO leadership &amp; industrial engineering staffing paired with institutional-grade statutory tax, ROC, and Virtual CFO advisory.
+            </p>
+            <div class="showcase-cta-actions">
+              <a href="#contactEnquirySec" class="showcase-btn-primary">
+                Let's Grow Together &rarr;
+              </a>
+              <a href="/business/index.html" class="showcase-btn-secondary">
+                Explore Advisory Hub
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
     <!-- Section 13: Restored Professional Consultation Form (Asking for Service Type & Default Data) -->
     <section class="contactEnquirySec" id="contactEnquirySec" style="padding: 90px 0; background: #F8FAFC; border-top: 1px solid #e2e8f0;">
       <div class="container" style="max-width: 860px;" id="contact">
@@ -1328,13 +1827,13 @@
               <span style="display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 8px; background: rgba(254,79,86,0.1); color: #fe4f56; flex-shrink: 0;">
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
               </span>
-              <span><strong>Headquarters:</strong> Peelamedu, Coimbatore - 641004</span>
+              <span><strong>Headquarters:</strong> D.No. 145, 2nd Floor, 5th Street, Gandipuram, Coimbatore - 641012</span>
             </div>
             <div style="display: flex; align-items: center; gap: 10px;">
               <span style="display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 8px; background: rgba(254,79,86,0.1); color: #fe4f56; flex-shrink: 0;">
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
               </span>
-              <span><strong>Direct Desk:</strong> +91 94422 18900</span>
+              <span><strong>Direct Desk:</strong> <a href="tel:+918940018882" style="color: inherit; text-decoration: none; font-weight: 700;">+91 89400 18882</a></span>
             </div>
             <div style="display: flex; align-items: center; gap: 10px;">
               <span style="display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 8px; background: rgba(254,79,86,0.1); color: #fe4f56; flex-shrink: 0;">
@@ -1422,7 +1921,7 @@
           <div class="serviceLocation-module__-gGcUq__liveCard squircle">
             <div class="serviceLocation-module__-gGcUq__liveBody">
               <h3>Coimbatore (HQ) <span>Active</span></h3>
-              <p style="font-size: 0.85rem; color: #64748b; margin: 6px 0 0 0;">Avinashi Road, Peelamedu &bull; Engineering &amp; Legal Center</p>
+              <p style="font-size: 0.85rem; color: #64748b; margin: 6px 0 0 0;">Gandipuram, Coimbatore South &bull; Engineering &amp; Legal Center</p>
             </div>
           </div>
           <div class="serviceLocation-module__-gGcUq__liveCard squircle">
@@ -1487,7 +1986,7 @@
             </p>
             <div class="ctaButtons">
               <a href="#contactEnquirySec" class="btnStart">Start a Mandate</a>
-              <a href="/services/index.html" class="btnExplore">Explore Solutions</a>
+              <a href="javascript:void(0)" onclick="event.preventDefault();" style="cursor: pointer;" class="btnExplore">Explore Solutions</a>
             </div>
           </div>
 
@@ -1598,10 +2097,10 @@
             Thathvamasi Business Solutions Private Limited. South India's premier integrated ecosystem for executive search, plant staffing, and statutory corporate advisory.
           </p>
           <div style="display: flex; gap: 12px;">
-            <a href="https://wa.me/919442218900" style="width: 40px; height: 40px; border-radius: 12px; background: rgba(255,255,255,0.06); display: flex; align-items: center; justify-content: center; color: #cbd5e1; text-decoration: none;">
+            <a href="https://wa.me/918940018882" style="width: 40px; height: 40px; border-radius: 12px; background: rgba(255,255,255,0.06); display: flex; align-items: center; justify-content: center; color: #cbd5e1; text-decoration: none;">
               <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" height="18" width="18"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
             </a>
-            <a href="tel:+919442218900" style="width: 40px; height: 40px; border-radius: 12px; background: rgba(255,255,255,0.06); display: flex; align-items: center; justify-content: center; color: #cbd5e1; text-decoration: none;">
+            <a href="tel:+918940018882" style="width: 40px; height: 40px; border-radius: 12px; background: rgba(255,255,255,0.06); display: flex; align-items: center; justify-content: center; color: #cbd5e1; text-decoration: none;">
               <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" height="18" width="18"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
             </a>
           </div>
@@ -1616,7 +2115,7 @@
             <li><a href="/services/turnkey-rpo.html" style="color: inherit; text-decoration: none;">Turnkey RPO Pods</a></li>
             <li><a href="/services/permanent-staffing.html" style="color: inherit; text-decoration: none;">Permanent Staffing</a></li>
             <li><a href="/services/payroll-management.html" style="color: inherit; text-decoration: none;">Payroll &amp; Compliance</a></li>
-            <li><a href="/services/index.html" style="color: #fe4f56; font-weight: 700; text-decoration: none;">All HR Practices &rarr;</a></li>
+            <li><a href="/#servicesSection" style="color: #fe4f56; font-weight: 700; text-decoration: none;">All HR Practices &rarr;</a></li>
           </ul>
         </div>
 
@@ -1635,24 +2134,24 @@
         <div>
           <h4 style="color: #ffffff; font-size: 1.1rem; margin-bottom: 20px;">Coimbatore HQ</h4>
           <p style="font-size: 0.92rem; line-height: 1.6; margin: 0 0 12px 0;">
-            Avinashi Road, Peelamedu,<br>
-            Coimbatore - 641004, Tamil Nadu
+            D.No. 145, 2nd Floor, 5th Street, Gandipuram,<br>
+            Coimbatore - 641012, Tamil Nadu, India
           </p>
           <p style="font-size: 0.95rem; margin: 0 0 10px 0;">
-            <a href="tel:+919442218900" style="color: #fe4f56; text-decoration: none; font-weight: 700;">+91 94422 18900</a>
+            <a href="tel:+918940018882" style="color: #fe4f56; text-decoration: none; font-weight: 700;">+91 89400 18882</a>
           </p>
-          <p style="font-size: 0.92rem; margin: 0;">contact@thathvamasihr.com</p>
+          <p style="font-size: 0.92rem; margin: 0;">audit@pssntc.com &bull; info@thathvamasi.com</p>
         </div>
 
       </div>
 
-      <div style="border-top: 1px solid rgba(255, 255, 255, 0.08); padding-top: 28px; display: flex; justify-content: space-between; align-items: center; flex-wrap: gap: 16px; font-size: 0.88rem;">
+      <div style="border-top: 1px solid rgba(255, 255, 255, 0.08); padding-top: 28px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; font-size: 0.88rem;">
         <div>
           &copy; 2026 Thathvamasi Business Solutions Private Limited. All rights reserved.
         </div>
         <div style="display: flex; gap: 24px;">
-          <a href="#privacy" style="color: inherit; text-decoration: none;">Privacy Policy</a>
-          <a href="#terms" style="color: inherit; text-decoration: none;">Terms of Service</a>
+          <a href="/privacy-policy.html" style="color: inherit; text-decoration: none;">Privacy Policy</a>
+          <a href="/terms-conditions.html" style="color: inherit; text-decoration: none;">Terms of Service</a>
           <a href="/business/index.html" style="color: #60a5fa; text-decoration: none;">Business Division</a>
         </div>
       </div>

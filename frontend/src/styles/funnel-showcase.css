@@ -1,0 +1,1343 @@
+/* ==========================================================================
+   Thathvamasi - Strategy Funnel & Showcase CTA Components
+   Inspired by high-end digital agency aesthetics (eSight Solutions)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Strategy Funnel Section
+   -------------------------------------------------------------------------- */
+.strategy-funnel-section {
+  position: relative;
+  padding: 120px 0;
+  background: radial-gradient(ellipse 60% 50% at 85% 50%, rgba(254, 79, 86, 0.12), transparent 70%),
+              radial-gradient(ellipse 50% 50% at 15% 40%, rgba(225, 29, 72, 0.08), transparent 70%),
+              #050811;
+  color: #ffffff;
+  overflow: hidden;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.strategy-funnel-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+}
+
+.funnel-container {
+  position: relative;
+  z-index: 2;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.funnel-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+
+/* Left Content Column */
+.funnel-content-col {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.funnel-badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  width: fit-content;
+  padding: 8px 18px;
+  border-radius: 999px;
+  background: rgba(254, 79, 86, 0.12);
+  border: 1px solid rgba(254, 79, 86, 0.35);
+  color: #fe4f56;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.funnel-badge-pill .live-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #fe4f56;
+  box-shadow: 0 0 8px #fe4f56;
+  animation: pulseNeon 2s infinite;
+}
+
+@keyframes pulseNeon {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.85); }
+}
+
+.funnel-heading {
+  font-size: clamp(2.3rem, 4.4vw, 3.6rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  margin: 0;
+}
+
+.funnel-neon-word {
+  background: linear-gradient(135deg, #fe4f56 0%, #ff8389 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 28px rgba(254, 79, 86, 0.4);
+  display: inline;
+}
+
+.funnel-description {
+  font-size: 1.12rem;
+  line-height: 1.7;
+  color: #94a3b8;
+  margin: 0;
+}
+
+.funnel-checklist {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 12px;
+}
+
+.funnel-check-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 1rem;
+  color: #cbd5e1;
+}
+
+.funnel-check-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  background: rgba(254, 79, 86, 0.15);
+  border: 1px solid rgba(254, 79, 86, 0.3);
+  color: #fe4f56;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* Right Funnel Terminal Window */
+.funnel-terminal-window {
+  position: relative;
+  background: rgba(11, 15, 25, 0.88);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 28px;
+  padding: 32px 28px 36px 28px;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.55),
+              0 0 40px rgba(254, 79, 86, 0.08),
+              inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.terminal-header-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 24px;
+  margin-bottom: 24px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.terminal-dots {
+  display: flex;
+  gap: 8px;
+}
+
+.terminal-dot {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+}
+
+.terminal-dot.red { background: #ff5f56; }
+.terminal-dot.yellow { background: #ffbd2e; }
+.terminal-dot.green { background: #27c93f; }
+
+.terminal-title-tag {
+  font-family: monospace;
+  font-size: 0.78rem;
+  color: #64748b;
+  letter-spacing: 0.04em;
+}
+
+/* Funnel Stack */
+.funnel-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  width: 100%;
+}
+
+.funnel-tier {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 20px;
+  border-radius: 14px;
+  background: linear-gradient(180deg, rgba(254, 79, 86, 0.08) 0%, rgba(20, 10, 15, 0.6) 100%);
+  border: 1.5px solid #fe4f56;
+  box-shadow: 0 0 16px rgba(254, 79, 86, 0.35),
+              inset 0 0 12px rgba(254, 79, 86, 0.15);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+  text-decoration: none;
+  box-sizing: border-box;
+}
+
+/* 3D Top Rim Lip (creating the cone opening look) */
+.funnel-tier::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: 8%;
+  right: 8%;
+  height: 4px;
+  background: #fe4f56;
+  border-radius: 999px;
+  box-shadow: 0 0 12px #fe4f56;
+  opacity: 0.8;
+}
+
+.funnel-tier:hover {
+  transform: translateY(-2px) scale(1.02);
+  border-color: #ff757b;
+  box-shadow: 0 0 28px rgba(254, 79, 86, 0.65),
+              inset 0 0 20px rgba(254, 79, 86, 0.25);
+  background: linear-gradient(180deg, rgba(254, 79, 86, 0.15) 0%, rgba(35, 15, 22, 0.8) 100%);
+}
+
+/* Tier Width Hierarchy (True Funnel Shape) */
+.tier-01 { width: 100%; }
+.tier-02 { width: 91%; }
+.tier-03 { width: 82%; }
+.tier-04 { width: 73%; }
+.tier-05 { width: 64%; }
+.tier-06 { width: 55%; }
+
+.funnel-tier-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  width: 100%;
+}
+
+.funnel-tier-num {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #fe4f56;
+  text-shadow: 0 0 12px rgba(254, 79, 86, 0.6);
+  border-right: 1.5px solid rgba(254, 79, 86, 0.35);
+  padding-right: 14px;
+  line-height: 1;
+}
+
+.funnel-tier-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.funnel-tier-title {
+  font-size: 0.88rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #ffffff;
+  white-space: nowrap;
+}
+
+.funnel-tier-sub {
+  font-size: 0.72rem;
+  color: #94a3b8;
+  white-space: nowrap;
+}
+
+/* Downward Neon Arrow */
+.funnel-arrow-down {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 22px;
+  color: #fe4f56;
+  text-shadow: 0 0 10px #fe4f56;
+  font-size: 1.15rem;
+  line-height: 1;
+  user-select: none;
+  animation: arrowGlow 2.5s ease-in-out infinite;
+}
+
+@keyframes arrowGlow {
+  0%, 100% { opacity: 0.7; transform: translateY(0); }
+  50% { opacity: 1; transform: translateY(2px); }
+}
+
+
+/* --------------------------------------------------------------------------
+   2. Showcase Reel & "Dominate Your Market" High-Conversion CTA Section
+   -------------------------------------------------------------------------- */
+.showcase-cta-section {
+  position: relative;
+  padding: 120px 0;
+  background: radial-gradient(ellipse 70% 60% at 20% 50%, rgba(254, 79, 86, 0.12), transparent 70%),
+              radial-gradient(ellipse 50% 50% at 85% 60%, rgba(225, 29, 72, 0.08), transparent 70%),
+              #060814;
+  color: #ffffff;
+  overflow: hidden;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.showcase-cta-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.showcase-cta-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+
+/* Left Showcase Reel Column */
+.showcase-reel-col {
+  position: relative;
+  height: 480px;
+  overflow: hidden;
+  border-radius: 28px;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%);
+  mask-image: linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%);
+}
+
+.showcase-reel-track {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  animation: verticalReel 24s linear infinite;
+}
+
+.showcase-reel-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes verticalReel {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-50%); }
+}
+
+.showcase-pill-card {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  background: #0d121f;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.showcase-pill-card:hover {
+  transform: scale(1.02);
+  border-color: rgba(254, 79, 86, 0.5);
+}
+
+.showcase-card-img-row {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr 1fr;
+  height: 120px;
+  gap: 2px;
+  background: #000000;
+}
+
+.showcase-card-img-row img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.showcase-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 20px;
+  background: rgba(13, 18, 31, 0.95);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.showcase-card-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.showcase-card-tag {
+  font-size: 0.74rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(254, 79, 86, 0.15);
+  color: #fe4f56;
+  border: 1px solid rgba(254, 79, 86, 0.3);
+  text-transform: uppercase;
+}
+
+/* Right Content Column */
+.showcase-cta-content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.showcase-prehead {
+  font-size: 0.92rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #fe4f56;
+  margin: 0;
+}
+
+.showcase-cta-title {
+  font-size: clamp(2.4rem, 4.4vw, 3.8rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  margin: 0;
+}
+
+.showcase-cta-title .cta-glow-title {
+  background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 50%, #fe4f56 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+.showcase-cta-desc {
+  font-size: 1.14rem;
+  line-height: 1.7;
+  color: #94a3b8;
+  margin: 0;
+}
+
+.showcase-cta-actions {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+
+.showcase-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: #fe4f56;
+  color: #ffffff;
+  padding: 16px 36px;
+  border-radius: 999px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 10px 28px rgba(254, 79, 86, 0.35);
+  transition: all 0.25s ease;
+  border: 1px solid transparent;
+}
+
+.showcase-btn-primary:hover {
+  background: #e03e45;
+  transform: translateY(-2px);
+  box-shadow: 0 16px 36px rgba(254, 79, 86, 0.5);
+  color: #ffffff;
+}
+
+.showcase-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: #ffffff;
+  color: #0f172a;
+  padding: 16px 32px;
+  border-radius: 999px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.2);
+  transition: all 0.25s ease;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+.showcase-btn-secondary:hover {
+  background: #f1f5f9;
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.3);
+  color: #0f172a;
+}
+
+
+/* --------------------------------------------------------------------------
+   Responsive Adaptations
+   -------------------------------------------------------------------------- */
+@media (max-width: 992px) {
+  .funnel-grid,
+  .showcase-cta-grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .funnel-terminal-window {
+    padding: 24px 16px;
+  }
+
+  .tier-01, .tier-02, .tier-03, .tier-04, .tier-05, .tier-06 {
+    width: 100% !important;
+  }
+
+  .funnel-tier {
+    padding: 12px 14px;
+  }
+
+  .funnel-tier-title {
+    font-size: 0.82rem;
+  }
+
+  .funnel-tier-sub {
+    font-size: 0.68rem;
+  }
+
+  .showcase-reel-col {
+    height: 380px;
+  }
+}
+
+@media (max-width: 576px) {
+  .strategy-funnel-section,
+  .showcase-cta-section {
+    padding: 80px 0;
+  }
+
+  .showcase-cta-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .showcase-btn-primary,
+  .showcase-btn-secondary {
+    width: 100%;
+  }
+}
+
+/* ==========================================================================
+   2. Bento Scenarios Grid (Component A)
+   Alternating dark/light high-contrast masonry inspired by eSight reference
+   ========================================================================== */
+.bento-scenarios-section {
+  position: relative;
+  padding: 110px 0;
+  background: #FAF8F5;
+  color: #0F172A;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+}
+
+.bento-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.bento-header {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 56px;
+}
+
+.bento-badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 18px;
+  border-radius: 999px;
+  background: rgba(254, 79, 86, 0.1);
+  border: 1px solid rgba(254, 79, 86, 0.25);
+  color: #FE4F56;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.bento-title {
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  font-weight: 800;
+  color: #090D1A;
+  line-height: 1.18;
+  letter-spacing: -0.025em;
+  margin: 0 0 16px;
+}
+
+.bento-title span {
+  background: linear-gradient(135deg, #FE4F56 0%, #E11D48 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.bento-subtitle {
+  font-size: 1.05rem;
+  color: #64748B;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+/* Image Bento Card */
+.bento-card-image {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  min-height: 340px;
+  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 24px;
+}
+
+.bento-card-image:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.14);
+}
+
+.bento-img-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 1;
+}
+
+.bento-card-image:hover .bento-img-bg {
+  transform: scale(1.06);
+}
+
+.bento-img-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(180deg, rgba(9, 13, 26, 0.25) 0%, rgba(9, 13, 26, 0.85) 100%);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.bento-floating-tag {
+  position: relative;
+  z-index: 3;
+  align-self: flex-start;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(10px);
+  color: #090D1A;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.bento-img-content {
+  position: relative;
+  z-index: 3;
+}
+
+.bento-img-title {
+  color: #FFFFFF;
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.3;
+  margin: 0 0 6px;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+
+.bento-img-meta {
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 0.82rem;
+  font-weight: 500;
+  margin: 0;
+}
+
+/* Dark Bento Card */
+.bento-card-dark {
+  background: #090D1A;
+  border-radius: 24px;
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.16);
+  min-height: 340px;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, border-color 0.35s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.bento-card-dark:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 22px 48px rgba(0, 0, 0, 0.28);
+  border-color: rgba(254, 79, 86, 0.35);
+}
+
+.bento-card-dark::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(254, 79, 86, 0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.bento-card-top {
+  position: relative;
+  z-index: 2;
+}
+
+.bento-pill-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 12px;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+
+.bento-pill-tag.green {
+  background: rgba(16, 185, 129, 0.15);
+  color: #10B981;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.bento-pill-tag.purple {
+  background: rgba(168, 85, 247, 0.15);
+  color: #C084FC;
+  border: 1px solid rgba(168, 85, 247, 0.3);
+}
+
+.bento-pill-tag.amber {
+  background: rgba(245, 158, 11, 0.15);
+  color: #FBBF24;
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.bento-pill-tag.coral {
+  background: rgba(254, 79, 86, 0.15);
+  color: #FE4F56;
+  border: 1px solid rgba(254, 79, 86, 0.3);
+}
+
+.bento-card-title {
+  color: #FFFFFF;
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.35;
+  margin: 0 0 12px;
+}
+
+.bento-card-text {
+  color: #94A3B8;
+  font-size: 0.92rem;
+  line-height: 1.55;
+  margin: 0;
+}
+
+.bento-card-bottom {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  margin-top: 24px;
+}
+
+.bento-stat-chip {
+  color: #E2E8F0;
+  font-size: 0.8rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.bento-stat-chip .chip-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #10B981;
+  box-shadow: 0 0 8px #10B981;
+}
+
+.bento-arrow-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  color: #090D1A;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  flex-shrink: 0;
+}
+
+.bento-arrow-btn:hover {
+  background: #FE4F56;
+  color: #FFFFFF;
+  transform: translateY(-2px) scale(1.08);
+  box-shadow: 0 8px 20px rgba(254, 79, 86, 0.4);
+}
+
+/* ==========================================================================
+   3. Solution Spotlight Showcases (Component B)
+   Inspired by Chatpier & VYORA alternating showcases from eSight reference
+   ========================================================================== */
+.spotlight-showcase-section {
+  position: relative;
+  padding: 110px 0;
+  background: #FFFFFF;
+  color: #0F172A;
+  overflow: hidden;
+}
+
+.spotlight-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.spotlight-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 68px;
+  align-items: center;
+  margin-bottom: 96px;
+}
+
+.spotlight-row:last-child {
+  margin-bottom: 0;
+}
+
+.spotlight-row.reverse {
+  direction: rtl;
+}
+
+.spotlight-row.reverse > * {
+  direction: ltr;
+}
+
+/* Visual Wrapper */
+.spotlight-visual-box {
+  position: relative;
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.12);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  background: #090D1A;
+}
+
+.spotlight-img {
+  width: 100%;
+  height: 440px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.spotlight-visual-box:hover .spotlight-img {
+  transform: scale(1.04);
+}
+
+.spotlight-floating-badge {
+  position: absolute;
+  bottom: 24px;
+  left: 24px;
+  z-index: 3;
+  padding: 10px 18px;
+  border-radius: 14px;
+  background: rgba(9, 13, 26, 0.85);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.3);
+}
+
+.spotlight-badge-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #10B981;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  font-weight: 800;
+}
+
+.spotlight-badge-text {
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.spotlight-badge-sub {
+  font-size: 0.72rem;
+  color: #94A3B8;
+  font-weight: 500;
+}
+
+/* Content Details */
+.spotlight-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.spotlight-pill-category {
+  display: inline-flex;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+  width: fit-content;
+}
+
+.spotlight-pill-category.peach {
+  background: #FFF1F0;
+  color: #FE4F56;
+  border: 1px solid #FFE1DF;
+}
+
+.spotlight-pill-category.lavender {
+  background: #F3E8FF;
+  color: #7E22CE;
+  border: 1px solid #E9D5FF;
+}
+
+.spotlight-headline {
+  font-size: clamp(2.2rem, 3.6vw, 3rem);
+  font-weight: 800;
+  color: #090D1A;
+  line-height: 1.16;
+  letter-spacing: -0.025em;
+  margin: 0 0 16px;
+}
+
+.spotlight-subtitle {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #1E293B;
+  line-height: 1.4;
+  margin: 0 0 14px;
+}
+
+.spotlight-paragraph {
+  font-size: 0.98rem;
+  color: #64748B;
+  line-height: 1.65;
+  margin: 0 0 28px;
+}
+
+.spotlight-checklist {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px 20px;
+  margin-bottom: 34px;
+}
+
+.spotlight-check-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #1E293B;
+}
+
+.spotlight-check-icon {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 0.75rem;
+  font-weight: 800;
+}
+
+.spotlight-check-icon.coral {
+  background: rgba(254, 79, 86, 0.14);
+  color: #FE4F56;
+}
+
+.spotlight-check-icon.purple {
+  background: rgba(126, 34, 206, 0.14);
+  color: #7E22CE;
+}
+
+.spotlight-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 32px;
+  border-radius: 999px;
+  background: #FE4F56;
+  color: #FFFFFF;
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-decoration: none;
+  width: fit-content;
+  box-shadow: 0 10px 24px rgba(254, 79, 86, 0.35);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.spotlight-cta-btn:hover {
+  background: #E11D48;
+  transform: translateY(-2px);
+  box-shadow: 0 16px 32px rgba(254, 79, 86, 0.45);
+  color: #FFFFFF;
+}
+
+/* ==========================================================================
+   4. Connected Vertical Phase Stepper Timeline (Component C)
+   Continuous connected line with step nodes inspired by eSight reference
+   ========================================================================== */
+.connected-stepper-section {
+  position: relative;
+  padding: 110px 0;
+  background: #FAF8F5;
+  color: #0F172A;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+}
+
+.connected-stepper-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 72px;
+  align-items: flex-start;
+}
+
+/* Left Sticky Intro */
+.stepper-sticky-col {
+  position: sticky;
+  top: 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.stepper-badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 18px;
+  border-radius: 999px;
+  background: rgba(254, 79, 86, 0.1);
+  border: 1px solid rgba(254, 79, 86, 0.25);
+  color: #FE4F56;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  width: fit-content;
+}
+
+.stepper-main-title {
+  font-size: clamp(2.2rem, 3.8vw, 3.2rem);
+  font-weight: 800;
+  color: #090D1A;
+  line-height: 1.16;
+  letter-spacing: -0.025em;
+  margin: 0;
+}
+
+.stepper-main-desc {
+  font-size: 1.05rem;
+  color: #64748B;
+  line-height: 1.65;
+  margin: 0;
+}
+
+.stepper-visual-card {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.12);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  margin-top: 12px;
+}
+
+.stepper-visual-img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  display: block;
+}
+
+.stepper-card-overlay-badge {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  padding: 8px 14px;
+  border-radius: 10px;
+  background: rgba(9, 13, 26, 0.85);
+  backdrop-filter: blur(10px);
+  color: #FFFFFF;
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.stepper-card-overlay-badge .pulse-green {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #10B981;
+  box-shadow: 0 0 8px #10B981;
+}
+
+/* Right Connected Timeline */
+.stepper-timeline-container {
+  position: relative;
+  padding-left: 56px;
+}
+
+.stepper-timeline-line {
+  position: absolute;
+  left: 18px;
+  top: 24px;
+  bottom: 24px;
+  width: 3px;
+  background: linear-gradient(180deg, #FE4F56 0%, #FF8389 40%, #A855F7 80%, #10B981 100%);
+  border-radius: 999px;
+}
+
+.stepper-step-block {
+  position: relative;
+  margin-bottom: 24px;
+}
+
+.stepper-step-block:last-child {
+  margin-bottom: 0;
+}
+
+.stepper-node-pin {
+  position: absolute;
+  left: -56px;
+  top: 28px;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #FAF8F5;
+  border: 3px solid #FE4F56;
+  box-shadow: 0 0 0 6px rgba(254, 79, 86, 0.16);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  transition: all 0.3s ease;
+}
+
+.stepper-step-block:hover .stepper-node-pin {
+  transform: scale(1.15);
+  background: #FE4F56;
+  box-shadow: 0 0 0 8px rgba(254, 79, 86, 0.25);
+}
+
+.stepper-node-inner {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #FE4F56;
+  transition: all 0.3s ease;
+}
+
+.stepper-step-block:hover .stepper-node-inner {
+  background: #FFFFFF;
+}
+
+/* Step Card */
+.stepper-card-dark {
+  background: #090D1A;
+  border-radius: 20px;
+  padding: 28px 30px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.stepper-card-dark:hover {
+  transform: translateX(6px);
+  border-color: rgba(254, 79, 86, 0.45);
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.22);
+}
+
+.stepper-phase-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.stepper-phase-num {
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #FE4F56;
+}
+
+.stepper-sla-badge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #94A3B8;
+  background: rgba(255, 255, 255, 0.06);
+  padding: 4px 10px;
+  border-radius: 999px;
+}
+
+.stepper-step-title {
+  color: #FFFFFF;
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0 0 8px;
+  line-height: 1.3;
+}
+
+.stepper-step-desc {
+  color: #94A3B8;
+  font-size: 0.92rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Responsive Adaptations for New Components */
+@media (max-width: 1024px) {
+  .bento-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .spotlight-row {
+    gap: 40px;
+  }
+
+  .connected-stepper-grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .stepper-sticky-col {
+    position: static;
+  }
+}
+
+@media (max-width: 768px) {
+  .bento-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .spotlight-row,
+  .spotlight-row.reverse {
+    grid-template-columns: 1fr;
+    direction: ltr !important;
+    gap: 36px;
+    margin-bottom: 64px;
+  }
+
+  .spotlight-img {
+    height: 320px;
+  }
+
+  .spotlight-checklist {
+    grid-template-columns: 1fr;
+  }
+
+  .stepper-timeline-container {
+    padding-left: 44px;
+  }
+
+  .stepper-timeline-line {
+    left: 14px;
+  }
+
+  .stepper-node-pin {
+    left: -44px;
+    width: 32px;
+    height: 32px;
+  }
+}
+

@@ -18,62 +18,40 @@
   <link rel="stylesheet" href="/src/styles/components.css">
   <link rel="stylesheet" href="/src/styles/business-theme.css">
   <link rel="stylesheet" href="/src/styles/responsive.css">
+  <link rel="stylesheet" href="/src/styles/funnel-showcase.css">
 </head>
 <body>
 
   
-  <!-- Top Division Switcher & Hotlines Bar -->
-  <div class="division-bar" style="display: flex !important; background: #0A192F; border-bottom: 1px solid rgba(255, 255, 255, 0.08); padding: 8px 0; font-size: 0.82rem;">
-    <div class="content-wrap" style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;">
-      <div style="display: flex; align-items: center; gap: 8px;">
-        <span style="color: #64748B; font-weight: 700; font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.05em;">PORTAL:</span>
-        <a href="/" style="color: #94A3B8; text-decoration: none; font-weight: 600; padding: 3px 10px; border-radius: 12px; background: rgba(255,255,255,0.06);">HR Consultancy</a>
-        <a href="/business/index.html" style="color: #FFFFFF; text-decoration: none; font-weight: 700; padding: 3px 10px; border-radius: 12px; background: #1E40AF;">Audit &amp; Business Advisory</a>
-      </div>
-      <div class="division-bar-contact" style="display: flex; align-items: center; gap: 16px; color: #CBD5E1;">
-        <a href="tel:+918940018882" style="color: #93C5FD; text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 5px;">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-          89400 18882
-        </a>
-        <a href="tel:+917418023456" style="color: #93C5FD; text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 5px;">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-          74180 23456
-        </a>
-        <a href="mailto:audit@pssntc.com" style="color: #CBD5E1; text-decoration: none; display: inline-flex; align-items: center; gap: 5px;">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-          audit@pssntc.com
-        </a>
-      </div>
-    </div>
-  </div>
-
   <!-- Main Navigation Header with SERVICES DROPDOWN -->
   <header class="main-header">
     <div class="content-wrap header-inner">
-      <a href="/business/index.html" class="brand" style="display: flex; align-items: center; gap: 12px; text-decoration: none;">
-        <img src="/images/logo/logo-main.png" alt="Manikandan V — Audit &amp; Business Advisory" class="brand-logo-img" onerror="this.src='/images/logo/logo main.png'">
-        <div style="display: flex; flex-direction: column;">
-          <span style="font-family: var(--font-heading, sans-serif); font-weight: 800; font-size: 1.05rem; color: #0F284E; line-height: 1.15; letter-spacing: -0.02em;">MANIKANDAN V</span>
-          <span style="font-size: 0.68rem; font-weight: 700; color: #1E40AF; text-transform: uppercase; letter-spacing: 0.05em;">AUDIT &amp; BUSINESS ADVISORY</span>
-        </div>
+      <a href="/" class="brand" style="display: flex; align-items: center; text-decoration: none;">
+        <img src="/images/logo/logo-main.png" alt="Thathvamasi Business Solutions" class="brand-logo-img" onerror="this.src='/images/logo/logo main.png'">
       </a>
 
       <!-- Clean Navigation Bar with Services Dropdown -->
       <nav class="nav-menu" id="navMenu">
-        <a href="/business/index.html" class="nav-link ">Home</a>
+        <a href="/" class="nav-link">Home</a>
 
-        <!-- SERVICES DROPDOWN -->
+        <!-- SERVICES DROPDOWN (Non-clickable page link, opens dropdown) -->
         <div class="nav-item has-dropdown">
-          <a href="/business/index.html#services" class="nav-link dropdown-toggle active" style="display: inline-flex; align-items: center; gap: 5px; cursor: pointer;">
+          <a href="javascript:void(0)" class="nav-link dropdown-toggle active" role="button" aria-haspopup="true" onclick="event.preventDefault();" style="display: inline-flex; align-items: center; gap: 5px; cursor: pointer;">
             <span>Services</span>
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
           </a>
 
           <!-- 2-Column Mega Dropdown Menu -->
-          <div class="nav-dropdown-menu" style="width: 720px; left: -100px;">
+          <div class="nav-dropdown-menu">
             <div class="dropdown-header-strip">
-              <span>Statutory Business &amp; Audit Practices</span>
-              <span class="dropdown-sla-pill">Coimbatore &bull; Tamil Nadu</span>
+              <div style="display: flex; align-items: center; gap: 8px;">
+                <span style="width: 7px; height: 7px; border-radius: 50%; background: #2563EB; box-shadow: 0 0 8px rgba(37,99,235,0.6); display: inline-block;"></span>
+                <span>Statutory Practice Directory</span>
+              </div>
+              <span class="dropdown-sla-pill">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                Coimbatore Practice Hub
+              </span>
             </div>
             
             <div class="dropdown-grid">
@@ -175,11 +153,28 @@
                   <div class="dropdown-item-desc">Bank DPR, CMA data &amp; working capital limits</div>
                 </div>
               </a>
+
+              <!-- Service 10: Complete 5x2 Symmetry -->
+              <a href="/business/index.html#services" class="dropdown-item">
+                <div class="dropdown-icon-box rose">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" x2="22" y1="12" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                </div>
+                <div class="dropdown-item-info">
+                  <div class="dropdown-item-title">Startup India &amp; MSME</div>
+                  <div class="dropdown-item-desc">DPIIT 80-IAC, Udyam MSME &amp; IEC licence</div>
+                </div>
+              </a>
             </div>
 
             <div class="dropdown-footer-bar">
-              <span>All 9 Specialized Practice Areas</span>
-              <a href="/business/index.html#services" style="color: #1E40AF; font-weight: 700; text-decoration: none;">View Directory &rarr;</a>
+              <div class="dropdown-footer-hotline">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1E40AF" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                <span>Direct Advisory Desk: <a href="tel:+918940018882">+91 89400 18882</a></span>
+              </div>
+              <a href="/business/index.html#services" class="dropdown-view-all">
+                <span>All 10 Practice Areas</span>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+              </a>
             </div>
           </div>
         </div>
@@ -208,13 +203,13 @@
           <div>
             <div class="biz-trust-pill">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/></svg>
-              GST Portal &bull; Income Tax e-Filing &bull; Coimbatore Advisory
+              GST Portal &bull; Income Tax e-Filing &bull; Coimbatore Advisory Hub
             </div>
             <h1 class="biz-hero-title">
               GST, Income Tax &amp; <span class="highlight">Tax Compliance Services</span>
             </h1>
             <p class="biz-hero-desc">
-              Manage your tax responsibilities with confidence. Tax compliance requires accurate records, appropriate calculations and timely submissions. Whether you are an individual taxpayer, business owner or registered corporate enterprise, understanding your obligations helps maintain clean financial records. We provide assistance with GST registration and filings, income tax return preparation, reconciliation and tax notice responses.
+              Manage your statutory tax responsibilities with absolute precision. Tax compliance requires accurate records, appropriate calculations and timely submissions. Whether you are an individual taxpayer, business owner or registered corporate enterprise, understanding your obligations helps maintain clean financial records. We provide assistance with GST registration, monthly return filings, 2B purchase reconciliations, ITR submissions and department notice replies.
             </p>
 
             <div class="biz-hero-checklist">
@@ -251,17 +246,17 @@
                 <div class="label">Preventable Late Fees</div>
               </div>
               <div class="biz-stat-item">
-                <div class="number">24 Hrs</div>
-                <div class="label">Notice Review SLA</div>
+                <div class="number">15 Mins</div>
+                <div class="label">Advisory Response SLA</div>
               </div>
             </div>
           </div>
 
           <div class="biz-hero-media" style="margin: 0;">
-            <img src="https://images.unsplash.com/photo-1554224154-26032ffc0d07?auto=format&fit=crop&w=1000&q=80" alt="Tax Compliance and Financial Calculations in Coimbatore">
+            <img src="/images/showcase/tax_audit.jpg" alt="Tax Compliance and GST Filings in Coimbatore">
             <div class="biz-hero-media-badge">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#60A5FA" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
-              GSTR-1 &bull; GSTR-3B &bull; ITR-1 to 6 &bull; Tax Notice Desk
+              GSTN &bull; Income Tax e-Portal &bull; Coimbatore Hub
             </div>
           </div>
         </div>
@@ -272,205 +267,332 @@
     <section class="biz-section" id="tax-services">
       <div class="content-wrap">
         <div class="biz-section-head">
-          <span class="biz-badge-pill">Indirect &amp; Direct Tax</span>
-          <h2 class="biz-section-title">Our GST &amp; Income Tax Services</h2>
-          <p class="biz-section-desc">Reliable statutory administration designed to eliminate penalties and maximize eligible tax credits.</p>
+          <span class="biz-badge-pill">Tax Practice Spectrum</span>
+          <h2 class="biz-section-title">Our Taxation &amp; Return Filing Services</h2>
+          <p class="biz-section-desc">From recurring monthly filing obligations to annual returns and assessment support.</p>
         </div>
 
         <div class="biz-practice-grid">
           <div class="biz-practice-card">
-            <div class="biz-card-icon-wrap blue">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M3 10h18M5 6l7-3 7 3M4 10v11M20 10v11M8 14v4M12 14v4M16 14v4"/></svg>
+            <div class="biz-card-icon-wrap green">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/></svg>
             </div>
-            <h4>GST Registration &amp; Amendments</h4>
-            <p>End-to-end guidance for new GST registrations, business detail updates, and jurisdiction clarifications.</p>
+            <h4>Monthly GST Compliance</h4>
+            <p>End-to-end management of monthly GST returns ensuring maximum Input Tax Credit (ITC) claim and zero late fee charges.</p>
             <ul class="biz-feature-list">
-              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Preliminary threshold &amp; interstate eligibility review</li>
-              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Document checklist &amp; principal place of business verification</li>
-              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Clarification reply drafting (Form REG-03)</li>
-              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Business address, partner, or additional place amendments</li>
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> GSTR-1 outward invoice filing by 11th of every month</li>
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> GSTR-3B tax payment &amp; summary return by 20th</li>
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Automated GSTR-2B purchase register reconciliation</li>
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Electronic cash &amp; credit ledger balance optimization</li>
             </ul>
           </div>
 
           <div class="biz-practice-card">
-            <div class="biz-card-icon-wrap green">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/></svg>
+            <div class="biz-card-icon-wrap blue">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/></svg>
             </div>
-            <h4>GST Return Filing (GSTR-1 &amp; GSTR-3B)</h4>
-            <p>Disciplined monthly and quarterly filings preventing interest, late fees, and portal blocking.</p>
+            <h4>Income Tax Return (ITR) Filing</h4>
+            <p>Accurate computation of total income, eligible deductions, advance tax credit and filing for individuals and corporate entities.</p>
             <ul class="biz-feature-list">
-              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Monthly GSTR-1 outward supply statement preparation</li>
-              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> GSTR-3B monthly tax summary &amp; tax offset computation</li>
-              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> QRMP quarterly return scheme support for eligible SMEs</li>
-              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Annual Return (GSTR-9) and reconciliation (GSTR-9C)</li>
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> ITR-1 to ITR-4 for individuals, professionals &amp; firms</li>
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Corporate ITR-6 for Private Limited Companies</li>
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Form 26AS, AIS and TIS income tax cross-matching</li>
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Advance tax computation &amp; MAT/AMT calculation</li>
             </ul>
           </div>
 
           <div class="biz-practice-card">
             <div class="biz-card-icon-wrap amber">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 14 14"/></svg>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
             </div>
-            <h4>Input Tax Credit (ITC) Reconciliation</h4>
-            <p>Match your purchase invoices with GSTR-2B to unlock every rupee of eligible credit.</p>
+            <h4>Annual GST Returns &amp; Audit (GSTR-9 &amp; 9C)</h4>
+            <p>Comprehensive annual reconciliation of books of accounts with filed returns to regularize turnover, tax paid and input tax credits.</p>
             <ul class="biz-feature-list">
-              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Monthly comparison between purchase registers &amp; GSTR-2B</li>
-              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Identification of missing vendor invoices and tax mismatches</li>
-              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Blocked credit review under Section 17(5)</li>
-              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Vendor follow-up lists for unpaid or unfiled tax credits</li>
-            </ul>
-          </div>
-
-          <div class="biz-practice-card">
-            <div class="biz-card-icon-wrap red">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-            </div>
-            <h4>GST Notices &amp; Department Assessments</h4>
-            <p>Prompt professional support for DRC-01, ASMT-10 scrutiny, and discrepancy notices.</p>
-            <ul class="biz-feature-list">
-              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Initial legal and factual review of department communication</li>
-              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Assembling relevant invoices, e-Way bills and ledgers</li>
-              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Response drafting and electronic submission within deadline</li>
-              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Coordination for complex appeals or hearings where required</li>
-            </ul>
-          </div>
-
-          <div class="biz-practice-card">
-            <div class="biz-card-icon-wrap purple">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-            </div>
-            <h4>Income Tax Filing (ITR) &amp; Advance Tax</h4>
-            <p>Comprehensive tax return filings for individuals, LLP partnerships, and Private Limited companies.</p>
-            <ul class="biz-feature-list">
-              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Corporate ITR-6 and Partnership ITR-5 preparation</li>
-              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Individual, freelance and professional returns (ITR-1, 2, 3, 4)</li>
-              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Advance tax liability estimation across all 4 installments</li>
-              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Section 143(1) intimation review and rectifications</li>
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Annual GSTR-9 compilation and table reconciliation</li>
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> GSTR-9C self-certified reconciliation statement</li>
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Identifying ITC lapses and reverse charge (RCM) liabilities</li>
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Voluntary tax payment assistance via Form DRC-03</li>
             </ul>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- NEW SECTION: Real-World Use Cases -->
-    <section class="biz-section alt">
-      <div class="content-wrap">
-        <div class="biz-section-head">
-          <span class="biz-badge-pill">Practical Tax Solutions</span>
-          <h2 class="biz-section-title">Common Tax Challenges We Solve</h2>
-          <p class="biz-section-desc">Real scenarios where businesses avoid penalties and optimize tax cash flow.</p>
+    <!-- Component B: Solution Spotlight Showcase -->
+    <section class="spotlight-showcase-section" id="solution-spotlight">
+      <div class="spotlight-container">
+        <div class="spotlight-row">
+          <div class="spotlight-visual-box">
+            <img src="/images/showcase/tax_audit.jpg" alt="GST & Direct Tax Solutions Desk" class="spotlight-img" loading="lazy">
+            <div class="spotlight-floating-badge">
+              <div class="spotlight-badge-icon">&#10003;</div>
+              <div>
+                <div class="spotlight-badge-text">₹18.4L ITC Recovered</div>
+                <div class="spotlight-badge-sub">Zero Late Fee Statutory SLA Guarantee</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="spotlight-details">
+            <span class="spotlight-pill-category peach">GST &amp; Direct Tax Practice</span>
+            <h3 class="spotlight-headline">Every Invoice Reconciled. Zero Blocked Input Tax Credit.</h3>
+            <div class="spotlight-subtitle">Continuous reconciliation between vendor e-invoices, GSTR-2B ledgers, and books of accounts.</div>
+            <p class="spotlight-paragraph">
+              In manufacturing and trading hubs like Coimbatore, delayed supplier filings result in blocked working capital and unexpected GST notice liabilities. Our dedicated tax team runs 2B cross-checks before every monthly 3B close, ensuring you claim every eligible rupee of Input Tax Credit while maintaining 100% statutory hygiene.
+            </p>
+            <div class="spotlight-checklist">
+              <div class="spotlight-check-item">
+                <span class="spotlight-check-icon coral">&#10003;</span>
+                <span>Monthly GSTR-1 &amp; GSTR-3B Filings</span>
+              </div>
+              <div class="spotlight-check-item">
+                <span class="spotlight-check-icon coral">&#10003;</span>
+                <span>Automated GSTR-2B Vendor Matching</span>
+              </div>
+              <div class="spotlight-check-item">
+                <span class="spotlight-check-icon coral">&#10003;</span>
+                <span>Corporate ITR-6 &amp; Tax Audit Support</span>
+              </div>
+              <div class="spotlight-check-item">
+                <span class="spotlight-check-icon coral">&#10003;</span>
+                <span>DRC-01 Notice &amp; Scrutiny Representation</span>
+              </div>
+              <div class="spotlight-check-item">
+                <span class="spotlight-check-icon coral">&#10003;</span>
+                <span>LUT Zero-Rated Export Refund Assistance</span>
+              </div>
+              <div class="spotlight-check-item">
+                <span class="spotlight-check-icon coral">&#10003;</span>
+                <span>Advance Tax &amp; Year-End Planning</span>
+              </div>
+            </div>
+            <a href="#consultation" class="spotlight-cta-btn">
+              Discuss Your Tax Requirements &rarr;
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Component A: Real-World Bento Use-Case Grid -->
+    <section class="bento-scenarios-section" id="practical-scenarios">
+      <div class="bento-container">
+        <div class="bento-header">
+          <span class="bento-badge-pill">Practical Scenarios</span>
+          <h2 class="bento-title">Real-World Client Scenarios <span>We Solve</span></h2>
+          <p class="bento-subtitle">How Coimbatore enterprises eliminate tax mismatches and safeguard working capital.</p>
         </div>
 
-        <div class="biz-usecase-grid">
-          <div class="biz-usecase-card">
-            <span class="biz-usecase-tag green">Manufacturing Unit</span>
-            <h4>Managing Section 43B(h) MSME Vendor Payments</h4>
-            <p>Manufacturing businesses must strictly track payments made to micro and small vendors within 45 days. We integrate payment ledgers to ensure zero tax disallowance during year-end tax audits.</p>
-            <div class="biz-usecase-benefit">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              <span>Protection: Full business deduction preserved</span>
+        <div class="bento-grid">
+          <div class="bento-card-dark">
+            <div class="bento-card-top">
+              <span class="bento-pill-tag green">Foundry &bull; Peelamedu</span>
+              <h4 class="bento-card-title">Eliminating ₹18.4L Input Tax Credit Mismatch</h4>
+              <p class="bento-card-text">A foundry faced supplier invoice delays causing blocked working capital. We performed exhaustive GSTR-2B purchase audit, cleared missing E-Way bills, and regularized filings with zero penalty.</p>
+            </div>
+            <div class="bento-card-bottom">
+              <div class="bento-stat-chip">
+                <span class="chip-dot"></span>
+                <span>Turnaround: 14 Days &bull; 100% Recovered</span>
+              </div>
+              <a href="#consultation" class="bento-arrow-btn" aria-label="Consult about GST">&nearr;</a>
             </div>
           </div>
 
-          <div class="biz-usecase-card">
-            <span class="biz-usecase-tag blue">Textile &amp; Engineering Exporter</span>
-            <h4>Zero-Rated Exports &amp; GST Refund Claims</h4>
-            <p>Exporting firms operating under Letter of Undertaking (LUT) frequently accumulate unutilized input tax credits. We coordinate filing of RFD-01 refund claims with the jurisdictional tax division.</p>
-            <div class="biz-usecase-benefit">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              <span>Impact: Working capital unlocked without delays</span>
+          <div class="bento-card-image">
+            <img src="/images/showcase/tax_audit.jpg" alt="Export GST Refund Under LUT" class="bento-img-bg" loading="lazy">
+            <div class="bento-img-overlay"></div>
+            <span class="bento-floating-tag">Saravanampatti &bull; IT Exporter</span>
+            <div class="bento-img-content">
+              <h4 class="bento-img-title">Zero-Rated GST Refund Under LUT</h4>
+              <p class="bento-img-meta">Form RFD-01 &bull; ₹12.5L Refund Credited in 21 Days</p>
             </div>
           </div>
 
-          <div class="biz-usecase-card">
-            <span class="biz-usecase-tag red">Retail &amp; Distribution</span>
-            <h4>Handling ASMT-10 Discrepancy Notices</h4>
-            <p>When the GST department issues automated scrutiny notices comparing GSTR-1 vs GSTR-3B or 2A/2B differences, we review transaction ledgers and file structured mathematical reconciliation explanations.</p>
-            <div class="biz-usecase-benefit">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              <span>Result: Notice dropped without penalty demands</span>
+          <div class="bento-card-dark">
+            <div class="bento-card-top">
+              <span class="bento-pill-tag purple">Textile &bull; Tirupur</span>
+              <h4 class="bento-card-title">Job-Work GST &amp; E-Way Bill Reconciliation</h4>
+              <p class="bento-card-text">A garment unit handling 40,000 meters of processing monthly faced Department scrutiny on delivery challans. We synchronized ITC-04 returns and cleared all audit observations without demand.</p>
+            </div>
+            <div class="bento-card-bottom">
+              <div class="bento-stat-chip">
+                <span class="chip-dot" style="background:#A855F7; box-shadow:0 0 8px #A855F7;"></span>
+                <span>Status: Notice Dropped &bull; Zero Penalty</span>
+              </div>
+              <a href="#consultation" class="bento-arrow-btn" aria-label="Consult about Scrutiny">&nearr;</a>
+            </div>
+          </div>
+
+          <div class="bento-card-image">
+            <img src="/images/showcase/financial_desk.jpg" alt="Corporate Tax Audit Filing" class="bento-img-bg" loading="lazy">
+            <div class="bento-img-overlay"></div>
+            <span class="bento-floating-tag">Kurichi &bull; Engineering Firm</span>
+            <div class="bento-img-content">
+              <h4 class="bento-img-title">Corporate ITR-6 &amp; Section 44AB Tax Audit</h4>
+              <p class="bento-img-meta">Depreciation Schedules &bull; Section 43B Disallowance Audit</p>
+            </div>
+          </div>
+
+          <div class="bento-card-dark">
+            <div class="bento-card-top">
+              <span class="bento-pill-tag amber">Retail &bull; RS Puram</span>
+              <h4 class="bento-card-title">Multi-Branch GSTR-9 Annual Consolidation</h4>
+              <p class="bento-card-text">A 4-outlet consumer electronics store required annual audit filing. We reconciled point-of-sale cash registers against filed GSTR-3B summaries and resolved ₹3.2L unadjusted RCM liability.</p>
+            </div>
+            <div class="bento-card-bottom">
+              <div class="bento-stat-chip">
+                <span class="chip-dot" style="background:#F59E0B; box-shadow:0 0 8px #F59E0B;"></span>
+                <span>Outcome: GSTR-9 Filed &bull; Clean Ledger</span>
+              </div>
+              <a href="#consultation" class="bento-arrow-btn" aria-label="Consult about GSTR-9">&nearr;</a>
+            </div>
+          </div>
+
+          <div class="bento-card-image">
+            <img src="/images/showcase/cma_growth.jpg" alt="Advance Tax Planning" class="bento-img-bg" loading="lazy">
+            <div class="bento-img-overlay"></div>
+            <span class="bento-floating-tag">Gandipuram &bull; Advisory</span>
+            <div class="bento-img-content">
+              <h4 class="bento-img-title">Quarterly Advance Tax Optimization</h4>
+              <p class="bento-img-meta">Section 234B/C Interest Elimination &bull; Full TDS Credit</p>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- 6-Step Tax Process -->
-    <section class="biz-section">
-      <div class="content-wrap">
-        <div class="biz-section-head">
-          <span class="biz-badge-pill">Filing Cadence</span>
-          <h2 class="biz-section-title">Our Tax Compliance Process</h2>
-          <p class="biz-section-desc">Our disciplined monthly cycle ensures all returns are reviewed and submitted before deadlines.</p>
-        </div>
+    <!-- Component C: Connected Vertical Phase Stepper Timeline -->
+    <section class="connected-stepper-section" id="process">
+      <div class="bento-container">
+        <div class="connected-stepper-grid">
+          
+          <div class="stepper-sticky-col">
+            <span class="stepper-badge-pill">Execution Lifecycle</span>
+            <h2 class="stepper-main-title">The Monthly Tax Governance Framework</h2>
+            <p class="stepper-main-desc">
+              Our systematic monthly cadence eliminates statutory late fees, prevents blocked vendor credits, and ensures comprehensive audit readiness.
+            </p>
+            <div class="stepper-visual-card">
+              <img src="/images/showcase/tax_audit.jpg" alt="Tax Governance Framework" class="stepper-visual-img" loading="lazy">
+              <div class="stepper-card-overlay-badge">
+                <span class="pulse-green"></span>
+                <span>GSTN AUTOMATED &bull; ZERO DEFECT</span>
+              </div>
+            </div>
+          </div>
 
-        <div class="biz-step-grid">
-          <div class="biz-step-card">
-            <div class="biz-step-num">1</div>
-            <h4>Collect Records</h4>
-            <p>Collect sales, purchase registers, bank statements and expense invoices by the 5th of every month.</p>
-          </div>
-          <div class="biz-step-card">
-            <div class="biz-step-num">2</div>
-            <h4>Review &amp; Reconcile</h4>
-            <p>Review data, run automated comparison with GSTR-2B, and identify missing invoices or mismatches.</p>
-          </div>
-          <div class="biz-step-card">
-            <div class="biz-step-num">3</div>
-            <h4>Resolve Queries</h4>
-            <p>Communicate with your accounting team to clarify discrepancies, e-way bills or blocked tax credits.</p>
-          </div>
-          <div class="biz-step-card">
-            <div class="biz-step-num">4</div>
-            <h4>Prepare Returns</h4>
-            <p>Prepare GSTR-1, GSTR-3B or annual income tax computation sheets with authorized verification.</p>
-          </div>
-          <div class="biz-step-card">
-            <div class="biz-step-num">5</div>
-            <h4>File on Portal</h4>
-            <p>Complete official filing with OTP/DSC verification prior to statutory cutoff dates.</p>
-          </div>
-          <div class="biz-step-card">
-            <div class="biz-step-num">6</div>
-            <h4>Maintain Archive</h4>
-            <p>Deliver filing acknowledgements and maintain permanent compliance archives for future audit reference.</p>
+          <div class="stepper-timeline-container">
+            <div class="stepper-timeline-line"></div>
+
+            <div class="stepper-step-block">
+              <div class="stepper-node-pin"><div class="stepper-node-inner"></div></div>
+              <div class="stepper-card-dark">
+                <div class="stepper-phase-header">
+                  <span class="stepper-phase-num">Phase 01 / Data Ingestion</span>
+                  <span class="stepper-sla-badge">Days 1 &ndash; 5</span>
+                </div>
+                <h4 class="stepper-step-title">Sales &amp; Purchase Register Extraction</h4>
+                <p class="stepper-step-desc">
+                  Collection of sales invoices, credit notes, E-Way bills, and purchase vouchers directly from your Tally, Zoho Books or billing software for initial validation.
+                </p>
+              </div>
+            </div>
+
+            <div class="stepper-step-block">
+              <div class="stepper-node-pin"><div class="stepper-node-inner"></div></div>
+              <div class="stepper-card-dark">
+                <div class="stepper-phase-header">
+                  <span class="stepper-phase-num" style="color:#FF8389;">Phase 02 / 2B Audit</span>
+                  <span class="stepper-sla-badge">Days 6 &ndash; 10</span>
+                </div>
+                <h4 class="stepper-step-title">GSTR-2B Vendor Reconciliation &amp; GSTR-1 Outward Filing</h4>
+                <p class="stepper-step-desc">
+                  Cross-matching vendor purchase invoices against auto-drafted GSTR-2B statements. Outward B2B and B2C sales uploaded and filed on the GST portal by the 11th.
+                </p>
+              </div>
+            </div>
+
+            <div class="stepper-step-block">
+              <div class="stepper-node-pin"><div class="stepper-node-inner"></div></div>
+              <div class="stepper-card-dark">
+                <div class="stepper-phase-header">
+                  <span class="stepper-phase-num" style="color:#C084FC;">Phase 03 / Tax Settlement</span>
+                  <span class="stepper-sla-badge">Days 11 &ndash; 20</span>
+                </div>
+                <h4 class="stepper-step-title">ITC Set-Off &amp; GSTR-3B Electronic Filing</h4>
+                <p class="stepper-step-desc">
+                  Optimal offsetting of IGST, CGST, and SGST electronic credit balances. Challan generation (PMT-06) for cash liabilities and filing of GSTR-3B before the 20th statutory SLA.
+                </p>
+              </div>
+            </div>
+
+            <div class="stepper-step-block">
+              <div class="stepper-node-pin"><div class="stepper-node-inner"></div></div>
+              <div class="stepper-card-dark">
+                <div class="stepper-phase-header">
+                  <span class="stepper-phase-num" style="color:#A855F7;">Phase 04 / Direct Tax</span>
+                  <span class="stepper-sla-badge">Quarterly Cadence</span>
+                </div>
+                <h4 class="stepper-step-title">Advance Tax &amp; TDS Challan Verification</h4>
+                <p class="stepper-step-desc">
+                  Review of quarterly estimated profits, advance tax computations (15th of June, Sep, Dec, March), and Form 26AS TDS credit tracking to eliminate Section 234 interest.
+                </p>
+              </div>
+            </div>
+
+            <div class="stepper-step-block">
+              <div class="stepper-node-pin"><div class="stepper-node-inner"></div></div>
+              <div class="stepper-card-dark">
+                <div class="stepper-phase-header">
+                  <span class="stepper-phase-num" style="color:#10B981;">Phase 05 / Annual Finalisation</span>
+                  <span class="stepper-sla-badge">Annual &amp; Audit</span>
+                </div>
+                <h4 class="stepper-step-title">ITR Filing &amp; GSTR-9 Annual Consolidation</h4>
+                <p class="stepper-step-desc">
+                  Comprehensive audit finalization, Form 3CD tax audit coordination, ITR-6 corporate tax filing, and annual GSTR-9 reconciliation against statutory audited balance sheets.
+                </p>
+              </div>
+            </div>
+
           </div>
         </div>
       </div>
     </section>
 
     <!-- FAQ Section -->
-    <section class="biz-section alt">
+    <section class="biz-section">
       <div class="content-wrap">
         <div class="biz-section-head">
-          <span class="biz-badge-pill">Taxation FAQ</span>
+          <span class="biz-badge-pill">Tax FAQs</span>
           <h2 class="biz-section-title">Frequently Asked Questions</h2>
-          <p class="biz-section-desc">Common questions on GST applicability, deadlines, and previous-period regularisation.</p>
+          <p class="biz-section-desc">Key details regarding filing dates, ITC conditions and tax audits.</p>
         </div>
 
         <div class="biz-faq-grid">
           <div class="biz-faq-card">
-            <h4>Is GST registration compulsory for every business?</h4>
-            <p>No. Applicability generally depends on aggregate annual turnover exceeding statutory thresholds (₹40 Lakhs for goods, ₹20 Lakhs for services in Tamil Nadu), interstate sales, or mandatory categories such as e-commerce.</p>
+            <h4>When is the monthly GST filing deadline?</h4>
+            <p>For regular taxpayers, GSTR-1 (outward supplies) is due on the 11th of every month, and GSTR-3B (tax computation &amp; payment) is due on the 20th of every month.</p>
           </div>
           <div class="biz-faq-card">
-            <h4>Do you file both GST and income tax returns?</h4>
-            <p>Yes. We offer coordinated filing support for both monthly GST returns (GSTR-1, GSTR-3B) and annual corporate/individual income tax returns (ITR), ensuring complete reconciliation between both portals.</p>
+            <h4>Can I claim ITC if the supplier has not filed GSTR-1?</h4>
+            <p>Under current GST law, Input Tax Credit can only be claimed if the corresponding invoice appears in your auto-populated GSTR-2B statement. We help identify missing suppliers proactively.</p>
           </div>
           <div class="biz-faq-card">
-            <h4>Can you help with previous-period returns?</h4>
-            <p>Yes. We review outstanding unfiled periods, assess applicable late fees under Section 47 and interest under Section 50, and coordinate a systematic catch-up filing plan to restore active GSTIN status.</p>
+            <h4>What is the threshold for a Tax Audit under Section 44AB?</h4>
+            <p>For businesses with more than 95% digital transactions, the tax audit threshold is ₹10 Crores turnover. For businesses with cash transactions exceeding 5%, the threshold is ₹1 Crore.</p>
           </div>
           <div class="biz-faq-card">
-            <h4>Can you guarantee a tax refund?</h4>
-            <p>No. Tax refund eligibility and disbursement are governed by statutory provisions and jurisdictional tax authority scrutiny. We assist by preparing accurate claim applications with all supporting invoices.</p>
+            <h4>Can you assist with GST Department notices?</h4>
+            <p>Yes. We assist with drafting detailed factual replies to ASMT-10 scrutiny notices, DRC-01 demand intimations, and reconciliation mismatches before GST adjudicating authorities.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- DEDICATED BOTTOM CONSULTATION SECTION (Requirement 1) -->
+    <!-- Consultation Section -->
     
-  <!-- Dedicated Bottom Consultation Section (Replaces Hero-Form Placement) -->
+  <!-- Dedicated Bottom Consultation Section -->
   <section class="biz-section" id="consultation" style="background: linear-gradient(180deg, #F8FAFC 0%, #EFF6FF 100%); border-top: 1px solid #E2E8F0; padding: 85px 0 95px 0;">
     <div class="content-wrap">
       <div style="display: grid; grid-template-columns: 1fr 1.15fr; gap: 50px; align-items: start;" class="biz-bottom-grid">
@@ -492,11 +614,9 @@
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
               </div>
               <div>
-                <div style="font-size: 0.78rem; font-weight: 700; color: #64748B; text-transform: uppercase; letter-spacing: 0.05em;">Coimbatore Advisory Hotlines</div>
-                <div style="display: flex; gap: 12px; font-weight: 800; font-size: 1.1rem; margin-top: 2px;">
+                <div style="font-size: 0.78rem; font-weight: 700; color: #64748B; text-transform: uppercase; letter-spacing: 0.05em;">Coimbatore Advisory Hotline</div>
+                <div style="font-weight: 800; font-size: 1.15rem; margin-top: 2px;">
                   <a href="tel:+918940018882" style="color: #0F284E; text-decoration: none;">+91 89400 18882</a>
-                  <span style="color: #CBD5E1;">&bull;</span>
-                  <a href="tel:+917418023456" style="color: #0F284E; text-decoration: none;">+91 74180 23456</a>
                 </div>
               </div>
             </div>
@@ -519,8 +639,8 @@
               </div>
               <div>
                 <div style="font-size: 0.78rem; font-weight: 700; color: #64748B; text-transform: uppercase; letter-spacing: 0.05em;">Headquartered in Coimbatore</div>
-                <div style="color: #334155; font-size: 0.94rem; font-weight: 600; margin-top: 2px;">
-                  Avinashi Road, Peelamedu, Coimbatore, Tamil Nadu - 641004
+                <div style="color: #334155; font-size: 0.92rem; font-weight: 600; margin-top: 2px; line-height: 1.4;">
+                  D.No. 145, 2nd Floor, 5th Street, Gandipuram, Coimbatore South, Coimbatore, Tamil Nadu, 641012, India
                 </div>
               </div>
             </div>
@@ -528,7 +648,7 @@
 
           <!-- In-Office Consultation Photo Card -->
           <div style="border-radius: 20px; overflow: hidden; border: 1px solid #E2E8F0; box-shadow: 0 14px 35px rgba(15,23,42,0.08); height: 210px; position: relative;">
-            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80" alt="Executive Meeting Room in Peelamedu, Coimbatore" style="width: 100%; height: 100%; object-fit: cover;">
+            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80" alt="Executive Advisory Office in Gandipuram, Coimbatore" style="width: 100%; height: 100%; object-fit: cover;">
             <div style="position: absolute; bottom: 12px; left: 12px; right: 12px; background: rgba(10, 25, 47, 0.88); backdrop-filter: blur(8px); padding: 10px 16px; border-radius: 10px; color: #FFFFFF; font-size: 0.82rem; display: flex; align-items: center; justify-content: space-between;">
               <span>In-Person &amp; Virtual Consultations</span>
               <strong style="color: #60A5FA;">Mon – Sat, 9:30 AM – 7 PM</strong>
@@ -541,11 +661,11 @@
           
   <div class="biz-form-card" style="box-shadow: 0 20px 45px rgba(15,23,42,0.08); border: 1px solid #E2E8F0; background: #FFFFFF; border-radius: 24px; padding: 36px 30px;">
     <div class="biz-form-header" style="margin-bottom: 22px;">
-      <h3 style="font-size: 1.45rem; font-weight: 800; color: #0F172A; margin: 0 0 6px 0;">Discuss Your Tax Filing Requirements</h3>
-      <p style="font-size: 0.92rem; color: #64748B; margin: 0;">Build a more organised process for your tax filings, reconciliations and compliance responsibilities.</p>
+      <h3 style="font-size: 1.45rem; font-weight: 800; color: #0F172A; margin: 0 0 6px 0;">Discuss Your Tax Requirements</h3>
+      <p style="font-size: 0.92rem; color: #64748B; margin: 0;">Connect with our tax and compliance specialists in Coimbatore for reliable filing support.</p>
     </div>
     <form id="bizConsultationForm">
-      <input type="hidden" name="service" value="GST & Income Tax">
+      <input type="hidden" name="service" value="GST & Income Tax Filings">
       <div class="biz-form-group">
         <label class="biz-form-label">Full Name *</label>
         <input type="text" name="name" class="biz-form-input" placeholder="e.g. Ramesh Krishnan" required>
@@ -553,7 +673,7 @@
       <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;" class="biz-split-input">
         <div class="biz-form-group">
           <label class="biz-form-label">Phone Number *</label>
-          <input type="tel" name="mobile" class="biz-form-input" placeholder="+91 98400 12345" required>
+          <input type="tel" name="mobile" class="biz-form-input" placeholder="+91 89400 18882" required>
         </div>
         <div class="biz-form-group">
           <label class="biz-form-label">Email Address *</label>
@@ -618,9 +738,9 @@
         
         <div>
           <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 18px;">
-            <img src="/images/logo/logo-main-white.png" alt="Manikandan V — Audit &amp; Business Advisory" style="height: 38px; width: auto;" onerror="this.src='/images/logo/logo-main.png'">
+            <img src="/images/logo/logo-main-white.png" alt="Thathvamasi — Audit &amp; Business Advisory" style="height: 38px; width: auto;" onerror="this.src='/images/logo/logo-main.png'">
             <div>
-              <div style="color: #FFFFFF; font-weight: 800; font-size: 1.05rem; letter-spacing: -0.01em;">MANIKANDAN V</div>
+              <div style="color: #FFFFFF; font-weight: 800; font-size: 1.05rem; letter-spacing: -0.01em;">THATHVAMASI</div>
               <div style="color: #60A5FA; font-size: 0.72rem; font-weight: 700; text-transform: uppercase;">Audit &amp; Business Advisory</div>
             </div>
           </div>
@@ -630,11 +750,7 @@
           <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
             <a href="tel:+918940018882" style="background: rgba(255, 255, 255, 0.08); color: #FFFFFF; padding: 8px 14px; border-radius: 8px; text-decoration: none; font-size: 0.82rem; font-weight: 600; display: inline-flex; align-items: center; gap: 6px;">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-              89400 18882
-            </a>
-            <a href="tel:+917418023456" style="background: rgba(255, 255, 255, 0.08); color: #FFFFFF; padding: 8px 14px; border-radius: 8px; text-decoration: none; font-size: 0.82rem; font-weight: 600; display: inline-flex; align-items: center; gap: 6px;">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-              74180 23456
+              +91 89400 18882
             </a>
           </div>
         </div>
@@ -665,15 +781,14 @@
           <h4 style="color: #FFFFFF; font-size: 1rem; margin-bottom: 18px; font-weight: 700;">Contact &amp; Location</h4>
           <p style="line-height: 1.6; margin: 0 0 10px 0; font-size: 0.88rem;">
             <strong>Coimbatore Advisory Office:</strong><br>
-            Avinashi Road, Peelamedu, Coimbatore, Tamil Nadu - 641004
+            D.No. 145, 2nd Floor, 5th Street, Gandipuram, Coimbatore South, Coimbatore, Tamil Nadu, 641012, India
           </p>
           <p style="margin: 0 0 8px 0; font-size: 0.88rem;">
             <strong>Email:</strong> <a href="mailto:audit@pssntc.com" style="color: #60A5FA; text-decoration: none;">audit@pssntc.com</a>
           </p>
           <p style="margin: 0 0 12px 0; font-size: 0.88rem;">
-            <strong>Advisory Hotlines:</strong><br>
-            <a href="tel:+918940018882" style="color: #FFFFFF; text-decoration: none; font-weight: 700;">+91 89400 18882</a> &bull; 
-            <a href="tel:+917418023456" style="color: #FFFFFF; text-decoration: none; font-weight: 700;">+91 74180 23456</a>
+            <strong>Advisory Hotline:</strong><br>
+            <a href="tel:+918940018882" style="color: #FFFFFF; text-decoration: none; font-weight: 700;">+91 89400 18882</a>
           </p>
           <div style="font-size: 0.78rem; color: #64748B;">
             Working Hours: Mon – Sat, 9:30 AM – 7:00 PM IST

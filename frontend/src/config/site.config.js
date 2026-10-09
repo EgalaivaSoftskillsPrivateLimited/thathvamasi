@@ -8,15 +8,15 @@ export const SITE_CONFIG = {
   tagline: "Architecting Elite Talent Ecosystems for Visionary Enterprises",
   description: "Premier executive search, permanent staffing, and HR consulting firm headquartered in Coimbatore, Tamil Nadu, serving pan-India corporate enterprises.",
   location: {
-    address: "Avinashi Road, Peelamedu, Coimbatore - 641004",
+    address: "D.No. 145, 2nd Floor, 5th Street, Gandipuram, Coimbatore South, Coimbatore, Tamil Nadu, 641012, India",
     city: "Coimbatore",
     state: "Tamil Nadu",
     country: "India",
-    geoCoords: "11.0256° N, 77.0118° E"
+    geoCoords: "11.0168° N, 76.9558° E"
   },
   contact: {
-    phone: "+91 94422 18900",
-    phoneSecondary: "+91 422 259 8800",
+    phone: "+91 89400 18882",
+    phoneSecondary: "+91 89400 18882",
     email: "info@thathvamasi.com",
     careersEmail: "careers@thathvamasi.com",
     workingHours: "Monday - Saturday: 9:00 AM - 6:30 PM IST"
@@ -24,7 +24,7 @@ export const SITE_CONFIG = {
   social: {
     linkedin: "https://linkedin.com/company/thathvamasi-hr",
     twitter: "https://twitter.com/thathvamasi_hr",
-    whatsapp: "919442218900"
+    whatsapp: "918940018882"
   },
   metrics: {
     placements: "500+",
