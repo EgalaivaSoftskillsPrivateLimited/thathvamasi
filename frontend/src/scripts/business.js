@@ -2,8 +2,10 @@
  * Thathvamasi Business Solutions - Business Consultancy Division
  * Client-Side Calculator, Service Filtering & Lead Submission Logic
  */
+import { initSmoothScroll } from '../lib/smoothScroll.js';
 
 document.addEventListener('DOMContentLoaded', () => {
+  initSmoothScroll();
   initBusinessNavigation();
   initBusinessCalculator();
   initServiceSearch();
