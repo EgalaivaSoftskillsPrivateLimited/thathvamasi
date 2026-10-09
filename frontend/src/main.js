@@ -357,9 +357,42 @@ export function initEsightComponents() {
       }
     });
 
-    // Close when clicking navigation links inside drawer
+    // Mobile Sidemenu Accordion Toggle for Submenus
+    const submenuToggles = sidemenu.querySelectorAll('.sidemenuToggleBtn, .sidemenuHasSub > .sidemenuLink');
+    submenuToggles.forEach(toggle => {
+      toggle.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        const parentLi = toggle.closest('.sidemenuHasSub');
+        if (!parentLi) return;
+        const isOpen = parentLi.classList.contains('open');
+
+        // Close other submenus for a clean single-open accordion
+        sidemenu.querySelectorAll('.sidemenuHasSub.open').forEach(item => {
+          if (item !== parentLi) {
+            item.classList.remove('open');
+            const btn = item.querySelector('.sidemenuToggleBtn');
+            if (btn) btn.setAttribute('aria-expanded', 'false');
+          }
+        });
+
+        if (isOpen) {
+          parentLi.classList.remove('open');
+          toggle.setAttribute('aria-expanded', 'false');
+        } else {
+          parentLi.classList.add('open');
+          toggle.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+
+    // Close when clicking actual navigation destination links inside drawer
     sidemenu.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
+        const href = link.getAttribute('href');
+        if (!href || href === '#' || href === 'javascript:void(0)' || link.classList.contains('sidemenuToggleBtn')) {
+          return;
+        }
         closeMobileMenu();
       });
     });
