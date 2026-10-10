@@ -259,6 +259,10 @@ nav.esightNav.scrolled {
   height: 74px;
 }
 
+nav.esightNav.scrolled .navLogo img {
+  height: 52px;
+}
+
 .navMain {
   display: flex;
   align-items: center;
@@ -283,9 +287,9 @@ nav.esightNav.scrolled {
 }
 
 .navLogo img {
-  height: 52px;
+  height: 60px;
   width: auto;
-  max-width: 300px;
+  max-width: 380px;
   object-fit: contain;
   display: block;
   border-radius: 0;
