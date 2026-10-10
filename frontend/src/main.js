@@ -15,6 +15,7 @@ import './styles/funnel-showcase.css';
 // Core UI Components
 import { initToastSystem } from './components/ui/Toast.js';
 import { initModalSystem } from './components/ui/Modal.js';
+import { initFloatingWhatsApp } from './components/ui/FloatingWhatsApp.js';
 
 // Section Components
 import { initServicesSection } from './components/sections/Services.js';
@@ -79,15 +80,28 @@ function setupNavigation() {
   // Handle dropdown toggle for mobile/touch
   const dropdownContainers = document.querySelectorAll('.nav-item.has-dropdown, .hasDropdown');
   dropdownContainers.forEach(container => {
-    const toggle = container.querySelector('.dropdown-toggle, a');
+    const toggle = container.querySelector('.dropdown-toggle');
     if (toggle) {
       toggle.addEventListener('click', (e) => {
         if (window.innerWidth <= 992) {
           e.preventDefault();
-          container.classList.toggle('open');
+          e.stopPropagation();
+          const isOpen = container.classList.toggle('open');
+          const chevron = toggle.querySelector('svg');
+          if (chevron) {
+            chevron.style.transform = isOpen ? 'rotate(180deg)' : '';
+            chevron.style.transition = 'transform 0.25s ease';
+          }
         }
       });
     }
+
+    container.querySelectorAll('.dropdown-item').forEach(item => {
+      item.addEventListener('click', () => {
+        navMenu?.classList.remove('open');
+        container.classList.remove('open');
+      });
+    });
   });
 }
 
@@ -396,6 +410,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   initScrollReveal();
   initSmoothScroll();
+  initFloatingWhatsApp();
 
   console.log("Thathvamasi HR Consultancy (THC) Enterprise Application initialized.");
 });

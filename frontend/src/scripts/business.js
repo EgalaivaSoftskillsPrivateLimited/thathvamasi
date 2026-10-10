@@ -3,6 +3,7 @@
  * Client-Side Calculator, Service Filtering & Lead Submission Logic
  */
 import { initSmoothScroll } from '../lib/smoothScroll.js';
+import { initFloatingWhatsApp } from '../components/ui/FloatingWhatsApp.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   initSmoothScroll();
@@ -10,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initBusinessCalculator();
   initServiceSearch();
   initBusinessConsultationForm();
+  initFloatingWhatsApp();
 });
 
 /**
@@ -26,23 +28,57 @@ function initBusinessNavigation() {
       document.body.style.overflow = isOpen ? 'hidden' : '';
     });
 
+    // Handle Dropdown Accordion for Mobile / Touch
+    const dropdownItems = navMenu.querySelectorAll('.nav-item.has-dropdown');
+    dropdownItems.forEach(item => {
+      const toggle = item.querySelector('.dropdown-toggle');
+      if (toggle) {
+        toggle.addEventListener('click', (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          const isOpen = item.classList.toggle('open');
+          const chevron = toggle.querySelector('svg');
+          if (chevron) {
+            chevron.style.transform = isOpen ? 'rotate(180deg)' : '';
+            chevron.style.transition = 'transform 0.25s ease';
+          }
+        });
+      }
+    });
+
+    // Close mobile menu on clicking regular links
     navMenu.querySelectorAll('.nav-link').forEach(link => {
+      if (link.classList.contains('dropdown-toggle') || link.closest('.has-dropdown')) return;
       link.addEventListener('click', () => {
         navMenu.classList.remove('open');
+        dropdownItems.forEach(it => it.classList.remove('open'));
         document.body.style.overflow = '';
       });
     });
 
+    // Close mobile menu on clicking a dropdown item inside the menu
+    navMenu.querySelectorAll('.dropdown-item').forEach(item => {
+      item.addEventListener('click', () => {
+        navMenu.classList.remove('open');
+        dropdownItems.forEach(it => it.classList.remove('open'));
+        document.body.style.overflow = '';
+      });
+    });
+
+    // Click outside to close
     document.addEventListener('click', (e) => {
       if (navMenu.classList.contains('open') && !navMenu.contains(e.target) && !toggleBtn.contains(e.target)) {
         navMenu.classList.remove('open');
+        dropdownItems.forEach(it => it.classList.remove('open'));
         document.body.style.overflow = '';
       }
     });
 
+    // Escape key to close
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && navMenu.classList.contains('open')) {
         navMenu.classList.remove('open');
+        dropdownItems.forEach(it => it.classList.remove('open'));
         document.body.style.overflow = '';
       }
     });

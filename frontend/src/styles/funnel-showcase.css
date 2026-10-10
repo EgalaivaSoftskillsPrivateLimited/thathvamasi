@@ -96,6 +96,7 @@
 .funnel-neon-word {
   background: linear-gradient(135deg, #fe4f56 0%, #ff8389 100%);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   text-shadow: 0 0 28px rgba(254, 79, 86, 0.4);
   display: inline;
@@ -435,6 +436,7 @@
 .showcase-cta-title .cta-glow-title {
   background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 50%, #fe4f56 100%);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   display: inline-block;
 }
@@ -609,6 +611,7 @@
 .bento-title span {
   background: linear-gradient(135deg, #FE4F56 0%, #E11D48 100%);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
