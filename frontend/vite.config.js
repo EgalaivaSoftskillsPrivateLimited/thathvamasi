@@ -1,3 +1,4 @@
+import fs from 'fs';
 import { fileURLToPath } from 'url';
 import { resolve, dirname } from 'path';
 import { defineConfig } from 'vite';
@@ -7,6 +8,18 @@ const rootDir = typeof import.meta.dirname !== 'undefined'
   : dirname(fileURLToPath(import.meta.url));
 
 export default defineConfig({
+  plugins: [
+    {
+      name: 'copy-admin-entry',
+      closeBundle() {
+        const distAdminIndex = resolve(rootDir, 'dist/admin/index.html');
+        const distAdminHtml = resolve(rootDir, 'dist/admin.html');
+        if (fs.existsSync(distAdminIndex)) {
+          fs.copyFileSync(distAdminIndex, distAdminHtml);
+        }
+      }
+    }
+  ],
   server: {
     port: 5173,
     proxy: {

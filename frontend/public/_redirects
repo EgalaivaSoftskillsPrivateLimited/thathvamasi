@@ -1,8 +1,12 @@
 # Thathvamasi Production Routing & Reverse Proxy Rules
 # Compatible with Netlify, Cloudflare Pages, etc.
 
+# Admin portal routing (ensures domain.com/admin serves admin portal)
+/admin      /admin/index.html   200
+/admin/     /admin/index.html   200
+
 # API Reverse Proxy (can be redirected to live backend)
-/api/*  https://api.thathvamasi.com/api/:splat  200
+/api/*  https://api.tbspltd.com/api/:splat  200
 
 # 404 Fallback
 /*      /404.html                               404

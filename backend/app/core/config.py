@@ -35,6 +35,10 @@ class Settings(BaseSettings):
             "https://tbspltd.com",
             "https://www.tbspltd.com",
             "https://api.tbspltd.com",
+            "https://staging.tbspltd.com",
+            "http://staging.tbspltd.com",
+            "https://staging.thathvamasi.com",
+            "http://staging.thathvamasi.com",
         ]
         raw = os.getenv("CORS_ORIGINS")
         if not raw:

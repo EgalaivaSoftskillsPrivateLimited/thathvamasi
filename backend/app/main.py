@@ -43,8 +43,7 @@ async def lifespan(app: FastAPI):
         await init_db()
         logger.info("[OK] Database initialized successfully")
     except Exception as e:
-        logger.error(f"[ERROR] Database initialization failed: {e}", exc_info=True)
-        raise
+        logger.warning(f"[WARN] Database initialization deferred: {e}. FastAPI starting in resilient mode.", exc_info=False)
     
     # Create upload directories if they don't exist
     os.makedirs("app/static/uploads/resumes", exist_ok=True)
@@ -56,7 +55,10 @@ async def lifespan(app: FastAPI):
     
     # Shutdown
     logger.info("[STOP] Shutting down Thathvamasi HR Consultancy Backend...")
-    await close_db()
+    try:
+        await close_db()
+    except Exception:
+        pass
 
 # Create FastAPI application
 app = FastAPI(
@@ -75,6 +77,7 @@ app = FastAPI(
 app.add_middleware(
     CORSMiddleware,
     allow_origins=settings.CORS_ORIGINS,
+    allow_origin_regex=r"https?://.*(tbspltd\.com|thathvamasi\.com)(:\d+)?",
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -111,6 +114,9 @@ async def serve_admin_portal():
     admin_dist_file = os.path.join(frontend_dist, "admin/index.html")
     if os.path.exists(admin_dist_file):
         return FileResponse(admin_dist_file)
+    admin_html_file = os.path.join(frontend_dist, "admin.html")
+    if os.path.exists(admin_html_file):
+        return FileResponse(admin_html_file)
     admin_src_file = os.path.abspath(os.path.join(os.path.dirname(__file__), "../../frontend/admin/index.html"))
     if os.path.exists(admin_src_file):
         return FileResponse(admin_src_file)

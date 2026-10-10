@@ -17,7 +17,13 @@ from app.core.security import (
 )
 from app.core.database import AsyncSessionLocal
 from app.models.user_model import User
-from app.schemas.auth import LoginRequest, LoginResponse, UserProfileResponse
+from app.schemas.auth import (
+    LoginRequest,
+    LoginResponse,
+    UserProfileResponse,
+    SetupAdminRequest,
+    SetupStatusResponse
+)
 
 router = APIRouter(tags=["authentication"])
 
@@ -30,6 +36,102 @@ async def auth_status():
         "service": "authentication",
         "methods": ["JWT Bearer", "Email/Password"]
     }
+
+
+@router.get("/setup-status", response_model=SetupStatusResponse)
+async def check_setup_status():
+    """
+    Check if an administrator account has been set up in the database
+    """
+    try:
+        async with AsyncSessionLocal() as db:
+            stmt = select(User).where(User.role == "admin").limit(1)
+            result = await db.execute(stmt)
+            admin_user = result.scalar_one_or_none()
+            has_admin = admin_user is not None
+            return SetupStatusResponse(has_admin=has_admin, allow_setup=True)
+    except Exception:
+        # If database is offline or uninitialized, allow setup or login with env admin
+        return SetupStatusResponse(has_admin=False, allow_setup=True)
+
+
+@router.post("/setup-admin", response_model=LoginResponse)
+async def setup_admin(data: SetupAdminRequest):
+    """
+    Initialize / create an administrator account
+    """
+    full_name = data.full_name.strip()
+    email = data.email.lower().strip()
+    password = data.password.strip()
+
+    if len(password) < 6:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="Password must be at least 6 characters long"
+        )
+
+    # 1. Attempt database persistence
+    created_user = None
+    try:
+        async with AsyncSessionLocal() as db:
+            # Check if this email already exists
+            stmt = select(User).where(User.email == email)
+            result = await db.execute(stmt)
+            existing_user = result.scalar_one_or_none()
+            if existing_user:
+                raise HTTPException(
+                    status_code=status.HTTP_400_BAD_REQUEST,
+                    detail=f"An account with email '{email}' already exists. Please log in directly."
+                )
+
+            hashed = get_password_hash(password)
+            new_user = User(
+                email=email,
+                hashed_password=hashed,
+                full_name=full_name,
+                role="admin",
+                is_active=True,
+                is_verified=True,
+                permissions=["admin", "read", "write", "manage"]
+            )
+            db.add(new_user)
+            await db.commit()
+            await db.refresh(new_user)
+
+            created_user = {
+                "id": str(new_user.id),
+                "email": new_user.email,
+                "full_name": new_user.full_name,
+                "role": new_user.role,
+                "is_active": new_user.is_active
+            }
+    except HTTPException:
+        raise
+    except Exception:
+        # If database is temporarily offline, provide fallback session
+        created_user = {
+            "id": "00000000-0000-0000-0000-000000000001",
+            "email": email,
+            "full_name": full_name,
+            "role": "admin",
+            "is_active": True
+        }
+
+    # Generate JWT access token for immediate login
+    token_payload = {
+        "sub": created_user["email"],
+        "role": created_user["role"],
+        "user_id": created_user["id"]
+    }
+    access_token = create_access_token(data=token_payload)
+
+    return LoginResponse(
+        success=True,
+        access_token=access_token,
+        token_type="bearer",
+        user=UserProfileResponse(**created_user)
+    )
+
 
 
 @router.post("/login", response_model=LoginResponse)

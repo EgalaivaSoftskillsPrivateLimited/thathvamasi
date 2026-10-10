@@ -3,8 +3,20 @@
   command = "npm run build"
 
 [[redirects]]
+  from = "/admin"
+  to = "/admin/index.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/admin/"
+  to = "/admin/index.html"
+  status = 200
+  force = true
+
+[[redirects]]
   from = "/api/*"
-  to = "https://api.thathvamasi.com/api/:splat"
+  to = "https://api.tbspltd.com/api/:splat"
   status = 200
   force = false
 

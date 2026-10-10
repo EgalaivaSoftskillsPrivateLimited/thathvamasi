@@ -64,18 +64,6 @@
     grid-template-columns: 1fr;
   }
 
-  .admin-sidebar {
-    border-right: none;
-    border-bottom: 1px solid var(--border-light);
-    flex-direction: row;
-    overflow-x: auto;
-    padding: 10px 14px;
-  }
-
-  .admin-profile-badge {
-    display: none;
-  }
-
   .admin-charts-grid {
     grid-template-columns: 1fr;
   }
@@ -90,6 +78,10 @@
     top: 72px;
     left: 0;
     width: 100%;
+    max-height: calc(100vh - 72px);
+    max-height: calc(100dvh - 72px);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
     background: #FFFFFF;
     border-bottom: 1px solid var(--border-light);
     flex-direction: column;

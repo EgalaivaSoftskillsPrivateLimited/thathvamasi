@@ -280,6 +280,69 @@ class ApiService {
   }
 
   /**
+   * Check if administrator setup is needed
+   */
+  async checkSetupStatus() {
+    try {
+      const response = await fetch(`${API_BASE}/auth/setup-status`, { method: 'GET' });
+      if (response.ok) {
+        return await response.json();
+      }
+      return { has_admin: false, allow_setup: true };
+    } catch {
+      return { has_admin: false, allow_setup: true };
+    }
+  }
+
+  /**
+   * Create / Initialize Administrator Account
+   */
+  async setupAdmin(fullName, email, password) {
+    const cleanName = (fullName || '').trim();
+    const cleanEmail = (email || '').trim().toLowerCase();
+    const cleanPass = (password || '').trim();
+
+    try {
+      const response = await fetch(`${API_BASE}/auth/setup-admin`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          full_name: cleanName,
+          email: cleanEmail,
+          password: cleanPass
+        })
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        const token = data.access_token;
+        const user = data.user || {
+          email: cleanEmail,
+          full_name: cleanName,
+          role: 'admin'
+        };
+
+        localStorage.setItem('thc_admin_token', token);
+        localStorage.setItem('thc_admin_user', JSON.stringify(user));
+
+        return { success: true, token, user };
+      }
+
+      const errorData = await response.json().catch(() => ({}));
+      return {
+        success: false,
+        error: errorData.detail || 'Failed to create administrator account.'
+      };
+    } catch (err) {
+      console.error('Admin setup service unreachable:', err);
+      return {
+        success: false,
+        error: 'Unable to connect to authentication server. Please check backend connection.'
+      };
+    }
+  }
+
+  /**
    * Admin Authentication - Login
    */
   async adminLogin(email, password) {

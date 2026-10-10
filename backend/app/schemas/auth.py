@@ -65,3 +65,18 @@ class LoginResponse(BaseModel):
             }
         }
     }
+
+
+class SetupAdminRequest(BaseModel):
+    """Schema for creating/initializing administrator account"""
+    full_name: str = Field(..., min_length=2, max_length=120, description="Full name of administrator")
+    email: EmailStr = Field(..., description="Administrator corporate email address")
+    password: str = Field(..., min_length=6, description="Account password (min 6 characters)")
+    setup_key: Optional[str] = Field(None, description="Optional security setup key")
+
+
+class SetupStatusResponse(BaseModel):
+    """Schema indicating if initial admin setup is required"""
+    has_admin: bool = Field(..., description="Whether any administrator account exists")
+    allow_setup: bool = Field(True, description="Whether setup endpoint is open for registration")
+

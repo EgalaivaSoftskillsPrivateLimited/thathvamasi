@@ -50,8 +50,16 @@
   ],
   "rewrites": [
     {
+      "source": "/admin",
+      "destination": "/admin/index.html"
+    },
+    {
+      "source": "/admin/",
+      "destination": "/admin/index.html"
+    },
+    {
       "source": "/api/(.*)",
-      "destination": "https://api.thathvamasi.com/api/$1"
+      "destination": "https://api.tbspltd.com/api/$1"
     }
   ]
 }
