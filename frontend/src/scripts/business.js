@@ -3,6 +3,7 @@
  * Client-Side Calculator, Service Filtering & Lead Submission Logic
  */
 import { initSmoothScroll } from '../lib/smoothScroll.js';
+import { initFloatingWhatsApp } from '../components/ui/FloatingWhatsApp.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   initSmoothScroll();
@@ -10,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initBusinessCalculator();
   initServiceSearch();
   initBusinessConsultationForm();
+  initFloatingWhatsApp();
 });
 
 /**

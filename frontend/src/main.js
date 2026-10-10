@@ -15,6 +15,7 @@ import './styles/funnel-showcase.css';
 // Core UI Components
 import { initToastSystem } from './components/ui/Toast.js';
 import { initModalSystem } from './components/ui/Modal.js';
+import { initFloatingWhatsApp } from './components/ui/FloatingWhatsApp.js';
 
 // Section Components
 import { initServicesSection } from './components/sections/Services.js';
@@ -409,6 +410,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   initScrollReveal();
   initSmoothScroll();
+  initFloatingWhatsApp();
 
   console.log("Thathvamasi HR Consultancy (THC) Enterprise Application initialized.");
 });
