@@ -188,28 +188,54 @@ class ApiService {
   }
 
   /**
+   * Helper to get authentication headers
+   */
+  getAuthHeaders() {
+    const token = this.getAdminToken();
+    return {
+      'Content-Type': 'application/json',
+      ...(token ? { 'Authorization': `Bearer ${token}` } : {})
+    };
+  }
+
+  /**
    * Get candidates for Admin Command Center
    */
   async getCandidates() {
     try {
-      const response = await fetch(`${API_BASE}/candidates/?size=100`, { method: 'GET' });
+      const token = this.getAdminToken();
+      const headers = token ? { 'Authorization': `Bearer ${token}` } : {};
+      const response = await fetch(`${API_BASE}/candidates/?size=100`, { method: 'GET', headers });
       if (response.ok) {
         const result = await response.json();
-        if (result.items && result.items.length > 0) {
-          return result.items.map(item => ({
-            id: `THC-CAN-${item.id.slice(0, 6).toUpperCase()}`,
-            name: item.personal_details?.full_name || 'Candidate',
-            email: item.personal_details?.email || '',
-            mobile: item.personal_details?.mobile || '',
-            currentLocation: item.personal_details?.current_location || 'Coimbatore',
-            qualification: item.professional_details?.highest_qualification || 'Graduate',
-            experience: item.professional_details?.total_experience || '1-3 Years',
-            currentCompany: item.professional_details?.current_company || 'Confidential',
-            currentDesignation: item.professional_details?.current_designation || 'Professional',
-            skills: item.professional_details?.skills || ['General'],
-            status: item.status || 'new',
-            appliedDate: item.created_at ? item.created_at.split('T')[0] : new Date().toISOString().split('T')[0]
-          }));
+        if (result && Array.isArray(result.items)) {
+          return result.items.map(item => {
+            const primaryResume = (item.resumes && item.resumes.length > 0) ? item.resumes[0] : null;
+            return {
+              id: `THC-CAN-${item.id.slice(0, 6).toUpperCase()}`,
+              rawId: item.id,
+              name: item.personal_details?.full_name || 'Candidate',
+              email: item.personal_details?.email || '',
+              mobile: item.personal_details?.mobile || '',
+              whatsapp: item.personal_details?.whatsapp || item.personal_details?.mobile || '',
+              currentLocation: item.personal_details?.current_location || 'Coimbatore',
+              preferredLocation: item.personal_details?.preferred_location || item.personal_details?.current_location || 'Coimbatore',
+              qualification: item.professional_details?.highest_qualification || 'Graduate',
+              experience: item.professional_details?.total_experience || '1-3 Years',
+              currentCompany: item.professional_details?.current_company || 'Confidential',
+              currentDesignation: item.professional_details?.current_designation || 'Professional',
+              currentCtc: item.professional_details?.current_salary ? `${item.professional_details.current_salary} LPA` : 'Not Disclosed',
+              expectedCtc: item.professional_details?.expected_salary ? `${item.professional_details.expected_salary} LPA` : 'Negotiable',
+              noticePeriod: item.professional_details?.notice_period || 'Immediate',
+              skills: item.professional_details?.skills || ['General'],
+              status: item.status || 'new',
+              appliedDate: item.created_at ? item.created_at.split('T')[0] : new Date().toISOString().split('T')[0],
+              resumeUrl: primaryResume?.file_url || null,
+              resumeFileName: primaryResume?.file_name || null,
+              resumeFileSize: primaryResume?.file_size ? `${(primaryResume.file_size / (1024 * 1024)).toFixed(1)} MB` : null,
+              isLive: true
+            };
+          });
         }
       }
     } catch (err) {
@@ -220,15 +246,42 @@ class ApiService {
   }
 
   /**
+   * Update Candidate Status in Live PostgreSQL Database
+   */
+  async updateCandidateStatus(candidateId, status) {
+    try {
+      const response = await fetch(`${API_BASE}/candidates/${candidateId}`, {
+        method: 'PUT',
+        headers: this.getAuthHeaders(),
+        body: JSON.stringify({ status })
+      });
+      if (response.ok) {
+        Storage.updateCandidateStatus(candidateId, status);
+        return { success: true, source: 'backend' };
+      }
+    } catch (err) {
+      console.warn('Backend unreachable for candidate status update:', err);
+    }
+
+    Storage.updateCandidateStatus(candidateId, status);
+    return { success: true, source: 'local' };
+  }
+
+  /**
    * Get clients for Admin Command Center
    */
   async getClients() {
     try {
-      const response = await fetch(`${API_BASE}/clients/`, { method: 'GET' });
+      const token = this.getAdminToken();
+      const headers = token ? { 'Authorization': `Bearer ${token}` } : {};
+      const response = await fetch(`${API_BASE}/clients/`, { method: 'GET', headers });
       if (response.ok) {
         const result = await response.json();
-        if (result.data && result.data.length > 0) {
-          return result.data;
+        if (result && Array.isArray(result.data)) {
+          return result.data.map(item => ({
+            ...item,
+            isLive: true
+          }));
         }
       }
     } catch (err) {
@@ -239,15 +292,42 @@ class ApiService {
   }
 
   /**
+   * Update Client / Requisition Status in Live PostgreSQL Database
+   */
+  async updateClientStatus(clientId, status) {
+    try {
+      const response = await fetch(`${API_BASE}/clients/${clientId}/status`, {
+        method: 'PATCH',
+        headers: this.getAuthHeaders(),
+        body: JSON.stringify({ status })
+      });
+      if (response.ok) {
+        Storage.updateClientStatus(clientId, status);
+        return { success: true, source: 'backend' };
+      }
+    } catch (err) {
+      console.warn('Backend unreachable for client status update:', err);
+    }
+
+    Storage.updateClientStatus(clientId, status);
+    return { success: true, source: 'local' };
+  }
+
+  /**
    * Get enquiries for Admin Command Center
    */
   async getEnquiries() {
     try {
-      const response = await fetch(`${API_BASE}/contact/enquiries`, { method: 'GET' });
+      const token = this.getAdminToken();
+      const headers = token ? { 'Authorization': `Bearer ${token}` } : {};
+      const response = await fetch(`${API_BASE}/contact/enquiries`, { method: 'GET', headers });
       if (response.ok) {
         const result = await response.json();
-        if (result.data && result.data.length > 0) {
-          return result.data;
+        if (result && Array.isArray(result.data)) {
+          return result.data.map(item => ({
+            ...item,
+            isLive: true
+          }));
         }
       }
     } catch (err) {

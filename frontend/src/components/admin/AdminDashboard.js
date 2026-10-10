@@ -5,6 +5,7 @@
 import { Storage } from '../../lib/storage.js';
 import { Api } from '../../lib/api.js';
 import { openModal } from '../ui/Modal.js';
+import { exportToCSV } from '../../lib/csvExporter.js';
 
 export function initAdminDashboard() {
   const navItems = document.querySelectorAll('.admin-nav-item');
@@ -42,11 +43,31 @@ export function initAdminDashboard() {
   const btnExportCSV = document.getElementById('btnExportCandidatesCSV');
   if (btnExportCSV) {
     btnExportCSV.addEventListener('click', () => {
-      const success = Storage.exportCandidatesCSV();
+      const candidatesToExport = (currentCandidatesList && currentCandidatesList.length > 0)
+        ? currentCandidatesList
+        : Storage.getCandidates();
+      if (!candidatesToExport || candidatesToExport.length === 0) {
+        window.showToast('No candidates available to export', 'error');
+        return;
+      }
+      const headers = ['Ref ID', 'Candidate Name', 'Email', 'Mobile', 'Location', 'Experience', 'Designation', 'Company', 'Status', 'Applied Date'];
+      const rows = candidatesToExport.map(c => [
+        c.id,
+        c.name,
+        c.email,
+        c.mobile,
+        c.currentLocation,
+        c.experience,
+        c.currentDesignation || 'Professional',
+        c.currentCompany || 'N/A',
+        c.status,
+        c.appliedDate
+      ]);
+      const success = exportToCSV('thc_candidates_live_database', headers, rows);
       if (success) {
         window.showToast('Candidate database exported successfully as CSV', 'success');
       } else {
-        window.showToast('No candidates available to export', 'error');
+        window.showToast('Failed to export candidate records', 'error');
       }
     });
   }
@@ -140,6 +161,7 @@ export function initAdminDashboard() {
       <tr>
         <td>
           <span style="font-family: monospace; font-size: 0.8rem; color: var(--color-accent-gold-light);">${c.id}</span>
+          ${c.isLive ? '<span style="display: block; font-size: 0.65rem; color: #00c9a7; font-weight: 600;">LIVE DB</span>' : ''}
         </td>
         <td>
           <span class="table-candidate-name">${c.name}</span>
@@ -153,7 +175,7 @@ export function initAdminDashboard() {
           <span style="font-size: 0.85rem; color: #E2E8F0;">${c.currentLocation}</span>
         </td>
         <td>
-          <select class="table-select candidate-status-selector" data-id="${c.id}">
+          <select class="table-select candidate-status-selector" data-id="${c.id}" data-raw-id="${c.rawId || c.id}">
             <option value="new" ${c.status === 'new' ? 'selected' : ''}>New</option>
             <option value="contacted" ${c.status === 'contacted' ? 'selected' : ''}>Contacted</option>
             <option value="shortlisted" ${c.status === 'shortlisted' ? 'selected' : ''}>Shortlisted</option>
@@ -174,11 +196,16 @@ export function initAdminDashboard() {
     `).join('');
 
     tbody.querySelectorAll('.candidate-status-selector').forEach(sel => {
-      sel.addEventListener('change', (e) => {
+      sel.addEventListener('change', async (e) => {
         const id = e.target.getAttribute('data-id');
+        const rawId = e.target.getAttribute('data-raw-id') || id;
         const newStatus = e.target.value;
-        Storage.updateCandidateStatus(id, newStatus);
-        window.showToast(`Candidate ${id} updated to ${newStatus}`, 'info');
+        const res = await Api.updateCandidateStatus(rawId, newStatus);
+        if (res.source === 'backend') {
+          window.showToast(`Candidate status updated to "${newStatus}" in live database`, 'success');
+        } else {
+          window.showToast(`Candidate ${id} updated to ${newStatus}`, 'info');
+        }
         updateKPIs();
       });
     });
@@ -205,7 +232,8 @@ export function initAdminDashboard() {
     tbody.innerHTML = clients.map(client => `
       <tr>
         <td>
-          <span style="font-family: monospace; font-size: 0.8rem; color: var(--color-teal-500);">${client.id}</span>
+          <span style="font-family: monospace; font-size: 0.8rem; color: var(--color-teal-500);">${client.id ? (client.id.length > 12 ? 'REQ-' + client.id.slice(0, 6).toUpperCase() : client.id) : 'REQ'}</span>
+          ${client.isLive ? '<span style="display: block; font-size: 0.65rem; color: #00c9a7; font-weight: 600;">LIVE DB</span>' : ''}
         </td>
         <td>
           <span style="font-weight: 600; color: #FFFFFF; display: block;">${client.companyName}</span>
@@ -221,6 +249,7 @@ export function initAdminDashboard() {
         </td>
         <td>
           <select class="table-select client-status-selector" data-id="${client.id}">
+            <option value="new" ${client.status === 'new' ? 'selected' : ''}>New</option>
             <option value="open" ${client.status === 'open' ? 'selected' : ''}>Open</option>
             <option value="sourcing" ${client.status === 'sourcing' ? 'selected' : ''}>Sourcing</option>
             <option value="shortlist_sent" ${client.status === 'shortlist_sent' ? 'selected' : ''}>Shortlist Sent</option>
@@ -237,11 +266,16 @@ export function initAdminDashboard() {
     `).join('');
 
     tbody.querySelectorAll('.client-status-selector').forEach(sel => {
-      sel.addEventListener('change', (e) => {
+      sel.addEventListener('change', async (e) => {
         const id = e.target.getAttribute('data-id');
         const newStatus = e.target.value;
-        Storage.updateClientStatus(id, newStatus);
-        window.showToast(`Requisition ${id} updated to ${newStatus}`, 'info');
+        const res = await Api.updateClientStatus(id, newStatus);
+        if (res.source === 'backend') {
+          window.showToast(`Requisition status updated to "${newStatus}" in live database`, 'success');
+        } else {
+          window.showToast(`Requisition ${id} updated to ${newStatus}`, 'info');
+        }
+        updateKPIs();
       });
     });
 
@@ -329,18 +363,26 @@ export function initAdminDashboard() {
             </div>
           </div>
 
+          ${candidate.resumeUrl ? `
           <div class="detail-box" style="background: rgba(0, 168, 150, 0.08); border-color: var(--glass-border-teal);">
-            <div style="display: flex; justify-content: space-between; align-items: center;">
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
               <div>
                 <div class="detail-box-label" style="color: var(--color-teal-500);">Attached Resume Document</div>
-                <div style="font-weight: 600; color: #FFFFFF; font-size: 0.95rem;">${candidate.resumeFileName || 'Resume.pdf'}</div>
-                <div style="font-size: 0.78rem; color: var(--text-muted);">${candidate.resumeFileSize || '2.0 MB'} • Verified Document</div>
+                <div style="font-weight: 600; color: #FFFFFF; font-size: 0.95rem;">${candidate.resumeFileName || 'Candidate_Resume.pdf'}</div>
+                <div style="font-size: 0.78rem; color: var(--text-muted);">${candidate.resumeFileSize || 'Verified Document'} • Database Storage</div>
               </div>
-              <button class="btn btn-teal btn-sm" onclick="window.showToast('Simulating resume download for ${candidate.name}...', 'info')">
-                Download Resume
-              </button>
+              <a href="${candidate.resumeUrl}" target="_blank" rel="noopener noreferrer" download="${candidate.resumeFileName || 'candidate_resume'}" class="btn btn-teal btn-sm" style="display: inline-flex; align-items: center; gap: 6px; text-decoration: none;">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                <span>Download Resume</span>
+              </a>
             </div>
           </div>
+          ` : `
+          <div class="detail-box" style="background: rgba(255, 255, 255, 0.03);">
+            <div class="detail-box-label">Resume Document</div>
+            <div style="font-size: 0.85rem; color: var(--text-muted); font-style: italic;">No resume document was attached during submission.</div>
+          </div>
+          `}
         </div>
       `;
     }
