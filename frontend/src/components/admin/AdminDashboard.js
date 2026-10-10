@@ -116,6 +116,7 @@ export function initAdminDashboard() {
 
     const badgeCandCount = document.getElementById('sidebarCandCount');
     const badgeReqCount = document.getElementById('sidebarReqCount');
+    const badgeEnqCount = document.getElementById('sidebarEnqCount');
 
     if (totalCandEl) totalCandEl.textContent = candidates.length;
     if (totalReqEl) totalReqEl.textContent = clients.length;
@@ -127,6 +128,7 @@ export function initAdminDashboard() {
 
     if (badgeCandCount) badgeCandCount.textContent = candidates.length;
     if (badgeReqCount) badgeReqCount.textContent = clients.length;
+    if (badgeEnqCount) badgeEnqCount.textContent = enquiries.length;
   }
 
   let currentCandidatesList = [];
@@ -168,11 +170,11 @@ export function initAdminDashboard() {
           <span class="table-candidate-email">${c.email} • ${c.mobile}</span>
         </td>
         <td>
-          <span style="font-size: 0.84rem; color: #FFFFFF;">${c.currentDesignation || 'Professional'}</span>
+          <span style="font-size: 0.84rem; color: var(--text-heading); font-weight: 500;">${c.currentDesignation || 'Professional'}</span>
           <div style="font-size: 0.75rem; color: var(--text-muted);">${c.currentCompany || 'N/A'} • ${c.experience || ''}</div>
         </td>
         <td>
-          <span style="font-size: 0.85rem; color: #E2E8F0;">${c.currentLocation}</span>
+          <span style="font-size: 0.85rem; color: var(--text-secondary);">${c.currentLocation}</span>
         </td>
         <td>
           <select class="table-select candidate-status-selector" data-id="${c.id}" data-raw-id="${c.rawId || c.id}">
@@ -224,6 +226,10 @@ export function initAdminDashboard() {
 
     const clients = await Api.getClients();
     currentClientsList = clients;
+
+    const badgeReqCount = document.getElementById('sidebarReqCount');
+    if (badgeReqCount) badgeReqCount.textContent = clients.length;
+
     if (clients.length === 0) {
       tbody.innerHTML = `<tr><td colspan="7" style="text-align: center; padding: 36px; color: var(--text-muted);">No employer requisitions logged.</td></tr>`;
       return;
@@ -236,7 +242,7 @@ export function initAdminDashboard() {
           ${client.isLive ? '<span style="display: block; font-size: 0.65rem; color: #00c9a7; font-weight: 600;">LIVE DB</span>' : ''}
         </td>
         <td>
-          <span style="font-weight: 600; color: #FFFFFF; display: block;">${client.companyName}</span>
+          <span style="font-weight: 600; color: var(--text-heading); display: block;">${client.companyName}</span>
           <span style="font-size: 0.75rem; color: var(--text-muted);">${client.industry || ''} • ${client.location}</span>
         </td>
         <td>
@@ -244,7 +250,7 @@ export function initAdminDashboard() {
           <div style="font-size: 0.75rem; color: var(--text-muted);">${client.vacancies} Openings • ${client.salaryRange || 'Open'}</div>
         </td>
         <td>
-          <span style="font-size: 0.84rem; color: #FFFFFF;">${client.contactPerson}</span>
+          <span style="font-size: 0.84rem; color: var(--text-heading); font-weight: 500;">${client.contactPerson}</span>
           <div style="font-size: 0.75rem; color: var(--text-muted);">${client.email}</div>
         </td>
         <td>
@@ -292,6 +298,13 @@ export function initAdminDashboard() {
     if (!tbody) return;
 
     const enquiries = await Api.getEnquiries();
+
+    // Immediately update sidebar badge and overview counter
+    const badgeEnqCount = document.getElementById('sidebarEnqCount');
+    if (badgeEnqCount) badgeEnqCount.textContent = enquiries.length;
+    const totalEnqEl = document.getElementById('kpiTotalEnquiries');
+    if (totalEnqEl) totalEnqEl.textContent = enquiries.length;
+
     if (enquiries.length === 0) {
       tbody.innerHTML = `<tr><td colspan="5" style="text-align: center; padding: 36px; color: var(--text-muted);">No general inquiries received yet.</td></tr>`;
       return;
@@ -299,11 +312,17 @@ export function initAdminDashboard() {
 
     tbody.innerHTML = enquiries.map(enq => `
       <tr>
-        <td><span style="font-weight: 600; color: #FFFFFF;">${enq.name}</span></td>
-        <td><span style="font-size: 0.84rem; color: var(--text-secondary);">${enq.email}<br><small>${enq.mobile}</small></span></td>
-        <td><span class="status-pill open">${enq.subject}</span></td>
-        <td><span style="font-size: 0.84rem; color: var(--text-muted);">${enq.message}</span></td>
-        <td><span style="font-size: 0.75rem; color: var(--text-muted);">${new Date(enq.date).toLocaleDateString()}</span></td>
+        <td>
+          <span style="font-weight: 600; color: var(--text-heading); display: block;">${enq.name || 'Website Visitor'}</span>
+          ${enq.isLive ? '<span style="display: block; font-size: 0.65rem; color: #00c9a7; font-weight: 600;">LIVE DB</span>' : ''}
+        </td>
+        <td>
+          <span style="font-size: 0.84rem; color: var(--color-primary); font-weight: 600; display: block;">${enq.email || 'No email provided'}</span>
+          ${enq.mobile && enq.mobile !== 'Not Provided' ? `<div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 2px;">${enq.mobile}</div>` : ''}
+        </td>
+        <td><span class="status-pill open" style="text-transform: none; font-size: 0.78rem;">${enq.subject || 'Consultation Query'}</span></td>
+        <td><span style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.4;">${enq.message || ''}</span></td>
+        <td><span style="font-size: 0.78rem; color: var(--text-muted);">${enq.date || new Date().toLocaleDateString()}</span></td>
       </tr>
     `).join('');
   }
@@ -368,7 +387,7 @@ export function initAdminDashboard() {
             <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
               <div>
                 <div class="detail-box-label" style="color: var(--color-teal-500);">Attached Resume Document</div>
-                <div style="font-weight: 600; color: #FFFFFF; font-size: 0.95rem;">${candidate.resumeFileName || 'Candidate_Resume.pdf'}</div>
+                <div style="font-weight: 600; color: var(--text-heading); font-size: 0.95rem;">${candidate.resumeFileName || 'Candidate_Resume.pdf'}</div>
                 <div style="font-size: 0.78rem; color: var(--text-muted);">${candidate.resumeFileSize || 'Verified Document'} • Database Storage</div>
               </div>
               <a href="${candidate.resumeUrl}" target="_blank" rel="noopener noreferrer" download="${candidate.resumeFileName || 'candidate_resume'}" class="btn btn-teal btn-sm" style="display: inline-flex; align-items: center; gap: 6px; text-decoration: none;">
@@ -430,7 +449,7 @@ export function initAdminDashboard() {
 
           <div class="detail-box">
             <div class="detail-box-label">Job Description & Hiring Requirements</div>
-            <p style="margin-top: 8px; font-size: 0.92rem; color: #E2E8F0; line-height: 1.6;">${client.jdSummary}</p>
+            <p style="margin-top: 8px; font-size: 0.92rem; color: var(--text-secondary); line-height: 1.6;">${client.jdSummary}</p>
           </div>
         </div>
       `;
@@ -443,9 +462,11 @@ export function initAdminDashboard() {
     updateKPIs();
     renderCandidatesTable();
     renderClientsTable();
+    renderEnquiriesTable();
   });
 
   updateKPIs();
   renderCandidatesTable();
   renderClientsTable();
+  renderEnquiriesTable();
 }
