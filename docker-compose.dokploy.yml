@@ -43,6 +43,8 @@ services:
       - POSTGRES_DB=${POSTGRES_DB:-thathvamasi_db}
       - DATABASE_URL=postgresql+asyncpg://${POSTGRES_USER:-thc_user}:${POSTGRES_PASSWORD:-thc_secure_password_2026}@postgres:5432/${POSTGRES_DB:-thathvamasi_db}
       - JWT_SECRET_KEY=${JWT_SECRET_KEY:-thathvamasi_super_secret_jwt_signing_key_prod_2026}
+      - ADMIN_EMAIL=${ADMIN_EMAIL:-admin@tbspltd.com}
+      - ADMIN_PASSWORD=${ADMIN_PASSWORD:-admin123}
       - CORS_ORIGINS=["https://${DOMAIN:-thathvamasi.com}", "http://${DOMAIN:-thathvamasi.com}", "http://localhost"]
     volumes:
       - backend_uploads:/app/app/static/uploads

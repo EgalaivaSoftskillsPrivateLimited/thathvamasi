@@ -108,7 +108,7 @@ async def get_current_user(
         user = None
     
     if user is None:
-        if email == settings.ADMIN_EMAIL:
+        if email.lower() == settings.ADMIN_EMAIL.lower():
             import uuid
             return User(
                 id=uuid.UUID("00000000-0000-0000-0000-000000000001"),

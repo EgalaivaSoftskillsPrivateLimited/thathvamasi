@@ -130,7 +130,7 @@ class Settings(BaseSettings):
     LOG_BACKUP_COUNT: int = int(os.getenv("LOG_BACKUP_COUNT", "5"))
     
     # Admin
-    ADMIN_EMAIL: str = os.getenv("ADMIN_EMAIL", "admin@thathvamasi.com")
+    ADMIN_EMAIL: str = os.getenv("ADMIN_EMAIL", "admin@tbspltd.com")
     ADMIN_PASSWORD: str = os.getenv("ADMIN_PASSWORD", "admin123")
     
     # Redis (optional for caching)
